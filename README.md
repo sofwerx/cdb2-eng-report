@@ -1,2 +1,2 @@
 # cdb2-concept
-CDB modernization - conceptual model
+CDB modernization - conceptual & logical models
