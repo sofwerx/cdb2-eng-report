@@ -1,14 +1,9 @@
-[[ExampleClause]]
-== Example Clause
+[[BackgroundClause]]
+== Background for this CDB 2.0 sprint
 
-[NOTE]
-.Instructions
-===============================================
-This section explains some concepts frequently required by Asciidoc novices. Please use this file as a template for your own clauses.
-===============================================
 
-=== Headlines
-All headlines are marked by "=" signs. The top level in each each file starts with level 2 ("=="). Important: For whatever strange reason, headings in annexes are marked differently.
+
+
 
 === Figures
 If you want to reference a figure by using a figure number, it is important to use the following syntax. The figure identifier for <<img_mindMap>> is the first statement of the header. Please adapt the width as appropriate, but generally a width of 800 is good for landscape-shaped figures and 400 is good for portrait-shaped ones.
