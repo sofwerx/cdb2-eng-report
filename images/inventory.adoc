@@ -1,0 +1,2 @@
+// This directory contains all the images for the CDB 2.0 activity. The files and their description are provided in this document.
+
