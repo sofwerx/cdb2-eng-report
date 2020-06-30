@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  adoc_build:
+    runs-on: ubuntu-18.04
+    name: asciidoctor -D html --backend=html5 -o index.html -a toc cdb-2.0.adoc 
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Get build container
+      id: adocbuild
+      uses: avattathil/asciidoctor-action@master
+      with:
+          program: "asciidoctor -D html --backend=html5 -o index.html -a toc cdb-2.0.adoc"
