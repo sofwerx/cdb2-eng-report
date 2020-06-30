@@ -18,8 +18,16 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
     - name: Get build container
       id: adocbuild
       uses: avattathil/asciidoctor-action@master
       with:
-          program: "asciidoctor -D html --backend=html5 -o index.html -a toc cdb-2.0.adoc"
+          program: "asciidoctor -D html --backend=html5 -o index.html -a toc cdb-2.0.adoc"        
+  
+    - name: Upload html
+      uses: actions/upload-artifact@v2
+      with:
+        name: html
+        path: .
+  
