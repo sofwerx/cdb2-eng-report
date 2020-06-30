@@ -144,7 +144,7 @@ include::4-overview.adoc[]
 
 include::5-example.adoc[]
 
-include::6-math_example.adoc[]
+//include::6-math_example.adoc[]
 
 // you may add any number of chapters as required here
 
@@ -152,11 +152,11 @@ include::6-math_example.adoc[]
 // Editors add or remove annexes as necessary.
 // *****************************************************************************
 
-include::annex-a.adoc[]
+//include::annex-a.adoc[]
 
-include::annex-b.adoc[]
+//include::annex-b.adoc[]
 
-include::annex-c.adoc[]
+//include::annex-c.adoc[]
 
 // *****************************************************************************
 // Revision History should be the last annex before the Bibliography.
