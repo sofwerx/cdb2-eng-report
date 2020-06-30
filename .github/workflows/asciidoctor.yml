@@ -34,5 +34,6 @@ jobs:
 #        author_email: mail@example.com
         message: "auto-generated html"
         add: "html/*"
+        force: true # .html is in .gitignore
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
