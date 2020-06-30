@@ -23,7 +23,22 @@ jobs:
       id: adocbuild
       uses: avattathil/asciidoctor-action@master
       with:
-          program: "asciidoctor -D html --backend=html5 -o index.html -a toc cdb-2.0.adoc"        
+          program: "asciidoctor -D html --backend=html5 -o index.html -a toc cdb-2.0.adoc"  
+          
+    - name: upload generated html
+      uses: actions/upload-artifact@v2
+      with:
+        name: html
+        path: ./html
+        
+    - name: download html
+      uses: actions/download-artifact@v2
+      with:
+        name: html
+#      run: unzip html.zip
+    
+    - name: Display structure of downloaded files
+      run: ls -R
 
     - name: Add and commit html
       uses: EndBug/add-and-commit@v4 # You can change this to use a specific version
