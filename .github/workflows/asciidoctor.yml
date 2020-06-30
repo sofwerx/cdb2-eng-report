@@ -25,17 +25,16 @@ jobs:
       with:
           program: "asciidoctor -D html --backend=html5 -o index.html -a toc cdb-2.0.adoc"  
           
-    - name: upload generated html
-      uses: actions/upload-artifact@v2
-      with:
-        name: html
-        path: ./html
+#    - name: upload generated html
+#      uses: actions/upload-artifact@v2
+#      with:
+#        name: html
+#        path: ./html
         
-    - name: download html
-      uses: actions/download-artifact@v2
-      with:
-        name: html
-#      run: unzip html.zip
+#    - name: download html
+#      uses: actions/download-artifact@v2
+#      with:
+#        name: html
     
     - name: Display structure of downloaded files
       run: ls -R
