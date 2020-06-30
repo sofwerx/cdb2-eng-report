@@ -25,8 +25,10 @@ jobs:
       with:
           program: "asciidoctor -D html --backend=html5 -o index.html -a toc cdb-2.0.adoc"  
           
-    - name: Display structure of downloaded files
+    - name: Display structure of resulting files
       run: ls -R
+    - name: git add
+      run: git add html
 
     - name: Add and commit html
       uses: stefanzweifel/git-auto-commit-action@v4
