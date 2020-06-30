@@ -26,16 +26,13 @@ jobs:
           program: "asciidoctor -D html --backend=html5 -o index.html -a toc cdb-2.0.adoc"  
           
     - run: ls -R
-    - run: git status
-    - run: git add html
-    - run: git status
-
-    - name: Add and commit html
-      uses: stefanzweifel/git-auto-commit-action@v4
+      
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v4
       with:
-        commit_message: Auto-generate html from asciidoc
-        file_pattern: html/*
-
-#    env:
-#      # This is necessary in order to push a commit to the repo
-#      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+#        author_name: Your Name
+#        author_email: mail@example.com
+        message: "auto-generated html"
+        add: "html/*"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
