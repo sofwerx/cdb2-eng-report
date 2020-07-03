@@ -30,13 +30,13 @@ For the purposes of this report, the definitions specified in Clause 4 of the OW
 ===	Abbreviated terms
 
 |===
-|*COM*	|Component Object Model
 |*COTS*	|Commercial Off The Shelf
 |*GGDM*	|Ground-Warfighter Geospatial Data Model
 |*glTF*	|GL Transmission Format
 |*LoD* |Level of Detail
 |*OTW* |Out the Window
 |*OWT* |One world Terrain
+|*SOF* |Special Opertions Forces
 |*STAC* |SpatioTemporal Asset Catalog
 |===
 
