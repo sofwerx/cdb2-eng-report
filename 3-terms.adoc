@@ -29,11 +29,14 @@ For the purposes of this report, the definitions specified in Clause 4 of the OW
 
 ===	Abbreviated terms
 
-.NOTE: The abbreviated terms clause gives a list of the abbreviated terms and the symbols necessary for understanding this document. All symbols should be listed in alphabetical order. Some more frequently used abbreviated terms are provided below as examples.
+|===
+|*COM*	|Component Object Model
+|*COTS*	|Commercial Off The Shelf
+|*GGDM*	|Ground-Warfighter Geospatial Data Model
+|*glTF*	|GL Transmission Format
+|*LoD* |Level of Detail
+|*OTW* |Out the Window
+|*OWT* |One world Terrain
+|*STAC* |SpatioTemporal Asset Catalog
+|===
 
-* COM	Component Object Model
-* CORBA	Common Object Request Broker Architecture
-* COTS	Commercial Off The Shelf
-* DCE	Distributed Computing Environment
-* DCOM	Distributed Component Object Model
-* IDL	Interface Definition Language
