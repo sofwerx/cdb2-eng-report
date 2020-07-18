@@ -1,5 +1,5 @@
 [[BackgroundClause]]
-== Background for this CDB 2.0 sprint
+== CDB 2.0 - History and Design Goals
 
 
 
