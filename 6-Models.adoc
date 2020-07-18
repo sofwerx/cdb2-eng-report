@@ -1,0 +1,3 @@
+[[CDB2Models]]
+
+This clause documents draft CDB 2.0 Conceptual and Logical Models
