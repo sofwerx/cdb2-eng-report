@@ -1,0 +1,3 @@
+[[vectorgpkg]]
+
+This clause provides discussion of 2.0 Vector Data and GeoPackage requirements and the results of the prototyping activities.
