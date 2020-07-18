@@ -1,0 +1,3 @@
+[[Attribution]]
+
+This clause provides discussion of 2.0 Attribution requirements and the results of the prototyping activities.
