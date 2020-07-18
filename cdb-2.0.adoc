@@ -142,9 +142,11 @@ include::4-overview.adoc[]
 // Editors organize included-file inputs as appropriate starting here.
 // *****************************************************************************
 
-include::5-example.adoc[]
+include::5-design-goals.adoc[]
 
 include::6-Models.adoc[]
+
+include::7-Attribution.adoc
 
 // you may add any number of chapters as required here
 
