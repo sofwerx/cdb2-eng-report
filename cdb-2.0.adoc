@@ -146,9 +146,9 @@ include::5-design-goals.adoc[]
 
 include::6-Models.adoc[]
 
-include::7-Attribution.adoc
+include::7-Attribution.adoc[]
 
-include::8-Vectors-GeoPackage.adoc
+include::8-Vectors-GeoPackage.adoc[]
 
 // you may add any number of chapters as required here
 
