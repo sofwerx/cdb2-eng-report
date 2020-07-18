@@ -1,18 +1,9 @@
 [[Overview]]
 == Overview
 
-[NOTE]
-.Instructions
-====
-This 4-overview.adoc file helps the reader to better understand the various sections of the ER. It should be written like an extended table of contents.
-====
+Section 5 introduces the problem.
 
-
-(( Example: ))
-
-(( Section 5 introduces the problem of vector tiling. It describes the situation prior to the testbed and discusses the requirements set by the sponsors. ))
-
-(( Section 6 discusses the mathematical model behind the various tiling strategies. It provides recommendations on preferred strategies. ))
+Section 6 discusses the Attribution Topic
 
 (( Section 7 presents the solution developed in this testbed. A clear mapping of requirements to solutions is provided. The section shows additional work is required to implement 3D tiles, which could not be addressed in this activity. ))
 
