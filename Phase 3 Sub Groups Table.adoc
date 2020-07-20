@@ -1,0 +1,12 @@
+// Phase 3 Sub Groups Table.adoc
+
+.Table of Phase 3 Sub-groups, participants, and leaders and spokespersons
+|===
+| Day 1| Day 2| Day 3
+
+| Attribution
+| Attribution +
+ * Greg +
+ Holly +
+ Randi
+ |Attribution
