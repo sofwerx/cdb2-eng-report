@@ -4,9 +4,41 @@
 |===
 | Day 1| Day 2| Day 3
 
-| Attribution
-| Attribution +
+| *Attribution*
+| *Attribution* +
  * Greg +
  Holly +
  Randi
- |Attribution
+ |*Attribution*
+
+ |*Tiling*
+ |*Tiling* +
+ Jerome +
+ Carl +
+ Ryan +
+ |*Tiling*
+
+ |*Vector Data in Geopackage*
+ |*Vector Data in Geopackage* +
+ Kevin +
+ Sam +
+ Jay / Brian
+ |*Vector Data in Geopackage*
+
+|*3D Models*
+|*3D Models* +
+  Patrick +
+  Hermann +
+  Vaughn
+|*3D Models*
+
+|*Top-level Metadata/Integration*
+|*Top-level Metadata/Integration* +
+Tracey +
+David +
+Carl
+|*Top-level Metadata/Integration*
+|===
+
+* =  informal consensus leader of the sub-group
+! = spokesperson for the sub-group
