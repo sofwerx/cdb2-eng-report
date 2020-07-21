@@ -1,0 +1,4 @@
+[[metadata]]
+== Top Level Metadata
+
+This section discussion metadata in CDB 2.0.
