@@ -154,7 +154,7 @@ include::9-3D.adoc[]
 
 include::10-top-level-metadata.adoc[]
 
-include::11-tiled-coverages.adoc[]
+include::11-tiling-coverages.adoc[]
 
 // you may add any number of chapters as required here
 
