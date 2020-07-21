@@ -1,0 +1,4 @@
+[[tiling]]
+==  Tiling and Tiled Coverages
+
+This section discussion tiling, LoDs, and tiled converages in CDB 2.0.
