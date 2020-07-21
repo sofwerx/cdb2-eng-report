@@ -150,6 +150,8 @@ include::7-Attribution.adoc[]
 
 include::8-Vectors-GeoPackage.adoc[]
 
+include::9-3D.adoc[]
+
 // you may add any number of chapters as required here
 
 // *****************************************************************************
