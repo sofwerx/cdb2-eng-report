@@ -38,7 +38,13 @@ Tracey +
 David +
 Carl
 |*Top-level Metadata/Integration*
+
+|*ER and Spec Document Editors*
+|*ER and Spec Document Editors* +
+* Carl +
+David
+|*ER and Spec Document Editors*
 |===
 
-* =  informal consensus leader of the sub-group
-! = spokesperson for the sub-group
+   * -  informal consensus leader of the sub-group +
+! - spokesperson for the sub-group
