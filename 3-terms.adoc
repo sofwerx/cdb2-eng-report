@@ -6,13 +6,24 @@ For the purposes of this report, the definitions specified in Clause 4 of the OW
 
 .NOTE: Delete the first three terms because they are examples.
 
-&#9679; CDB Data Store ::
+*4.1* +
+*conceptual model* +
+description of common concepts and their relationships, particularly in order to facilitate exchange of information between parties within a specific domain. A conceptual model is explicitly chosen to be independent of design or implementation concerns.
 
- A data store is a repository for persistently storing and managing collections of data which include not just repositories like databases, but also simpler store types such as simple files, metadata, models, etc. (https://www.information-management.com/glossary/d.html) 2020
+(SOURCE: CEN ENV 1613:1995)
+
+*4.2* +
+*Data Store* +
+
+A data store is a repository for persistently storing and managing collections of data which include not just repositories like databases, but also simpler store types such as simple files, metadata, models, etc. 
  
- &#9679; coordinate reference system ::
+(SOURCE: https://www.information-management.com/glossary/d.html:2020)
+ 
+*4.3* +
+*coordinate reference system* +
+coordinate system that is related to the real world by a datum 
 
- coordinate system that is related to the real world by a datum term name (source: ISO 19111)
+(SOURCE: ISO 19111)
  
 &#9679; elevation ::
 
