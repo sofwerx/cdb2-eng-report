@@ -42,7 +42,7 @@ The following figure, based on the Tiling Abstract Specification Logical Model a
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Logical Model for partitioning based on tiles in CDB X.
-image::images/tiling_logical_model.png[width=800,align="center"]
+image::images/tiling_logical_model.jpg[width=800,align="center"]
 
 
 === Proposed CDB X Tiling Structure
