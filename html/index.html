@@ -489,7 +489,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_ogc_two_dimensional_tile_matrix_set_standard">8.1.2. OGC Two Dimensional Tile Matrix Set Standard</a></li>
 </ul>
 </li>
-<li><a href="#_design_objectives">8.2. Design Objectives</a></li>
+<li><a href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers">8.2. Design Objectives for CDB X Tiling and LoDs and Layers</a></li>
+<li><a href="#_proposed_cdb_x_tiling_structure">8.3. Proposed CDB X Tiling Structure</a></li>
 </ul>
 </li>
 <li><a href="#threedcontent">9. 3D Models and other 3D Content</a></li>
@@ -1201,10 +1202,36 @@ tylesheet=rocket-panda.css -a stylesdir=./resources/stylesheets er.adoc</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_design_objectives"><a class="anchor" href="#_design_objectives"></a>8.2. Design Objectives</h3>
+<h3 id="_design_objectives_for_cdb_x_tiling_and_lods_and_layers"><a class="anchor" href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers"></a>8.2. Design Objectives for CDB X Tiling and LoDs and Layers</h3>
 <div class="paragraph">
-<p>Have metadata for whole dataset listing how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)</p>
+<p>The following are the key design principals for a CDB X tiling, levels of detail, and layering.</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>OGC GeoPackage structured containers are a primary storage format for derived vector data layers, coverages, and other data types as identified (<code>TBD</code>). The two OGC Standards of relevance are <a href="https://portal.opengeospatial.org/files/12-128r15">OGC GeoPackage version 1.1</a> and <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">OGC GeoPackage Extension for Tiled Gridded Coverage Data</a>.</p>
+</li>
+<li>
+<p>Have metadata for whole dataset listing how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)</p>
+</li>
+<li>
+<p>Store imagery in GeoPackage according to the tiling scheme specified below (<code>need anchor</code>)</p>
+</li>
+<li>
+<p>Store coverage data in GeoPackage according to the tiling scheme specified below (<code>need anchor</code>). Suggested coverage types based on current CDB standard and user specified requirements: (Spherical body surface): Elevation models, imagery, multi-spectral, raster (such as classified satellite imagery). Should be extensible to support other types.</p>
+</li>
+<li>
+<p>Coordinate Reference System is WGS 84 with epoch encoding (same as current CDB Standard except for epoch).</p>
+</li>
+<li>
+<p>Must enable a "relatively" easy migration path from the CDB 1.1/1.2 tiling/LoD structure into the CDB X structure.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proposed_cdb_x_tiling_structure"><a class="anchor" href="#_proposed_cdb_x_tiling_structure"></a>8.3. Proposed CDB X Tiling Structure</h3>
+
 </div>
 </div>
 </div>
@@ -1283,7 +1310,7 @@ tylesheet=rocket-panda.css -a stylesdir=./resources/stylesheets er.adoc</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-22 21:15:01 UTC
+Last updated 2020-07-22 21:46:02 UTC
 </div>
 </div>
 <style>
