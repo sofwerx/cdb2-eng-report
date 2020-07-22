@@ -36,6 +36,15 @@ The following are the key design principals for a CDB X tiling, levels of detail
 * CDB X must support integer compressed heights (elevations)
 * CDB X must support GeoTIFF as an encoding for images.
 
+=== Proposed Tiling Logical Model for CDB X
+
+The following figure, based on the Tiling Abstract Specification Logical Model and the CDB 1.x Conceptual Model, shows the properties by class (concept) and the relationships between the classes.
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Logical Model for partitioning based on tiles in CDB X.
+image::images/tiling_logical_model.png[width=800,align="center"]
+
+
 === Proposed CDB X Tiling Structure
 
 This section describes the proposed tiling structure and LoD (levels?) structure in CDB X. (`Probably need small section on consistenccy with version 1.x?`)
