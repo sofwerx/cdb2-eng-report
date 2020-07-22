@@ -9,6 +9,7 @@ This clause documents draft design objectives and CDB 2.0 Conceptual and Logical
 The following are the design goals and objectives for a tiled CDB X repository.
 
 * Be fast :-)
+* All geometry for any vector feature data shall be compliant with the OGC/ISO Simple Features Geometry Model.
 
 === 3D Models
 
@@ -16,5 +17,10 @@ The following are the design goals and objectives for a tiled CDB X repository.
 
 === Tiling/Coverages/Imagery
 
+=== Vector Data
 
+
+[#img_geometry-model,reftext='{figure-caption} {counter:figure-num}']
+.Simple Features Geometry Model.
+image::images/Simple_Features_Model.jpg[width=800,align="center"]
 
