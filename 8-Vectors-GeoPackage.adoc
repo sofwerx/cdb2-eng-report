@@ -42,7 +42,9 @@ This section describes the proposed tiling structure and LoD (levels?) structure
 
 Using  GPKG Tiled Gridded Coverage standard. Discussed "materials" and their requirements as coverages. Suggest a change request to allow 8, 16 bit and 32 TIFF (integer or float). (Not only for materials, but also heights (aka elevation))
 
-https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions[GPKG TMS Extension (Draft)]
+For any CDB or data layer, pick one of: CDB 1.x grid or GNOSISGlobalGrid (better equal area approximation for polar regions, constant tile size even at overview LODs)
+
+Current GPKG TMS draft: https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions[GPKG TMS Extension (Draft)]
 
 - TileMatrixSet compatibility
 
@@ -50,3 +52,4 @@ https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions[GPKG TMS Ex
 
 - Reference same TMS from multiple layers
 
+Sample GeoPackage using TMS / GNOSISGlobalGrid for both elevation & vector data tiles: https://portal.ogc.org/files/?artifact_id=92565
