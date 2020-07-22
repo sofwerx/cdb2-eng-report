@@ -6,37 +6,30 @@ For the purposes of this report, the definitions specified in Clause 4 of the OW
 
 .NOTE: Delete the first three terms because they are examples.
 
-&#9679; coordinate reference system ::
+&#9679; CDB Data Store ::
+
+ A data store is a repository for persistently storing and managing collections of data which include not just repositories like databases, but also simpler store types such as simple files, metadata, models, etc. (https://www.information-management.com/glossary/d.html) 2020
+ 
+ &#9679; coordinate reference system ::
 
  coordinate system that is related to the real world by a datum term name (source: ISO 19111)
 
-&#9679; portrayal ::
+&#9679; CDB repository ::
 
- presentation of information to humans (source: ISO 19117)
-
-&#9679; LiDAR ::
-
- *Light Detection and Ranging* -- a common method for acquiring point clouds through aerial, terrestrial, and mobile acquisition methods.
-
-&#9679; term name ::
-
- text of the definition
-
-&#9679; term name|synonym  ::
-
- text of the definition
+ a place that holds CDB data, makes CDB data available to use, and organizes CDB data in a logical manner. (Network of the National Library of Medicine) 2020
 
 
 ===	Abbreviated terms
 
 |===
 |*COTS*	|Commercial Off The Shelf
+|*CRS*	 |Coordinate Reference System
 |*GGDM*	|Ground-Warfighter Geospatial Data Model
 |*glTF*	|GL Transmission Format
-|*LoD* |Level of Detail
-|*OTW* |Out the Window
-|*OWT* |One world Terrain
-|*SOF* |Special Opertions Forces
+|*LoD*  |Level of Detail
+|*OTW*  |Out the Window
+|*OWT*  |One world Terrain
+|*SOF*  |Special Opertions Forces
 |*STAC* |SpatioTemporal Asset Catalog
 |===
 
