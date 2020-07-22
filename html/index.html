@@ -1297,7 +1297,10 @@ tylesheet=rocket-panda.css -a stylesdir=./resources/stylesheets er.adoc</p>
 <p>Using  GPKG Tiled Gridded Coverage standard. Discussed "materials" and their requirements as coverages. Suggest a change request to allow 8, 16 bit and 32 TIFF (integer or float). (Not only for materials, but also heights (aka elevation))</p>
 </div>
 <div class="paragraph">
-<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions">GPKG TMS Extension (Draft)</a></p>
+<p>For any CDB or data layer, pick one of: CDB 1.x grid or GNOSISGlobalGrid (better equal area approximation for polar regions, constant tile size even at overview LODs)</p>
+</div>
+<div class="paragraph">
+<p>Current GPKG TMS draft: <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions">GPKG TMS Extension (Draft)</a></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1315,6 +1318,9 @@ tylesheet=rocket-panda.css -a stylesdir=./resources/stylesheets er.adoc</p>
 <p>Reference same TMS from multiple layers</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Sample GeoPackage using TMS / GNOSISGlobalGrid for both elevation &amp; vector data tiles: <a href="https://portal.ogc.org/files/?artifact_id=92565" class="bare">https://portal.ogc.org/files/?artifact_id=92565</a></p>
 </div>
 </div>
 </div>
@@ -1394,7 +1400,7 @@ tylesheet=rocket-panda.css -a stylesdir=./resources/stylesheets er.adoc</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-22 22:09:30 UTC
+Last updated 2020-07-22 22:12:47 UTC
 </div>
 </div>
 <style>
