@@ -13,11 +13,24 @@ For the purposes of this report, the definitions specified in Clause 4 of the OW
  &#9679; coordinate reference system ::
 
  coordinate system that is related to the real world by a datum term name (source: ISO 19111)
+ 
+&#9679; coverage ::
 
-&#9679; CDB repository ::
+ feature that acts as a function to return values from its range for any direct position within its spatio-temporal domain, as defined in OGC  Abstract Topic 6
+
+&#9679; repository ::
 
  a place that holds CDB data, makes CDB data available to use, and organizes CDB data in a logical manner. (Network of the National Library of Medicine) 2020
+ 
+&#9679; tile ::
+ 
+geometric  shape  with  known  properties  that  may  or  may  not  be  the  result  of  a  tiling  (tessellation)process. A tile consists of a single connected "piece" without "holes" or "lines" (topological disc).
 
+NOTE: “tile” is NOT a packaged blob of data to download in a chunky streaming optimization scheme! 
+
+&#9679; tiling ::
+
+in mathematics, a tiling (tessellation) is a collection of subsets of the space being tiled, i.e. tiles thatcover the space without gaps or overlaps.
 
 ===	Abbreviated terms
 
