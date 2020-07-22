@@ -481,7 +481,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_tilingcoveragesimagery">7.4. Tiling/Coverages/Imagery</a></li>
 </ul>
 </li>
-<li><a href="#vectorgpkg">8. Vector/Coverage Data and GeoPackage</a>
+<li><a href="#vectorgpkg">8. Tiled Vector/Coverage Data and GeoPackage</a>
 <ul class="sectlevel2">
 <li><a href="#_general">8.1. General</a>
 <ul class="sectlevel3">
@@ -1190,10 +1190,10 @@ tylesheet=rocket-panda.css -a stylesdir=./resources/stylesheets er.adoc</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="vectorgpkg"><a class="anchor" href="#vectorgpkg"></a>8. Vector/Coverage Data and GeoPackage</h2>
+<h2 id="vectorgpkg"><a class="anchor" href="#vectorgpkg"></a>8. Tiled Vector/Coverage Data and GeoPackage</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This clause provides discussion of 2.0 Vector Data and GeoPackage requirements and the results of the prototyping activities.</p>
+<p>This clause provides discussion of tiled data and GeoPackage requirements and the results of the prototyping activities.</p>
 </div>
 <div class="sect2">
 <h3 id="_general"><a class="anchor" href="#_general"></a>8.1. General</h3>
@@ -1254,12 +1254,43 @@ tylesheet=rocket-panda.css -a stylesdir=./resources/stylesheets er.adoc</p>
 <li>
 <p>Must enable a "relatively" easy migration path from the CDB 1.1/1.2 tiling/LoD structure into the CDB X structure.</p>
 </li>
+<li>
+<p>CDB X must support integer compressed heights (elevations)</p>
+</li>
+<li>
+<p>CDB X must support GeoTIFF as an encoding for images.</p>
+</li>
 </ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_proposed_cdb_x_tiling_structure"><a class="anchor" href="#_proposed_cdb_x_tiling_structure"></a>8.3. Proposed CDB X Tiling Structure</h3>
-
+<div class="paragraph">
+<p>This section describes the proposed tiling structure and LoD (levels?) structure in CDB X. (<code>Probably need small section on consistenccy with version 1.x?</code>)</p>
+</div>
+<div class="paragraph">
+<p>Using  GPKG Tiled Gridded Coverage standard. Discussed "materials" and their requirements as coverages. Suggest a change request to allow 8, 16 bit and 32 TIFF (integer or float). (Not only for materials, but also heights (aka elevation))</p>
+</div>
+<div class="paragraph">
+<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions">GPKG TMS Extension (Draft)</a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>TileMatrixSet compatibility</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>(topLeftCorner, Variable width)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reference same TMS from multiple layers</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1338,7 +1369,7 @@ tylesheet=rocket-panda.css -a stylesdir=./resources/stylesheets er.adoc</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-22 21:55:15 UTC
+Last updated 2020-07-22 22:02:54 UTC
 </div>
 </div>
 <style>
