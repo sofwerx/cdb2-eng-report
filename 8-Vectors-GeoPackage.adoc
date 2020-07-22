@@ -24,7 +24,17 @@ Part  2  of  this  Abstract  Specification  defines  a  detailed  logical  model
 
 The OGC Tile Matrix Set standard defines the rules and requirements for a tile matrix set as a way to index space based on a set of regular grids defining a domain (tile matrix) for a limited list of scales in a Coordinate Reference System (CRS) as defined in [OGC 08-015r2] Abstract Specification Topic 2: Spatial Referencing by Coordinates. Each tile matrix is divided into regular tiles. In a tile matrix set, a tile can be univocally identified by a tile column a tile row and a tile matrix identifier. This document presents a data structure defining the properties of the tile matrix set in both UML diagrams and in tabular form. This document also presents a data structure to define a subset of a tile matrix set called tile matrix set limits. XML and JSON encodings are suggested both for tile matrix sets and tile matrix set limits. Finally, the document offers practical examples of tile matrix sets both for common global projections and for specific regions.
 
-=== Design Objectives
+=== Design Objectives for CDB X Tiling and LoDs and Layers
+
+The following are the key design principals for a CDB X tiling, levels of detail, and layering.
+
+* OGC GeoPackage structured containers are a primary storage format for derived vector data layers, coverages, and other data types as identified (`TBD`). The two OGC Standards of relevance are https://portal.opengeospatial.org/files/12-128r15[OGC GeoPackage version 1.1] and http://docs.opengeospatial.org/is/17-066r1/17-066r1.html[OGC GeoPackage Extension for Tiled Gridded Coverage Data].
+* Have metadata for whole dataset listing how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)
+* Store imagery in GeoPackage according to the tiling scheme specified below (`need anchor`)
+* Store coverage data in GeoPackage according to the tiling scheme specified below (`need anchor`). Suggested coverage types based on current CDB standard and user specified requirements: (Spherical body surface): Elevation models, imagery, multi-spectral, raster (such as classified satellite imagery). Should be extensible to support other types.
+* Coordinate Reference System is WGS 84 with epoch encoding (same as current CDB Standard except for epoch).
+* Must enable a "relatively" easy migration path from the CDB 1.1/1.2 tiling/LoD structure into the CDB X structure.
+
+=== Proposed CDB X Tiling Structure
 
 
-Have metadata for whole dataset listing how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)
