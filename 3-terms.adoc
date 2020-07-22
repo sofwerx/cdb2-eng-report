@@ -14,9 +14,17 @@ For the purposes of this report, the definitions specified in Clause 4 of the OW
 
  coordinate system that is related to the real world by a datum term name (source: ISO 19111)
  
+&#9679; elevation ::
+
+Synonym for “height”
+
 &#9679; coverage ::
 
  feature that acts as a function to return values from its range for any direct position within its spatio-temporal domain, as defined in https://portal.opengeospatial.org/files/?artifact_id=19820[OGC Abstract Topic 6: Schema for coverage geometry and functions]
+
+&#9679; height ::
+
+Distance of a point from a chosen reference surface measured upward along a line perpendicular to that surface. [ISO 19111] Note 1 to entry: A height below the reference surface will have a negative value, which would embrace both gravity-related heights and ellipsoidal heights.
 
 &#9679; repository ::
 
