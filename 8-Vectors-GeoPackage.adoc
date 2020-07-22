@@ -1,9 +1,8 @@
 [[vectorgpkg]]
 
-== Vector/Coverage Data and GeoPackage
+== Tiled Vector/Coverage Data and GeoPackage
 
-This clause provides discussion of 2.0 Vector Data and GeoPackage requirements and the results of the prototyping activities.
-
+This clause provides discussion of tiled data and GeoPackage requirements and the results of the prototyping activities.
 
 === General
 
@@ -34,7 +33,20 @@ The following are the key design principals for a CDB X tiling, levels of detail
 * Store coverage data in GeoPackage according to the tiling scheme specified below (`need anchor`). Suggested coverage types based on current CDB standard and user specified requirements: (Spherical body surface): Elevation models, imagery, multi-spectral, raster (such as classified satellite imagery). Should be extensible to support other types.
 * Coordinate Reference System is WGS 84 with epoch encoding (same as current CDB Standard except for epoch).
 * Must enable a "relatively" easy migration path from the CDB 1.1/1.2 tiling/LoD structure into the CDB X structure.
+* CDB X must support integer compressed heights (elevations)
+* CDB X must support GeoTIFF as an encoding for images.
 
 === Proposed CDB X Tiling Structure
 
+This section describes the proposed tiling structure and LoD (levels?) structure in CDB X. (`Probably need small section on consistenccy with version 1.x?`)
+
+Using  GPKG Tiled Gridded Coverage standard. Discussed "materials" and their requirements as coverages. Suggest a change request to allow 8, 16 bit and 32 TIFF (integer or float). (Not only for materials, but also heights (aka elevation))
+
+https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions[GPKG TMS Extension (Draft)]
+
+- TileMatrixSet compatibility
+
+(topLeftCorner, Variable width)
+
+- Reference same TMS from multiple layers
 
