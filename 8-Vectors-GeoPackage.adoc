@@ -1,3 +1,9 @@
 [[vectorgpkg]]
 
+== Vector/Coverage Data and GeoPackage
 This clause provides discussion of 2.0 Vector Data and GeoPackage requirements and the results of the prototyping activities.
+
+=== Design Objectives
+
+
+Have metadata for whole dataset listing how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)
