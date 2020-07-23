@@ -495,7 +495,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_proposed_cdb_x_tiling_structure">8.4. Proposed CDB X Tiling Structure</a></li>
 <li><a href="#_additional_cdb_x_recommendations">8.5. Additional CDB X Recommendations</a>
 <ul class="sectlevel3">
-<li><a href="#_materials">8.5.1. Materials</a></li>
+<li><a href="#_elevation_minmax">8.5.1. Elevation min/max</a></li>
+<li><a href="#_image_compression_jpeg">8.5.2. Image Compression - JPEG</a></li>
+<li><a href="#_materials">8.5.3. Materials</a></li>
 </ul>
 </li>
 </ul>
@@ -1377,7 +1379,19 @@ tylesheet=rocket-panda.css -a stylesdir=./resources/stylesheets er.adoc</p>
 <p>The following are recommendations and suggested additional discussion topics. These recommendations and discussion topics resulted from the Tiling sub-groups discussion on an enhanced tiling model for CDB X and the potential impacts on the various data types (layers) in the current CDB standard and existing CDB data stores.</p>
 </div>
 <div class="sect3">
-<h4 id="_materials"><a class="anchor" href="#_materials"></a>8.5.1. Materials</h4>
+<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>8.5.1. Elevation min/max</h4>
+<div class="paragraph">
+<p>CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded coverage contained in a tile to the tile metadata. Note: The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>8.5.2. Image Compression - JPEG</h4>
+<div class="paragraph">
+<p>Recommendation: That loss-less image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: <a href="https://flif.info/">FLIF - Free Lossless Image Format</a>.NOTE: JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_materials"><a class="anchor" href="#_materials"></a>8.5.3. Materials</h4>
 <div class="paragraph">
 <p>Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with reflectance in wavelengths other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.</p>
 </div>
@@ -1460,7 +1474,7 @@ tylesheet=rocket-panda.css -a stylesdir=./resources/stylesheets er.adoc</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-23 21:16:37 UTC
+Last updated 2020-07-23 21:36:20 UTC
 </div>
 </div>
 <style>
