@@ -1,6 +1,6 @@
 [[vectorgpkg]]
 
-== Tiled Vector/Coverage Data and GeoPackage
+== CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage
 
 This clause provides discussion of tiled data and GeoPackage requirements and the results of the prototyping activities.
 
@@ -44,7 +44,6 @@ The following figure, based on the Tiling Abstract Specification Logical Model a
 .Logical Model for partitioning based on tiles in CDB X.
 image::images/tiling_logical_model.jpg[width=800,align="center"]
 
-
 === Proposed CDB X Tiling Structure
 
 This section describes the proposed tiling structure and LoD (levels?) structure in CDB X. (`Probably need small section on consistenccy with version 1.x?`)
@@ -62,3 +61,13 @@ Current GPKG TMS draft: https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/maste
 - Reference same TMS from multiple layers
 
 Sample GeoPackage using TMS / GNOSISGlobalGrid for both elevation & vector data tiles: https://portal.ogc.org/files/?artifact_id=92565
+
+=== Additional CDB X Recommendations
+
+The following are recommendations and suggested additional discussion topics. These recommendations and discussion topics resulted from the Tiling sub-groups discussion on an enhanced tiling model for CDB X and the potential impacts on the various data types (layers) in the current CDB standard and existing CDB data stores.
+
+==== Materials
+
+Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with reflectance in wavelengths other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.
+
+
