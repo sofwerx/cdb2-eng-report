@@ -27,9 +27,11 @@ coordinate system that is related to the real world by a datum
 
 Synonym for “height”
 
-&#9679; coverage ::
-
- feature that acts as a function to return values from its range for any direct position within its spatio-temporal domain, as defined in https://portal.opengeospatial.org/files/?artifact_id=19820[OGC Abstract Topic 6: Schema for coverage geometry and functions]
+*4.x* +
+*coverage* +
+feature that acts as a function to return values from its range for any direct position within its spatio-temporal domain
+ 
+(SOURCE: https://portal.opengeospatial.org/files/?artifact_id=19820[OGC Abstract Topic 6: Schema for coverage geometry and functions]
 
 &#9679; height ::
 
