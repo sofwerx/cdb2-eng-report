@@ -63,6 +63,7 @@ in mathematics, a tiling (tessellation) is a collection of subsets of the space 
 |*MC*   |Mission Command
 |*OTW*  |Out the Window
 |*OWT*  |One World Terrain
+|*PBR*  |Physically-Based Rendering (PBR)
 |*SOF*  |Special Operations Forces
 |*STAC* |SpatioTemporal Asset Catalog
 |===
