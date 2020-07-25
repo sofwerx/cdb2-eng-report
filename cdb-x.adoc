@@ -38,9 +38,9 @@
 // The title here should match the title on the first page.
 // *****************************************************************************
 
-:title: CDB 2.0 Conceptual Model with Prototyping Examples:
+:title: CDB X Conceptual Model with Prototyping Examples:
 
-:initiative_short_name: CDB 2.0 Study
+:initiative_short_name: CDB X Study
 
 
 // *****************************************************************************
