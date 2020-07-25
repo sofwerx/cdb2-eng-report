@@ -1,5 +1,5 @@
 [[BackgroundClause]]
-== CDB 2.0 - Background and Design Goals
+== CDB 2.0 - Background and History
 
 This section of the ER provides background information on the history and development of version 1 of the CDB standard. This background information provides the basis for the decision for the SOFWERX/SOCOM sponsored CDB X Conceptual Modelling activity.
 
