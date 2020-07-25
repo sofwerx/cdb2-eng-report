@@ -38,7 +38,7 @@
 // The title here should match the title on the first page.
 // *****************************************************************************
 
-:title: <CDB 2.0 Conceptual Model with Prototyping Examples>:
+:title: CDB 2.0 Conceptual Model with Prototyping Examples:
 
 :initiative_short_name: CDB 2.0 Study
 
@@ -142,7 +142,7 @@ include::4-overview.adoc[]
 // Editors organize included-file inputs as appropriate starting here.
 // *****************************************************************************
 
-include::5-design-goals.adoc[]
+include::5-background.adoc[]
 
 include::6-Models.adoc[]
 
