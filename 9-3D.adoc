@@ -29,4 +29,8 @@ https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_lod[
 
 https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/EXT_mesh_gpu_instancing[EXT_mesh_gpu_instancing] is an extension that is specfically designed to enable GPU instancing which renders many copies of a single mesh at once using a small number of draw calls. It's useful for things like trees, grass, road signs, etc. 
 
-https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/FB_geometry_metadata[FB_geometry_metadata] is an extension annotates glTF scene objects with a summary of the cumulative geometric complexity and scene-space extents of the scene's associated scene graph. `Editors note: While the computed total vertex and primitive count are metadata this is very limited metadata and may not meet the needs of the CDB X community.`
+https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/FB_geometry_metadata[FB_geometry_metadata] is an extension that annotates glTF scene objects with a summary of the cumulative geometric complexity and scene-space extents of the scene's associated scene graph. `Editors note: While the computed total vertex and primitive count are metadata this is very limited metadata and may not meet the needs of the CDB X community.`
+
+https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit[KHR_materials_unlit] is an extension that defines an unlit shading model for use in glTF 2.0 materials, as an alternative to the Physically Based Rendering (PBR) shading models provided by the core specification. 
+
+https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform[KHR_texture_transform] is an extension that adds offset, rotation, and scale properties to textureInfo structures. These properties would typically be implemented as an affine transform on the UV coordinates. 
