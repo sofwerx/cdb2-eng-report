@@ -1,4 +1,32 @@
 [[threedcontent]]
 == 3D Models and other 3D Content
 
-Section for discussion of 3D content
+This section discusses the proposal to use glTF to encode and store 3D models in the CDB X data store. This section also describes the prototype testing performed during the the <activity>. In CDB, 3D models are such phenomenon as trees (static), transmission towers, or helicopters (dynamic).
+
+Currently, the OpenFlight specification is used to define all the 3D models in a CDB data store. The current OGC CDB 1.x core standard and https://portal.opengeospatial.org/files/16-009r4[Volume 6 CDB Rules for Encoding Data using OpenFlight] specifies all of the rules and requirements for using OpenFlight models in a CDB data store. The early advantage OpenFlight held over many 3d geometry model file formats (.obj, .dxf, .3ds) was its specific real-time 3d graphics industry design.
+
+For CDB X, the particpants in the 3D Geospatial Series Tech Sprint II – OGC CDB 2.0 activity agreed that a more modern 3D model encoding and transmission format should be explored. Based on wide adoption and use in many domains, the Khronos glTF 2.0 specification was selected for further research and prototyping. A key part of this activity was to perform a detailed analysis of glTF functionality as compared to OpenFlight capabilities. The participants agreed that no (or as little as possible) funcitonality should be lost. NOTE: glTF will not be a replacement for OpenFlight in a CDB data store. Instead, glTF is recommended as the preferred encoding for CDB 3D Models. There are a few OpenFlight to glTF conversion tools.
+
+The remainder of this section discusses the findings of the comparison as well as lessons learned from the prototyping activity.
+
+=== Description of 3D formats/encodings and References for this section:
+
+==== OpenFlight
+
+OpenFlight (or .flt) is an open, freely available 3d geometry model file format originally developed by Software Systems Inc. for its MultiGen real-time 3d modeling package. OpenFlight is a format supported widely in modeling and simulation community for dynamic and static 3D model. In CDB 1.x, OpenFlight is used for  the  representation  of  3D  dynamic  models  and  RGB  format  for  the  3D model’s textures. However, while widely used and there are extensive .flt model libraries, OpenFlight is long in the tooth.
+
+https://portal.opengeospatial.org/files/90663[OpenFlight v16]
+
+==== GL Transmission Format (glTF) 2.0
+
+glTF is a royalty-free specification for the efficient transmission and loading of 3D scenes and models by applications. glTF uses the JSON standard. glTF is an API-neutral runtime asset delivery format developed by the Khronos Group 3D Formats Working Group.
+
+https://github.com/KhronosGroup/glTF/tree/master/specification/2.0[glTF 2.0] GitHub repo and description.
+
+https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_lights_punctual[KHR_lights_punctual] is an extension that defines a set of lights for use with glTF 2.0. Lights define light sources within a scene.
+
+https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_lod[MSFT_lod] is an extension that adds the ability to specify various Levels of Detail (LOD) to a glTF asset.
+
+https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/EXT_mesh_gpu_instancing[EXT_mesh_gpu_instancing] is an extension that is specfically designed to enable GPU instancing which renders many copies of a single mesh at once using a small number of draw calls. It's useful for things like trees, grass, road signs, etc. 
+
+https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/FB_geometry_metadata[FB_geometry_metadata] is an extension annotates glTF scene objects with a summary of the cumulative geometric complexity and scene-space extents of the scene's associated scene graph. `Editors note: While the computed total vertex and primitive count are metadata this is very limited metadata and may not meet the needs of the CDB X community.`
