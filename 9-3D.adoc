@@ -9,6 +9,46 @@ For CDB X, the particpants in the 3D Geospatial Series Tech Sprint II – OGC CD
 
 The remainder of this section discusses the findings of the comparison as well as lessons learned from the prototyping activity.
 
+=== Questions to be addressed
+
+. Models be stored in GeoPackage (Editors Note: `Is this a good idea? One could store the glTF in the CDB data store without using GeoPackage - just as OpenFlight today. Need to think about also perhaps having I3S, 3D Tiles, CityGML and other encodings.`)
+. Models preferred to be glTF (others allowed) (glb package?)
+. Textures shall be xxxx format (png, jp2)  Power of 2 enforced?
+. UV Map with model?
+. naming convention tbd - should have some metadata use - indexing? directory path? layer? featureID?
+. LOD Structure? (3d tiles?  MS LOD extenxtion for glTF) (Editors note: `Shouldn't the same LoD structure be used throughout CDB-X? Otherwise, things get confusing.`)
+. Describe model placement
+
+.. point features
+..    Terrain Reconstruction
+..    Elevation
+..    Imagery
+..    Areal features. (Editor's note: `We stopped using "aerial" in CDB 1.1 - changed to polygon.`)
+..    linear features
+. Is there a way to map glTF Material vs CDB physical material?
+
+CDB catalog service for 3D tile inside a tile
+
+=== Prototyping Experiments
+
+Two profiles.
+
+Profile 1 Storing the mesh in as 3D tile: Experiments
+. Question: How to store LODs? In glTF extensions, In 3D tiles, in separate glTF
+. Question: Are there missing glTF constructs?
+
+Profile 2 Storing the mesh in as 3D tile (Editor's note: `Why just 3D Tiles? Why not a more general approach that allows other encodings/approaches?`)
+. Question: What is the ability to source edit the mesh?
+. Question: Mixing GeoPackage with 3D tiles?
+. Question: CDB catalog service for 3D tile inside a tile
+
+Both Profile 1 and Profile 2
+. Question: What are the efficient format/packing for each different end-points:
+.. ATAK
+.. Mission command (wms/wfs)
+.. Modsim
+.. Gaming
+
 === Description of 3D formats/encodings and References for this section:
 
 ==== OpenFlight
