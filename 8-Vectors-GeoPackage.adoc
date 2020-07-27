@@ -1,81 +1,8 @@
 [[vectorgpkg]]
 
-== CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage
+== CDB X All Vector Data in GeoPackage
 
-This clause provides discussion of tiled data and GeoPackage requirements and the results of the prototyping activities.
+This clause provides discussion using GeoPackage for vector data storage including requirements and the results of the prototyping activities.
 
 === General
-
-Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the:
-
-* https://portal.ogc.org/files/?artifact_id=92962&version=1[OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space] (19-014r3)
-* https://www.ogc.org/standards/tms[OGC Two Dimensional Tile Matrix Set Standard] (17-083r2)
-
-==== OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space
-
-This OGC Abstract Specification consists of two Parts: A General Tiling Conceptual Model and, based on the Conceptual Model, a Logical Model for the Tessellation (Tiling) of 2D Euclidean Space. Tiling  of  2D  Euclidean  space  is  the  most  commonly  known  approach  to  partitioning  space  in traditional  geospatial  technology.  However,  there  are  also  common  elements  and/or  semantics  for any approach to partitioning space in any dimension. The logical model in this document defines a set  common  required  elements  and  then  follows  with  more  specific  requirements  for  the  two dimensional case.
-
-Part  1  of  the  Abstract  Specification  describes  a  general  tiling  conceptual  model.  The  conceptual model  is  applicable  to  any  dimension.  The  conceptual  model  makes  no  assumptions  regarding content,  use  cases,  implementation  scenarios,  or  how  the  space  is  to  be  tessellated  (tiled).  The conceptual model is abstract and cannot be implemented as is.
-
-Part  2  of  the Tiling  Abstract  Specification  defines  a  detailed  logical  model  for  the  tessellation  of  2D Euclidean  Space.  One  or  more  logical  models  are  required  to  provide  the  requirements  and structure  necessary  for  implementation.  Therefore,  in  addition  to  the  conceptual  model,  this Abstract Specification also specifies a core logical model for the 2D planar (Euclidean) use case.
-
-==== OGC Two Dimensional Tile Matrix Set Standard
-
-The OGC Tile Matrix Set standard defines the rules and requirements for a tile matrix set as a way to index space based on a set of regular grids defining a domain (tile matrix) for a limited list of scales in a Coordinate Reference System (CRS) as defined in [OGC 08-015r2] Abstract Specification Topic 2: Spatial Referencing by Coordinates. Each tile matrix is divided into regular tiles. In a tile matrix set, a tile can be univocally identified by a tile column a tile row and a tile matrix identifier. This document presents a data structure defining the properties of the tile matrix set in both UML diagrams and in tabular form. This document also presents a data structure to define a subset of a tile matrix set called tile matrix set limits. XML and JSON encodings are suggested both for tile matrix sets and tile matrix set limits. Finally, the document offers practical examples of tile matrix sets both for common global projections and for specific regions.
-
-=== Design Objectives for CDB X Tiling and LoDs and Layers
-
-The following are the key design principals for a CDB X tiling, levels of detail, and layering.
-
-* OGC GeoPackage structured containers are a primary storage format for derived vector data layers, coverages, and other data types as identified (`TBD`). The two OGC Standards of relevance are https://portal.opengeospatial.org/files/12-128r15[OGC GeoPackage version 1.1] and http://docs.opengeospatial.org/is/17-066r1/17-066r1.html[OGC GeoPackage Extension for Tiled Gridded Coverage Data].
-* Have metadata for whole dataset listing how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)
-* Store imagery in GeoPackage according to the tiling scheme specified below (`need anchor`)
-* Store coverage data in GeoPackage according to the tiling scheme specified below (`need anchor`). Suggested coverage types based on current CDB standard and user specified requirements: (Spherical body surface): Elevation models, imagery, multi-spectral, raster (such as classified satellite imagery). Should be extensible to support other types.
-* Coordinate Reference System is WGS 84 with epoch encoding (same as current CDB Standard except for epoch).
-* Must enable a "relatively" easy migration path from the CDB 1.1/1.2 tiling/LoD structure into the CDB X structure.
-* CDB X must support integer compressed heights (elevations)
-* CDB X must support GeoTIFF as an encoding for images.
-
-=== Proposed Tiling Logical Model for CDB X
-
-The following figure, based on the Tiling Abstract Specification Logical Model and the CDB 1.x Conceptual Model, shows the properties by class (concept) and the relationships between the classes.
-
-[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
-.Logical Model for partitioning based on tiles in CDB X.
-image::images/tiling_logical_model.jpg[width=800,align="center"]
-
-=== Proposed CDB X Tiling Structure
-
-This section describes the proposed tiling structure and LoD (levels?) structure in CDB X. (`Probably need small section on consistenccy with version 1.x?`)
-
-Using  GPKG Tiled Gridded Coverage standard. Discussed "materials" and their requirements as coverages. Suggest a change request to allow 8, 16 bit and 32 TIFF (integer or float). (Not only for materials, but also heights (aka elevation))
-
-For any CDB or data layer, pick one of: CDB 1.x grid or GNOSISGlobalGrid (better equal area approximation for polar regions, constant tile size even at overview LODs)
-
-Current GPKG TMS draft: https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions[GPKG TMS Extension (Draft)]
-
-- TileMatrixSet compatibility
-
-(topLeftCorner, Variable width)
-
-- Reference same TMS from multiple layers
-
-Sample GeoPackage using TMS / GNOSISGlobalGrid for both elevation & vector data tiles: https://portal.ogc.org/files/?artifact_id=92565
-
-=== Additional CDB X Recommendations
-
-The following are recommendations and suggested additional discussion topics. These recommendations and discussion topics resulted from the Tiling sub-groups discussion on an enhanced tiling model for CDB X and the potential impacts on the various data types (layers) in the current CDB standard and existing CDB data stores.
-
-==== Elevation min/max
-
-CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded coverage contained in a tile to the tile metadata. Note: The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.  
-
-==== Image Compression - JPEG
-
-Recommendation: That loss-less image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: https://flif.info/[FLIF - Free Lossless Image Format].NOTE: JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases. 
-
-==== Materials
-
-Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with reflectance in wavelengths other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.
-
 
