@@ -114,7 +114,7 @@ Reference URL for this document: http://www.opengis.net/doc/PER/{initiative_shor
 
 Category: {category}
 
-Editor: {editor}
+Editors: {editor}
 
 Title: {titletext}
 
