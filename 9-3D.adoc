@@ -53,6 +53,9 @@ Both Profile 1 and Profile 2
 .. Gaming
 
 3d-model-prototyping.png
+[#img_3d-model-experiments,reftext='{figure-caption} {counter:figure-num}']
+.Profles and Experiments for CBD-X 3D Models.
+image::images/3d-model-prototyping.png[width=800,align="center"]
 
 
 === Description of 3D formats/encodings and References for this section:
