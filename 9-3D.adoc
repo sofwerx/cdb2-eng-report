@@ -52,6 +52,9 @@ Both Profile 1 and Profile 2
 .. Modsim
 .. Gaming
 
+3d-model-prototyping.png
+
+
 === Description of 3D formats/encodings and References for this section:
 
 ==== OpenFlight
