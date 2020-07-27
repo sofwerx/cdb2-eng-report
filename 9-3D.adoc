@@ -34,15 +34,18 @@ CDB catalog service for 3D tile inside a tile
 Two profiles.
 
 Profile 1 Storing the mesh in as 3D tile: Experiments
+
 . Question: How to store LODs? In glTF extensions, In 3D tiles, in separate glTF
 . Question: Are there missing glTF constructs?
 
 Profile 2 Storing the mesh in as 3D tile (Editor's note: `Why just 3D Tiles? Why not a more general approach that allows other encodings/approaches?`)
+
 . Question: What is the ability to source edit the mesh?
 . Question: Mixing GeoPackage with 3D tiles?
 . Question: CDB catalog service for 3D tile inside a tile
 
 Both Profile 1 and Profile 2
+
 . Question: What are the efficient format/packing for each different end-points:
 .. ATAK
 .. Mission command (wms/wfs)
