@@ -10,7 +10,7 @@ CDB V1.x feature codes and subcodes have been sourced from FACC, SEDRIS, DIGEST 
 An OGC Change Request Proposal (CRP) related to CDB attribution was generated during OGC Testbed 13:
 http://ogc.standardstracker.org/show_request.cgi?id=544
 
-Note:  Most of the images in this section of the report are snippets of the Miro whiteboard used for collaboration throughout Phase 3 of the Tech Spring.  The board was archived at various points through the spring by the moderator.  At the time of the drafting of this report, the link to the Miro whiteboard is at:
+Note:  Most of the images in this section of the report are snippets of the Miro whiteboard used for collaboration throughout Phase 3 of the Tech Sprint.  The board was archived at various points through the spring by the moderator.  At the time of the drafting of this report, the link to the Miro whiteboard is at:
 https://miro.com/app/board/o9J_kqG1Jw0=/
 
 
