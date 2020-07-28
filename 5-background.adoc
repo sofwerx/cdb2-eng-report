@@ -13,8 +13,23 @@ The CDB SWG continued the evolution of CDB.  Version 1.1 of the CDB Standard and
 
 Version 1.2 of the CDB Standard was approved as an official OGC Standard in August 2020.  The major enhancement in CDB version 1.2 was the inclusion of the ability to add OGC GeoPackage formated containers into a CDB data store. There are two new CDB volumes that explicitly provide requirements and guidance on using GeoPackages in a CDB data store. Version 1.2 also includes two substantive changes. First, the way that CDB’s Primary Alternate Terrain Elevation dataset was defined in CDB Version 1.1 and earlier causes problems with standard open source libraries used to read and process these data. The SWG agreed  to  changes  address  the  issues  that  ground  simulation  has  with  CDB  gridded  terrain meshes. The second substantive change is that CDB  1.1  and  earlier  supported  a  single  (hard-coded)  file  format  per  dataset.  To  allow  other  fileformats to be used in a CDB Data Store, the need to explicitly specify the file format that is used to physically store the components of a given dataset is required.The  current  CDB  metadata  and  controlled  vocabulary  definitions  (See  Clauses  1.4.3,  3.1,  and  5.1  inCDB Volume 1: Core) has a file called Datasets.xml listing all possible datasets that can be used in aCDB  data  store.  The  file  has  been  expanded  to  indicate  the  encoding  format  used  to  encode  the dataset and its components.
 
+The CDB community anticipates that additional standardization work will be required to prescribe content appropriate to targeted simulation applications, new use cases, and application in new domains. For example, in its current form, the CDB standard does not mandate synthetic environmental richness, quality and resolution.
+
 === OGC CDB 2.0
 
 Beginning in late 2020, the OGC CDB SWG began discussion on what CDB version 2.0 might have as an architecture, what additional encodings and.or formats might be supported, and so forth. These discussion also included initial thoughts on a CDB 2.0 conceptual model. However, progress was slow - in part due to other OGC Member commitments and resource constraints.
 
+NOTE: In the OGC, a major version number indicates that the new version is not backwards compatible with previous versions of the standard. The use of major revisions allows for a major evolution and enhancement to any OGC Standard.
 
+A number of the major requirements for version 2.0 have been discussed for some time and have been captured in various OGC documents including formal Change Requests and OGC Interoperability Program Engineering Reports.
+
+Some of the major enhancements that have been discussed and documented are:
+
+.  Develop an approach (and model?) for using any attribution controlled vocabulary in a CDB data store.
+.  Determine if the current tiling scheme is optimal or should be enhanced/replaced with a better tiling approach.
+.  Describe explicitly how the CDB model may or may not align with the OGC DGGS standard;
+.  Provide best practice details on how to use others OGC standards such as WMS and WFS as well as they new OGC APIs to access existing CDB data stores. This work may require Interoperability Experiments to better understand the implications of these decisions;
+.  Extend the supported encodings and formats for a CDB structured data store to include the use of the CityGML, and InDoorGML standards as well as other broadly used community encoding standards, such as glTF and GeoTIFF. This work may require performing OGC Interoperability Experiments to better understand the implications of these decisions.
+.  Further align CDB terminology to be fully consistent with OGC/ISO terminology.
+
+Making these enhancements may allow the use and implementation of a CDB structured data store for application areas in addition to aviation simulators.
