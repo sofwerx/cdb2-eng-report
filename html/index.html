@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>&lt;CDB 2.0 Conceptual Model with Prototyping Examples&gt;:</title>
+<title>CDB X Conceptual Model with Prototyping Examples:</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body id="bibtexAttributes" class="book">
 <div id="header">
-<h1>&lt;CDB 2.0 Conceptual Model with Prototyping Examples&gt;:</h1>
+<h1>CDB X Conceptual Model with Prototyping Examples:</h1>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -456,38 +456,60 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#Overview">5. Overview</a></li>
-<li><a href="#CDB2Models">6. CDB X Conceptual and Logical Models</a>
+<li><a href="#BackgroundClause">6. CDB 2.0 - Background and History</a>
 <ul class="sectlevel2">
-<li><a href="#_cdb_x_design_goals_and_objectives">6.1. CDB X Design Goals and Objectives</a></li>
-<li><a href="#_3d_models">6.2. 3D Models</a></li>
-<li><a href="#_attribution">6.3. Attribution</a></li>
-<li><a href="#_tilingcoveragesimagery">6.4. Tiling/Coverages/Imagery</a></li>
-<li><a href="#_vector_data">6.5. Vector Data</a></li>
+<li><a href="#_ogc_cdb_1_x_history">6.1. OGC CDB 1.x History</a></li>
+<li><a href="#_ogc_cdb_2_0">6.2. OGC CDB 2.0</a></li>
 </ul>
 </li>
-<li><a href="#vectorgpkg">7. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</a>
+<li><a href="#CDB2Models">7. CDB X Conceptual and Logical Models</a>
 <ul class="sectlevel2">
-<li><a href="#_general">7.1. General</a>
+<li><a href="#_cdb_x_design_goals_and_objectives">7.1. CDB X Design Goals and Objectives</a></li>
+<li><a href="#_3d_models">7.2. 3D Models</a></li>
+<li><a href="#_attribution">7.3. Attribution</a></li>
+<li><a href="#_tilingcoveragesimagery">7.4. Tiling/Coverages/Imagery</a></li>
+<li><a href="#_vector_data">7.5. Vector Data</a></li>
+</ul>
+</li>
+<li><a href="#vectorgpkg">8. CDB X All Vector Data in GeoPackage</a>
+<ul class="sectlevel2">
+<li><a href="#_general">8.1. General</a></li>
+</ul>
+</li>
+<li><a href="#threedcontent">9. 3D Models and other 3D Content</a>
+<ul class="sectlevel2">
+<li><a href="#_questions_to_be_addressed">9.1. Questions to be addressed</a></li>
+<li><a href="#_prototyping_experiments">9.2. Prototyping Experiments</a></li>
+<li><a href="#_description_of_3d_formatsencodings_and_references_for_this_section">9.3. Description of 3D formats/encodings and References for this section:</a>
 <ul class="sectlevel3">
-<li><a href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space">7.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</a></li>
-<li><a href="#_ogc_two_dimensional_tile_matrix_set_standard">7.1.2. OGC Two Dimensional Tile Matrix Set Standard</a></li>
+<li><a href="#_openflight">9.3.1. OpenFlight</a></li>
+<li><a href="#_gl_transmission_format_gltf_2_0">9.3.2. GL Transmission Format (glTF) 2.0</a></li>
 </ul>
 </li>
-<li><a href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers">7.2. Design Objectives for CDB X Tiling and LoDs and Layers</a></li>
-<li><a href="#_proposed_tiling_logical_model_for_cdb_x">7.3. Proposed Tiling Logical Model for CDB X</a></li>
-<li><a href="#_proposed_cdb_x_tiling_structure">7.4. Proposed CDB X Tiling Structure</a></li>
-<li><a href="#_additional_cdb_x_recommendations">7.5. Additional CDB X Recommendations</a>
+</ul>
+</li>
+<li><a href="#metadata">10. Top Level Metadata</a></li>
+<li><a href="#tiling">11. Tiling and Tiled Coverages</a></li>
+<li><a href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage">12. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</a>
+<ul class="sectlevel2">
+<li><a href="#_general_2">12.1. General</a>
 <ul class="sectlevel3">
-<li><a href="#_elevation_minmax">7.5.1. Elevation min/max</a></li>
-<li><a href="#_image_compression_jpeg">7.5.2. Image Compression - JPEG</a></li>
-<li><a href="#_materials">7.5.3. Materials</a></li>
+<li><a href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space">12.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</a></li>
+<li><a href="#_ogc_two_dimensional_tile_matrix_set_standard">12.1.2. OGC Two Dimensional Tile Matrix Set Standard</a></li>
+</ul>
+</li>
+<li><a href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers">12.2. Design Objectives for CDB X Tiling and LoDs and Layers</a></li>
+<li><a href="#_proposed_tiling_logical_model_for_cdb_x">12.3. Proposed Tiling Logical Model for CDB X</a></li>
+<li><a href="#_proposed_cdb_x_tiling_structure">12.4. Proposed CDB X Tiling Structure</a></li>
+<li><a href="#_additional_cdb_x_recommendations">12.5. Additional CDB X Recommendations</a>
+<ul class="sectlevel3">
+<li><a href="#_elevation_minmax">12.5.1. Elevation min/max</a></li>
+<li><a href="#_image_compression_jpeg">12.5.2. Image Compression - JPEG</a></li>
+<li><a href="#_materials">12.5.3. Materials</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#threedcontent">8. 3D Models and other 3D Content</a></li>
-<li><a href="#metadata">9. Top Level Metadata</a></li>
-<li><a href="#tiling">10. Tiling and Tiled Coverages</a></li>
 <li><a href="#RevisionHistory">Appendix A: Revision History</a></li>
 <li><a href="#Bibliography">Appendix B: Bibliography</a></li>
 </ul>
@@ -509,16 +531,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Reference number of this document: &lt;Something - could be OGC XX-XXX&gt;</p>
 </div>
 <div class="paragraph">
-<p>Reference URL for this document: <a href="http://www.opengis.net/doc/PER/CDB" class="bare">http://www.opengis.net/doc/PER/CDB</a> 2.0 Study-ID</p>
+<p>Reference URL for this document: <a href="http://www.opengis.net/doc/PER/CDB" class="bare">http://www.opengis.net/doc/PER/CDB</a> X Study-ID</p>
 </div>
 <div class="paragraph">
 <p>Category: OGC Public Engineering Report</p>
 </div>
 <div class="paragraph">
-<p>Editor: Tracey Birch, David Graham, Carl Reed</p>
+<p>Editors: David Graham, Carl Reed</p>
 </div>
 <div class="paragraph">
-<p>Title: &lt;CDB 2.0 Conceptual Model with Prototyping Examples&gt;:</p>
+<p>Title: CDB X Conceptual Model with Prototyping Examples:</p>
 </div>
 <hr>
 <div class="paragraph">
@@ -886,19 +908,45 @@ feature that acts as a function to return values from its range for any direct p
 <div class="paragraph">
 <p>Annex A provides code snippets that illustrate the functionality of the Vector Tiling Engine and shall help to implement similar technology. It briefly discusses the key issues we experienced during implementation.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="BackgroundClause"><a class="anchor" href="#BackgroundClause"></a>6. CDB 2.0 - Background and History</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Unresolved directive in cdb-2.0.adoc - include::5-design-goals.adoc[]</p>
+<p>This section of the ER provides background information on the history and development of version 1 of the CDB standard. This background information provides the basis for the decision for the SOFWERX/SOCOM sponsored CDB X Conceptual Modelling activity.</p>
+</div>
+<div class="sect2">
+<h3 id="_ogc_cdb_1_x_history"><a class="anchor" href="#_ogc_cdb_1_x_history"></a>6.1. OGC CDB 1.x History</h3>
+<div class="paragraph">
+<p>The CDB specification was initially authored by CAE Inc. on November 2005 under a contract administered by the US Army Program Executive Office for Simulation Training and Instrumentation (PEO STRI) to meet requirements set by US Special Operations Command (USSOCOM)for interoperable, high-performance mission rehearsal and simulation federations. CAE along withother companies (e.g., Flight Safety Inc., New York, NY, USA, Presagis Inc., Montréal, QC, Canada, etc.) have delivered hundreds of simulation channels based on CDB to customers in the US, Canada, UK, Germany, Turkey, Israel, Singapore, Australia, Brunei and other countries.</p>
+</div>
+<div class="paragraph">
+<p>To improve the efficiency of M&amp;S analysis, facilitate data and services’ interaction and communications, and reduce operational cost and complexity, the CDB Community led by CAE submitted the industry specification version 3.2 into the OGC for consideration as an OGC Best Prctice. Beginning in 2013, CDB was discussed and demonstrated at OGC Technical Committee meetings. The industry specification was approved by the OGC Members and released as an <a href="https://portal.opengeospatial.org/files/?artifact_id=61935">OGC Best Practice</a>. The OGC CDB SWG then split the two Best Practice documents into 12 volumes, removed unnecessary content by providing links to authoritative sources, and began evolving terminology to be consistent with OGC/ISO terms and definitions. CDB Version 1.0 was approved by the OGC membership in October 2016 as a new standard.</p>
+</div>
+<div class="paragraph">
+<p>The CDB SWG continued the evolution of CDB.  Version 1.1 of the CDB Standard and related Best Practices was approved in August 2018. One of the main enhancements for version 1.1 was guidance on how to encode and include global and local spatial metadata in a CDB data store. Version 1.1 also moved to having file extensions being generic in all CDB Requirements clauses. This was done to allow inclusion of new (additional) file types in a CDB data store. Further, a number of CDB User communitu chnages requests were included in version 1.1.</p>
+</div>
+<div class="paragraph">
+<p>Version 1.2 of the CDB Standard was approved as an official OGC Standard in August 2020.  The major enhancement in CDB version 1.2 was the inclusion of the ability to add OGC GeoPackage formated containers into a CDB data store. There are two new CDB volumes that explicitly provide requirements and guidance on using GeoPackages in a CDB data store. Version 1.2 also includes two substantive changes. First, the way that CDB’s Primary Alternate Terrain Elevation dataset was defined in CDB Version 1.1 and earlier causes problems with standard open source libraries used to read and process these data. The SWG agreed  to  changes  address  the  issues  that  ground  simulation  has  with  CDB  gridded  terrain meshes. The second substantive change is that CDB  1.1  and  earlier  supported  a  single  (hard-coded)  file  format  per  dataset.  To  allow  other  fileformats to be used in a CDB Data Store, the need to explicitly specify the file format that is used to physically store the components of a given dataset is required.The  current  CDB  metadata  and  controlled  vocabulary  definitions  (See  Clauses  1.4.3,  3.1,  and  5.1  inCDB Volume 1: Core) has a file called Datasets.xml listing all possible datasets that can be used in aCDB  data  store.  The  file  has  been  expanded  to  indicate  the  encoding  format  used  to  encode  the dataset and its components.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ogc_cdb_2_0"><a class="anchor" href="#_ogc_cdb_2_0"></a>6.2. OGC CDB 2.0</h3>
+<div class="paragraph">
+<p>Beginning in late 2020, the OGC CDB SWG began discussion on what CDB version 2.0 might have as an architecture, what additional encodings and.or formats might be supported, and so forth. These discussion also included initial thoughts on a CDB 2.0 conceptual model. However, progress was slow - in part due to other OGC Member commitments and resource constraints.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="CDB2Models"><a class="anchor" href="#CDB2Models"></a>6. CDB X Conceptual and Logical Models</h2>
+<h2 id="CDB2Models"><a class="anchor" href="#CDB2Models"></a>7. CDB X Conceptual and Logical Models</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This clause documents draft design objectives and CDB 2.0 Conceptual and Logical Models.</p>
 </div>
 <div class="sect2">
-<h3 id="_cdb_x_design_goals_and_objectives"><a class="anchor" href="#_cdb_x_design_goals_and_objectives"></a>6.1. CDB X Design Goals and Objectives</h3>
+<h3 id="_cdb_x_design_goals_and_objectives"><a class="anchor" href="#_cdb_x_design_goals_and_objectives"></a>7.1. CDB X Design Goals and Objectives</h3>
 <div class="paragraph">
 <p>The following are the design goals and objectives for a tiled CDB X repository.</p>
 </div>
@@ -914,19 +962,19 @@ feature that acts as a function to return values from its range for any direct p
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3d_models"><a class="anchor" href="#_3d_models"></a>6.2. 3D Models</h3>
+<h3 id="_3d_models"><a class="anchor" href="#_3d_models"></a>7.2. 3D Models</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_attribution"><a class="anchor" href="#_attribution"></a>6.3. Attribution</h3>
+<h3 id="_attribution"><a class="anchor" href="#_attribution"></a>7.3. Attribution</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_tilingcoveragesimagery"><a class="anchor" href="#_tilingcoveragesimagery"></a>6.4. Tiling/Coverages/Imagery</h3>
+<h3 id="_tilingcoveragesimagery"><a class="anchor" href="#_tilingcoveragesimagery"></a>7.4. Tiling/Coverages/Imagery</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_vector_data"><a class="anchor" href="#_vector_data"></a>6.5. Vector Data</h3>
+<h3 id="_vector_data"><a class="anchor" href="#_vector_data"></a>7.5. Vector Data</h3>
 <div id="img_geometry-model" class="imageblock text-center">
 <div class="content">
 <img src="images/Simple_Features_Model.jpg" alt="Simple Features Model" width="800">
@@ -940,13 +988,221 @@ feature that acts as a function to return values from its range for any direct p
 </div>
 </div>
 <div class="sect1">
-<h2 id="vectorgpkg"><a class="anchor" href="#vectorgpkg"></a>7. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</h2>
+<h2 id="vectorgpkg"><a class="anchor" href="#vectorgpkg"></a>8. CDB X All Vector Data in GeoPackage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This clause provides discussion using GeoPackage for vector data storage including requirements and the results of the prototyping activities.</p>
+</div>
+<div class="sect2">
+<h3 id="_general"><a class="anchor" href="#_general"></a>8.1. General</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="threedcontent"><a class="anchor" href="#threedcontent"></a>9. 3D Models and other 3D Content</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section discusses the proposal to use glTF to encode and store 3D models in the CDB X data store. This section also describes the prototype testing performed during the the &lt;activity&gt;. In CDB, 3D models are such phenomenon as trees (static), transmission towers, or helicopters (dynamic).</p>
+</div>
+<div class="paragraph">
+<p>Currently, the OpenFlight specification is used to define all the 3D models in a CDB data store. The current OGC CDB 1.x core standard and <a href="https://portal.opengeospatial.org/files/16-009r4">Volume 6 CDB Rules for Encoding Data using OpenFlight</a> specifies all of the rules and requirements for using OpenFlight models in a CDB data store. The early advantage OpenFlight held over many 3d geometry model file formats (.obj, .dxf, .3ds) was its specific real-time 3d graphics industry design.</p>
+</div>
+<div class="paragraph">
+<p>For CDB X, the particpants in the 3D Geospatial Series Tech Sprint II – OGC CDB 2.0 activity agreed that a more modern 3D model encoding and transmission format should be explored. Based on wide adoption and use in many domains, the Khronos glTF 2.0 specification was selected for further research and prototyping. A key part of this activity was to perform a detailed analysis of glTF functionality as compared to OpenFlight capabilities. The participants agreed that no (or as little as possible) funcitonality should be lost. NOTE: glTF will not be a replacement for OpenFlight in a CDB data store. Instead, glTF is recommended as the preferred encoding for CDB 3D Models. There are a few OpenFlight to glTF conversion tools.</p>
+</div>
+<div class="paragraph">
+<p>The remainder of this section discusses the findings of the comparison as well as lessons learned from the prototyping activity.</p>
+</div>
+<div class="sect2">
+<h3 id="_questions_to_be_addressed"><a class="anchor" href="#_questions_to_be_addressed"></a>9.1. Questions to be addressed</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Models be stored in GeoPackage (Editors Note: <code>Is this a good idea? One could store the glTF in the CDB data store without using GeoPackage - just as OpenFlight today. Need to think about also perhaps having I3S, 3D Tiles, CityGML and other encodings.</code>)</p>
+</li>
+<li>
+<p>Models preferred to be glTF (others allowed) (glb package?)</p>
+</li>
+<li>
+<p>Textures shall be xxxx format (png, jp2)  Power of 2 enforced?</p>
+</li>
+<li>
+<p>UV Map with model?</p>
+</li>
+<li>
+<p>naming convention tbd - should have some metadata use - indexing? directory path? layer? featureID?</p>
+</li>
+<li>
+<p>LOD Structure? (3d tiles?  MS LOD extenxtion for glTF) (Editors note: <code>Shouldn&#8217;t the same LoD structure be used throughout CDB-X? Otherwise, things get confusing.</code>)</p>
+</li>
+<li>
+<p>Describe model placement</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>point features</p>
+</li>
+<li>
+<p>Terrain Reconstruction</p>
+</li>
+<li>
+<p>Elevation</p>
+</li>
+<li>
+<p>Imagery</p>
+</li>
+<li>
+<p>Areal features. (Editor&#8217;s note: <code>We stopped using "aerial" in CDB 1.1 - changed to polygon.</code>)</p>
+</li>
+<li>
+<p>linear features</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Is there a way to map glTF Material vs CDB physical material?</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>CDB catalog service for 3D tile inside a tile</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prototyping_experiments"><a class="anchor" href="#_prototyping_experiments"></a>9.2. Prototyping Experiments</h3>
+<div class="paragraph">
+<p>Two profiles.</p>
+</div>
+<div class="paragraph">
+<p>Profile 1 Storing the mesh in as 3D tile: Experiments</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Question: How to store LODs? In glTF extensions, In 3D tiles, in separate glTF</p>
+</li>
+<li>
+<p>Question: Are there missing glTF constructs?</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Profile 2 Storing the mesh in as 3D tile (Editor&#8217;s note: <code>Why just 3D Tiles? Why not a more general approach that allows other encodings/approaches?</code>)</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Question: What is the ability to source edit the mesh?</p>
+</li>
+<li>
+<p>Question: Mixing GeoPackage with 3D tiles?</p>
+</li>
+<li>
+<p>Question: CDB catalog service for 3D tile inside a tile</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Both Profile 1 and Profile 2</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Question: What are the efficient format/packing for each different end-points:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>ATAK</p>
+</li>
+<li>
+<p>Mission command (wms/wfs)</p>
+</li>
+<li>
+<p>Modsim</p>
+</li>
+<li>
+<p>Gaming</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>3d-model-prototyping.png</p>
+</div>
+<div id="img_3d-model-experiments" class="imageblock text-center">
+<div class="content">
+<img src="images/3d-model-prototyping.png" alt="3d model prototyping" width="800">
+</div>
+<div class="title">Figure 2. Profles and Experiments for CBD-X 3D Models.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_description_of_3d_formatsencodings_and_references_for_this_section"><a class="anchor" href="#_description_of_3d_formatsencodings_and_references_for_this_section"></a>9.3. Description of 3D formats/encodings and References for this section:</h3>
+<div class="sect3">
+<h4 id="_openflight"><a class="anchor" href="#_openflight"></a>9.3.1. OpenFlight</h4>
+<div class="paragraph">
+<p>OpenFlight (or .flt) is an open, freely available 3d geometry model file format originally developed by Software Systems Inc. for its MultiGen real-time 3d modeling package. OpenFlight is a format supported widely in modeling and simulation community for dynamic and static 3D model. In CDB 1.x, OpenFlight is used for  the  representation  of  3D  dynamic  models  and  RGB  format  for  the  3D model’s textures. However, while widely used and there are extensive .flt model libraries, OpenFlight is long in the tooth.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.opengeospatial.org/files/90663">OpenFlight v16</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_gl_transmission_format_gltf_2_0"><a class="anchor" href="#_gl_transmission_format_gltf_2_0"></a>9.3.2. GL Transmission Format (glTF) 2.0</h4>
+<div class="paragraph">
+<p>glTF is a royalty-free specification for the efficient transmission and loading of 3D scenes and models by applications. glTF uses the JSON standard. glTF is an API-neutral runtime asset delivery format developed by the Khronos Group 3D Formats Working Group.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0">glTF 2.0</a> GitHub repo and description.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_lights_punctual">KHR_lights_punctual</a> is an extension that defines a set of lights for use with glTF 2.0. Lights define light sources within a scene.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_lod">MSFT_lod</a> is an extension that adds the ability to specify various Levels of Detail (LOD) to a glTF asset.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/EXT_mesh_gpu_instancing">EXT_mesh_gpu_instancing</a> is an extension that is specfically designed to enable GPU instancing which renders many copies of a single mesh at once using a small number of draw calls. It&#8217;s useful for things like trees, grass, road signs, etc.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/FB_geometry_metadata">FB_geometry_metadata</a> is an extension that annotates glTF scene objects with a summary of the cumulative geometric complexity and scene-space extents of the scene&#8217;s associated scene graph. <code>Editors note: While the computed total vertex and primitive count are metadata this is very limited metadata and may not meet the needs of the CDB X community.</code></p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit">KHR_materials_unlit</a> is an extension that defines an unlit shading model for use in glTF 2.0 materials, as an alternative to the Physically Based Rendering (PBR) shading models provided by the core specification.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform">KHR_texture_transform</a> is an extension that adds offset, rotation, and scale properties to textureInfo structures. These properties would typically be implemented as an affine transform on the UV coordinates.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="metadata"><a class="anchor" href="#metadata"></a>10. Top Level Metadata</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section discussion metadata in CDB 2.0.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tiling"><a class="anchor" href="#tiling"></a>11. Tiling and Tiled Coverages</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"><a class="anchor" href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"></a>12. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This clause provides discussion of tiled data and GeoPackage requirements and the results of the prototyping activities.</p>
 </div>
 <div class="sect2">
-<h3 id="_general"><a class="anchor" href="#_general"></a>7.1. General</h3>
+<h3 id="_general_2"><a class="anchor" href="#_general_2"></a>12.1. General</h3>
 <div class="paragraph">
 <p>Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the:</p>
 </div>
@@ -961,7 +1217,7 @@ feature that acts as a function to return values from its range for any direct p
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"><a class="anchor" href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"></a>7.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</h4>
+<h4 id="_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"><a class="anchor" href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"></a>12.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</h4>
 <div class="paragraph">
 <p>This OGC Abstract Specification consists of two Parts: A General Tiling Conceptual Model and, based on the Conceptual Model, a Logical Model for the Tessellation (Tiling) of 2D Euclidean Space. Tiling  of  2D  Euclidean  space  is  the  most  commonly  known  approach  to  partitioning  space  in traditional  geospatial  technology.  However,  there  are  also  common  elements  and/or  semantics  for any approach to partitioning space in any dimension. The logical model in this document defines a set  common  required  elements  and  then  follows  with  more  specific  requirements  for  the  two dimensional case.</p>
 </div>
@@ -973,14 +1229,14 @@ feature that acts as a function to return values from its range for any direct p
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ogc_two_dimensional_tile_matrix_set_standard"><a class="anchor" href="#_ogc_two_dimensional_tile_matrix_set_standard"></a>7.1.2. OGC Two Dimensional Tile Matrix Set Standard</h4>
+<h4 id="_ogc_two_dimensional_tile_matrix_set_standard"><a class="anchor" href="#_ogc_two_dimensional_tile_matrix_set_standard"></a>12.1.2. OGC Two Dimensional Tile Matrix Set Standard</h4>
 <div class="paragraph">
 <p>The OGC Tile Matrix Set standard defines the rules and requirements for a tile matrix set as a way to index space based on a set of regular grids defining a domain (tile matrix) for a limited list of scales in a Coordinate Reference System (CRS) as defined in [OGC 08-015r2] Abstract Specification Topic 2: Spatial Referencing by Coordinates. Each tile matrix is divided into regular tiles. In a tile matrix set, a tile can be univocally identified by a tile column a tile row and a tile matrix identifier. This document presents a data structure defining the properties of the tile matrix set in both UML diagrams and in tabular form. This document also presents a data structure to define a subset of a tile matrix set called tile matrix set limits. XML and JSON encodings are suggested both for tile matrix sets and tile matrix set limits. Finally, the document offers practical examples of tile matrix sets both for common global projections and for specific regions.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_design_objectives_for_cdb_x_tiling_and_lods_and_layers"><a class="anchor" href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers"></a>7.2. Design Objectives for CDB X Tiling and LoDs and Layers</h3>
+<h3 id="_design_objectives_for_cdb_x_tiling_and_lods_and_layers"><a class="anchor" href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers"></a>12.2. Design Objectives for CDB X Tiling and LoDs and Layers</h3>
 <div class="paragraph">
 <p>The following are the key design principals for a CDB X tiling, levels of detail, and layering.</p>
 </div>
@@ -1014,7 +1270,7 @@ feature that acts as a function to return values from its range for any direct p
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_tiling_logical_model_for_cdb_x"><a class="anchor" href="#_proposed_tiling_logical_model_for_cdb_x"></a>7.3. Proposed Tiling Logical Model for CDB X</h3>
+<h3 id="_proposed_tiling_logical_model_for_cdb_x"><a class="anchor" href="#_proposed_tiling_logical_model_for_cdb_x"></a>12.3. Proposed Tiling Logical Model for CDB X</h3>
 <div class="paragraph">
 <p>The following figure, based on the Tiling Abstract Specification Logical Model and the CDB 1.x Conceptual Model, shows the properties by class (concept) and the relationships between the classes.</p>
 </div>
@@ -1022,11 +1278,11 @@ feature that acts as a function to return values from its range for any direct p
 <div class="content">
 <img src="images/tiling_logical_model.jpg" alt="tiling logical model" width="800">
 </div>
-<div class="title">Figure 2. Logical Model for partitioning based on tiles in CDB X.</div>
+<div class="title">Figure 3. Logical Model for partitioning based on tiles in CDB X.</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_cdb_x_tiling_structure"><a class="anchor" href="#_proposed_cdb_x_tiling_structure"></a>7.4. Proposed CDB X Tiling Structure</h3>
+<h3 id="_proposed_cdb_x_tiling_structure"><a class="anchor" href="#_proposed_cdb_x_tiling_structure"></a>12.4. Proposed CDB X Tiling Structure</h3>
 <div class="paragraph">
 <p>This section describes the proposed tiling structure and LoD (levels?) structure in CDB X. (<code>Probably need small section on consistenccy with version 1.x?</code>)</p>
 </div>
@@ -1061,52 +1317,28 @@ feature that acts as a function to return values from its range for any direct p
 </div>
 </div>
 <div class="sect2">
-<h3 id="_additional_cdb_x_recommendations"><a class="anchor" href="#_additional_cdb_x_recommendations"></a>7.5. Additional CDB X Recommendations</h3>
+<h3 id="_additional_cdb_x_recommendations"><a class="anchor" href="#_additional_cdb_x_recommendations"></a>12.5. Additional CDB X Recommendations</h3>
 <div class="paragraph">
 <p>The following are recommendations and suggested additional discussion topics. These recommendations and discussion topics resulted from the Tiling sub-groups discussion on an enhanced tiling model for CDB X and the potential impacts on the various data types (layers) in the current CDB standard and existing CDB data stores.</p>
 </div>
 <div class="sect3">
-<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>7.5.1. Elevation min/max</h4>
+<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>12.5.1. Elevation min/max</h4>
 <div class="paragraph">
 <p>CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded coverage contained in a tile to the tile metadata. Note: The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>7.5.2. Image Compression - JPEG</h4>
+<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>12.5.2. Image Compression - JPEG</h4>
 <div class="paragraph">
 <p>Recommendation: That loss-less image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: <a href="https://flif.info/">FLIF - Free Lossless Image Format</a>.NOTE: JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_materials"><a class="anchor" href="#_materials"></a>7.5.3. Materials</h4>
+<h4 id="_materials"><a class="anchor" href="#_materials"></a>12.5.3. Materials</h4>
 <div class="paragraph">
 <p>Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with reflectance in wavelengths other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.</p>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="threedcontent"><a class="anchor" href="#threedcontent"></a>8. 3D Models and other 3D Content</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Section for discussion of 3D content</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="metadata"><a class="anchor" href="#metadata"></a>9. Top Level Metadata</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This section discussion metadata in CDB 2.0.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="tiling"><a class="anchor" href="#tiling"></a>10. Tiling and Tiled Coverages</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This section discussion tiling, LoDs, and tiled converages in CDB 2.0.</p>
 </div>
 </div>
 </div>
@@ -1161,7 +1393,7 @@ feature that acts as a function to return values from its range for any direct p
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-25 22:52:58 UTC
+Last updated 2020-07-28 03:29:00 UTC
 </div>
 </div>
 </body>
