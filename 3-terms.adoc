@@ -1,7 +1,5 @@
 == Terms and definitions
 
-
-
 For the purposes of this report, the definitions specified in Clause 4 of the OWS Common Implementation Standard https://portal.opengeospatial.org/files/?artifact_id=38867&version=2[OGC 06-121r9] shall apply. In addition, the following terms and definitions apply.
 
 *4.1* +
@@ -9,6 +7,10 @@ For the purposes of this report, the definitions specified in Clause 4 of the OW
 description of common concepts and their relationships, particularly in order to facilitate exchange of information between parties within a specific domain. A conceptual model is explicitly chosen to be independent of design or implementation concerns.
 
 (SOURCE: CEN ENV 1613:1995)
+
+*4.x* +
+*coverage* +
+feature that acts as a function to return values from its range for any direct position within its spatio-temporal domain
 
 *4.2* +
 *Data Store* +
@@ -23,19 +25,18 @@ coordinate system that is related to the real world by a datum
 
 (SOURCE: ISO 19111)
  
-&#9679; elevation ::
-
-Synonym for “height”
-
 *4.x* +
-*coverage* +
-feature that acts as a function to return values from its range for any direct position within its spatio-temporal domain
+*elevation* +
+Synonym for “height”
  
 (SOURCE: https://portal.opengeospatial.org/files/?artifact_id=19820[OGC Abstract Topic 6: Schema for coverage geometry and functions]
 
-&#9679; height ::
+*4.x* +
+*height* +
+Distance of a point from a chosen reference surface measured upward along a line perpendicular to that surface. 
+Note 1 to entry: A height below the reference surface will have a negative value, which would embrace both gravity-related heights and ellipsoidal heights.
 
-Distance of a point from a chosen reference surface measured upward along a line perpendicular to that surface. [ISO 19111] Note 1 to entry: A height below the reference surface will have a negative value, which would embrace both gravity-related heights and ellipsoidal heights.
+(SOURCE: ISO 19111:2019 Geographic information — Referencing by coordinates)
 
 &#9679; repository ::
 
