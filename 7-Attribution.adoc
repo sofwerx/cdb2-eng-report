@@ -19,7 +19,7 @@ https://portal.ogc.org/files/?artifact_id=93666
 
 [#img_Peele_Whiteboard_Day_3,reftext='{figure-caption} {counter:figure-num}']
 .Greg Peele's Whiteboard from Phase 3 Day 3.
-image::images/Greg Peele Day 3 whiteboard.png[width=800,align="center"]
+image::images/Greg Peele Day 3 whiteboard.png[width=1000,align="center"]
 
 = Phase 3, Day 4
 
@@ -33,14 +33,14 @@ image::images/Day 4 Attribution in GGDM Prove me Wrong sign.png[width=500,align=
 
 [#img_Attribution-Day-4-Whiteboard,reftext='{figure-caption} {counter:figure-num}']
 .Attribution Day 4 Whiteboard.
-image::images/Attribution Day 4 Sub Team Whiteboard 1.png[width=800,align="center"]
+image::images/Attribution Day 4 Sub Team Whiteboard 1.png[width=1000,align="center"]
 
 Phase 3, Day 5
 
 [#img_Attribution-Day-5-WIP1-Whiteboard,reftext='{figure-caption} {counter:figure-num}']
 .Attribution Day 5 Work in Progress Whiteboard One.
-image::images/Day 5 Attribution Whiteboard WIP1.png[width=800,align="center"]
+image::images/Day 5 Attribution Whiteboard WIP1.png[width=1000,align="center"]
 
 [#img_Attribution-Day-5-WIP2-whiteboard,reftext='{figure-caption} {counter:figure-num}']
-.Attribution Day 5 Work in Press Whiteboard Two.
-image::images/Day 5 Attribution Whiteboard WIP2.png[width=800,align="center"]
+.Attribution Day 5 Work in Progress Whiteboard Two.
+image::images/Day 5 Attribution Whiteboard WIP2.png[width=1000,align="center"]
