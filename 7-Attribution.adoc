@@ -1,3 +1,18 @@
 [[Attribution]]
 
-This clause provides discussion of 2.0 Attribution requirements and the results of the prototyping activities.
+= Summary of history of attribution discussions for CDB X.
+
+= Phase 3 Consensus
+
+[#img_Peele_Whiteboard_Day_3,reftext='{figure-caption} {counter:figure-num}']
+.Greg Peele's Whiteboard from Phase 3 Day 3.
+image::images/Greg Peele Day 3 whiteboard.png[width=800,align="center"]
+
+[#img_Attribution-sub-team-consensus,reftext='{figure-caption} {counter:figure-num}']
+.Day 3 Consensus and formation of the Attribution sub-team.
+image::images/Attribution sub-team consensus.png[width=250,align="center"]
+
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Sample successful image block for reference.
+image::images/tiling_logical_model.jpg[width=800,align="center"]
