@@ -1,6 +1,7 @@
 [[threedcontent]]
 == 3D Models and other 3D Content
 
+
 This section discusses the proposal to use glTF to encode and store 3D models in the CDB X data store. This section also describes the prototype testing performed during the the <activity>. In CDB, 3D models are such phenomenon as trees (static), transmission towers, or helicopters (dynamic).
 
 Currently, the OpenFlight specification is used to define all the 3D models in a CDB data store. The current OGC CDB 1.x core standard and https://portal.opengeospatial.org/files/16-009r4[Volume 6 CDB Rules for Encoding Data using OpenFlight] specifies all of the rules and requirements for using OpenFlight models in a CDB data store. The early advantage OpenFlight held over many 3d geometry model file formats (.obj, .dxf, .3ds) was its specific real-time 3d graphics industry design.
