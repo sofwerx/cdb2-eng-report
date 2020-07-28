@@ -2,7 +2,20 @@
 
 = Summary of history of attribution discussions for CDB X.
 
+The 1.x versions of OGC CDB use a CDB Feature Data Dictionary.  An Excel spreadsheet version of the CDB 1.X Feature Data Dictionary is available on the public CDB wiki at
+https://external.ogc.org/twiki_public/pub/CDBswg/WebHome/CDB_FDD.xlsx
+
+CDB V1.x feature codes and subcodes have been used from FACC, SEDRIS, DIGEST 2.1, DGIWG FDD, UHRB, and other sources.  [The abbreviations and acronyms are defined and/or expanded in the OGC CDB 1.x Standards and Best Practices documents]
+
+An OGC Change Request Proposal (CRP) related to CDB attribution was generated during OGC Testbed 13:
+http://ogc.standardstracker.org/show_request.cgi?id=544
+
 = Phase 3 Consensus
+
+There was early consensus during Phase 3 of the Tech Sprint to attempt to experiment with and potentially adopt an approach to attribution generally called "GGDM".  Greg Peele, one of the Tech Sprint participants, has described his work as a sub-contractor on the team recommending a Data Model for the U.S. Army One World Terrain (OWT) effort in multiple presentations to the OGC Interopable Simulation and Gaming Domain Working Group.  Greg's most recent presentation to the ISG DWG may be found here:
+
+
+= Phase 3, Day 3
 
 [#img_Peele_Whiteboard_Day_3,reftext='{figure-caption} {counter:figure-num}']
 .Greg Peele's Whiteboard from Phase 3 Day 3.
