@@ -1,6 +1,7 @@
 [[tiling]]
 ==  Tiling and Tiled Coverages
 
+
 == CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage
 
 This clause provides discussion of tiled data and GeoPackage requirements and the results of the prototyping activities.
