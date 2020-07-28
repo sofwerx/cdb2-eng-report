@@ -2,6 +2,7 @@
 
 == CDB X All Vector Data in GeoPackage
 
+
 This clause provides discussion using GeoPackage for vector data storage including requirements and the results of the prototyping activities.
 
 === General
