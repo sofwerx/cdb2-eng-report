@@ -10,6 +10,10 @@ CDB V1.x feature codes and subcodes have been sourced from FACC, SEDRIS, DIGEST 
 An OGC Change Request Proposal (CRP) related to CDB attribution was generated during OGC Testbed 13:
 http://ogc.standardstracker.org/show_request.cgi?id=544
 
+Note:  Most of the images in this section of the report are snippets of the Miro whiteboard used for collaboration throughout Phase 3 of the Tech Spring.  The board was archived at various points through the spring by the moderator.  At the time of the drafting of this report, the link to the Miro whiteboard is at:
+https://miro.com/app/board/o9J_kqG1Jw0=/
+
+
 = Phase 3 Consensus
 
 There was early consensus during Phase 3 of the Tech Sprint to attempt to experiment with and potentially adopt an approach to attribution generally called "GGDM".  Greg Peele, one of the Tech Sprint participants, has described his work as a sub-contractor on the team recommending a Data Model for the U.S. Army One World Terrain (OWT) effort in multiple presentations to the OGC Interopable Simulation and Gaming Domain Working Group.  Greg's most recent presentation, entitled *"Entities, Attributes, and Enumerants, Oh My!  Applying GGDM for Interoperable One World Terrain Semantics"* to the ISG DWG may be found here:
