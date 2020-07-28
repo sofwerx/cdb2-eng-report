@@ -23,13 +23,21 @@ A data store is a repository for persistently storing and managing collections o
 *coordinate reference system* +
 coordinate system that is related to the real world by a datum 
 
-(SOURCE: ISO 19111)
+(SOURCE: ISO 19111:2019 Geographic information — Referencing by coordinates)
+
+*4.x* +
+*data set* +
+A dataset is a collection of data, published or curated by a single agent. Data comes in many forms including numbers, words, pixels, imagery, sound and other multi-media, and potentially other types, any of which might be collected into a dataset. 
+
+Note: There is an important distinction between a dataset as an abstract idea and a distribution as a manifestation of the dataset
+
+(SOURCE: W3C Data Catalog Vocabulary (DCAT) - Version 2, 2020)
  
 *4.x* +
 *elevation* +
 Synonym for “height”
  
-(SOURCE: https://portal.opengeospatial.org/files/?artifact_id=19820[OGC Abstract Topic 6: Schema for coverage geometry and functions]
+(SOURCE: https://portal.opengeospatial.org/files/?artifact_id=19820[OGC Abstract Topic 6: Schema for coverage geometry and functions)
 
 *4.x* +
 *height* +
