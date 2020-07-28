@@ -31,7 +31,7 @@ A dataset is a collection of data, published or curated by a single agent. Data 
 
 Note: There is an important distinction between a dataset as an abstract idea and a distribution as a manifestation of the dataset
 
-(SOURCE: W3C Data Catalog Vocabulary (DCAT) - Version 2, 2020)
+(SOURCE: https://www.w3.org/TR/vocab-dcat-2/[W3C Data Catalog Vocabulary (DCAT) - Version 2], 2020)
  
 *4.x* +
 *elevation* +
