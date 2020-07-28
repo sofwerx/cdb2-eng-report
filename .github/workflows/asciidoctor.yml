@@ -23,7 +23,7 @@ jobs:
       id: adocbuild
       uses: avattathil/asciidoctor-action@master
       with:
-          program: "asciidoctor -D html --backend=html5 -o index.html -a toc cdb-x.adoc"  
+          program: "asciidoctor -D html --backend=html5 -o index.html -a toc cdb-2.0.adoc"  
           
     - run: ls -R
       
