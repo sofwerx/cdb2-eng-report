@@ -951,11 +951,57 @@ Note 1 to entry: A height below the reference surface will have a negative value
 <div class="paragraph">
 <p>Version 1.2 of the CDB Standard was approved as an official OGC Standard in August 2020.  The major enhancement in CDB version 1.2 was the inclusion of the ability to add OGC GeoPackage formated containers into a CDB data store. There are two new CDB volumes that explicitly provide requirements and guidance on using GeoPackages in a CDB data store. Version 1.2 also includes two substantive changes. First, the way that CDB’s Primary Alternate Terrain Elevation dataset was defined in CDB Version 1.1 and earlier causes problems with standard open source libraries used to read and process these data. The SWG agreed  to  changes  address  the  issues  that  ground  simulation  has  with  CDB  gridded  terrain meshes. The second substantive change is that CDB  1.1  and  earlier  supported  a  single  (hard-coded)  file  format  per  dataset.  To  allow  other  fileformats to be used in a CDB Data Store, the need to explicitly specify the file format that is used to physically store the components of a given dataset is required.The  current  CDB  metadata  and  controlled  vocabulary  definitions  (See  Clauses  1.4.3,  3.1,  and  5.1  inCDB Volume 1: Core) has a file called Datasets.xml listing all possible datasets that can be used in aCDB  data  store.  The  file  has  been  expanded  to  indicate  the  encoding  format  used  to  encode  the dataset and its components.</p>
 </div>
+<div class="paragraph">
+<p>The CDB community anticipates that additional standardization work will be required to prescribe content appropriate to targeted simulation applications, new use cases, and application in new domains. For example, in its current form, the CDB standard does not mandate synthetic environmental richness, quality and resolution.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_ogc_cdb_2_0"><a class="anchor" href="#_ogc_cdb_2_0"></a>6.2. OGC CDB 2.0</h3>
 <div class="paragraph">
 <p>Beginning in late 2020, the OGC CDB SWG began discussion on what CDB version 2.0 might have as an architecture, what additional encodings and.or formats might be supported, and so forth. These discussion also included initial thoughts on a CDB 2.0 conceptual model. However, progress was slow - in part due to other OGC Member commitments and resource constraints.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+In the OGC, a major version number indicates that the new version is not backwards compatible with previous versions of the standard. The use of major revisions allows for a major evolution and enhancement to any OGC Standard.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A number of the major requirements for version 2.0 have been discussed for some time and have been captured in various OGC documents including formal Change Requests and OGC Interoperability Program Engineering Reports.</p>
+</div>
+<div class="paragraph">
+<p>Some of the major enhancements that have been discussed and documented are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Develop an approach (and model?) for using any attribution controlled vocabulary in a CDB data store.</p>
+</li>
+<li>
+<p>Determine if the current tiling scheme is optimal or should be enhanced/replaced with a better tiling approach.</p>
+</li>
+<li>
+<p>Describe explicitly how the CDB model may or may not align with the OGC DGGS standard;</p>
+</li>
+<li>
+<p>Provide best practice details on how to use others OGC standards such as WMS and WFS as well as they new OGC APIs to access existing CDB data stores. This work may require Interoperability Experiments to better understand the implications of these decisions;</p>
+</li>
+<li>
+<p>Extend the supported encodings and formats for a CDB structured data store to include the use of the CityGML, and InDoorGML standards as well as other broadly used community encoding standards, such as glTF and GeoTIFF. This work may require performing OGC Interoperability Experiments to better understand the implications of these decisions.</p>
+</li>
+<li>
+<p>Further align CDB terminology to be fully consistent with OGC/ISO terminology.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Making these enhancements may allow the use and implementation of a CDB structured data store for application areas in addition to aviation simulators.</p>
 </div>
 </div>
 </div>
@@ -1489,7 +1535,7 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-28 20:33:21 UTC
+Last updated 2020-07-28 22:29:55 UTC
 </div>
 </div>
 </body>
