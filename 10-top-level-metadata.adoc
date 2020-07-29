@@ -86,8 +86,7 @@ _Spatial Resolution Information_ (No equivalent, MD_Identification.spatialResolu
 
 Typically, local metadata files will be stored with the physical data. For GTModel geotypical data sets, the metadata file would be stored along with the model XML file. If the model is stored in multiple LoDs, the metadata would also be stored at each LoD. For tiled vector data, the local metadata would be stored with the vector files at the tile level. Please see the esamples in Section 3.0 for more detail.
 
-[[ConfigurationMetadata]]
-==== Configuration Metadata
+
 
 
 
