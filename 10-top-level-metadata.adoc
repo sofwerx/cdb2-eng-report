@@ -23,6 +23,14 @@ and the contents of the Metadata subdirectory are:
 .OGC CDB Schema Github Repo Metadata sub-directory files.
 image::images/CDB 1dotX schema repo Metadata file directory.png[width=750,align="center"]
 
+OGC CDB V1.1 is a minor revision of OGC CDB that provides for optional global and local metadata.  The description of the new geospatial metadata provisions is in the Volume 1 Core document, in Section 1.5:
+
+[#img_CDB1dot2-Vol-1-new-geo-metadata,reftext='{figure-caption} {counter:figure-num}']
+.OGC CDB V1.2 Volume 1 Table-of-Contents Exerpt.
+image::images/Metadata in CDB V1dot2.png[width=750,align="center"]
+
+
+
 
 = Phase 3 Consensus, Day 3
 
