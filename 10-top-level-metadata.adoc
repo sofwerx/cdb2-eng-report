@@ -1,6 +1,6 @@
 [[metadata]]
 
-:figure-caption: Figure ATTPh3 -
+:figure-caption: Figure Mtd_Ph3 -
 :figure-num: 0
 
 == Top Level Metadata
@@ -11,20 +11,20 @@ This section discussion metadata in CDB X
 
 = Phase 3 Consensus, Day 3
 
-[#img_Attribution-sub-team-consensus,reftext='{figure-caption} {counter:figure-num}']
+[#img_Metadata-sub-team-consensus,reftext='{figure-caption} {counter:figure-num}']
 .Day 3 Consensus and formation of the Metadata / Integration sub-team.
-image::images/Attribution sub-team consensus.png[width=250,align="center"]
+image::images/Metadata sub-team consensus.png[width=250,align="center"]
 
 = Phase 3, Day 4
 
-[#img_Attribution-Day-4-Whiteboard,reftext='{figure-caption} {counter:figure-num}']
+[#img_Metadata-Day-4-Whiteboard,reftext='{figure-caption} {counter:figure-num}']
 .Metadata Day 4 Whiteboard.
-image::images/Attribution Day 4 Sub Team Whiteboard 1.png[width=1000,align="center"]
+image::images/Metadata Ph3 Day 4.png[width=1000,align="center"]
 
 = Phase 3, Day 5
 
 [#img_Attribution-Day-4-Whiteboard,reftext='{figure-caption} {counter:figure-num}']
 .Metadata Day 5 Whiteboard.
-image::images/Attribution Day 4 Sub Team Whiteboard 1.png[width=1000,align="center"]
+image::images/Metadata Ph3 Day 5.png[width=1000,align="center"]
 
 = Plan for Experimentation in subsequent phases
