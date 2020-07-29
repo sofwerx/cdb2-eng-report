@@ -483,6 +483,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#vectorgpkg">8. CDB X All Vector Data in GeoPackage</a>
 <ul class="sectlevel2">
 <li><a href="#_general">8.1. General</a></li>
+<li><a href="#_question_to_be_answered">8.2. Question to be answered</a></li>
 </ul>
 </li>
 <li><a href="#threedcontent">9. 3D Models and other 3D Content</a>
@@ -1216,6 +1217,61 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 <h3 id="_general"><a class="anchor" href="#_general"></a>8.1. General</h3>
 
 </div>
+<div class="sect2">
+<h3 id="_question_to_be_answered"><a class="anchor" href="#_question_to_be_answered"></a>8.2. Question to be answered</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Is the GeoPackage tiling scheme enough for the whole world with dense data, or is there some CDB tiling structure outside that uses multiple GeoPackages?</p>
+</li>
+<li>
+<p>How does GeoPackage work with the need to update data layers dynamically?  SQLite has a write model that only allows a single writer lock that prevents any reads to the database.</p>
+</li>
+<li>
+<p>Lots of discussion on locking. Main sticky note states: PENDING lock means that the process holding the lock wants to write to the database as soon as possible and is just waiting on all current SHARED locks to clear so that it can get an EXCLUSIVE lock. No new SHARED locks are permitted against the database if a PENDING lock is active, though existing SHARED locks are allowed to continue.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Discussion:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Once an EXCLUSIVE lock is acquired, no read/SHARED locks are permitted.</p>
+</li>
+<li>
+<p>Can&#8217;t that exclusive lock be released once the writing is done though?</p>
+</li>
+<li>
+<p>Absolutely, it is held as short as possible.  What are the SOCOM requirements for dynamic updates?  And how often might they occur?</p>
+</li>
+<li>
+<p>Also, this is about multi-processs right&#8230;&#8203; A process that has an exclusive lock can both read &amp; write from the DB.</p>
+</li>
+<li>
+<p>Reading and writing can&#8217;t happen at the same time, and mostly transparent from the calling process.  Also, I am assuming that reading is from one client, and the update is coming from another process.</p>
+</li>
+<li>
+<p>It could be possible for a single process to act as both the reading and proxy for the applying any updates.
+***That is one method.  From a flight sim perspective, there might be multiple devices that want direct access to the data.  Or maybe those updates come through other channels (DIS/HLA) and not the CDB</p>
+</li>
+<li>
+<p>What I&#8217;m trying to say is if you wanted a PostgreSQL equivalent for a SQLite DB, you would implement your own server handling multiple connecionts on top of it and that could be considered the "direct" access to the data.</p>
+</li>
+<li>
+<p>So at that point, you are no longer interacting with the CDB, but a service</p>
+</li>
+<li>
+<p>A local service yes, but much as if you used another database like PostgreSQL (meant as a counter-argument to reasons not to chose SQLite over a heavier RDBMS).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1790,7 +1846,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-29 23:09:00 UTC
+Last updated 2020-07-29 23:30:32 UTC
 </div>
 </div>
 </body>
