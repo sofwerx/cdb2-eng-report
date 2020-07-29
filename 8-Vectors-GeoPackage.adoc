@@ -7,3 +7,20 @@ This clause provides discussion using GeoPackage for vector data storage includi
 
 === General
 
+
+=== Question to be answered
+
+* Is the GeoPackage tiling scheme enough for the whole world with dense data, or is there some CDB tiling structure outside that uses multiple GeoPackages?
+* How does GeoPackage work with the need to update data layers dynamically?  SQLite has a write model that only allows a single writer lock that prevents any reads to the database.
+* Lots of discussion on locking. Main sticky note states: PENDING lock means that the process holding the lock wants to write to the database as soon as possible and is just waiting on all current SHARED locks to clear so that it can get an EXCLUSIVE lock. No new SHARED locks are permitted against the database if a PENDING lock is active, though existing SHARED locks are allowed to continue.
+** Discussion: 
+*** Once an EXCLUSIVE lock is acquired, no read/SHARED locks are permitted.
+*** Can't that exclusive lock be released once the writing is done though?
+*** Absolutely, it is held as short as possible.  What are the SOCOM requirements for dynamic updates?  And how often might they occur?
+*** Also, this is about multi-processs right... A process that has an exclusive lock can both read & write from the DB.
+*** Reading and writing can't happen at the same time, and mostly transparent from the calling process.  Also, I am assuming that reading is from one client, and the update is coming from another process.
+*** It could be possible for a single process to act as both the reading and proxy for the applying any updates.
+***That is one method.  From a flight sim perspective, there might be multiple devices that want direct access to the data.  Or maybe those updates come through other channels (DIS/HLA) and not the CDB
+*** What I'm trying to say is if you wanted a PostgreSQL equivalent for a SQLite DB, you would implement your own server handling multiple connecionts on top of it and that could be considered the "direct" access to the data.
+*** So at that point, you are no longer interacting with the CDB, but a service
+*** A local service yes, but much as if you used another database like PostgreSQL (meant as a counter-argument to reasons not to chose SQLite over a heavier RDBMS). 
