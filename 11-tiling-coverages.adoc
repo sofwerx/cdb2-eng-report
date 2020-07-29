@@ -34,6 +34,10 @@ The following are the key design principals for a CDB X tiling, levels of detail
 * Store imagery in GeoPackage according to the tiling scheme specified below (`need anchor`)
 * Store coverage data in GeoPackage according to the tiling scheme specified below (`need anchor`). Suggested coverage types based on current CDB standard and user specified requirements: (Spherical body surface): Elevation models, imagery, multi-spectral, raster (such as classified satellite imagery). Should be extensible to support other types.
 * Coordinate Reference System is WGS 84 with epoch encoding (same as current CDB Standard except for epoch).
+* Need to keep the  various encodings that CDB 1.x already has:
+** Integer Elevation
+** 8-bit Raster Material Mixtures
+** Imagery Compression:
 * Must enable a "relatively" easy migration path from the CDB 1.1/1.2 tiling/LoD structure into the CDB X structure.
 * CDB X must support integer compressed heights (elevations)
 * CDB X must support GeoTIFF as an encoding for images.
