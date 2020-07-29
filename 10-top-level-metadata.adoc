@@ -9,6 +9,21 @@ This section discussion metadata in CDB X
 
 = Summary of history of CDB X top-level metadata discussions.
 
+The earlier 'industry' versions, and OGC CDB 1.x versions of CDB contain a 'metadata' directory.  Despite the directory name, this is a collection of .XSD (XML Schema Definition) and associated .XML (eXtensible Markup Language) files that are essentially controlled vocabularies for elements of the CDB standard.
+
+In the OGC CDB  Github "Schema" repo, the contents of the root level are:
+
+[#img_CDB1-schema-root-level-files,reftext='{figure-caption} {counter:figure-num}']
+.OGC CDB Schema Github Repo Root level files.
+image::images/CDB 1dotX schema repo root directory files.png[width=750,align="center"]
+
+and the contents of the Metadata subdirectory are:
+
+[#img_CDB1-schema-metadata-subdir-files,reftext='{figure-caption} {counter:figure-num}']
+.OGC CDB Schema Github Repo Metadata sub-directory files.
+image::images/CDB 1dotX schema repo Metadata file directory.png[width=750,align="center"]
+
+
 = Phase 3 Consensus, Day 3
 
 [#img_Metadata-sub-team-consensus,reftext='{figure-caption} {counter:figure-num}']
