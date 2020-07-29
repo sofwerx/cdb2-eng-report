@@ -9,12 +9,22 @@ This section discussion metadata in CDB X
 
 = Summary of history of CDB X top-level metadata discussions.
 
-= Phase 3 Consensus
+= Phase 3 Consensus, Day 3
 
-= Phase 3, Day 3
+[#img_Attribution-sub-team-consensus,reftext='{figure-caption} {counter:figure-num}']
+.Day 3 Consensus and formation of the Metadata / Integration sub-team.
+image::images/Attribution sub-team consensus.png[width=250,align="center"]
 
 = Phase 3, Day 4
 
+[#img_Attribution-Day-4-Whiteboard,reftext='{figure-caption} {counter:figure-num}']
+.Metadata Day 4 Whiteboard.
+image::images/Attribution Day 4 Sub Team Whiteboard 1.png[width=1000,align="center"]
+
 = Phase 3, Day 5
+
+[#img_Attribution-Day-4-Whiteboard,reftext='{figure-caption} {counter:figure-num}']
+.Metadata Day 5 Whiteboard.
+image::images/Attribution Day 4 Sub Team Whiteboard 1.png[width=1000,align="center"]
 
 = Plan for Experimentation in subsequent phases
