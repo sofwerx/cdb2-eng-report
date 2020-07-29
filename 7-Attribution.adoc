@@ -1,5 +1,8 @@
 [[Attribution]]
 
+:figure-caption: Figure ATTPh3-
+:figure-num: 0
+
 = Summary of history of CDB X attribution discussions.
 
 The 1.x versions of OGC CDB use a CDB Feature Data Dictionary as the controlled vocabulary for attribution.  An Excel spreadsheet version of the CDB 1.X Feature Data Dictionary is available on the public https://external.ogc.org/twiki_public/pub/CDBswg/WebHome/CDB_FDD.xlsx[CDB wiki].
