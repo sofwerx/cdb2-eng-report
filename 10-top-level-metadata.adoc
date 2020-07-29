@@ -3,11 +3,11 @@
 :figure-caption: Figure Mtd_Ph3 -
 :figure-num: 0
 
-== Top Level Metadata
+== CDB X Metadata and Integration
 
-This section discussion metadata in CDB X
+This section discusses metadata in CDB X
 
-= Summary of history of CDB X top-level metadata discussions.
+= Summary of history of CDB X metadata discussions.
 
 The earlier 'industry' versions, and OGC CDB 1.x versions of CDB contain a 'metadata' directory.  Despite the directory name, this is a collection of .XSD (XML Schema Definition) and associated .XML (eXtensible Markup Language) files that are essentially controlled vocabularies for elements of the CDB standard.
 
