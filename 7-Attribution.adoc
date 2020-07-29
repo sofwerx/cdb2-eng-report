@@ -1,6 +1,6 @@
 [[Attribution]]
 
-:figure-caption: Figure ATTPh3-
+:figure-caption: Figure ATTPh3 -
 :figure-num: 0
 
 = Summary of history of CDB X attribution discussions.
@@ -52,3 +52,5 @@ image::images/Day 5 Attribution Whiteboard WIP1.png[width=1000,align="center"]
 [#img_Attribution-Day-5-WIP2-whiteboard,reftext='{figure-caption} {counter:figure-num}']
 .Attribution Day 5 Work in Progress Whiteboard Two.
 image::images/Day 5 Attribution Whiteboard WIP2.png[width=1000,align="center"]
+
+= Plan for Experimentation in subsequent phases
