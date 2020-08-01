@@ -44,12 +44,28 @@ Synonym for “height”
 Distance of a point from a chosen reference surface measured upward along a line perpendicular to that surface. 
 Note 1 to entry: A height below the reference surface will have a negative value, which would embrace both gravity-related heights and ellipsoidal heights.
 
-(SOURCE: ISO 19111:2019 Geographic information — Referencing by coordinates)
+(SOURCE: ISO 19111:2019 Geographic information — Referencing by Coordinates)
 
-&#9679; repository ::
+*4.x* +
+*Metadata* +
+information that captures the characteristics of a resource to represent the ‘who’, ‘what’, ‘when’, ‘where’,
+‘why’, and ‘how’ of that resource.
 
- a place that holds CDB data, makes CDB data available to use, and organizes CDB data in a logical manner. (Network of the National Library of Medicine) 2020
+(SOURCE: https://nsgreg.nga.mil/doc/view?i=4252&month=10&day=22&year=2019[National System for Geospatial Intelligence (NSG) Metadata Foundation (NMF) Version 3.0])
+
+*4.x* +
+*repository* +
+
+a place that holds CDB data, makes CDB data available to use, and organizes CDB data in a logical manner. (Network of the National Library of Medicine) 2020
  
+*4.x* +
+*resource* +
+identifiable asset or means that fulfils a requirement
+
+NOTE: A web resource, or simply resource, is any identifiable thing, whether digital, physical, or abstract.
+
+(SOURCE: ISO:19115-1:2014 Geographic information — Metadata — Part 1: Fundamentals)
+
 &#9679; tile ::
  
 geometric  shape  with  known  properties  that  may  or  may  not  be  the  result  of  a  tiling  (tessellation)process. A tile consists of a single connected "piece" without "holes" or "lines" (topological disc).
