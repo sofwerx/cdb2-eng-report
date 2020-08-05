@@ -1,6 +1,8 @@
 == Subject
 This Engineering Report documents a CDB Experimental (CDB X) Conceptual Model as well as the results of CDB X rapid prototyping activites conducted during the 3D Geospatial Series Tech Sprint II - OGC CDB 2.0. This activity was performed in support of Special Operations Forces (SOF) Future Concepts. This effort hopes to accelerate evolution of the OGC CDB standard to meet the needs of planning, rehearsal, and Mission Command systems providing decision support to Special Operations Forces and enabling SOF tactical and operational advantage. OGC industry standards enable interoperability of geospatial data across systems and applications that SOF Operators and analysts use across warfighting functions.
 
+CDB X - Meeting the requirements for tactical GEOINT that can be used across warfighting functions.
+
 == Executive Summary
 
 Since 2018 the CDB community has discussed and considered what CDB version 2.0 might might provide in terms of capabilities. These discussion also touched on architecture and related logical models. Many of these CDB 2.0 discussion have occured as part of the OGC standards work. More recently, other organizations such as SOCOM and NGA, have vigorously engaged in these discussions. However, progress has been relatively slow. 
@@ -29,7 +31,6 @@ All questions regarding this document should be directed to the editor or the co
 [width="80%",options="header",caption=""]
 |====================
 |Name |Organization | Role
-| Tracey Birch | CloudLake/USSOCOM SOF AT&L | Editor
 | David Graham | Eaglecapsystems | Editor
 | Carl Reed, PhD | Carl Reed & Associates | Editor
 | Kevin Bentley | Cognitics | Contributor
@@ -37,13 +38,14 @@ All questions regarding this document should be directed to the editor or the co
 | Holly Black | CAE | Contributor
 | Hermann Bressard | Presagis | Contributor
 | Patrick Cozzi | CESIUM | Contributor
-| Brian Ford | FLightSAfety | Contributor
+| Brian Ford | FlightSAfety | Contributor
 | Ryan Franz | FlightSafety | Contributor
 | Jay Freeman | CAE | Contributor
 | Jérôme Jacovella-St-Louis | Ecere | Contributor
-| Michala Hill | Cognitics | Contributor/Facilitator
+| Michala Hill | Cognitics | Facilitator/Contributor
 | Greg Peele | Geometric Progress | Contributor
 | Vaughn Whisker | ARL PSU | Contributor
+| Tracey Birch | CloudLake/USSOCOM SOF AT&L | Emeritus
 |====================
 
 
