@@ -34,7 +34,6 @@ All questions regarding this document should be directed to the editor or the co
 | David Graham | Eaglecapsystems | Editor
 | Carl Reed, PhD | Carl Reed & Associates | Editor
 | Kevin Bentley | Cognitics | Contributor
-| Tracey Birch | CloudLake/USSOCOM SOF AT&L | Contributor/Faciltator
 | Holly Black | CAE | Contributor
 | Hermann Bressard | Presagis | Contributor
 | Patrick Cozzi | CESIUM | Contributor
