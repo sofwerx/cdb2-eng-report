@@ -2,7 +2,13 @@
 
 For the purposes of this report, the definitions specified in Clause 4 of the OWS Common Implementation Standard https://portal.opengeospatial.org/files/?artifact_id=38867&version=2[OGC 06-121r9] shall apply. In addition, the following terms and definitions apply.
 
-*4.1* +
+*4.x* +
+*authoritative data source* +
+An information technology (IT) term used by system designers to identify a system process that assures the veracity of data sources.  These IT processes should be followed by all geospatial data providers.  The data may be original or it may come from one or more external sources all of which are validated for quality and accuracy.
+
+(SOURCE: Authority and Authoritative Sources: Clarification of Terms and Concepts for Cadastral Data. FGDC/NIST 2008)
+
+*4.x* +
 *conceptual model* +
 description of common concepts and their relationships, particularly in order to facilitate exchange of information between parties within a specific domain. A conceptual model is explicitly chosen to be independent of design or implementation concerns.
 
