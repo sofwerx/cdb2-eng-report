@@ -467,10 +467,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#CDB2Models">7. CDB X Conceptual and Logical Models</a>
 <ul class="sectlevel2">
 <li><a href="#_cdb_x_design_goals_and_objectives">7.1. CDB X Design Goals and Objectives</a></li>
-<li><a href="#_3d_models">7.2. 3D Models</a></li>
-<li><a href="#_attribution">7.3. Attribution</a></li>
-<li><a href="#_tilingcoveragesimagery">7.4. Tiling/Coverages/Imagery</a></li>
-<li><a href="#_vector_data">7.5. Vector Data</a></li>
+<li><a href="#_definition_of_concepts">7.2. Definition of Concepts</a>
+<ul class="sectlevel3">
+<li><a href="#_foundation_data">7.2.1. Foundation Data</a></li>
+<li><a href="#_reference_systems">7.2.2. Reference Systems</a></li>
+</ul>
+</li>
+<li><a href="#_3d_models">7.3. 3D Models</a></li>
+<li><a href="#_attribution">7.4. Attribution</a></li>
+<li><a href="#_tilingcoveragesimagery">7.5. Tiling/Coverages/Imagery</a></li>
+<li><a href="#_vector_data">7.6. Vector Data</a></li>
 </ul>
 </li>
 <li><a href="#Attribution">Summary of history of CDB X attribution discussions.</a></li>
@@ -1155,19 +1161,56 @@ In the OGC, a major version number indicates that the new version is not backwar
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3d_models"><a class="anchor" href="#_3d_models"></a>7.2. 3D Models</h3>
+<h3 id="_definition_of_concepts"><a class="anchor" href="#_definition_of_concepts"></a>7.2. Definition of Concepts</h3>
+<div class="sect3">
+<h4 id="_foundation_data"><a class="anchor" href="#_foundation_data"></a>7.2.1. Foundation Data</h4>
+<div class="paragraph">
+<p>Foundation data are the authoritative data and models that have been curated per the rules defined in the CDB standard, and stored in a CDB repository. Foundation data uses known and agreed to controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and the required metadata has been documented.</p>
+</div>
+<div class="paragraph">
+<p>For example, as per the current CDB standard (and industry best practice), a road network (RoadNetwork dataset in CDB 1.2) could be considered as foundation data. In CDB 1.2, there are a set of requirements associated with how the roads data are structured and attributed and stored in a CDB repository.</p>
+</div>
+<div class="paragraph">
+<p>The specification of any foundation data layer (such as roads) can be done so at a logical model level that is 100% independent from the storage environment, end user use case and so on . . . but also having the requirements based on industry knowledge and use case requirements.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="paragraph">
+<p>Requirement: Roads shall be considered as a foundation data layer in a CDB repository.</p>
+</div>
+<div class="paragraph">
+<p>Sub-requirement: All roads in a roads layer SHALL use a known road classification system to identify the roads type. This could be the US DoT classification, the current FACC classification, or the newer GDDM.</p>
+</div>
+<div class="paragraph">
+<p>Sub-requirement: All roads SHALL be topologically structured. (This enables network analysis etc)</p>
+</div>
+<div class="paragraph">
+<p>Sub-requirements: As per current CDB standard.</p>
+</div>
+<div class="paragraph">
+<p>Notice that there is no mention of the actual storage structure, enabling software, storage formats, tiling</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reference_systems"><a class="anchor" href="#_reference_systems"></a>7.2.2. Reference Systems</h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3d_models"><a class="anchor" href="#_3d_models"></a>7.3. 3D Models</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_attribution"><a class="anchor" href="#_attribution"></a>7.3. Attribution</h3>
+<h3 id="_attribution"><a class="anchor" href="#_attribution"></a>7.4. Attribution</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_tilingcoveragesimagery"><a class="anchor" href="#_tilingcoveragesimagery"></a>7.4. Tiling/Coverages/Imagery</h3>
+<h3 id="_tilingcoveragesimagery"><a class="anchor" href="#_tilingcoveragesimagery"></a>7.5. Tiling/Coverages/Imagery</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_vector_data"><a class="anchor" href="#_vector_data"></a>7.5. Vector Data</h3>
+<h3 id="_vector_data"><a class="anchor" href="#_vector_data"></a>7.6. Vector Data</h3>
 <div id="img_geometry-model" class="imageblock text-center">
 <div class="content">
 <img src="images/Simple_Features_Model.jpg" alt="Simple Features Model" width="800">
@@ -1897,7 +1940,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-10 22:55:57 UTC
+Last updated 2020-08-10 23:53:21 UTC
 </div>
 </div>
 </body>
