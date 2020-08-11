@@ -11,6 +11,25 @@ The following are the design goals and objectives for a tiled CDB X repository.
 * Be fast :-)
 * All geometry for any vector feature data shall be compliant with the OGC/ISO Simple Features Geometry Model.
 
+=== Use Cases
+ 
+ The following are summaries of key use cases identified during this project.
+ 
+`Tactical Use Case`: Define a derivative and optional structure of the datasets in a form most suitable for tactical devices (CDB-T, where T is for tactical), such as ATAK
+
+(Gaming Use Case) Define a derivative and optional structure of the datasets in a form most suitable for gaming devices (CDB-G, where G is for gaming), such as Unreal or Unity
+(M&S Use Case) Define a derivative and optional structure of the datasets in a form most suitable for simulators (CDB-S, where S is for simulators)
+(Analytics Use Case) Define a derivative and optional structure of the datasets in a form most suitable for analytics using AI/ML (CDB-A, where A is for analytics)
+(Holistic Foundation) CDB-T, CDB-S, CDB-G and CDB-A structures must all be generated from the data defined in CDB-F
+(Correlation) CDB-T, CDB-S, CDB-G and CDB-A structures must correlate to the data defined in CDB-F 
+(Derivative and Optional structures) CDB-T, CDB-S, CDB-G and CDB-A structures must encode its rules and mechanisms for optimization in a self-describing form.
+(Optimization For Use Cases) CDB-S, CDB-G and CDB-T may tile/generate LODs and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of tiling schemes  (Profile should include Tiling structure, LOD structure, optimization, etc.) CDB-A may generate topology, extended attributes and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of relationship schemes 
+(Data Transport) Optimize the speed data synchronization between all echelons and data systems for CDB-F and CDB-T  
+(Deployment) CDB-F must be able to deploy on the cloud, relational databases and file system.
+(DDIL Deployment) CDB-F, CDB-T, and CDB-A must be able to deploy in DDIL environments. 
+(Configuration Management) Define an abstract mechanism for configuration management applicable to multiple deployment strategies (file systems, RDMS and cloud) relational databases for CDB-F, CDB-S, CDB-G, CDB-T and CDB-A.  Support Versioning, attribution, synchronization
+
+
 === Definition of Concepts
 
 ==== Foundation Data
