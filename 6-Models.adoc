@@ -1,8 +1,8 @@
 [[CDB2Models]]
 
-== CDB X Conceptual and Logical Models
+== CDB X Design Goals, Use Cases, and Conceptual/Logical Models
 
-This clause documents draft design objectives and CDB 2.0 Conceptual and Logical Models.
+This section documents draft design objectives, the targer use cases, and the CDB X Conceptual and Logical Models.
 
 === CDB X Design Goals and Objectives
 
