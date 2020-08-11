@@ -1158,6 +1158,18 @@ In the OGC, a major version number indicates that the new version is not backwar
 <li>
 <p>All geometry for any vector feature data shall be compliant with the OGC/ISO Simple Features Geometry Model.</p>
 </li>
+<li>
+<p>Correlation Requirement: CDB-T, CDB-S, CDB-G and CDB-A profiles shall correlate to the data defined in CDB-F</p>
+</li>
+<li>
+<p>Derivative and Optional structures: CDB-T, CDB-S, CDB-G and CDB-A profiles shall encode its rules and mechanisms for optimization in a self-describing form.</p>
+</li>
+<li>
+<p>Holistic Foundation: CDB-T, CDB-S, CDB-G and CDB-A structures shall all be generated from the data defined in CDB-F</p>
+</li>
+<li>
+<p>Deployment: CDB-F must be able to deploy on the cloud, relational databases and file system.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1180,27 +1192,25 @@ In the OGC, a major version number indicates that the new version is not backwar
 <p><code>Analytics Use Case</code> &lt;need short description&gt; Possible impact: Define a derivative and optional structure of the datasets in a form most suitable for analytics using AI/ML (CDB-A, where A is for analytics)</p>
 </div>
 <div class="paragraph">
-<p>(Holistic Foundation) CDB-T, CDB-S, CDB-G and CDB-A structures must all be generated from the data defined in CDB-F</p>
-</div>
-<div class="paragraph">
-<p>(Correlation) CDB-T, CDB-S, CDB-G and CDB-A structures must correlate to the data defined in CDB-F</p>
-</div>
-<div class="paragraph">
-<p>(Derivative and Optional structures) CDB-T, CDB-S, CDB-G and CDB-A structures must encode its rules and mechanisms for optimization in a self-describing form.</p>
-</div>
-<div class="paragraph">
-<p>(Optimization For Use Cases) CDB-S, CDB-G and CDB-T may tile/generate LODs and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of tiling schemes  (Profile should include Tiling structure, LOD structure, optimization, etc.) CDB-A may generate topology, extended attributes and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of relationship schemes</p>
-</div>
-<div class="paragraph">
 <p><code>Data Transport</code> &lt;need short description&gt; Possible impact: Optimize the speed data synchronization between all echelons and data systems for CDB-F and CDB-T</p>
 </div>
 <div class="paragraph">
-<p>(Deployment) CDB-F must be able to deploy on the cloud, relational databases and file system.
-(
-DDIL Deployment) CDB-F, CDB-T, and CDB-A must be able to deploy in DDIL environments.</p>
+<p><code>DDIL Deployment</code> CDB-F, CDB-T, and CDB-A must be able to deploy in DDIL environments.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of tiling schemes  (Profile should include Tiling structure, LOD structure, optimization, etc.) CDB-A may generate topology, extended attributes and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of relationship schemes
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>(Configuration Management) Define an abstract mechanism for configuration management applicable to multiple deployment strategies (file systems, RDMS and cloud) relational databases for CDB-F, CDB-S, CDB-G, CDB-T and CDB-A.  Support Versioning, attribution, synchronization</p>
+<p><strong>This is future work and actually would not be part of a core CDB-X standard Configuration Management.</strong>  Define an abstract mechanism for configuration management applicable to multiple deployment strategies (file systems, RDMS and cloud) relational databases for CDB-F, CDB-S, CDB-G, CDB-T and CDB-A.  Support Versioning, attribution, synchronization</p>
 </div>
 </div>
 <div class="sect2">
@@ -1983,7 +1993,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-11 19:24:34 UTC
+Last updated 2020-08-11 19:33:06 UTC
 </div>
 </div>
 </body>
