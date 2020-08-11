@@ -15,23 +15,23 @@ The following are the design goals and objectives for a tiled CDB X repository.
 
 ==== Foundation Data
 
-Foundation data are the authoritative data and models that have been curated per the rules defined in the CDB standard, and stored in a CDB repository. Foundation data uses known and agreed to controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and the required metadata has been documented.
+Foundation data are the authoritative data and models that have been curated per the rules defined in the CDB standard, and stored in a CDB repository. Foundation data utilizes known and consensus controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and the required metadata has been documented.
 
 For example, as per the current CDB standard (and industry best practice), a road network (RoadNetwork dataset in CDB 1.2) could be considered as foundation data. In CDB 1.2, there are a set of requirements associated with how the roads data are structured and attributed and stored in a CDB repository.
 
-The specification of any foundation data layer (such as roads) can be done so at a logical model level that is 100% independent from the storage environment, end user use case and so on . . . but also having the requirements based on industry knowledge and use case requirements.
+The specification of any foundation data layer (such as RoadNetwork) at the logical model level can be 100% independent from the storage environment, end user use case(s) and so on while at the same time also having the requirements based on industry knowledge and use case requirements.
 
 For example:
 
-Requirement: Roads shall be considered as a foundation data layer in a CDB repository.
+Requirement: The RoadNetwork shall be considered as a foundation data layer in a CDB repository.
 
 Sub-requirement: All roads in a roads layer SHALL use a known road classification system to identify the roads type. This could be the US DoT classification, the current FACC classification, or the newer GDDM.
 
-Sub-requirement: All roads SHALL be topologically structured. (This enables network analysis etc)
+Sub-requirement: The RoadNetwork SHALL be topologically structured. (This enables network analysis etc). NOTE: The how is not specified at the logical model level.
 
-Sub-requirements: As per current CDB standard.
+Sub-requirements: The RoadNetwork Dataset SHALL be used to specify all of the road networks..
 
-Notice that there is no mention of the actual storage structure, enabling software, storage formats, tiling
+Notice that there is no mention of the actual storage structure, enabling software, storage formats, tiling and so forth. 
 
 ==== Reference Systems
 
