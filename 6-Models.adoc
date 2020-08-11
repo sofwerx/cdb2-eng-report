@@ -13,7 +13,7 @@ The following are the design goals and objectives for a tiled CDB X repository.
 
 === Use Cases
  
- The following are summaries of key use cases identified during this project.
+The following are summaries of key use cases identified during this project.
  
 `Tactical Use Case`: Define a derivative and optional structure of the datasets in a form most suitable for tactical devices (CDB-T, where T is for tactical), such as ATAK
 
