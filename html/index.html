@@ -1165,31 +1165,31 @@ In the OGC, a major version number indicates that the new version is not backwar
 <div class="sect3">
 <h4 id="_foundation_data"><a class="anchor" href="#_foundation_data"></a>7.2.1. Foundation Data</h4>
 <div class="paragraph">
-<p>Foundation data are the authoritative data and models that have been curated per the rules defined in the CDB standard, and stored in a CDB repository. Foundation data uses known and agreed to controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and the required metadata has been documented.</p>
+<p>Foundation data are the authoritative data and models that have been curated per the rules defined in the CDB standard, and stored in a CDB repository. Foundation data utilizes known and consensus controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and the required metadata has been documented.</p>
 </div>
 <div class="paragraph">
 <p>For example, as per the current CDB standard (and industry best practice), a road network (RoadNetwork dataset in CDB 1.2) could be considered as foundation data. In CDB 1.2, there are a set of requirements associated with how the roads data are structured and attributed and stored in a CDB repository.</p>
 </div>
 <div class="paragraph">
-<p>The specification of any foundation data layer (such as roads) can be done so at a logical model level that is 100% independent from the storage environment, end user use case and so on . . . but also having the requirements based on industry knowledge and use case requirements.</p>
+<p>The specification of any foundation data layer (such as RoadNetwork) at the logical model level can be 100% independent from the storage environment, end user use case(s) and so on while at the same time also having the requirements based on industry knowledge and use case requirements.</p>
 </div>
 <div class="paragraph">
 <p>For example:</p>
 </div>
 <div class="paragraph">
-<p>Requirement: Roads shall be considered as a foundation data layer in a CDB repository.</p>
+<p>Requirement: The RoadNetwork shall be considered as a foundation data layer in a CDB repository.</p>
 </div>
 <div class="paragraph">
 <p>Sub-requirement: All roads in a roads layer SHALL use a known road classification system to identify the roads type. This could be the US DoT classification, the current FACC classification, or the newer GDDM.</p>
 </div>
 <div class="paragraph">
-<p>Sub-requirement: All roads SHALL be topologically structured. (This enables network analysis etc)</p>
+<p>Sub-requirement: The RoadNetwork SHALL be topologically structured. (This enables network analysis etc). NOTE: The how is not specified at the logical model level.</p>
 </div>
 <div class="paragraph">
-<p>Sub-requirements: As per current CDB standard.</p>
+<p>Sub-requirements: The RoadNetwork Dataset SHALL be used to specify all of the road networks..</p>
 </div>
 <div class="paragraph">
-<p>Notice that there is no mention of the actual storage structure, enabling software, storage formats, tiling</p>
+<p>Notice that there is no mention of the actual storage structure, enabling software, storage formats, tiling and so forth.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1940,7 +1940,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-10 23:53:21 UTC
+Last updated 2020-08-11 01:43:38 UTC
 </div>
 </div>
 </body>
