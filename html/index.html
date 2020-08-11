@@ -467,16 +467,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#CDB2Models">7. CDB X Conceptual and Logical Models</a>
 <ul class="sectlevel2">
 <li><a href="#_cdb_x_design_goals_and_objectives">7.1. CDB X Design Goals and Objectives</a></li>
-<li><a href="#_definition_of_concepts">7.2. Definition of Concepts</a>
+<li><a href="#_use_cases">7.2. Use Cases</a></li>
+<li><a href="#_definition_of_concepts">7.3. Definition of Concepts</a>
 <ul class="sectlevel3">
-<li><a href="#_foundation_data">7.2.1. Foundation Data</a></li>
-<li><a href="#_reference_systems">7.2.2. Reference Systems</a></li>
+<li><a href="#_foundation_data">7.3.1. Foundation Data</a></li>
+<li><a href="#_reference_systems">7.3.2. Reference Systems</a></li>
 </ul>
 </li>
-<li><a href="#_3d_models">7.3. 3D Models</a></li>
-<li><a href="#_attribution">7.4. Attribution</a></li>
-<li><a href="#_tilingcoveragesimagery">7.5. Tiling/Coverages/Imagery</a></li>
-<li><a href="#_vector_data">7.6. Vector Data</a></li>
+<li><a href="#_3d_models">7.4. 3D Models</a></li>
+<li><a href="#_attribution">7.5. Attribution</a></li>
+<li><a href="#_tilingcoveragesimagery">7.6. Tiling/Coverages/Imagery</a></li>
+<li><a href="#_vector_data">7.7. Vector Data</a></li>
 </ul>
 </li>
 <li><a href="#Attribution">Summary of history of CDB X attribution discussions.</a></li>
@@ -1161,9 +1162,33 @@ In the OGC, a major version number indicates that the new version is not backwar
 </div>
 </div>
 <div class="sect2">
-<h3 id="_definition_of_concepts"><a class="anchor" href="#_definition_of_concepts"></a>7.2. Definition of Concepts</h3>
+<h3 id="_use_cases"><a class="anchor" href="#_use_cases"></a>7.2. Use Cases</h3>
+<div class="literalblock">
+<div class="content">
+<pre>The following are summaries of key use cases identified during this project.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>Tactical Use Case</code>: Define a derivative and optional structure of the datasets in a form most suitable for tactical devices (CDB-T, where T is for tactical), such as ATAK</p>
+</div>
+<div class="paragraph">
+<p>(Gaming Use Case) Define a derivative and optional structure of the datasets in a form most suitable for gaming devices (CDB-G, where G is for gaming), such as Unreal or Unity
+(M&amp;S Use Case) Define a derivative and optional structure of the datasets in a form most suitable for simulators (CDB-S, where S is for simulators)
+(Analytics Use Case) Define a derivative and optional structure of the datasets in a form most suitable for analytics using AI/ML (CDB-A, where A is for analytics)
+(Holistic Foundation) CDB-T, CDB-S, CDB-G and CDB-A structures must all be generated from the data defined in CDB-F
+(Correlation) CDB-T, CDB-S, CDB-G and CDB-A structures must correlate to the data defined in CDB-F
+(Derivative and Optional structures) CDB-T, CDB-S, CDB-G and CDB-A structures must encode its rules and mechanisms for optimization in a self-describing form.
+(Optimization For Use Cases) CDB-S, CDB-G and CDB-T may tile/generate LODs and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of tiling schemes  (Profile should include Tiling structure, LOD structure, optimization, etc.) CDB-A may generate topology, extended attributes and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of relationship schemes
+(Data Transport) Optimize the speed data synchronization between all echelons and data systems for CDB-F and CDB-T
+(Deployment) CDB-F must be able to deploy on the cloud, relational databases and file system.
+(DDIL Deployment) CDB-F, CDB-T, and CDB-A must be able to deploy in DDIL environments.
+(Configuration Management) Define an abstract mechanism for configuration management applicable to multiple deployment strategies (file systems, RDMS and cloud) relational databases for CDB-F, CDB-S, CDB-G, CDB-T and CDB-A.  Support Versioning, attribution, synchronization</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_definition_of_concepts"><a class="anchor" href="#_definition_of_concepts"></a>7.3. Definition of Concepts</h3>
 <div class="sect3">
-<h4 id="_foundation_data"><a class="anchor" href="#_foundation_data"></a>7.2.1. Foundation Data</h4>
+<h4 id="_foundation_data"><a class="anchor" href="#_foundation_data"></a>7.3.1. Foundation Data</h4>
 <div class="paragraph">
 <p>Foundation data are the authoritative data and models that have been curated per the rules defined in the CDB standard, and stored in a CDB repository. Foundation data utilizes known and consensus controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and the required metadata has been documented.</p>
 </div>
@@ -1193,24 +1218,24 @@ In the OGC, a major version number indicates that the new version is not backwar
 </div>
 </div>
 <div class="sect3">
-<h4 id="_reference_systems"><a class="anchor" href="#_reference_systems"></a>7.2.2. Reference Systems</h4>
+<h4 id="_reference_systems"><a class="anchor" href="#_reference_systems"></a>7.3.2. Reference Systems</h4>
 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3d_models"><a class="anchor" href="#_3d_models"></a>7.3. 3D Models</h3>
+<h3 id="_3d_models"><a class="anchor" href="#_3d_models"></a>7.4. 3D Models</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_attribution"><a class="anchor" href="#_attribution"></a>7.4. Attribution</h3>
+<h3 id="_attribution"><a class="anchor" href="#_attribution"></a>7.5. Attribution</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_tilingcoveragesimagery"><a class="anchor" href="#_tilingcoveragesimagery"></a>7.5. Tiling/Coverages/Imagery</h3>
+<h3 id="_tilingcoveragesimagery"><a class="anchor" href="#_tilingcoveragesimagery"></a>7.6. Tiling/Coverages/Imagery</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_vector_data"><a class="anchor" href="#_vector_data"></a>7.6. Vector Data</h3>
+<h3 id="_vector_data"><a class="anchor" href="#_vector_data"></a>7.7. Vector Data</h3>
 <div id="img_geometry-model" class="imageblock text-center">
 <div class="content">
 <img src="images/Simple_Features_Model.jpg" alt="Simple Features Model" width="800">
@@ -1940,7 +1965,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-11 01:43:38 UTC
+Last updated 2020-08-11 01:46:28 UTC
 </div>
 </div>
 </body>
