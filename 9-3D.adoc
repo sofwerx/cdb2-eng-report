@@ -10,7 +10,10 @@ For CDB X, the particpants in the 3D Geospatial Series Tech Sprint II – OGC CD
 
 The remainder of this section discusses the findings of the comparison as well as lessons learned from the prototyping activity.
 
+[[Questions]]
 === Questions to be addressed
+
+Following are some of the questions that the 3D Modelling Subgroup initially identified as needing further discussion and possible experimentation. These formed the basis for the specific questions and approaches uses in the CDB-X 3D Prototyping and Experimentation.
 
 . Models be stored in GeoPackage (Editors Note: `Is this a good idea? One could store the glTF in the CDB data store without using GeoPackage - just as OpenFlight today. Need to think about also perhaps having I3S, 3D Tiles, CityGML and other encodings.`)
 . Models preferred to be glTF (others allowed) (glb package?)
@@ -29,6 +32,28 @@ The remainder of this section discusses the findings of the comparison as well a
 . Is there a way to map glTF Material vs CDB physical material?
 
 CDB catalog service for 3D tile inside a tile
+
+=== Short and Medium Term Objectives
+
+The following are the short and medium term objectives for the 3D Model Prototyping and Experimentation. These design objectives are based on the initial set of <<questions,questions>> posed by the CDB-X participants.
+
+. Support more 3D model encoding with metadata detailing which is used. Preserve OpenFlight (and potentially improve its usage), add glTF with extensions
+
+. Reduce file count and package models better while providing enough indexing data to allow readers to quickly extract only what they need. Metadata/catalog - support editing/replace use case
+
+. Address GS, GT, model instancing
+
+. Support Building interior with navigation mesh and collision mesh
+
+. Encode 3D models in glTF
+
+.. Node grouping, LOD grouping in json
+
+.. Define CDB extensions for glTF
+
+.. Look at tools to allow CDB attribution editing
+
+. Model packing with MetaData
 
 === Prototyping Experiments
 
