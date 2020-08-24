@@ -1,0 +1,265 @@
+== 
+
+[cols=",,,,,,",options="header",]
+|===
+a|
+=== OpenFlight Construct
+
+a|
+=== CDB Requirement/Guidelines +
+(all from Chapter 6)
+
+a|
+=== Notes
+
+a|
+=== glTF Equivalent
+
+a|
+=== New glTF extension required
+
+a|
+=== Mapping OF to glTF difficulty
+
+a|
+=== Implemented in converter prototype
+
+|Node Hierarchy a|
+Req 2 â€“ Global Zone
+
+Req 3 â€“ Model Zone
+
+Chap 6.5.6.1 â€“ Model Landing Zone
+
+Req 17 â€“ Model Footprint Zone
+
+Req 18 â€“ Model Footprint Hierarchy
+
+Req 19 â€“ Model Cutout Zone
+
+Req 20 â€“ Model Cutout Geometry
+
+Req 21 â€“ Model Pseudo-Interior Zone
+
+Req 22 â€“ Model Interior Zone
+
+Req 4 â€“ Layers
+
+|Chap 6.2 â€“ Using hierarchy to organize models helps identify components of intereset |Node Hierarchy fully supported |No |Easy |Yes
+|Comment Attribute a|
+Req 14 â€“ Zone Names
+
+Chap 6.5.3.1 â€“ Zone Material Index
+
+Req 16 â€“ Hot Spot Temperature
+
+Req 23 â€“ Model Point (Damage)
+
+Req 24 â€“ Model Point (DIS Origin)
+
+Req 25 â€“ Model Point (View Point)
+
+Chap 6.6.2.3 â€“ Model Attach Point
+
+Chap 6.6.2.4 â€“ Model Anchor Point
+
+Chap 6.6.2.5 â€“ Model Center of Mass
+
+Req 29 â€“ Damage State (Levels)
+
+Req 36 â€“ Model Vendor Attributes
+
+a|
+Comment field is used to extend OpenFlight node for CDB specialization for many uses
+
+A number of constructs are available in the OF spec that could be natively encoded in the format instead of using the comment field.
+
+|â€œextrasâ€ property allows storage of an object with any number of named properties |No |Easy |
+|Node Attribution |Req 13 â€“ Model Zone Bounding Box a|
+Group node has bounding box attribute
+
+Other attributes available on the node:
+
+Roof Flag
+
+Culture Footprint
+
+a|
+Primitives have min/max properties.
+
+For general nodes, we could store this in the extras property
+
+|No |Easy |
+|External Referencing a|
+Chap 6.2.4 â€“ Model Master File
+
+Req 6 â€“ Use XRef node to reference other files
+
+Chap 6.2.5.1 â€“ Models straddling multiple files
+
+Chap 6.2.5.2 â€“ Models with multiple LODs
+
+|Model Master File (comprised of xrefs) ensures a Model is seen as a single â€œobjectâ€ even though its constituents are stored in separate files |No external referencing |Yes |Difficult a|
+Partial
+
+The converter can parse external references and combine them into one gltf file (using mesh instancing for repeated references)
+
+|Level of Detail Node a|
+Chap 6.2.5.2 â€“ Models with multiple LODs
+
+Req 26 â€“ Significant Size
+
+Chap 6.8.1 â€“ Exchange LODs
+
+Chap 6.8.2 â€“ Additive LODs
+
+a|
+LOD node contained in XRefs in master file
+
+Significant Size attribute on LOD
+
+LOD node support exchange and additive LOD strategies
+
+a|
+Requires extension (MSFT_lod)
+
+No sig size. Works with switch in/out
+
+|Yes |Medium a|
+Yes
+
+Uses MSFT_lod extension
+
+|Switch Node a|
+Req 27 â€“ Switch Masks (one per state)
+
+Req 28 â€“ Switch Mask Names
+
+Req 29 â€“ Damage State (Transition)
+
+Req 31 â€“ Blur State (Transition)
+
+|Switch node supports multiple masks. Each mask can be named. |No native support for this. |Yes |Medium |
+|===
+
+[cols=",,,,,,",options="header",]
+|===
+|Degree of Freedom Node a|
+Req 32 â€“ Articulation
+
+Req 33 â€“ Gimbal Limits
+
+|DOF node supports min/max limits for each degree of articulation (translation, scale, rotation) a|
+Skins, Joints, Animations.
+
+glTF is more flexible/complex than OF when it comes to animated models
+
+|No |Medium |
+|Light Point Node |Req 35 â€“ Model Light Points |Light Point node can represent individual points or light â€˜stringâ€™ a|
+No native support.
+
+Existing extensions for light sources but these are a different concept than light points
+
+|Yes |Difficult |
+|Projection |Req 1 â€“ Specify Projections |Required projections for GTModel, GSModel, MModel and T2DModel |Could be specified in extras property at the scene level |No |Easy |
+|Coordinate System a|
+Req 7 â€“ X (left/right), Y (front/back), Z (bottom/top)
+
+Req 8 â€“ Origin (0,0,0)
+
+|These are native OpenFlight conventions a|
+glTF 2.0 uses a right-handed coordinate system, withÂ xÂ point right,Â yÂ point up andÂ zÂ backward
+
+Changing this requires an extension and would reduce performance and interoperability
+
+Would recommend keeping glTFâ€™s axis system and adjusting the standard if needed.
+
+|No |N/A |
+|Local Coordinate System |Chap 6.3.1.2 |Transformation Matrix is used to specify LCS |Transformations on nodes |No |Easy |Yes
+|Units |Char 6.3.1.3 |Header attribute is used to specify Units |Can be specified in extras property |No |Easy |
+|Instancing |Req 11 â€“ Avoid repeating identical pieces of geometry |Efficiency â€“ smaller database size a|
+Multiple nodes can instantiate the same mesh.
+
+However, there is no concept of node instancing. OF is more flexible
+
+|No |Medium |Yes
+|Mesh |Req 11 â€“ Favor mesh over polygons |Efficiency - smaller database size, fewer graphics states a|
+Mesh is supported and highly recommended over polygons.
+
+In OF many models use individual polygon nodes, but this would be inefficient in glTF. May lead to large geojson files.
+
+|No |Easy a|
+Yes
+
+Polygon nodes at the same level with the same textures are merged into one mesh
+
+|Vertex Ordering |Req 11 â€“ CCW order of verts define polygon â€˜frontâ€™ | |GLTF uses CCW ordering of vertices |No |Easy |Yes
+|Relative Priority |Req 12 â€“ Layers of coplanar geometry a|
+Relative Priority attribute atÂ :
+
+* Face
+* Mesh
+* Object
+* Group
+
+|Not supported natively. Could be stored in â€œextrasâ€ |No |Easy |
+|Textures a|
+Req 37 â€“ Textures stored in separate files from models
+
+Req 41 â€“ Relative Texture Paths
+
+Req 42 â€“ Object Shadow Attribute
+
+|Loading efficiency a|
+Textures supported.
+
+Materials in glTF are similar to extended materials in OF, but not all layers from openflight exist in glTF.
+
+Ex: Light map, specular map, reflection map.
+
+Material textures are not a concept in gltf. Would require extension.
+
+|Yes |Hard |
+|===
+
+== 
+
+== 
+
+== 
+
+== 
+
+== Supporting more than CDB 1.X:
+
+OpenFlight capabilities that could be leveraged:
+
+* Extensions
+* Extended Materials
+* Hotspots
+* LOD Transitions
+* Cultural Footprint
+* Point Nodes (Model Points instead of using tranforms)
+
+OpenFlight to glTF converter
+
+30 july 2020:
+
+* Command line tool converting OpenFlight file into glTF
+* Node hierarchy support and ported into glTF json file
+* Polygons are converted to mesh on a per group basis
+* No texture support yet
+* LOD: using MSFT_LOD extension
+** LOD attribution for Significant size is not present
+** LOD attribution â€¦.
+
+____
+image:extracted-media/media/image1.jpeg[image]image:extracted-media/media/image2.png[C:\Users\hermann\AppData\Local\Microsoft\Windows\INetCache\Content.Word\gltfNodes.PNG,width=246,height=562]
+
+glTF import in Blender
+
+image:extracted-media/media/image3.png[image]
+____
+
+* LOD nodes (Extension) are not supported in Blender â€“ imported as just a node, with all 3 LODs visible at the same time (but could be separated as they are in different nodes)
+* No node attribution
