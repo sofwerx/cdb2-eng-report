@@ -109,3 +109,7 @@ https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/FB_geomet
 https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit[KHR_materials_unlit] is an extension that defines an unlit shading model for use in glTF 2.0 materials, as an alternative to the Physically Based Rendering (PBR) shading models provided by the core specification. 
 
 https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform[KHR_texture_transform] is an extension that adds offset, rotation, and scale properties to textureInfo structures. These properties would typically be implemented as an affine transform on the UV coordinates. 
+
+=== CDB OpenFlight and glTF Feature Analysis
+
+include:: opf-gltf-analysis.adoc[]
