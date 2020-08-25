@@ -1518,6 +1518,30 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 <td class="tableblock halign-left valign-top"><p class="tableblock">* Align 3D model geometry attribution in order to support conversion between the two standards. Test that conversion in both directions.<br>
 * Support similar encoding (glTF) to support convergence as standards evolve.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Serve archiving/repository use case and runtime usage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Package 3D models LODs in an easy to edit manner while allowing fast runtime access of independent LODs.<br>
+* Increase 3D tools (edit and view) interoperability.<br>
+* Support multiple encoding with metadata to identify which one is used (Starting with OpenFlight and glTF).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Modernize CDB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Support newer 3D encoding formats (glTF initially)<br>
+* Support newer attribution (NAS/GGDM) in point feature and in 3D geometry<br>
+* Provide flexibility to extend 3D models components and attribution<br>
+* Review LOD “bins” in context of today’s GPU capabilities<br>
+* Added constructs for better game engine support (navigation and collision mesh, PBR etc..)<br>
+*Review lightpoint (Dataset and in 3D model), light source, lightmap.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Support SOF use cases : Same dataset for M&amp;S and C2 including the mission command and TAK devices</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* ATAK: Support 3D view and attribution<br>
+* ATAK:  Support building interior 3D encoding (and 2D floorplan?)<br>
+* ATAK:  Support packing 3D models in small memory footprint<br>
+* ATAK:  Support LOD selection “per model or per zone” to transfer only the required data<br>
+* Mission command: Support merging of CDB (Versioning) to cover large area<br>
+* Mission command: Support 3D WEB based map steaming</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -2074,7 +2098,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-25 23:00:40 UTC
+Last updated 2020-08-25 23:06:43 UTC
 </div>
 </div>
 </body>
