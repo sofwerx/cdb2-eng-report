@@ -497,10 +497,55 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#Questions">9.1. Questions to be addressed</a></li>
 <li><a href="#_cdb_x_requirements_for_3d_model_components">9.2. CDB X Requirements for 3D Model Components</a></li>
+<li><a href="#_short_and_medium_term_objectives">9.3. Short and Medium Term Objectives</a></li>
+<li><a href="#_prototyping_experiments">9.4. Prototyping Experiments</a></li>
+<li><a href="#_description_of_3d_formatsencodings_and_references_for_this_section">9.5. Description of 3D formats/encodings and References for this section:</a>
+<ul class="sectlevel3">
+<li><a href="#_openflight">9.5.1. OpenFlight</a></li>
+<li><a href="#_gl_transmission_format_gltf_2_0">9.5.2. GL Transmission Format (glTF) 2.0</a></li>
+</ul>
+</li>
+<li><a href="#_cdb_openflight_and_gltf_feature_analysis">9.6. CDB OpenFlight and glTF Feature Analysis</a></li>
+</ul>
+</li>
+<li><a href="#metadata">10. CDB X Metadata and Integration</a></li>
+</ul>
+</li>
+<li><a href="#_summary_of_history_of_cdb_x_metadata_discussions">Summary of history of CDB X metadata discussions.</a>
+<ul class="sectlevel3">
+<li><a href="#GeospatialMetadataGuidance">.1. Geospatial Metadata – Guidance</a></li>
+</ul>
+</li>
+<li><a href="#_phase_3_consensus_day_3">Phase 3 Consensus, Day 3</a></li>
+<li><a href="#_phase_3_day_4_2">Phase 3, Day 4</a></li>
+<li><a href="#_phase_3_day_5_2">Phase 3, Day 5</a></li>
+<li><a href="#_plan_for_experimentation_in_subsequent_phases_2">Plan for Experimentation in subsequent phases</a>
+<ul class="sectlevel1">
+<li><a href="#tiling">11. Tiling and Tiled Coverages</a></li>
+<li><a href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage">12. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</a>
+<ul class="sectlevel2">
+<li><a href="#_general_2">12.1. General</a>
+<ul class="sectlevel3">
+<li><a href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space">12.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</a></li>
+<li><a href="#_ogc_two_dimensional_tile_matrix_set_standard">12.1.2. OGC Two Dimensional Tile Matrix Set Standard</a></li>
+</ul>
+</li>
+<li><a href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers">12.2. Design Objectives for CDB X Tiling and LoDs and Layers</a></li>
+<li><a href="#_proposed_tiling_logical_model_for_cdb_x">12.3. Proposed Tiling Logical Model for CDB X</a></li>
+<li><a href="#_proposed_cdb_x_tiling_structure">12.4. Proposed CDB X Tiling Structure</a></li>
+<li><a href="#_additional_cdb_x_recommendations">12.5. Additional CDB X Recommendations</a>
+<ul class="sectlevel3">
+<li><a href="#_elevation_minmax">12.5.1. Elevation min/max</a></li>
+<li><a href="#_image_compression_jpeg">12.5.2. Image Compression - JPEG</a></li>
+<li><a href="#_materials">12.5.3. Materials</a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#RevisionHistory">Appendix A: Revision History</a></li>
+<li><a href="#Bibliography">Appendix B: Bibliography</a></li>
 </ul>
 </div>
 </div>
@@ -1466,208 +1511,557 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Requirement</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"Objectives*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Objectives</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Improve interoperability with OWT</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Align 3D model geometry attribution in order to support conversion between the two standards. Test that conversion in both directions.<br>
-- Support similar encoding (glTF) to support convergence as standards evolve.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Align 3D model geometry attribution in order to support conversion between the two standards. Test that conversion in both directions.<br>
+* Support similar encoding (glTF) to support convergence as standards evolve.</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">=== Short and Medium Term Objectives</p>
-<p class="tableblock">The following are the short and medium term objectives for the 3D Model Prototyping and Experimentation. These design objectives are based on the initial set of <a href="#questions">questions</a> posed by the CDB-X participants.</p>
-<p class="tableblock">. Support more 3D model encoding with metadata detailing which is used. Preserve OpenFlight (and potentially improve its usage), add glTF with extensions</p>
-<p class="tableblock">. Reduce file count and package models better while providing enough indexing data to allow readers to quickly extract only what they need. Metadata/catalog - support editing/replace use case</p>
-<p class="tableblock">. Address GS, GT, model instancing</p>
-<p class="tableblock">. Support Building interior with navigation mesh and collision mesh</p>
-<p class="tableblock">. Encode 3D models in glTF</p>
-<p class="tableblock">.. Node grouping, LOD grouping in json</p>
-<p class="tableblock">.. Define CDB extensions for glTF</p>
-<p class="tableblock">.. Look at tools to allow CDB attribution editing</p>
-<p class="tableblock">. Model packing with MetaData</p>
-<p class="tableblock">=== Prototyping Experiments</p>
-<p class="tableblock">Two profiles.</p>
-<p class="tableblock">Profile 1 Storing the mesh in as 3D tile: Experiments</p>
-<p class="tableblock">. Question: How to store LODs? In glTF extensions, In 3D tiles, in separate glTF
-. Question: Are there missing glTF constructs?</p>
-<p class="tableblock">Profile 2 Storing the mesh in as 3D tile (Editor&#8217;s note: <code>Why just 3D Tiles? Why not a more general approach that allows other encodings/approaches?</code>)</p>
-<p class="tableblock">. Question: What is the ability to source edit the mesh?
-. Question: Mixing GeoPackage with 3D tiles?
-. Question: CDB catalog service for 3D tile inside a tile</p>
-<p class="tableblock">Both Profile 1 and Profile 2</p>
-<p class="tableblock">. Question: What are the efficient format/packing for each different end-points:
-.. ATAK
-.. Mission command (wms/wfs)
-.. Modsim
-.. Gaming</p>
-<p class="tableblock">3d-model-prototyping.png
-[#img_3d-model-experiments,reftext='Figure ATTPh3 - 1']
-.Profles and Experiments for CBD-X 3D Models.
-image::images/3d-model-prototyping.png[width=800,align="center"]</p>
-<p class="tableblock">=== Description of 3D formats/encodings and References for this section:</p>
-<p class="tableblock">==== OpenFlight</p>
-<p class="tableblock">OpenFlight (or .flt) is an open, freely available 3d geometry model file format originally developed by Software Systems Inc. for its MultiGen real-time 3d modeling package. OpenFlight is a format supported widely in modeling and simulation community for dynamic and static 3D model. In CDB 1.x, OpenFlight is used for  the  representation  of  3D  dynamic  models  and  RGB  format  for  the  3D model’s textures. However, while widely used and there are extensive .flt model libraries, OpenFlight is long in the tooth.</p>
-<p class="tableblock"><a href="https://portal.opengeospatial.org/files/90663">OpenFlight v16</a></p>
-<p class="tableblock">==== GL Transmission Format (glTF) 2.0</p>
-<p class="tableblock">glTF is a royalty-free specification for the efficient transmission and loading of 3D scenes and models by applications. glTF uses the JSON standard. glTF is an API-neutral runtime asset delivery format developed by the Khronos Group 3D Formats Working Group.</p>
-<p class="tableblock"><a href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0">glTF 2.0</a> GitHub repo and description.</p>
-<p class="tableblock"><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_lights_punctual">KHR_lights_punctual</a> is an extension that defines a set of lights for use with glTF 2.0. Lights define light sources within a scene.</p>
-<p class="tableblock"><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_lod">MSFT_lod</a> is an extension that adds the ability to specify various Levels of Detail (LOD) to a glTF asset.</p>
-<p class="tableblock"><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/EXT_mesh_gpu_instancing">EXT_mesh_gpu_instancing</a> is an extension that is specfically designed to enable GPU instancing which renders many copies of a single mesh at once using a small number of draw calls. It&#8217;s useful for things like trees, grass, road signs, etc.</p>
-<p class="tableblock"><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/FB_geometry_metadata">FB_geometry_metadata</a> is an extension that annotates glTF scene objects with a summary of the cumulative geometric complexity and scene-space extents of the scene&#8217;s associated scene graph. <code>Editors note: While the computed total vertex and primitive count are metadata this is very limited metadata and may not meet the needs of the CDB X community.</code></p>
-<p class="tableblock"><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit">KHR_materials_unlit</a> is an extension that defines an unlit shading model for use in glTF 2.0 materials, as an alternative to the Physically Based Rendering (PBR) shading models provided by the core specification.</p>
-<p class="tableblock"><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform">KHR_texture_transform</a> is an extension that adds offset, rotation, and scale properties to textureInfo structures. These properties would typically be implemented as an affine transform on the UV coordinates.</p>
-<p class="tableblock">=== CDB OpenFlight and glTF Feature Analysis</p>
-<p class="tableblock">Unresolved directive in 9-3D.adoc - include:: opf-gltf-analysis.adoc[]</p>
-<p class="tableblock"><a id="metadata"></a></p>
-<p class="tableblock">:figure-caption: Figure Mtd_Ph3 -
-:figure-num: 0</p>
-<p class="tableblock">== CDB X Metadata and Integration</p>
-<p class="tableblock">This section discusses metadata in CDB X</p>
-<p class="tableblock">= Summary of history of CDB X metadata discussions.</p>
-<p class="tableblock">The earlier 'industry' versions, and OGC CDB 1.x versions of CDB contain a 'metadata' directory.  Despite the directory name, this is a collection of .XSD (XML Schema Definition) and associated .XML (eXtensible Markup Language) files that are essentially controlled vocabularies for elements of the CDB standard.</p>
-<p class="tableblock">In the OGC CDB  Github "Schema" repo, the contents of the root level are:</p>
-<p class="tableblock">[#img_CDB1-schema-root-level-files,reftext='Figure ATTPh3 - 2']
-.OGC CDB Schema Github Repo Root level files.
-image::images/CDB 1dotX schema repo root directory files.png[width=750,align="center"]</p>
-<p class="tableblock">and the contents of the Metadata subdirectory are:</p>
-<p class="tableblock">[#img_CDB1-schema-metadata-subdir-files,reftext='Figure ATTPh3 - 3']
-.OGC CDB Schema Github Repo Metadata sub-directory files.
-image::images/CDB 1dotX schema repo Metadata file directory.png[width=750,align="center"]</p>
-<p class="tableblock">OGC CDB V1.1 is a minor revision of OGC CDB that provides for optional global and local metadata.  The description of the new geospatial metadata provisions is in the Volume 1 Core document, in Section 5.1:</p>
-<p class="tableblock">[#img_CDB1dot2-Vol-1-new-geo-metadata,reftext='Figure ATTPh3 - 4']
-.OGC CDB V1.2 Volume 1 Table-of-Contents Exerpt.
-image::images/Metadata in CDB V1dot2.png[width=750,align="center"]</p>
-<p class="tableblock">For ease of reference, sections 5.1.10 thru 5.1.12 from Volume 1 of OGC CDB V1.2 are repeated here:</p>
-<p class="tableblock"><a id="GeospatialMetadataGuidance"></a>
-==== Geospatial Metadata – Guidance</p>
-<p class="tableblock">These are optional metadata files. This file is not included with the CDB distribution schema package.</p>
-<p class="tableblock">Most metadata standards specify dozens of possible elements, such as author, that can be specified in a metadata encoding. This is why in many communities there are profiles that are applicable to the information sharing and discovery requirements of that community. For example, there are numerous profiles of ISO 19115:2013 Geographic information – Metadata. These include the INSPIRE, Defence NSG Geospatial Core metadata, and FGDC profiles. As such, the CDB standard does not specify mandatory and/or optional metadata elements. Instead, a suggested set of minimal metadata elements are provided. The two lists – one for global and one for local – are based on an evaluation of mandatory elements in eight widely implemented metadata standards that are used in the geospatial and simulation communities. The one requirement is that all local metadata in a CDB data store provides the same mandatory elements as defined in the metadata standard specified in the Version metadata.</p>
-<p class="tableblock">These following two sub-clauses recommend the metadata elements for global and local metadata. The use of F.1 refers to Table F.1 in ISO 19115-1:2014. Each element is identified by a general string followed by two element names The first name is the DCAT name followed by the ISO 19115:2014 element name.</p>
-<p class="tableblock"><a id="SuggestedGlobalGeospatialMetadataElements"></a>
-===== Suggested Global Geospatial Metadata Elements</p>
-<p class="tableblock">Resource Identifier (dct:identifier, MD_Metadata.metadataIdentifier): A unique identifier for the entire CDB data store instance. This identifier is persistent and is considered global metadata. For example, this could be a Digital Object Identifier (DOI). The <strong>DOI</strong> system provides a framework for persistent identification of electronic resources management of intellectual content, managing metadata, linking customers with content suppliers, facilitating electronic commerce and enable automated management of media.</p>
-<p class="tableblock">Resource Title (<a href="http://purl.org/dc/terms/title">dct:title</a>, CI_Citation.title): Title by which the resource is known (Table F.1). For global metadata for a CDB data store, this would be a name given to the entire data store. For example, this could be “Yemen demonstration CDB data store.”</p>
-<p class="tableblock">Resource point of contact (dcat:contactPoint, (MD_Metadata.contact/CI_ResponsibleParty): Name of the person, position, or organization responsible for the resource. (Table F.1). This is a text string. An example of a resource point of contact could be “Flight Safety” or “CAE.”</p>
-<p class="tableblock">Resource reference date (dct:issued, CI_Citation.date): A date which is used to help identify the resource. (Table F.1). For global metadata, this is the date that the CDB data store was created or issued.</p>
-<p class="tableblock">Resource Language (dct:language, PT_Locale): The language and character set used in the resource (if a language is used). (Table F.1) NOTE: We should recommend use of ISO 639-2 . For example, for English, the code would be “ENG.”</p>
-<p class="tableblock">Geographic Location (dct:spatial, EX_GeographicBoundingBox): Geographic description or coordinates (latitude/longitude) which describes the location of the resource. Note: I think for the CDB standard that the definition should be narrowed to the bounding box of the contents of the data store. (Table F.1). We should also follow guidance from OGC OWS Common. See also 19115 annex B.3.1.2 Geographic extent information.</p>
-<p class="tableblock">Resource abstract (dct:description <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>, MD_DataIdentification.abstract): A brief description of the content of the resource (Table F.1).</p>
-<p class="tableblock">Metadata date stamp (dct:issued, MD_Metadata.dateInfo): Reference date(s) for the metadata, especially creation. (Table F.1). Note: Date gives values for year, month and day. Character encoding of a date is a string which shall follow the format for date specified by ISO 8601. This class is documented in full in ISO/TS 19103.</p>
-<p class="tableblock">Temporal Extent information for the dataset (dct:temporal, EX_TemporalExtent): The temporal extent of the resource. For a CDB data store, this would be the temporal range of when the data store was initially created to the point where the most recent content was created.</p>
-<p class="tableblock">Constraints on resource access and use (dct:accessRights, MD_SecurityConstraints): Security restrictions on the access and use of the resource. These would be constraints for an entire CDB data store. This could be information necessary to generate an EDH compliant encoding.</p>
-<p class="tableblock">Constraints on resource access and use (dct:license, MD_LegalConstraints): A sub-class of all access constraints. These legal constraints include copyright, patent, patent pending, trademark, license, Intellectual Property Rights, restricted, and other. At the global level, these are legal constraints applicable to an entire CDB data store.</p>
-<p class="tableblock">===== Suggested Local Geospatial Metadata Elements</p>
-<p class="tableblock">Local Geospatial metadata can be stored in a number of different folder locations based on the data resource (data set) for which the metadata is associated. For instance, metadata for vector data will be stored at the LoD/tile level. Metadata for a moving model would be stored in the same folder using the same path name as the actual model definition. See Clause 5.1.2 above for examples.
-+
-While the same metadata elements are recommended for both global and local geospatial metadata, there are some differences that should be considered.
-+
-<em>Metadata Reference Information</em> (dct:identifier, MD_Metadata.metadataIdentifier) This is a unique identifier for the dataset. In CDB, this could be the pathname to the dataset or the tile. These pathnames are unique. Using such identifers would facilitate development of a RESTful API for discovery and access of CDB resources.
-+
-<em>Resource Title</em> (<a href="http://purl.org/dc/terms/title">dct:title</a>, CI_Citation.title): Title by which the data set is known (Table F.1). For local metadata, this could be a name given to a layer or model in the data store. In a CDB data store, at the dataset or tile level this would be a name given to the resource, such as “county soils.”
-+
-<em>Resource point of contact</em>: Name of the person, position, or organization responsible for the resource. This is a text string. An example of a resource point of contact for the content for a given layer and tile could be “Ordnance Survey.”
-+
-<em>Resource reference date</em> (dct:issued , CI_Citation.date): A date which is used to help identify the resource. For local metadata, this could the date that the tile content was created in the CDB data store or the date a moving model was added to the data store
-+
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_short_and_medium_term_objectives"><a class="anchor" href="#_short_and_medium_term_objectives"></a>9.3. Short and Medium Term Objectives</h3>
+<div class="paragraph">
+<p>The following are the short and medium term objectives for the 3D Model Prototyping and Experimentation. These design objectives are based on the initial set of <a href="#questions">questions</a> posed by the CDB-X participants.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Support more 3D model encoding with metadata detailing which is used. Preserve OpenFlight (and potentially improve its usage), add glTF with extensions</p>
+</li>
+<li>
+<p>Reduce file count and package models better while providing enough indexing data to allow readers to quickly extract only what they need. Metadata/catalog - support editing/replace use case</p>
+</li>
+<li>
+<p>Address GS, GT, model instancing</p>
+</li>
+<li>
+<p>Support Building interior with navigation mesh and collision mesh</p>
+</li>
+<li>
+<p>Encode 3D models in glTF</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Node grouping, LOD grouping in json</p>
+</li>
+<li>
+<p>Define CDB extensions for glTF</p>
+</li>
+<li>
+<p>Look at tools to allow CDB attribution editing</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Model packing with MetaData</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prototyping_experiments"><a class="anchor" href="#_prototyping_experiments"></a>9.4. Prototyping Experiments</h3>
+<div class="paragraph">
+<p>Two profiles.</p>
+</div>
+<div class="paragraph">
+<p>Profile 1 Storing the mesh in as 3D tile: Experiments</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Question: How to store LODs? In glTF extensions, In 3D tiles, in separate glTF</p>
+</li>
+<li>
+<p>Question: Are there missing glTF constructs?</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Profile 2 Storing the mesh in as 3D tile (Editor&#8217;s note: <code>Why just 3D Tiles? Why not a more general approach that allows other encodings/approaches?</code>)</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Question: What is the ability to source edit the mesh?</p>
+</li>
+<li>
+<p>Question: Mixing GeoPackage with 3D tiles?</p>
+</li>
+<li>
+<p>Question: CDB catalog service for 3D tile inside a tile</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Both Profile 1 and Profile 2</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Question: What are the efficient format/packing for each different end-points:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>ATAK</p>
+</li>
+<li>
+<p>Mission command (wms/wfs)</p>
+</li>
+<li>
+<p>Modsim</p>
+</li>
+<li>
+<p>Gaming</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>3d-model-prototyping.png</p>
+</div>
+<div id="img_3d-model-experiments" class="imageblock text-center">
+<div class="content">
+<img src="images/3d-model-prototyping.png" alt="3d model prototyping" width="800">
+</div>
+<div class="title">Figure ATTPh3 - 8. Profles and Experiments for CBD-X 3D Models.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_description_of_3d_formatsencodings_and_references_for_this_section"><a class="anchor" href="#_description_of_3d_formatsencodings_and_references_for_this_section"></a>9.5. Description of 3D formats/encodings and References for this section:</h3>
+<div class="sect3">
+<h4 id="_openflight"><a class="anchor" href="#_openflight"></a>9.5.1. OpenFlight</h4>
+<div class="paragraph">
+<p>OpenFlight (or .flt) is an open, freely available 3d geometry model file format originally developed by Software Systems Inc. for its MultiGen real-time 3d modeling package. OpenFlight is a format supported widely in modeling and simulation community for dynamic and static 3D model. In CDB 1.x, OpenFlight is used for  the  representation  of  3D  dynamic  models  and  RGB  format  for  the  3D model’s textures. However, while widely used and there are extensive .flt model libraries, OpenFlight is long in the tooth.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.opengeospatial.org/files/90663">OpenFlight v16</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_gl_transmission_format_gltf_2_0"><a class="anchor" href="#_gl_transmission_format_gltf_2_0"></a>9.5.2. GL Transmission Format (glTF) 2.0</h4>
+<div class="paragraph">
+<p>glTF is a royalty-free specification for the efficient transmission and loading of 3D scenes and models by applications. glTF uses the JSON standard. glTF is an API-neutral runtime asset delivery format developed by the Khronos Group 3D Formats Working Group.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0">glTF 2.0</a> GitHub repo and description.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_lights_punctual">KHR_lights_punctual</a> is an extension that defines a set of lights for use with glTF 2.0. Lights define light sources within a scene.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_lod">MSFT_lod</a> is an extension that adds the ability to specify various Levels of Detail (LOD) to a glTF asset.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/EXT_mesh_gpu_instancing">EXT_mesh_gpu_instancing</a> is an extension that is specfically designed to enable GPU instancing which renders many copies of a single mesh at once using a small number of draw calls. It&#8217;s useful for things like trees, grass, road signs, etc.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/FB_geometry_metadata">FB_geometry_metadata</a> is an extension that annotates glTF scene objects with a summary of the cumulative geometric complexity and scene-space extents of the scene&#8217;s associated scene graph. <code>Editors note: While the computed total vertex and primitive count are metadata this is very limited metadata and may not meet the needs of the CDB X community.</code></p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit">KHR_materials_unlit</a> is an extension that defines an unlit shading model for use in glTF 2.0 materials, as an alternative to the Physically Based Rendering (PBR) shading models provided by the core specification.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform">KHR_texture_transform</a> is an extension that adds offset, rotation, and scale properties to textureInfo structures. These properties would typically be implemented as an affine transform on the UV coordinates.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cdb_openflight_and_gltf_feature_analysis"><a class="anchor" href="#_cdb_openflight_and_gltf_feature_analysis"></a>9.6. CDB OpenFlight and glTF Feature Analysis</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Unresolved directive in 9-3D.adoc - include</dt>
+<dd>
+<p>opf-gltf-analysis.adoc[]</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="metadata"><a class="anchor" href="#metadata"></a>10. CDB X Metadata and Integration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section discusses metadata in CDB X</p>
+</div>
+</div>
+</div>
+<h1 id="_summary_of_history_of_cdb_x_metadata_discussions" class="sect0"><a class="anchor" href="#_summary_of_history_of_cdb_x_metadata_discussions"></a>Summary of history of CDB X metadata discussions.</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>The earlier 'industry' versions, and OGC CDB 1.x versions of CDB contain a 'metadata' directory.  Despite the directory name, this is a collection of .XSD (XML Schema Definition) and associated .XML (eXtensible Markup Language) files that are essentially controlled vocabularies for elements of the CDB standard.</p>
+</div>
+<div class="paragraph">
+<p>In the OGC CDB  Github "Schema" repo, the contents of the root level are:</p>
+</div>
+<div id="img_CDB1-schema-root-level-files" class="imageblock text-center">
+<div class="content">
+<img src="images/CDB%201dotX%20schema%20repo%20root%20directory%20files.png" alt="CDB 1dotX schema repo root directory files" width="750">
+</div>
+<div class="title">Figure Mtd_Ph3 - 9. OGC CDB Schema Github Repo Root level files.</div>
+</div>
+<div class="paragraph">
+<p>and the contents of the Metadata subdirectory are:</p>
+</div>
+<div id="img_CDB1-schema-metadata-subdir-files" class="imageblock text-center">
+<div class="content">
+<img src="images/CDB%201dotX%20schema%20repo%20Metadata%20file%20directory.png" alt="CDB 1dotX schema repo Metadata file directory" width="750">
+</div>
+<div class="title">Figure Mtd_Ph3 - 10. OGC CDB Schema Github Repo Metadata sub-directory files.</div>
+</div>
+<div class="paragraph">
+<p>OGC CDB V1.1 is a minor revision of OGC CDB that provides for optional global and local metadata.  The description of the new geospatial metadata provisions is in the Volume 1 Core document, in Section 5.1:</p>
+</div>
+<div id="img_CDB1dot2-Vol-1-new-geo-metadata" class="imageblock text-center">
+<div class="content">
+<img src="images/Metadata%20in%20CDB%20V1dot2.png" alt="Metadata in CDB V1dot2" width="750">
+</div>
+<div class="title">Figure Mtd_Ph3 - 11. OGC CDB V1.2 Volume 1 Table-of-Contents Exerpt.</div>
+</div>
+<div class="paragraph">
+<p>For ease of reference, sections 5.1.10 thru 5.1.12 from Volume 1 of OGC CDB V1.2 are repeated here:</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="GeospatialMetadataGuidance"><a class="anchor" href="#GeospatialMetadataGuidance"></a>.1. Geospatial Metadata – Guidance</h4>
+<div class="paragraph">
+<p>These are optional metadata files. This file is not included with the CDB distribution schema package.</p>
+</div>
+<div class="paragraph">
+<p>Most metadata standards specify dozens of possible elements, such as author, that can be specified in a metadata encoding. This is why in many communities there are profiles that are applicable to the information sharing and discovery requirements of that community. For example, there are numerous profiles of ISO 19115:2013 Geographic information – Metadata. These include the INSPIRE, Defence NSG Geospatial Core metadata, and FGDC profiles. As such, the CDB standard does not specify mandatory and/or optional metadata elements. Instead, a suggested set of minimal metadata elements are provided. The two lists – one for global and one for local – are based on an evaluation of mandatory elements in eight widely implemented metadata standards that are used in the geospatial and simulation communities. The one requirement is that all local metadata in a CDB data store provides the same mandatory elements as defined in the metadata standard specified in the Version metadata.</p>
+</div>
+<div class="paragraph">
+<p>These following two sub-clauses recommend the metadata elements for global and local metadata. The use of F.1 refers to Table F.1 in ISO 19115-1:2014. Each element is identified by a general string followed by two element names The first name is the DCAT name followed by the ISO 19115:2014 element name.</p>
+</div>
+<div class="sect4">
+<h5 id="SuggestedGlobalGeospatialMetadataElements"><a class="anchor" href="#SuggestedGlobalGeospatialMetadataElements"></a>Suggested Global Geospatial Metadata Elements</h5>
+<div class="paragraph">
+<p>Resource Identifier (dct:identifier, MD_Metadata.metadataIdentifier): A unique identifier for the entire CDB data store instance. This identifier is persistent and is considered global metadata. For example, this could be a Digital Object Identifier (DOI). The <strong>DOI</strong> system provides a framework for persistent identification of electronic resources management of intellectual content, managing metadata, linking customers with content suppliers, facilitating electronic commerce and enable automated management of media.</p>
+</div>
+<div class="paragraph">
+<p>Resource Title (<a href="http://purl.org/dc/terms/title">dct:title</a>, CI_Citation.title): Title by which the resource is known (Table F.1). For global metadata for a CDB data store, this would be a name given to the entire data store. For example, this could be “Yemen demonstration CDB data store.”</p>
+</div>
+<div class="paragraph">
+<p>Resource point of contact (dcat:contactPoint, (MD_Metadata.contact/CI_ResponsibleParty): Name of the person, position, or organization responsible for the resource. (Table F.1). This is a text string. An example of a resource point of contact could be “Flight Safety” or “CAE.”</p>
+</div>
+<div class="paragraph">
+<p>Resource reference date (dct:issued, CI_Citation.date): A date which is used to help identify the resource. (Table F.1). For global metadata, this is the date that the CDB data store was created or issued.</p>
+</div>
+<div class="paragraph">
+<p>Resource Language (dct:language, PT_Locale): The language and character set used in the resource (if a language is used). (Table F.1) NOTE: We should recommend use of ISO 639-2 . For example, for English, the code would be “ENG.”</p>
+</div>
+<div class="paragraph">
+<p>Geographic Location (dct:spatial, EX_GeographicBoundingBox): Geographic description or coordinates (latitude/longitude) which describes the location of the resource. Note: I think for the CDB standard that the definition should be narrowed to the bounding box of the contents of the data store. (Table F.1). We should also follow guidance from OGC OWS Common. See also 19115 annex B.3.1.2 Geographic extent information.</p>
+</div>
+<div class="paragraph">
+<p>Resource abstract (dct:description <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>, MD_DataIdentification.abstract): A brief description of the content of the resource (Table F.1).</p>
+</div>
+<div class="paragraph">
+<p>Metadata date stamp (dct:issued, MD_Metadata.dateInfo): Reference date(s) for the metadata, especially creation. (Table F.1). Note: Date gives values for year, month and day. Character encoding of a date is a string which shall follow the format for date specified by ISO 8601. This class is documented in full in ISO/TS 19103.</p>
+</div>
+<div class="paragraph">
+<p>Temporal Extent information for the dataset (dct:temporal, EX_TemporalExtent): The temporal extent of the resource. For a CDB data store, this would be the temporal range of when the data store was initially created to the point where the most recent content was created.</p>
+</div>
+<div class="paragraph">
+<p>Constraints on resource access and use (dct:accessRights, MD_SecurityConstraints): Security restrictions on the access and use of the resource. These would be constraints for an entire CDB data store. This could be information necessary to generate an EDH compliant encoding.</p>
+</div>
+<div class="paragraph">
+<p>Constraints on resource access and use (dct:license, MD_LegalConstraints): A sub-class of all access constraints. These legal constraints include copyright, patent, patent pending, trademark, license, Intellectual Property Rights, restricted, and other. At the global level, these are legal constraints applicable to an entire CDB data store.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_suggested_local_geospatial_metadata_elements"><a class="anchor" href="#_suggested_local_geospatial_metadata_elements"></a>Suggested Local Geospatial Metadata Elements</h5>
+<div class="paragraph">
+<p>Local Geospatial metadata can be stored in a number of different folder locations based on the data resource (data set) for which the metadata is associated. For instance, metadata for vector data will be stored at the LoD/tile level. Metadata for a moving model would be stored in the same folder using the same path name as the actual model definition. See Clause 5.1.2 above for examples.</p>
+</div>
+<div class="paragraph">
+<p>+
+While the same metadata elements are recommended for both global and local geospatial metadata, there are some differences that should be considered.</p>
+</div>
+<div class="paragraph">
+<p>+
+<em>Metadata Reference Information</em> (dct:identifier, MD_Metadata.metadataIdentifier) This is a unique identifier for the dataset. In CDB, this could be the pathname to the dataset or the tile. These pathnames are unique. Using such identifers would facilitate development of a RESTful API for discovery and access of CDB resources.</p>
+</div>
+<div class="paragraph">
+<p>+
+<em>Resource Title</em> (<a href="http://purl.org/dc/terms/title">dct:title</a>, CI_Citation.title): Title by which the data set is known (Table F.1). For local metadata, this could be a name given to a layer or model in the data store. In a CDB data store, at the dataset or tile level this would be a name given to the resource, such as “county soils.”</p>
+</div>
+<div class="paragraph">
+<p>+
+<em>Resource point of contact</em>: Name of the person, position, or organization responsible for the resource. This is a text string. An example of a resource point of contact for the content for a given layer and tile could be “Ordnance Survey.”</p>
+</div>
+<div class="paragraph">
+<p>+
+<em>Resource reference date</em> (dct:issued , CI_Citation.date): A date which is used to help identify the resource. For local metadata, this could the date that the tile content was created in the CDB data store or the date a moving model was added to the data store</p>
+</div>
+<div class="paragraph">
+<p>+
 <em>Spatial Resolution Information</em> (No equivalent, MD_Identification.spatialResolution): The nominal scale and/or spatial resolution of the resource. This description can include LoD information. Note: This is not precision! Precision is more about the number of decimal places and not the accuracy of the resource.</p>
-<p class="tableblock">===== Where are local metadata files stored?</p>
-<p class="tableblock">Typically, local metadata files will be stored with the physical data. For GTModel geotypical data sets, the metadata file would be stored along with the model XML file. If the model is stored in multiple LoDs, the metadata would also be stored at each LoD. For tiled vector data, the local metadata would be stored with the vector files at the tile level. Please see the esamples in Section 3.0 for more detail.</p>
-<p class="tableblock">= Phase 3 Consensus, Day 3</p>
-<p class="tableblock">[#img_Metadata-sub-team-consensus,reftext='Figure ATTPh3 - 5']
-.Day 3 Consensus and formation of the Metadata / Integration sub-team.
-image::images/Metadata sub-team consensus.png[width=250,align="center"]</p>
-<p class="tableblock">= Phase 3, Day 4</p>
-<p class="tableblock">[#img_Metadata-Day-4-Whiteboard,reftext='Figure ATTPh3 - 6']
-.Metadata Day 4 Whiteboard.
-image::images/Metadata Ph3 Day 4.png[width=1000,align="center"]</p>
-<p class="tableblock">= Phase 3, Day 5</p>
-<p class="tableblock">[#img_Attribution-Day-4-Whiteboard,reftext='Figure ATTPh3 - 7']
-.Metadata Day 5 Whiteboard.
-image::images/Metadata Ph3 Day 5.png[width=1000,align="center"]</p>
-<p class="tableblock">= Plan for Experimentation in subsequent phases</p>
-<p class="tableblock"><a id="tiling"></a>
-==  Tiling and Tiled Coverages</p>
-<p class="tableblock">== CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</p>
-<p class="tableblock">This clause provides discussion of tiled data and GeoPackage requirements and the results of the prototyping activities.</p>
-<p class="tableblock">=== General</p>
-<p class="tableblock">Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the:</p>
-<p class="tableblock">* <a href="https://portal.ogc.org/files/?artifact_id=92962&amp;version=1">OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</a> (19-014r3)
-* <a href="https://www.ogc.org/standards/tms">OGC Two Dimensional Tile Matrix Set Standard</a> (17-083r2)</p>
-<p class="tableblock">==== OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</p>
-<p class="tableblock">This OGC Abstract Specification consists of two Parts: A General Tiling Conceptual Model and, based on the Conceptual Model, a Logical Model for the Tessellation (Tiling) of 2D Euclidean Space. Tiling  of  2D  Euclidean  space  is  the  most  commonly  known  approach  to  partitioning  space  in traditional  geospatial  technology.  However,  there  are  also  common  elements  and/or  semantics  for any approach to partitioning space in any dimension. The logical model in this document defines a set  common  required  elements  and  then  follows  with  more  specific  requirements  for  the  two dimensional case.</p>
-<p class="tableblock">Part  1  of  the  Abstract  Specification  describes  a  general  tiling  conceptual  model.  The  conceptual model  is  applicable  to  any  dimension.  The  conceptual  model  makes  no  assumptions  regarding content,  use  cases,  implementation  scenarios,  or  how  the  space  is  to  be  tessellated  (tiled).  The conceptual model is abstract and cannot be implemented as is.</p>
-<p class="tableblock">Part  2  of  the Tiling  Abstract  Specification  defines  a  detailed  logical  model  for  the  tessellation  of  2D Euclidean  Space.  One  or  more  logical  models  are  required  to  provide  the  requirements  and structure  necessary  for  implementation.  Therefore,  in  addition  to  the  conceptual  model,  this Abstract Specification also specifies a core logical model for the 2D planar (Euclidean) use case.</p>
-<p class="tableblock">==== OGC Two Dimensional Tile Matrix Set Standard</p>
-<p class="tableblock">The OGC Tile Matrix Set standard defines the rules and requirements for a tile matrix set as a way to index space based on a set of regular grids defining a domain (tile matrix) for a limited list of scales in a Coordinate Reference System (CRS) as defined in [OGC 08-015r2] Abstract Specification Topic 2: Spatial Referencing by Coordinates. Each tile matrix is divided into regular tiles. In a tile matrix set, a tile can be univocally identified by a tile column a tile row and a tile matrix identifier. This document presents a data structure defining the properties of the tile matrix set in both UML diagrams and in tabular form. This document also presents a data structure to define a subset of a tile matrix set called tile matrix set limits. XML and JSON encodings are suggested both for tile matrix sets and tile matrix set limits. Finally, the document offers practical examples of tile matrix sets both for common global projections and for specific regions.</p>
-<p class="tableblock">=== Design Objectives for CDB X Tiling and LoDs and Layers</p>
-<p class="tableblock">The following are the key design principals for a CDB X tiling, levels of detail, and layering.</p>
-<p class="tableblock">* OGC GeoPackage structured containers are a primary storage format for derived vector data layers, coverages, and other data types as identified (<code>TBD</code>). The two OGC Standards of relevance are <a href="https://portal.opengeospatial.org/files/12-128r15">OGC GeoPackage version 1.1</a> and <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">OGC GeoPackage Extension for Tiled Gridded Coverage Data</a>.
-* Have metadata for whole dataset listing how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)
-* Store imagery in GeoPackage according to the tiling scheme specified below (<code>need anchor</code>)
-* Store coverage data in GeoPackage according to the tiling scheme specified below (<code>need anchor</code>). Suggested coverage types based on current CDB standard and user specified requirements: (Spherical body surface): Elevation models, imagery, multi-spectral, raster (such as classified satellite imagery). Should be extensible to support other types.
-* Coordinate Reference System is WGS 84 with epoch encoding (same as current CDB Standard except for epoch).
-* Need to keep the  various encodings that CDB 1.x already has:
-<strong> Integer Elevation
-</strong> 8-bit Raster Material Mixtures
-** Imagery Compression:
-* Must enable a "relatively" easy migration path from the CDB 1.1/1.2 tiling/LoD structure into the CDB X structure.
-* CDB X must support integer compressed heights (elevations)
-* CDB X must support GeoTIFF as an encoding for images.</p>
-<p class="tableblock">=== Proposed Tiling Logical Model for CDB X</p>
-<p class="tableblock">The following figure, based on the Tiling Abstract Specification Logical Model and the CDB 1.x Conceptual Model, shows the properties by class (concept) and the relationships between the classes.</p>
-<p class="tableblock">[#img_logical-model,reftext='Figure ATTPh3 - 8']
-.Logical Model for partitioning based on tiles in CDB X.
-image::images/tiling_logical_model.jpg[width=800,align="center"]</p>
-<p class="tableblock">=== Proposed CDB X Tiling Structure</p>
-<p class="tableblock">This section describes the proposed tiling structure and LoD (levels?) structure in CDB X. (<code>Probably need small section on consistenccy with version 1.x?</code>)</p>
-<p class="tableblock">Using  GPKG Tiled Gridded Coverage standard. Discussed "materials" and their requirements as coverages. Suggest a change request to allow 8, 16 bit and 32 TIFF (integer or float). (Not only for materials, but also heights (aka elevation))</p>
-<p class="tableblock">For any CDB or data layer, pick one of: CDB 1.x grid or GNOSISGlobalGrid (better equal area approximation for polar regions, constant tile size even at overview LODs)</p>
-<p class="tableblock">Current GPKG TMS draft: <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions">GPKG TMS Extension (Draft)</a></p>
-<p class="tableblock">- TileMatrixSet compatibility</p>
-<p class="tableblock">(topLeftCorner, Variable width)</p>
-<p class="tableblock">- Reference same TMS from multiple layers</p>
-<p class="tableblock">Sample GeoPackage using TMS / GNOSISGlobalGrid for both elevation &amp; vector data tiles: <a href="https://portal.ogc.org/files/?artifact_id=92565" class="bare">https://portal.ogc.org/files/?artifact_id=92565</a></p>
-<p class="tableblock">=== Additional CDB X Recommendations</p>
-<p class="tableblock">The following are recommendations and suggested additional discussion topics. These recommendations and discussion topics resulted from the Tiling sub-groups discussion on an enhanced tiling model for CDB X and the potential impacts on the various data types (layers) in the current CDB standard and existing CDB data stores.</p>
-<p class="tableblock">==== Elevation min/max</p>
-<p class="tableblock">CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded coverage contained in a tile to the tile metadata. Note: The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.</p>
-<p class="tableblock">==== Image Compression - JPEG</p>
-<p class="tableblock">Recommendation: That loss-less image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: <a href="https://flif.info/">FLIF - Free Lossless Image Format</a>.NOTE: JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases.</p>
-<p class="tableblock">==== Materials</p>
-<p class="tableblock">Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with reflectance in wavelengths other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.</p>
-<p class="tableblock">[appendix]
-<a id="RevisionHistory"></a>
-= Revision History</p>
-<p class="tableblock">===============================================
-replace below entries as needed
-===============================================</p>
-<p class="tableblock">.Revision History
-[width="90%",options="header"]</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">====================</p></td>
-</tr>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_where_are_local_metadata_files_stored"><a class="anchor" href="#_where_are_local_metadata_files_stored"></a>Where are local metadata files stored?</h5>
+<div class="paragraph">
+<p>Typically, local metadata files will be stored with the physical data. For GTModel geotypical data sets, the metadata file would be stored along with the model XML file. If the model is stored in multiple LoDs, the metadata would also be stored at each LoD. For tiled vector data, the local metadata would be stored with the vector files at the tile level. Please see the esamples in Section 3.0 for more detail.</p>
+</div>
+</div>
+</div>
+<h1 id="_phase_3_consensus_day_3" class="sect0"><a class="anchor" href="#_phase_3_consensus_day_3"></a>Phase 3 Consensus, Day 3</h1>
+<div class="openblock partintro">
+<div class="content">
+<div id="img_Metadata-sub-team-consensus" class="imageblock text-center">
+<div class="content">
+<img src="images/Metadata%20sub-team%20consensus.png" alt="Metadata sub team consensus" width="250">
+</div>
+<div class="title">Figure Mtd_Ph3 - 12. Day 3 Consensus and formation of the Metadata / Integration sub-team.</div>
+</div>
+</div>
+</div>
+<h1 id="_phase_3_day_4_2" class="sect0"><a class="anchor" href="#_phase_3_day_4_2"></a>Phase 3, Day 4</h1>
+<div class="openblock partintro">
+<div class="content">
+<div id="img_Metadata-Day-4-Whiteboard" class="imageblock text-center">
+<div class="content">
+<img src="images/Metadata%20Ph3%20Day%204.png" alt="Metadata Ph3 Day 4" width="1000">
+</div>
+<div class="title">Figure Mtd_Ph3 - 13. Metadata Day 4 Whiteboard.</div>
+</div>
+</div>
+</div>
+<h1 id="_phase_3_day_5_2" class="sect0"><a class="anchor" href="#_phase_3_day_5_2"></a>Phase 3, Day 5</h1>
+<div class="openblock partintro">
+<div class="content">
+<div id="img_Attribution-Day-4-Whiteboard" class="imageblock text-center">
+<div class="content">
+<img src="images/Metadata%20Ph3%20Day%205.png" alt="Metadata Ph3 Day 5" width="1000">
+</div>
+<div class="title">Figure Mtd_Ph3 - 14. Metadata Day 5 Whiteboard.</div>
+</div>
+</div>
+</div>
+<h1 id="_plan_for_experimentation_in_subsequent_phases_2" class="sect0"><a class="anchor" href="#_plan_for_experimentation_in_subsequent_phases_2"></a>Plan for Experimentation in subsequent phases</h1>
+<div class="sect1">
+<h2 id="tiling"><a class="anchor" href="#tiling"></a>11. Tiling and Tiled Coverages</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"><a class="anchor" href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"></a>12. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This clause provides discussion of tiled data and GeoPackage requirements and the results of the prototyping activities.</p>
+</div>
+<div class="sect2">
+<h3 id="_general_2"><a class="anchor" href="#_general_2"></a>12.1. General</h3>
+<div class="paragraph">
+<p>Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://portal.ogc.org/files/?artifact_id=92962&amp;version=1">OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</a> (19-014r3)</p>
+</li>
+<li>
+<p><a href="https://www.ogc.org/standards/tms">OGC Two Dimensional Tile Matrix Set Standard</a> (17-083r2)</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"><a class="anchor" href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"></a>12.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</h4>
+<div class="paragraph">
+<p>This OGC Abstract Specification consists of two Parts: A General Tiling Conceptual Model and, based on the Conceptual Model, a Logical Model for the Tessellation (Tiling) of 2D Euclidean Space. Tiling  of  2D  Euclidean  space  is  the  most  commonly  known  approach  to  partitioning  space  in traditional  geospatial  technology.  However,  there  are  also  common  elements  and/or  semantics  for any approach to partitioning space in any dimension. The logical model in this document defines a set  common  required  elements  and  then  follows  with  more  specific  requirements  for  the  two dimensional case.</p>
+</div>
+<div class="paragraph">
+<p>Part  1  of  the  Abstract  Specification  describes  a  general  tiling  conceptual  model.  The  conceptual model  is  applicable  to  any  dimension.  The  conceptual  model  makes  no  assumptions  regarding content,  use  cases,  implementation  scenarios,  or  how  the  space  is  to  be  tessellated  (tiled).  The conceptual model is abstract and cannot be implemented as is.</p>
+</div>
+<div class="paragraph">
+<p>Part  2  of  the Tiling  Abstract  Specification  defines  a  detailed  logical  model  for  the  tessellation  of  2D Euclidean  Space.  One  or  more  logical  models  are  required  to  provide  the  requirements  and structure  necessary  for  implementation.  Therefore,  in  addition  to  the  conceptual  model,  this Abstract Specification also specifies a core logical model for the 2D planar (Euclidean) use case.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ogc_two_dimensional_tile_matrix_set_standard"><a class="anchor" href="#_ogc_two_dimensional_tile_matrix_set_standard"></a>12.1.2. OGC Two Dimensional Tile Matrix Set Standard</h4>
+<div class="paragraph">
+<p>The OGC Tile Matrix Set standard defines the rules and requirements for a tile matrix set as a way to index space based on a set of regular grids defining a domain (tile matrix) for a limited list of scales in a Coordinate Reference System (CRS) as defined in [OGC 08-015r2] Abstract Specification Topic 2: Spatial Referencing by Coordinates. Each tile matrix is divided into regular tiles. In a tile matrix set, a tile can be univocally identified by a tile column a tile row and a tile matrix identifier. This document presents a data structure defining the properties of the tile matrix set in both UML diagrams and in tabular form. This document also presents a data structure to define a subset of a tile matrix set called tile matrix set limits. XML and JSON encodings are suggested both for tile matrix sets and tile matrix set limits. Finally, the document offers practical examples of tile matrix sets both for common global projections and for specific regions.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_design_objectives_for_cdb_x_tiling_and_lods_and_layers"><a class="anchor" href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers"></a>12.2. Design Objectives for CDB X Tiling and LoDs and Layers</h3>
+<div class="paragraph">
+<p>The following are the key design principals for a CDB X tiling, levels of detail, and layering.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>OGC GeoPackage structured containers are a primary storage format for derived vector data layers, coverages, and other data types as identified (<code>TBD</code>). The two OGC Standards of relevance are <a href="https://portal.opengeospatial.org/files/12-128r15">OGC GeoPackage version 1.1</a> and <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">OGC GeoPackage Extension for Tiled Gridded Coverage Data</a>.</p>
+</li>
+<li>
+<p>Have metadata for whole dataset listing how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)</p>
+</li>
+<li>
+<p>Store imagery in GeoPackage according to the tiling scheme specified below (<code>need anchor</code>)</p>
+</li>
+<li>
+<p>Store coverage data in GeoPackage according to the tiling scheme specified below (<code>need anchor</code>). Suggested coverage types based on current CDB standard and user specified requirements: (Spherical body surface): Elevation models, imagery, multi-spectral, raster (such as classified satellite imagery). Should be extensible to support other types.</p>
+</li>
+<li>
+<p>Coordinate Reference System is WGS 84 with epoch encoding (same as current CDB Standard except for epoch).</p>
+</li>
+<li>
+<p>Need to keep the  various encodings that CDB 1.x already has:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integer Elevation</p>
+</li>
+<li>
+<p>8-bit Raster Material Mixtures</p>
+</li>
+<li>
+<p>Imagery Compression:</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Must enable a "relatively" easy migration path from the CDB 1.1/1.2 tiling/LoD structure into the CDB X structure.</p>
+</li>
+<li>
+<p>CDB X must support integer compressed heights (elevations)</p>
+</li>
+<li>
+<p>CDB X must support GeoTIFF as an encoding for images.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proposed_tiling_logical_model_for_cdb_x"><a class="anchor" href="#_proposed_tiling_logical_model_for_cdb_x"></a>12.3. Proposed Tiling Logical Model for CDB X</h3>
+<div class="paragraph">
+<p>The following figure, based on the Tiling Abstract Specification Logical Model and the CDB 1.x Conceptual Model, shows the properties by class (concept) and the relationships between the classes.</p>
+</div>
+<div id="img_logical-model" class="imageblock text-center">
+<div class="content">
+<img src="images/tiling_logical_model.jpg" alt="tiling logical model" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 15. Logical Model for partitioning based on tiles in CDB X.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proposed_cdb_x_tiling_structure"><a class="anchor" href="#_proposed_cdb_x_tiling_structure"></a>12.4. Proposed CDB X Tiling Structure</h3>
+<div class="paragraph">
+<p>This section describes the proposed tiling structure and LoD (levels?) structure in CDB X. (<code>Probably need small section on consistenccy with version 1.x?</code>)</p>
+</div>
+<div class="paragraph">
+<p>Using  GPKG Tiled Gridded Coverage standard. Discussed "materials" and their requirements as coverages. Suggest a change request to allow 8, 16 bit and 32 TIFF (integer or float). (Not only for materials, but also heights (aka elevation))</p>
+</div>
+<div class="paragraph">
+<p>For any CDB or data layer, pick one of: CDB 1.x grid or GNOSISGlobalGrid (better equal area approximation for polar regions, constant tile size even at overview LODs)</p>
+</div>
+<div class="paragraph">
+<p>Current GPKG TMS draft: <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions">GPKG TMS Extension (Draft)</a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>TileMatrixSet compatibility</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>(topLeftCorner, Variable width)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reference same TMS from multiple layers</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Sample GeoPackage using TMS / GNOSISGlobalGrid for both elevation &amp; vector data tiles: <a href="https://portal.ogc.org/files/?artifact_id=92565" class="bare">https://portal.ogc.org/files/?artifact_id=92565</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_additional_cdb_x_recommendations"><a class="anchor" href="#_additional_cdb_x_recommendations"></a>12.5. Additional CDB X Recommendations</h3>
+<div class="paragraph">
+<p>The following are recommendations and suggested additional discussion topics. These recommendations and discussion topics resulted from the Tiling sub-groups discussion on an enhanced tiling model for CDB X and the potential impacts on the various data types (layers) in the current CDB standard and existing CDB data stores.</p>
+</div>
+<div class="sect3">
+<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>12.5.1. Elevation min/max</h4>
+<div class="paragraph">
+<p>CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded coverage contained in a tile to the tile metadata. Note: The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>12.5.2. Image Compression - JPEG</h4>
+<div class="paragraph">
+<p>Recommendation: That loss-less image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: <a href="https://flif.info/">FLIF - Free Lossless Image Format</a>.NOTE: JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_materials"><a class="anchor" href="#_materials"></a>12.5.3. Materials</h4>
+<div class="paragraph">
+<p>Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with reflectance in wavelengths other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="RevisionHistory"><a class="anchor" href="#RevisionHistory"></a>Appendix A: Revision History</h2>
+<div class="sectionbody">
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>replace below entries as needed</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<caption class="title">Table 1. Revision History</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Editor</p></td>
+<th class="tableblock halign-left valign-top">Date</th>
+<th class="tableblock halign-left valign-top">Editor</th>
+<th class="tableblock halign-left valign-top">Release</th>
+<th class="tableblock halign-left valign-top">Primary clauses modified</th>
+<th class="tableblock halign-left valign-top">Descriptions</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Release</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Primary clauses modified</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Descriptions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">June 2020</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">C. Reed</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">.1</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">all</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Clone template and initial version</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Bibliography"><a class="anchor" href="#Bibliography"></a>Appendix B: Bibliography</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>bibliography::[]</p>
 </div>
 </div>
 </div>
@@ -1680,7 +2074,7 @@ replace below entries as needed
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-25 22:57:52 UTC
+Last updated 2020-08-25 23:00:40 UTC
 </div>
 </div>
 </body>
