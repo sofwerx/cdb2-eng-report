@@ -39,10 +39,12 @@ Based on the questions and followup discussion, the CDB X participants derived t
 
 [width="90%",cols="2,6"]
 |===
-|*Requirement*|"Objectives*
-|Improve interoperability with OWT|Align 3D model geometry attribution in order to support conversion between the two standards. Test that conversion in both directions. +
-- Support similar encoding (glTF) to support convergence as standards evolve.
-|=== Short and Medium Term Objectives
+|*Requirement*|*Objectives*
+|Improve interoperability with OWT|* Align 3D model geometry attribution in order to support conversion between the two standards. Test that conversion in both directions. +
+* Support similar encoding (glTF) to support convergence as standards evolve.
+|=== 
+
+=== Short and Medium Term Objectives
 
 The following are the short and medium term objectives for the 3D Model Prototyping and Experimentation. These design objectives are based on the initial set of <<questions,questions>> posed by the CDB-X participants.
 
