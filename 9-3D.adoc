@@ -42,6 +42,22 @@ Based on the questions and followup discussion, the CDB X participants derived t
 |*Requirement*|*Objectives*
 |Improve interoperability with OWT|* Align 3D model geometry attribution in order to support conversion between the two standards. Test that conversion in both directions. +
 * Support similar encoding (glTF) to support convergence as standards evolve.
+|Serve archiving/repository use case and runtime usage|* Package 3D models LODs in an easy to edit manner while allowing fast runtime access of independent LODs. +
+* Increase 3D tools (edit and view) interoperability. +
+* Support multiple encoding with metadata to identify which one is used (Starting with OpenFlight and glTF).
+|Modernize CDB | * Support newer 3D encoding formats (glTF initially) +
+* Support newer attribution (NAS/GGDM) in point feature and in 3D geometry +
+* Provide flexibility to extend 3D models components and attribution +
+* Review LOD “bins” in context of today’s GPU capabilities +
+* Added constructs for better game engine support (navigation and collision mesh, PBR etc..) +
+*Review lightpoint (Dataset and in 3D model), light source, lightmap.
+|Support SOF use cases : Same dataset for M&S and C2 including the mission command and TAK devices| 
+* ATAK: Support 3D view and attribution +
+* ATAK:  Support building interior 3D encoding (and 2D floorplan?) +
+* ATAK:  Support packing 3D models in small memory footprint +
+* ATAK:  Support LOD selection “per model or per zone” to transfer only the required data +
+* Mission command: Support merging of CDB (Versioning) to cover large area +
+* Mission command: Support 3D WEB based map steaming
 |=== 
 
 === Short and Medium Term Objectives
