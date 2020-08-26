@@ -17,4 +17,4 @@ For general orientation, the overall description of the CDB Yemen Database follo
 
 [#img_CDB CAE Yemen Database Description slide,reftext='{figure-caption} {counter:figure-num}']
 .An overall description of the Yemen CDB dataset.
-image::Images/CDB Yemen Database in a world database description.png[width=750,align="center"]
+image::images/CDB Yemen Database in a world database description.png[width=750,align="center"]
