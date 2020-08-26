@@ -82,6 +82,14 @@ The following are the short and medium term objectives for the 3D Model Prototyp
 
 . Model packing with MetaData
 
+=== 3D Experiment Object Model
+
+This experiment uses a GeoPackage comprised of a point feature table with attribution.
+
+[#img_3d-model-experiment 1,reftext='{figure-caption} {counter:figure-num}']
+.3D Experiment 1 attribute table for point features.
+image::images/3d-model-gpkg-attr-table.png[width=800,align="center"]
+
 === Prototyping Experiments
 
 Two profiles.
@@ -105,7 +113,6 @@ Both Profile 1 and Profile 2
 .. Modsim
 .. Gaming
 
-3d-model-prototyping.png
 [#img_3d-model-experiments,reftext='{figure-caption} {counter:figure-num}']
 .Profles and Experiments for CBD-X 3D Models.
 image::images/3d-model-prototyping.png[width=800,align="center"]
