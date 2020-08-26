@@ -139,12 +139,10 @@ Req 29 - Damage State (Transition)
 
 Req 31 - Blur State (Transition)
 
-|Switch node supports multiple masks. Each mask can be named. |No native support for this. |Yes |Medium |
-|===
+|Switch node supports multiple masks. Each mask can be named. |No native support for this. |Yes |Medium | 
 
-[cols=",,,,,,",options="header",]
-|===
 |Degree of Freedom Node a|
+
 Req 32 - Articulation
 
 Req 33 - Gimbal Limits
