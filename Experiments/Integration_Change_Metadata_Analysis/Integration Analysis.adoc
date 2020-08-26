@@ -16,47 +16,46 @@ One of the test databases available to the Tech Sprint is the "Yemen" CDB databa
 For general orientation, the overall description of the CDB Yemen Database follows:
 
 [#img_CDB CAE Yemen Database Description slide,reftext='{figure-caption} {counter:figure-num}']
-.An overall description of the Yemen CDB dataset.
+.An overall description of the Yemen CDB dataset.+
 image::Images/CDB Yemen Database in a world database description.png[width=1000,align="center"]
 
 
 A recent Google maps rendering of the general area of Aden Yemen:
 
 [#img_Google Maps recent Yemen overview,reftext='{figure-caption} {counter:figure-num}']
-.Aden, Yemen general overview.
+.Aden, Yemen general overview.+
 image::Images/Aden Yemen overhead map view.png[width=800,align="center"]
 
 
 A lower level recent Google maps rendering of the bridge to Sira Island, Aden, Yemen:
 
 [#img_Google Maps recent Sira Island bridge,reftext='{figure-caption} {counter:figure-num}']
-.Bridge to Sira Island, Aden, Yemen.
+.Bridge to Sira Island, Aden, Yemen.+
 image::Images/Sira Island Bridge Google Maps View.png[width=800,align="center"]
 
 
 The following are relatively low-resolution images of the Sira Island bridge and the area around it from an image generator rendering the Yemen CDB.
 
 [#img_Vehicles on the road to Sira bridge,reftext='{figure-caption} {counter:figure-num}']
-.Vehicles on the road to the bridge before Bang.
+.Vehicles on the road to the bridge before Bang.+
 image::Images/Vehicles on the road to the bridge before bang.png[width=800,align="center"]
 
 
 [#img_Sira bridge from the island side before Bang,reftext='{figure-caption} {counter:figure-num}']
-.Sira bridge view from the island side before Bang.
+.Sira bridge view from the island side before Bang.+
 image::Images/Bridge view from the other side before bang.png[width=800,align="center"]
 
 
 [#img_HMMV on Sira bridge just before Bang,reftext='{figure-caption} {counter:figure-num}']
-.HMMV on the Sira Island bridge just before IED detonation in a rehearsal scenario.
+.HMMV on the Sira Island bridge just before IED detonation in a rehearsal scenario.+
 image::Images/Bridge with HMMV before bang.png[width=800,align="center"]
 
 
 [#img_Sira Island bridge damaged with clearing smoke,reftext='{figure-caption} {counter:figure-num}']
-.Clearing smoke after IED damage to Sira Island bridge in an IED scenario.
+.Clearing smoke after IED damage to Sira Island bridge in an IED scenario.+
 image::Images/Bridge with explosion and smoke clearing.png[width=800,align="center"]
 
 
 [#img_Sira Island bridge distant view of damage,reftext='{figure-caption} {counter:figure-num}']
-.Damaged / fallen Sira Island bridge in background as scenario helicopters depart.
+.Damaged / fallen Sira Island bridge in background as scenario helicopters depart.+
 image::Images/Bridge and island area view from departing helos.png[width=800,align="center"]
- 
