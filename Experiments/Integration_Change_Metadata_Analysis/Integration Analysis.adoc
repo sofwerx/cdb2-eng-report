@@ -91,4 +91,6 @@ All of the changed files will need to marked with more recent provenance metadat
 
 Assuming that the Yemen database has been accurately converted into the CDB-X experimental datasets for the several sub-group experiments.  An analysis will be conducted to show all of the files that need to be located and opened by the self-describing structure of CDB-X to accomplish the change resulting from the damaged bridge.
 
-== Analysis of the minimum satisfactory datasets and packaging necessary to develop and disseminate this change in this specific CDB-X dataset, and how it is expected that mission rehearsal and mission planning clients will receive, install, and render the change.
+== Analysis of 'packaging' of the change.
+
+Development of the minimum satisfactory datasets and packaging necessary to develop and disseminate this change in this specific CDB-X dataset, and how it is expected that mission rehearsal and mission planning clients will receive, install, and render the change.
