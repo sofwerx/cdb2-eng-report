@@ -498,14 +498,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#Questions">9.1. Questions to be addressed</a></li>
 <li><a href="#_cdb_x_requirements_for_3d_model_components">9.2. CDB X Requirements for 3D Model Components</a></li>
 <li><a href="#_short_and_medium_term_objectives">9.3. Short and Medium Term Objectives</a></li>
-<li><a href="#_prototyping_experiments">9.4. Prototyping Experiments</a></li>
-<li><a href="#_description_of_3d_formatsencodings_and_references_for_this_section">9.5. Description of 3D formats/encodings and References for this section:</a>
+<li><a href="#_3d_experiment_object_model">9.4. 3D Experiment Object Model</a></li>
+<li><a href="#_prototyping_experiments">9.5. Prototyping Experiments</a></li>
+<li><a href="#_description_of_3d_formatsencodings_and_references_for_this_section">9.6. Description of 3D formats/encodings and References for this section:</a>
 <ul class="sectlevel3">
-<li><a href="#_openflight">9.5.1. OpenFlight</a></li>
-<li><a href="#_gl_transmission_format_gltf_2_0">9.5.2. GL Transmission Format (glTF) 2.0</a></li>
+<li><a href="#_openflight">9.6.1. OpenFlight</a></li>
+<li><a href="#_gl_transmission_format_gltf_2_0">9.6.2. GL Transmission Format (glTF) 2.0</a></li>
 </ul>
 </li>
-<li><a href="#_cdb_openflight_and_gltf_feature_analysis">9.6. CDB OpenFlight and glTF Feature Analysis</a></li>
+<li><a href="#_cdb_openflight_and_gltf_feature_analysis">9.7. CDB OpenFlight and glTF Feature Analysis</a></li>
 </ul>
 </li>
 <li><a href="#_supporting_more_than_cdb_1_x">10. Supporting more than CDB 1.X:</a></li>
@@ -1588,7 +1589,19 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_prototyping_experiments"><a class="anchor" href="#_prototyping_experiments"></a>9.4. Prototyping Experiments</h3>
+<h3 id="_3d_experiment_object_model"><a class="anchor" href="#_3d_experiment_object_model"></a>9.4. 3D Experiment Object Model</h3>
+<div class="paragraph">
+<p>This experiment uses a GeoPackage comprised of a point feature table with attribution.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/3d-model-gpkg-attr-table.png" alt="#img_3d-model-experiment 1" width="800">
+</div>
+<div class="title">Figure ATTPh3 - 8. 3D Experiment 1 attribute table for point features.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prototyping_experiments"><a class="anchor" href="#_prototyping_experiments"></a>9.5. Prototyping Experiments</h3>
 <div class="paragraph">
 <p>Two profiles.</p>
 </div>
@@ -1647,20 +1660,17 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>3d-model-prototyping.png</p>
-</div>
 <div id="img_3d-model-experiments" class="imageblock text-center">
 <div class="content">
 <img src="images/3d-model-prototyping.png" alt="3d model prototyping" width="800">
 </div>
-<div class="title">Figure ATTPh3 - 8. Profles and Experiments for CBD-X 3D Models.</div>
+<div class="title">Figure ATTPh3 - 9. Profles and Experiments for CBD-X 3D Models.</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_description_of_3d_formatsencodings_and_references_for_this_section"><a class="anchor" href="#_description_of_3d_formatsencodings_and_references_for_this_section"></a>9.5. Description of 3D formats/encodings and References for this section:</h3>
+<h3 id="_description_of_3d_formatsencodings_and_references_for_this_section"><a class="anchor" href="#_description_of_3d_formatsencodings_and_references_for_this_section"></a>9.6. Description of 3D formats/encodings and References for this section:</h3>
 <div class="sect3">
-<h4 id="_openflight"><a class="anchor" href="#_openflight"></a>9.5.1. OpenFlight</h4>
+<h4 id="_openflight"><a class="anchor" href="#_openflight"></a>9.6.1. OpenFlight</h4>
 <div class="paragraph">
 <p>OpenFlight (or .flt) is an open, freely available 3d geometry model file format originally developed by Software Systems Inc. for its MultiGen real-time 3d modeling package. OpenFlight is a format supported widely in modeling and simulation community for dynamic and static 3D model. In CDB 1.x, OpenFlight is used for  the  representation  of  3D  dynamic  models  and  RGB  format  for  the  3D model’s textures. However, while widely used and there are extensive .flt model libraries, OpenFlight is long in the tooth.</p>
 </div>
@@ -1669,7 +1679,7 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </div>
 </div>
 <div class="sect3">
-<h4 id="_gl_transmission_format_gltf_2_0"><a class="anchor" href="#_gl_transmission_format_gltf_2_0"></a>9.5.2. GL Transmission Format (glTF) 2.0</h4>
+<h4 id="_gl_transmission_format_gltf_2_0"><a class="anchor" href="#_gl_transmission_format_gltf_2_0"></a>9.6.2. GL Transmission Format (glTF) 2.0</h4>
 <div class="paragraph">
 <p>glTF is a royalty-free specification for the efficient transmission and loading of 3D scenes and models by applications. glTF uses the JSON standard. glTF is an API-neutral runtime asset delivery format developed by the Khronos Group 3D Formats Working Group.</p>
 </div>
@@ -1697,7 +1707,7 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cdb_openflight_and_gltf_feature_analysis"><a class="anchor" href="#_cdb_openflight_and_gltf_feature_analysis"></a>9.6. CDB OpenFlight and glTF Feature Analysis</h3>
+<h3 id="_cdb_openflight_and_gltf_feature_analysis"><a class="anchor" href="#_cdb_openflight_and_gltf_feature_analysis"></a>9.7. CDB OpenFlight and glTF Feature Analysis</h3>
 <div class="paragraph">
 <p>==</p>
 </div>
@@ -2221,7 +2231,7 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 <div class="content">
 <img src="images/CDB%201dotX%20schema%20repo%20root%20directory%20files.png" alt="CDB 1dotX schema repo root directory files" width="750">
 </div>
-<div class="title">Figure Mtd_Ph3 - 9. OGC CDB Schema Github Repo Root level files.</div>
+<div class="title">Figure Mtd_Ph3 - 10. OGC CDB Schema Github Repo Root level files.</div>
 </div>
 <div class="paragraph">
 <p>and the contents of the Metadata subdirectory are:</p>
@@ -2230,7 +2240,7 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 <div class="content">
 <img src="images/CDB%201dotX%20schema%20repo%20Metadata%20file%20directory.png" alt="CDB 1dotX schema repo Metadata file directory" width="750">
 </div>
-<div class="title">Figure Mtd_Ph3 - 10. OGC CDB Schema Github Repo Metadata sub-directory files.</div>
+<div class="title">Figure Mtd_Ph3 - 11. OGC CDB Schema Github Repo Metadata sub-directory files.</div>
 </div>
 <div class="paragraph">
 <p>OGC CDB V1.1 is a minor revision of OGC CDB that provides for optional global and local metadata.  The description of the new geospatial metadata provisions is in the Volume 1 Core document, in Section 5.1:</p>
@@ -2239,7 +2249,7 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 <div class="content">
 <img src="images/Metadata%20in%20CDB%20V1dot2.png" alt="Metadata in CDB V1dot2" width="750">
 </div>
-<div class="title">Figure Mtd_Ph3 - 11. OGC CDB V1.2 Volume 1 Table-of-Contents Exerpt.</div>
+<div class="title">Figure Mtd_Ph3 - 12. OGC CDB V1.2 Volume 1 Table-of-Contents Exerpt.</div>
 </div>
 <div class="paragraph">
 <p>For ease of reference, sections 5.1.10 thru 5.1.12 from Volume 1 of OGC CDB V1.2 are repeated here:</p>
@@ -2337,7 +2347,7 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="content">
 <img src="images/Metadata%20sub-team%20consensus.png" alt="Metadata sub team consensus" width="250">
 </div>
-<div class="title">Figure Mtd_Ph3 - 12. Day 3 Consensus and formation of the Metadata / Integration sub-team.</div>
+<div class="title">Figure Mtd_Ph3 - 13. Day 3 Consensus and formation of the Metadata / Integration sub-team.</div>
 </div>
 </div>
 </div>
@@ -2348,7 +2358,7 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="content">
 <img src="images/Metadata%20Ph3%20Day%204.png" alt="Metadata Ph3 Day 4" width="1000">
 </div>
-<div class="title">Figure Mtd_Ph3 - 13. Metadata Day 4 Whiteboard.</div>
+<div class="title">Figure Mtd_Ph3 - 14. Metadata Day 4 Whiteboard.</div>
 </div>
 </div>
 </div>
@@ -2359,7 +2369,7 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="content">
 <img src="images/Metadata%20Ph3%20Day%205.png" alt="Metadata Ph3 Day 5" width="1000">
 </div>
-<div class="title">Figure Mtd_Ph3 - 14. Metadata Day 5 Whiteboard.</div>
+<div class="title">Figure Mtd_Ph3 - 15. Metadata Day 5 Whiteboard.</div>
 </div>
 </div>
 </div>
@@ -2469,7 +2479,7 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="content">
 <img src="images/tiling_logical_model.jpg" alt="tiling logical model" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 15. Logical Model for partitioning based on tiles in CDB X.</div>
+<div class="title">Figure Mtd_Ph3 - 16. Logical Model for partitioning based on tiles in CDB X.</div>
 </div>
 </div>
 <div class="sect2">
@@ -2590,7 +2600,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-26 15:41:30 UTC
+Last updated 2020-08-26 23:58:48 UTC
 </div>
 </div>
 </body>
