@@ -1,0 +1,8 @@
+[[Integration_Experimental_Analysis]]
+
+:figure-caption: Figure Integration / Analysis -
+:figure-num: 0
+
+= An analysis experiment to explore 'whole-of-CDB X' Integration_Experimental_Analysis
+
+This is the development of a scenario within which to analyze and explore how CDB X will provide for inheritance of top-level 'parent' metadata, making a 'small change' in an already developed and deployed CDB X dataset, and how a change in resource constraints in a small high LOD area is aggregated back 'up' into higher packaging of CDB X.
