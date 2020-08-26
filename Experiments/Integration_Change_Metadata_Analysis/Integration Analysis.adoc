@@ -39,12 +39,12 @@ The following are relatively low-resolution images of the Sira Island bridge and
 [#img_Vehicles on the road to Sira bridge,reftext='{figure-caption} {counter:figure-num}']
 .Vehicles on the road to the bridge before Bang.
 image::Images/Vehicles on the road to the bridge before bang.png[width=800,align="center"]
-
++
 
 [#img_Sira bridge from the island side before Bang,reftext='{figure-caption} {counter:figure-num}']
 .Sira bridge view from the island side before Bang.
 image::Images/Bridge view from the other side before bang.png[width=800,align="center"]
-
++
 
 [#img_HMMV on Sira bridge just before Bang,reftext='{figure-caption} {counter:figure-num}']
 .HMMV on the Sira Island bridge just before IED detonation in a rehearsal scenario.
