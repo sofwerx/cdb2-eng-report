@@ -11,6 +11,10 @@ The 'Use Cases' for this specific scenario are Mission Rehearsal and Mission Pla
 
 The high level idea is the identification of a specific road bridge in an existing CDB dataset viewed in the context of the highest LOD available, such that vehicle driver eyepoints have the best representation of the ground-based viewpoints.  In this scenario, the road bridge will be damaged by a kinetic event.  The change to the dataset requires the removal/replacement of files, possible deletion of files, possible addition of files, and the 'packaging' of the changes so they can be disseminated in a new target named CDB (CDB version) that can be added quickly to an already deployed repository to provide for the changes resulting from the damaged bridge.
 
-[#img_CDB1-schema-root-level-files,reftext='{figure-caption} {counter:figure-num}']
-.OGC CDB Schema Github Repo Root level files.
-image::images/CDB 1dotX schema repo root directory files.png[width=750,align="center"]
+One of the test databases available to the Tech Sprint is the "Yemen" CDB database from Presagis.  The images and other information here is from the pre-Presagis CAE internal Yemen database, so it is possible some of the references below will need to be updated.
+
+For general orientation, the overall description of the CDB Yemen Database follows:
+
+[#img_CDB CAE Yemen Database Description slide,reftext='{figure-caption} {counter:figure-num}']
+.An overall description of the Yemen CDB dataset.
+image::Images/CDB Yemen Database in a world database description.png[width=750,align="center"]
