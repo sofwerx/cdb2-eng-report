@@ -3,79 +3,79 @@
 [cols=",,,,,,",options="header",]
 |===
 a|
-=== OpenFlight Construct
+*OpenFlight Construct*
 
 a|
-=== CDB Requirement/Guidelines +
+ *CDB Requirement/Guidelines* +
 (all from Chapter 6)
 
 a|
-=== Notes
+*Notes*
 
 a|
-=== glTF Equivalent
+*glTF Equivalent*
 
 a|
-=== New glTF extension required
+*New glTF extension required*
 
 a|
-=== Mapping OF to glTF difficulty
+*Mapping OF to glTF difficulty*
 
 a|
-=== Implemented in converter prototype
+*Implemented in converter prototype*
 
 |Node Hierarchy a|
-Req 2 â€“ Global Zone
+Req 2 - Global Zone
 
-Req 3 â€“ Model Zone
+Req 3 - Model Zone
 
-Chap 6.5.6.1 â€“ Model Landing Zone
+Chap 6.5.6.1 - Model Landing Zone
 
-Req 17 â€“ Model Footprint Zone
+Req 17 - Model Footprint Zone
 
-Req 18 â€“ Model Footprint Hierarchy
+Req 18 - Model Footprint Hierarchy
 
-Req 19 â€“ Model Cutout Zone
+Req 19 - Model Cutout Zone
 
-Req 20 â€“ Model Cutout Geometry
+Req 20 - Model Cutout Geometry
 
-Req 21 â€“ Model Pseudo-Interior Zone
+Req 21 - Model Pseudo-Interior Zone
 
-Req 22 â€“ Model Interior Zone
+Req 22 - Model Interior Zone
 
-Req 4 â€“ Layers
+Req 4 - Layers
 
-|Chap 6.2 â€“ Using hierarchy to organize models helps identify components of intereset |Node Hierarchy fully supported |No |Easy |Yes
+|Chap 6.2 - Using hierarchy to organize models helps identify components of intereset |Node Hierarchy fully supported |No |Easy |Yes
 |Comment Attribute a|
 Req 14 â€“ Zone Names
 
-Chap 6.5.3.1 â€“ Zone Material Index
+Chap 6.5.3.1 - Zone Material Index
 
-Req 16 â€“ Hot Spot Temperature
+Req 16 - Hot Spot Temperature
 
-Req 23 â€“ Model Point (Damage)
+Req 23 - Model Point (Damage)
 
-Req 24 â€“ Model Point (DIS Origin)
+Req 24 - Model Point (DIS Origin)
 
-Req 25 â€“ Model Point (View Point)
+Req 25 - Model Point (View Point)
 
-Chap 6.6.2.3 â€“ Model Attach Point
+Chap 6.6.2.3 - Model Attach Point
 
-Chap 6.6.2.4 â€“ Model Anchor Point
+Chap 6.6.2.4 - Model Anchor Point
 
-Chap 6.6.2.5 â€“ Model Center of Mass
+Chap 6.6.2.5 - Model Center of Mass
 
-Req 29 â€“ Damage State (Levels)
+Req 29 - Damage State (Levels)
 
-Req 36 â€“ Model Vendor Attributes
+Req 36 - Model Vendor Attributes
 
 a|
 Comment field is used to extend OpenFlight node for CDB specialization for many uses
 
 A number of constructs are available in the OF spec that could be natively encoded in the format instead of using the comment field.
 
-|â€œextrasâ€ property allows storage of an object with any number of named properties |No |Easy |
-|Node Attribution |Req 13 â€“ Model Zone Bounding Box a|
+|"extras" property allows storage of an object with any number of named properties |No |Easy |
+|Node Attribution |Req 13 - Model Zone Bounding Box a|
 Group node has bounding box attribute
 
 Other attributes available on the node:
@@ -91,27 +91,27 @@ For general nodes, we could store this in the extras property
 
 |No |Easy |
 |External Referencing a|
-Chap 6.2.4 â€“ Model Master File
+Chap 6.2.4 - Model Master File
 
 Req 6 â€“ Use XRef node to reference other files
 
-Chap 6.2.5.1 â€“ Models straddling multiple files
+Chap 6.2.5.1 - Models straddling multiple files
 
-Chap 6.2.5.2 â€“ Models with multiple LODs
+Chap 6.2.5.2 - Models with multiple LODs
 
-|Model Master File (comprised of xrefs) ensures a Model is seen as a single â€œobjectâ€ even though its constituents are stored in separate files |No external referencing |Yes |Difficult a|
+|Model Master File (comprised of xrefs) ensures a Model is seen as a single "object" even though its constituents are stored in separate files |No external referencing |Yes |Difficult a|
 Partial
 
 The converter can parse external references and combine them into one gltf file (using mesh instancing for repeated references)
 
 |Level of Detail Node a|
-Chap 6.2.5.2 â€“ Models with multiple LODs
+Chap 6.2.5.2 - Models with multiple LODs
 
-Req 26 â€“ Significant Size
+Req 26 - Significant Size
 
-Chap 6.8.1 â€“ Exchange LODs
+Chap 6.8.1 - Exchange LODs
 
-Chap 6.8.2 â€“ Additive LODs
+Chap 6.8.2 - Additive LODs
 
 a|
 LOD node contained in XRefs in master file
@@ -131,13 +131,13 @@ Yes
 Uses MSFT_lod extension
 
 |Switch Node a|
-Req 27 â€“ Switch Masks (one per state)
+Req 27 - Switch Masks (one per state)
 
-Req 28 â€“ Switch Mask Names
+Req 28 - Switch Mask Names
 
-Req 29 â€“ Damage State (Transition)
+Req 29 - Damage State (Transition)
 
-Req 31 â€“ Blur State (Transition)
+Req 31 - Blur State (Transition)
 
 |Switch node supports multiple masks. Each mask can be named. |No native support for this. |Yes |Medium |
 |===
@@ -145,9 +145,9 @@ Req 31 â€“ Blur State (Transition)
 [cols=",,,,,,",options="header",]
 |===
 |Degree of Freedom Node a|
-Req 32 â€“ Articulation
+Req 32 - Articulation
 
-Req 33 â€“ Gimbal Limits
+Req 33 - Gimbal Limits
 
 |DOF node supports min/max limits for each degree of articulation (translation, scale, rotation) a|
 Skins, Joints, Animations.
@@ -155,35 +155,35 @@ Skins, Joints, Animations.
 glTF is more flexible/complex than OF when it comes to animated models
 
 |No |Medium |
-|Light Point Node |Req 35 â€“ Model Light Points |Light Point node can represent individual points or light â€˜stringâ€™ a|
+|Light Point Node |Req 35 - Model Light Points |Light Point node can represent individual points or light â€˜stringâ€™ a|
 No native support.
 
 Existing extensions for light sources but these are a different concept than light points
 
 |Yes |Difficult |
-|Projection |Req 1 â€“ Specify Projections |Required projections for GTModel, GSModel, MModel and T2DModel |Could be specified in extras property at the scene level |No |Easy |
+|Projection |Req 1 - Specify Projections |Required projections for GTModel, GSModel, MModel and T2DModel |Could be specified in extras property at the scene level |No |Easy |
 |Coordinate System a|
-Req 7 â€“ X (left/right), Y (front/back), Z (bottom/top)
+Req 7 - X (left/right), Y (front/back), Z (bottom/top)
 
-Req 8 â€“ Origin (0,0,0)
+Req 8 - Origin (0,0,0)
 
 |These are native OpenFlight conventions a|
-glTF 2.0 uses a right-handed coordinate system, withÂ xÂ point right,Â yÂ point up andÂ zÂ backward
+glTF 2.0 uses a right-handed coordinate system, with x point right, y point up and z backward
 
 Changing this requires an extension and would reduce performance and interoperability
 
-Would recommend keeping glTFâ€™s axis system and adjusting the standard if needed.
+Would recommend keeping glTF's axis system and adjusting the standard if needed.
 
 |No |N/A |
 |Local Coordinate System |Chap 6.3.1.2 |Transformation Matrix is used to specify LCS |Transformations on nodes |No |Easy |Yes
 |Units |Char 6.3.1.3 |Header attribute is used to specify Units |Can be specified in extras property |No |Easy |
-|Instancing |Req 11 â€“ Avoid repeating identical pieces of geometry |Efficiency â€“ smaller database size a|
+|Instancing |Req 11 - Avoid repeating identical pieces of geometry |Efficiency - smaller database size a|
 Multiple nodes can instantiate the same mesh.
 
 However, there is no concept of node instancing. OF is more flexible
 
 |No |Medium |Yes
-|Mesh |Req 11 â€“ Favor mesh over polygons |Efficiency - smaller database size, fewer graphics states a|
+|Mesh |Req 11 - Favor mesh over polygons |Efficiency - smaller database size, fewer graphics states a|
 Mesh is supported and highly recommended over polygons.
 
 In OF many models use individual polygon nodes, but this would be inefficient in glTF. May lead to large geojson files.
@@ -193,22 +193,22 @@ Yes
 
 Polygon nodes at the same level with the same textures are merged into one mesh
 
-|Vertex Ordering |Req 11 â€“ CCW order of verts define polygon â€˜frontâ€™ | |GLTF uses CCW ordering of vertices |No |Easy |Yes
-|Relative Priority |Req 12 â€“ Layers of coplanar geometry a|
-Relative Priority attribute atÂ :
+|Vertex Ordering |Req 11 - CCW order of verts define polygon â€˜frontâ€™ | |GLTF uses CCW ordering of vertices |No |Easy |Yes
+|Relative Priority |Req 12 - Layers of coplanar geometry a|
+Relative Priority attribute at :
 
 * Face
 * Mesh
 * Object
 * Group
 
-|Not supported natively. Could be stored in â€œextrasâ€ |No |Easy |
+|Not supported natively. Could be stored in "extras" |No |Easy |
 |Textures a|
-Req 37 â€“ Textures stored in separate files from models
+Req 37 - Textures stored in separate files from models
 
-Req 41 â€“ Relative Texture Paths
+Req 41 - Relative Texture Paths
 
-Req 42 â€“ Object Shadow Attribute
+Req 42 - Object Shadow Attribute
 
 |Loading efficiency a|
 Textures supported.
