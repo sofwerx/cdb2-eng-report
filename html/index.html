@@ -508,7 +508,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_cdb_openflight_and_gltf_feature_analysis">9.6. CDB OpenFlight and glTF Feature Analysis</a></li>
 </ul>
 </li>
-<li><a href="#metadata">10. CDB X Metadata and Integration</a></li>
+<li><a href="#_supporting_more_than_cdb_1_x">10. Supporting more than CDB 1.X:</a></li>
+<li><a href="#metadata">11. CDB X Metadata and Integration</a></li>
 </ul>
 </li>
 <li><a href="#_summary_of_history_of_cdb_x_metadata_discussions">Summary of history of CDB X metadata discussions.</a>
@@ -521,23 +522,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_phase_3_day_5_2">Phase 3, Day 5</a></li>
 <li><a href="#_plan_for_experimentation_in_subsequent_phases_2">Plan for Experimentation in subsequent phases</a>
 <ul class="sectlevel1">
-<li><a href="#tiling">11. Tiling and Tiled Coverages</a></li>
-<li><a href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage">12. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</a>
+<li><a href="#tiling">12. Tiling and Tiled Coverages</a></li>
+<li><a href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage">13. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</a>
 <ul class="sectlevel2">
-<li><a href="#_general_2">12.1. General</a>
+<li><a href="#_general_2">13.1. General</a>
 <ul class="sectlevel3">
-<li><a href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space">12.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</a></li>
-<li><a href="#_ogc_two_dimensional_tile_matrix_set_standard">12.1.2. OGC Two Dimensional Tile Matrix Set Standard</a></li>
+<li><a href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space">13.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</a></li>
+<li><a href="#_ogc_two_dimensional_tile_matrix_set_standard">13.1.2. OGC Two Dimensional Tile Matrix Set Standard</a></li>
 </ul>
 </li>
-<li><a href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers">12.2. Design Objectives for CDB X Tiling and LoDs and Layers</a></li>
-<li><a href="#_proposed_tiling_logical_model_for_cdb_x">12.3. Proposed Tiling Logical Model for CDB X</a></li>
-<li><a href="#_proposed_cdb_x_tiling_structure">12.4. Proposed CDB X Tiling Structure</a></li>
-<li><a href="#_additional_cdb_x_recommendations">12.5. Additional CDB X Recommendations</a>
+<li><a href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers">13.2. Design Objectives for CDB X Tiling and LoDs and Layers</a></li>
+<li><a href="#_proposed_tiling_logical_model_for_cdb_x">13.3. Proposed Tiling Logical Model for CDB X</a></li>
+<li><a href="#_proposed_cdb_x_tiling_structure">13.4. Proposed CDB X Tiling Structure</a></li>
+<li><a href="#_additional_cdb_x_recommendations">13.5. Additional CDB X Recommendations</a>
 <ul class="sectlevel3">
-<li><a href="#_elevation_minmax">12.5.1. Elevation min/max</a></li>
-<li><a href="#_image_compression_jpeg">12.5.2. Image Compression - JPEG</a></li>
-<li><a href="#_materials">12.5.3. Materials</a></li>
+<li><a href="#_elevation_minmax">13.5.1. Elevation min/max</a></li>
+<li><a href="#_image_compression_jpeg">13.5.2. Image Compression - JPEG</a></li>
+<li><a href="#_materials">13.5.3. Materials</a></li>
 </ul>
 </li>
 </ul>
@@ -1697,19 +1698,519 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </div>
 <div class="sect2">
 <h3 id="_cdb_openflight_and_gltf_feature_analysis"><a class="anchor" href="#_cdb_openflight_and_gltf_feature_analysis"></a>9.6. CDB OpenFlight and glTF Feature Analysis</h3>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Unresolved directive in 9-3D.adoc - include</dt>
-<dd>
-<p>opf-gltf-analysis.adoc[]</p>
-</dd>
-</dl>
+<div class="paragraph">
+<p>==</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">=== OpenFlight Construct</th>
+<th class="tableblock halign-left valign-top">=== CDB Requirement/Guidelines<br>
+(all from Chapter 6)</th>
+<th class="tableblock halign-left valign-top">=== Notes</th>
+<th class="tableblock halign-left valign-top">=== glTF Equivalent</th>
+<th class="tableblock halign-left valign-top">=== New glTF extension required</th>
+<th class="tableblock halign-left valign-top">=== Mapping OF to glTF difficulty</th>
+<th class="tableblock halign-left valign-top">=== Implemented in converter prototype</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node Hierarchy</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Req 2 â€“ Global Zone</p>
+</div>
+<div class="paragraph">
+<p>Req 3 â€“ Model Zone</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.5.6.1 â€“ Model Landing Zone</p>
+</div>
+<div class="paragraph">
+<p>Req 17 â€“ Model Footprint Zone</p>
+</div>
+<div class="paragraph">
+<p>Req 18 â€“ Model Footprint Hierarchy</p>
+</div>
+<div class="paragraph">
+<p>Req 19 â€“ Model Cutout Zone</p>
+</div>
+<div class="paragraph">
+<p>Req 20 â€“ Model Cutout Geometry</p>
+</div>
+<div class="paragraph">
+<p>Req 21 â€“ Model Pseudo-Interior Zone</p>
+</div>
+<div class="paragraph">
+<p>Req 22 â€“ Model Interior Zone</p>
+</div>
+<div class="paragraph">
+<p>Req 4 â€“ Layers</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chap 6.2 â€“ Using hierarchy to organize models helps identify components of intereset</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node Hierarchy fully supported</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comment Attribute</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Req 14 â€“ Zone Names</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.5.3.1 â€“ Zone Material Index</p>
+</div>
+<div class="paragraph">
+<p>Req 16 â€“ Hot Spot Temperature</p>
+</div>
+<div class="paragraph">
+<p>Req 23 â€“ Model Point (Damage)</p>
+</div>
+<div class="paragraph">
+<p>Req 24 â€“ Model Point (DIS Origin)</p>
+</div>
+<div class="paragraph">
+<p>Req 25 â€“ Model Point (View Point)</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.6.2.3 â€“ Model Attach Point</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.6.2.4 â€“ Model Anchor Point</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.6.2.5 â€“ Model Center of Mass</p>
+</div>
+<div class="paragraph">
+<p>Req 29 â€“ Damage State (Levels)</p>
+</div>
+<div class="paragraph">
+<p>Req 36 â€“ Model Vendor Attributes</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Comment field is used to extend OpenFlight node for CDB specialization for many uses</p>
+</div>
+<div class="paragraph">
+<p>A number of constructs are available in the OF spec that could be natively encoded in the format instead of using the comment field.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">â€œextrasâ€ property allows storage of an object with any number of named properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node Attribution</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 13 â€“ Model Zone Bounding Box</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Group node has bounding box attribute</p>
+</div>
+<div class="paragraph">
+<p>Other attributes available on the node:</p>
+</div>
+<div class="paragraph">
+<p>Roof Flag</p>
+</div>
+<div class="paragraph">
+<p>Culture Footprint</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Primitives have min/max properties.</p>
+</div>
+<div class="paragraph">
+<p>For general nodes, we could store this in the extras property</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External Referencing</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Chap 6.2.4 â€“ Model Master File</p>
+</div>
+<div class="paragraph">
+<p>Req 6 â€“ Use XRef node to reference other files</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.2.5.1 â€“ Models straddling multiple files</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.2.5.2 â€“ Models with multiple LODs</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Model Master File (comprised of xrefs) ensures a Model is seen as a single â€œobjectâ€ even though its constituents are stored in separate files</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No external referencing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Difficult</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Partial</p>
+</div>
+<div class="paragraph">
+<p>The converter can parse external references and combine them into one gltf file (using mesh instancing for repeated references)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Level of Detail Node</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Chap 6.2.5.2 â€“ Models with multiple LODs</p>
+</div>
+<div class="paragraph">
+<p>Req 26 â€“ Significant Size</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.8.1 â€“ Exchange LODs</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.8.2 â€“ Additive LODs</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>LOD node contained in XRefs in master file</p>
+</div>
+<div class="paragraph">
+<p>Significant Size attribute on LOD</p>
+</div>
+<div class="paragraph">
+<p>LOD node support exchange and additive LOD strategies</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Requires extension (MSFT_lod)</p>
+</div>
+<div class="paragraph">
+<p>No sig size. Works with switch in/out</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Yes</p>
+</div>
+<div class="paragraph">
+<p>Uses MSFT_lod extension</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch Node</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Req 27 â€“ Switch Masks (one per state)</p>
+</div>
+<div class="paragraph">
+<p>Req 28 â€“ Switch Mask Names</p>
+</div>
+<div class="paragraph">
+<p>Req 29 â€“ Damage State (Transition)</p>
+</div>
+<div class="paragraph">
+<p>Req 31 â€“ Blur State (Transition)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch node supports multiple masks. Each mask can be named.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No native support for this.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Degree of Freedom Node</th>
+<th class="tableblock halign-left valign-top">Req 32 â€“ Articulation
+
+Req 33 â€“ Gimbal Limits</th>
+<th class="tableblock halign-left valign-top">DOF node supports min/max limits for each degree of articulation (translation, scale, rotation)</th>
+<th class="tableblock halign-left valign-top">Skins, Joints, Animations.
+
+glTF is more flexible/complex than OF when it comes to animated models</th>
+<th class="tableblock halign-left valign-top">No</th>
+<th class="tableblock halign-left valign-top">Medium</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Light Point Node</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 35 â€“ Model Light Points</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Light Point node can represent individual points or light â€˜stringâ€™</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No native support.</p>
+</div>
+<div class="paragraph">
+<p>Existing extensions for light sources but these are a different concept than light points</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Difficult</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Projection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 1 â€“ Specify Projections</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required projections for GTModel, GSModel, MModel and T2DModel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Could be specified in extras property at the scene level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Coordinate System</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Req 7 â€“ X (left/right), Y (front/back), Z (bottom/top)</p>
+</div>
+<div class="paragraph">
+<p>Req 8 â€“ Origin (0,0,0)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">These are native OpenFlight conventions</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>glTF 2.0 uses a right-handed coordinate system, withÂ xÂ point right,Â yÂ point up andÂ zÂ backward</p>
+</div>
+<div class="paragraph">
+<p>Changing this requires an extension and would reduce performance and interoperability</p>
+</div>
+<div class="paragraph">
+<p>Would recommend keeping glTFâ€™s axis system and adjusting the standard if needed.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Local Coordinate System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chap 6.3.1.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transformation Matrix is used to specify LCS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transformations on nodes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Units</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Char 6.3.1.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Header attribute is used to specify Units</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Can be specified in extras property</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instancing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 11 â€“ Avoid repeating identical pieces of geometry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Efficiency â€“ smaller database size</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Multiple nodes can instantiate the same mesh.</p>
+</div>
+<div class="paragraph">
+<p>However, there is no concept of node instancing. OF is more flexible</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mesh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 11 â€“ Favor mesh over polygons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Efficiency - smaller database size, fewer graphics states</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Mesh is supported and highly recommended over polygons.</p>
+</div>
+<div class="paragraph">
+<p>In OF many models use individual polygon nodes, but this would be inefficient in glTF. May lead to large geojson files.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Yes</p>
+</div>
+<div class="paragraph">
+<p>Polygon nodes at the same level with the same textures are merged into one mesh</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vertex Ordering</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 11 â€“ CCW order of verts define polygon â€˜frontâ€™</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GLTF uses CCW ordering of vertices</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relative Priority</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 12 â€“ Layers of coplanar geometry</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Relative Priority attribute atÂ :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Face</p>
+</li>
+<li>
+<p>Mesh</p>
+</li>
+<li>
+<p>Object</p>
+</li>
+<li>
+<p>Group</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not supported natively. Could be stored in â€œextrasâ€</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Textures</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Req 37 â€“ Textures stored in separate files from models</p>
+</div>
+<div class="paragraph">
+<p>Req 41 â€“ Relative Texture Paths</p>
+</div>
+<div class="paragraph">
+<p>Req 42 â€“ Object Shadow Attribute</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Loading efficiency</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Textures supported.</p>
+</div>
+<div class="paragraph">
+<p>Materials in glTF are similar to extended materials in OF, but not all layers from openflight exist in glTF.</p>
+</div>
+<div class="paragraph">
+<p>Ex: Light map, specular map, reflection map.</p>
+</div>
+<div class="paragraph">
+<p>Material textures are not a concept in gltf. Would require extension.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>==</p>
+</div>
+<div class="paragraph">
+<p>==</p>
+</div>
+<div class="paragraph">
+<p>==</p>
+</div>
+<div class="paragraph">
+<p>==</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="metadata"><a class="anchor" href="#metadata"></a>10. CDB X Metadata and Integration</h2>
+<h2 id="_supporting_more_than_cdb_1_x"><a class="anchor" href="#_supporting_more_than_cdb_1_x"></a>10. Supporting more than CDB 1.X:</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenFlight capabilities that could be leveraged:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Extensions</p>
+</li>
+<li>
+<p>Extended Materials</p>
+</li>
+<li>
+<p>Hotspots</p>
+</li>
+<li>
+<p>LOD Transitions</p>
+</li>
+<li>
+<p>Cultural Footprint</p>
+</li>
+<li>
+<p>Point Nodes (Model Points instead of using tranforms)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>OpenFlight to glTF converter</p>
+</div>
+<div class="paragraph">
+<p>30 july 2020:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command line tool converting OpenFlight file into glTF</p>
+</li>
+<li>
+<p>Node hierarchy support and ported into glTF json file</p>
+</li>
+<li>
+<p>Polygons are converted to mesh on a per group basis</p>
+</li>
+<li>
+<p>No texture support yet</p>
+</li>
+<li>
+<p>LOD: using MSFT_LOD extension</p>
+<div class="ulist">
+<ul>
+<li>
+<p>LOD attribution for Significant size is not present</p>
+</li>
+<li>
+<p>LOD attribution â€¦.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><span class="image"><img src="extracted-media/media/image1.jpeg" alt="image"></span><span class="image"><img src="extracted-media/media/image2.png" alt="C:\Users\hermann\AppData\Local\Microsoft\Windows\INetCache\Content.Word\gltfNodes.PNG" width="246" height="562"></span></p>
+</div>
+<div class="paragraph">
+<p>glTF import in Blender</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="extracted-media/media/image3.png" alt="image"></span></p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>LOD nodes (Extension) are not supported in Blender â€“ imported as just a node, with all 3 LODs visible at the same time (but could be separated as they are in different nodes)</p>
+</li>
+<li>
+<p>No node attribution</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="metadata"><a class="anchor" href="#metadata"></a>11. CDB X Metadata and Integration</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section discusses metadata in CDB X</p>
@@ -1873,19 +2374,19 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <h1 id="_plan_for_experimentation_in_subsequent_phases_2" class="sect0"><a class="anchor" href="#_plan_for_experimentation_in_subsequent_phases_2"></a>Plan for Experimentation in subsequent phases</h1>
 <div class="sect1">
-<h2 id="tiling"><a class="anchor" href="#tiling"></a>11. Tiling and Tiled Coverages</h2>
+<h2 id="tiling"><a class="anchor" href="#tiling"></a>12. Tiling and Tiled Coverages</h2>
 <div class="sectionbody">
 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"><a class="anchor" href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"></a>12. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</h2>
+<h2 id="_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"><a class="anchor" href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"></a>13. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This clause provides discussion of tiled data and GeoPackage requirements and the results of the prototyping activities.</p>
 </div>
 <div class="sect2">
-<h3 id="_general_2"><a class="anchor" href="#_general_2"></a>12.1. General</h3>
+<h3 id="_general_2"><a class="anchor" href="#_general_2"></a>13.1. General</h3>
 <div class="paragraph">
 <p>Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the:</p>
 </div>
@@ -1900,7 +2401,7 @@ While the same metadata elements are recommended for both global and local geosp
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"><a class="anchor" href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"></a>12.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</h4>
+<h4 id="_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"><a class="anchor" href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"></a>13.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</h4>
 <div class="paragraph">
 <p>This OGC Abstract Specification consists of two Parts: A General Tiling Conceptual Model and, based on the Conceptual Model, a Logical Model for the Tessellation (Tiling) of 2D Euclidean Space. Tiling  of  2D  Euclidean  space  is  the  most  commonly  known  approach  to  partitioning  space  in traditional  geospatial  technology.  However,  there  are  also  common  elements  and/or  semantics  for any approach to partitioning space in any dimension. The logical model in this document defines a set  common  required  elements  and  then  follows  with  more  specific  requirements  for  the  two dimensional case.</p>
 </div>
@@ -1912,14 +2413,14 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ogc_two_dimensional_tile_matrix_set_standard"><a class="anchor" href="#_ogc_two_dimensional_tile_matrix_set_standard"></a>12.1.2. OGC Two Dimensional Tile Matrix Set Standard</h4>
+<h4 id="_ogc_two_dimensional_tile_matrix_set_standard"><a class="anchor" href="#_ogc_two_dimensional_tile_matrix_set_standard"></a>13.1.2. OGC Two Dimensional Tile Matrix Set Standard</h4>
 <div class="paragraph">
 <p>The OGC Tile Matrix Set standard defines the rules and requirements for a tile matrix set as a way to index space based on a set of regular grids defining a domain (tile matrix) for a limited list of scales in a Coordinate Reference System (CRS) as defined in [OGC 08-015r2] Abstract Specification Topic 2: Spatial Referencing by Coordinates. Each tile matrix is divided into regular tiles. In a tile matrix set, a tile can be univocally identified by a tile column a tile row and a tile matrix identifier. This document presents a data structure defining the properties of the tile matrix set in both UML diagrams and in tabular form. This document also presents a data structure to define a subset of a tile matrix set called tile matrix set limits. XML and JSON encodings are suggested both for tile matrix sets and tile matrix set limits. Finally, the document offers practical examples of tile matrix sets both for common global projections and for specific regions.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_design_objectives_for_cdb_x_tiling_and_lods_and_layers"><a class="anchor" href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers"></a>12.2. Design Objectives for CDB X Tiling and LoDs and Layers</h3>
+<h3 id="_design_objectives_for_cdb_x_tiling_and_lods_and_layers"><a class="anchor" href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers"></a>13.2. Design Objectives for CDB X Tiling and LoDs and Layers</h3>
 <div class="paragraph">
 <p>The following are the key design principals for a CDB X tiling, levels of detail, and layering.</p>
 </div>
@@ -1969,7 +2470,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_tiling_logical_model_for_cdb_x"><a class="anchor" href="#_proposed_tiling_logical_model_for_cdb_x"></a>12.3. Proposed Tiling Logical Model for CDB X</h3>
+<h3 id="_proposed_tiling_logical_model_for_cdb_x"><a class="anchor" href="#_proposed_tiling_logical_model_for_cdb_x"></a>13.3. Proposed Tiling Logical Model for CDB X</h3>
 <div class="paragraph">
 <p>The following figure, based on the Tiling Abstract Specification Logical Model and the CDB 1.x Conceptual Model, shows the properties by class (concept) and the relationships between the classes.</p>
 </div>
@@ -1981,7 +2482,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_cdb_x_tiling_structure"><a class="anchor" href="#_proposed_cdb_x_tiling_structure"></a>12.4. Proposed CDB X Tiling Structure</h3>
+<h3 id="_proposed_cdb_x_tiling_structure"><a class="anchor" href="#_proposed_cdb_x_tiling_structure"></a>13.4. Proposed CDB X Tiling Structure</h3>
 <div class="paragraph">
 <p>This section describes the proposed tiling structure and LoD (levels?) structure in CDB X. (<code>Probably need small section on consistenccy with version 1.x?</code>)</p>
 </div>
@@ -2016,24 +2517,24 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_additional_cdb_x_recommendations"><a class="anchor" href="#_additional_cdb_x_recommendations"></a>12.5. Additional CDB X Recommendations</h3>
+<h3 id="_additional_cdb_x_recommendations"><a class="anchor" href="#_additional_cdb_x_recommendations"></a>13.5. Additional CDB X Recommendations</h3>
 <div class="paragraph">
 <p>The following are recommendations and suggested additional discussion topics. These recommendations and discussion topics resulted from the Tiling sub-groups discussion on an enhanced tiling model for CDB X and the potential impacts on the various data types (layers) in the current CDB standard and existing CDB data stores.</p>
 </div>
 <div class="sect3">
-<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>12.5.1. Elevation min/max</h4>
+<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>13.5.1. Elevation min/max</h4>
 <div class="paragraph">
 <p>CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded coverage contained in a tile to the tile metadata. Note: The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>12.5.2. Image Compression - JPEG</h4>
+<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>13.5.2. Image Compression - JPEG</h4>
 <div class="paragraph">
 <p>Recommendation: That loss-less image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: <a href="https://flif.info/">FLIF - Free Lossless Image Format</a>.NOTE: JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_materials"><a class="anchor" href="#_materials"></a>12.5.3. Materials</h4>
+<h4 id="_materials"><a class="anchor" href="#_materials"></a>13.5.3. Materials</h4>
 <div class="paragraph">
 <p>Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with reflectance in wavelengths other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.</p>
 </div>
@@ -2098,7 +2599,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-25 23:06:43 UTC
+Last updated 2020-08-26 00:31:00 UTC
 </div>
 </div>
 </body>
