@@ -64,7 +64,7 @@ image::Images/Bridge and island area view from departing helos.png[width=800,ali
 
 == Experiment / Analysis Objectives
 
-Document how to make this small change to a CDB dataset.  The images shown were taken from CAE internal R&D in which the changes in the bridge and surrounding area resulting from the IED detonation with 'dynamic', i.e. there was no stopping of the simulation and reloading of a 'static' database.
+Document how to make this small change to a CDB dataset.  The images shown were taken from CAE internal R&D in which the changes in the bridge and surrounding area resulting from the IED detonation are 'dynamic', i.e. there was no stopping of the simulation and reloading of a 'static' database.
 
 For this experiment, the objective is to document how this change, the damage to a bridge, will be accomplished in the planned CDB X dataset(s).
 
