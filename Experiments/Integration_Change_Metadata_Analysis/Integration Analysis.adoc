@@ -17,4 +17,18 @@ For general orientation, the overall description of the CDB Yemen Database follo
 
 [#img_CDB CAE Yemen Database Description slide,reftext='{figure-caption} {counter:figure-num}']
 .An overall description of the Yemen CDB dataset.
-image::Images/CDB Yemen Database in a world database description.png[width=750,align="center"]
+image::Images/CDB Yemen Database in a world database description.png[width=1000,align="center"]
+
+A recent Google maps rendering of the general area of Aden Yemen:
+
+[#img_Google Maps recent Yemen overview,reftext='{figure-caption} {counter:figure-num}']
+.Aden, Yemen general overview.
+image::Images/Aden Yemen overhead map view.png[width=800,align="center"]
+
+A lower level recent Google maps rendering of the bridge to Sira Island, Aden, Yemen:
+
+[#img_Google Maps recent Sira Island bridge,reftext='{figure-caption} {counter:figure-num}']
+.Bridge to Sira Island, Aden, Yemen.
+image::Images/Sira Island Bridge Google Maps View.png[width=800,align="center"]
+
+The following are relatively low-resolution images of the Sira Island bridge and the area around it from an image generator rendering the Yemen CDB.
