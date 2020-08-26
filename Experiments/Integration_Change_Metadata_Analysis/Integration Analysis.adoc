@@ -32,3 +32,7 @@ A lower level recent Google maps rendering of the bridge to Sira Island, Aden, Y
 image::Images/Sira Island Bridge Google Maps View.png[width=800,align="center"]
 
 The following are relatively low-resolution images of the Sira Island bridge and the area around it from an image generator rendering the Yemen CDB.
+
+[#img_Vehicles on the road to Sira bridge,reftext='{figure-caption} {counter:figure-num}']
+.Vehicles on the road to the bridge before Bang.
+image::Images/Vehicles on the road to the bridge before bang.png[width=800,align="center"]
