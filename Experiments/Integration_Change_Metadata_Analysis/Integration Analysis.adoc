@@ -77,7 +77,7 @@ New imagery, elevation data, and material code raster files need to replace olde
 
 === Change to metadata constraints (security)
 
-For the purpose of this scenario, the entire Yemen CDB dataset was unclassified and without any constraints.   In this scenario, the source data for the damaged bridge is NOT unrestricted.  The analysis needs to examine how more-restrictive source data in a 'child' metadata object, i.e. the 3D models of the bridge/fragments, is 'aggregated' as the object is packaged or contained in higher level filesets and directories.
+For the purpose of this scenario, the entire Yemen CDB dataset was unclassified and without any constraints.   In this scenario, the source data for the damaged bridge is NOT unrestricted.  The analysis needs to examine how more-restrictive source data resulting in 'child' metadata objects inside a CDB X dataset at a high LOD, i.e. the 3D models of the bridge/fragments, the interrupted road network vector, new elevation and imagery data, is 'aggregated' as the object is packaged or contained in higher LOD and larger geospatial tiles or indexing of filesets and directories.
 
 === Change in temporal metadata
 
