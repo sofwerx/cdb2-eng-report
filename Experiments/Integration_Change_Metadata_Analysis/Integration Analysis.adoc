@@ -36,3 +36,19 @@ The following are relatively low-resolution images of the Sira Island bridge and
 [#img_Vehicles on the road to Sira bridge,reftext='{figure-caption} {counter:figure-num}']
 .Vehicles on the road to the bridge before Bang.
 image::Images/Vehicles on the road to the bridge before bang.png[width=800,align="center"]
+
+[#img_Sira bridge from the island side before Bang,reftext='{figure-caption} {counter:figure-num}']
+.Sira bridge view from the island side before Bang.
+image::Images/Bridge view from the other side before bang.png[width=800,align="center"]
+
+[#img_HMMV on Sira bridge just before Bang,reftext='{figure-caption} {counter:figure-num}']
+.HMMV on the Sira Island bridge just before IED detonation in a rehearsal scenario.
+image::Images/Bridge with HMMV before bang.png[width=800,align="center"]
+
+[#img_Sira Island bridge damaged with clearing smoke,reftext='{figure-caption} {counter:figure-num}']
+.Clearing smoke after IED damage to Sira Island bridge in an IED scenario.
+image::Images/Bridge with explosion and smoke clearing.png[width=800,align="center"]
+
+[#img_Sira Island bridge distant view of damage,reftext='{figure-caption} {counter:figure-num}']
+.Damaged / fallen Sira Island bridge in background as scenario helicopters depart.
+image::Images/Bridge and island area view from departing helos.png[width=800,align="center"]
