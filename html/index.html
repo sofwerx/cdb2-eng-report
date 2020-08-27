@@ -498,7 +498,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#Questions">9.1. Questions to be addressed</a></li>
 <li><a href="#_cdb_x_requirements_for_3d_model_components">9.2. CDB X Requirements for 3D Model Components</a></li>
 <li><a href="#_short_and_medium_term_objectives">9.3. Short and Medium Term Objectives</a></li>
-<li><a href="#_3d_experiment_object_model">9.4. 3D Experiment Object Model</a></li>
+<li><a href="#_3d_experiment_object_model">9.4. 3D Experiment Object Model</a>
+<ul class="sectlevel3">
+<li><a href="#_the_data">9.4.1. The data</a></li>
+<li><a href="#_attrubute_changes_explored">9.4.2. Attrubute changes explored</a></li>
+</ul>
+</li>
 <li><a href="#_prototyping_experiments">9.5. Prototyping Experiments</a></li>
 <li><a href="#_description_of_3d_formatsencodings_and_references_for_this_section">9.6. Description of 3D formats/encodings and References for this section:</a>
 <ul class="sectlevel3">
@@ -1590,14 +1595,42 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </div>
 <div class="sect2">
 <h3 id="_3d_experiment_object_model"><a class="anchor" href="#_3d_experiment_object_model"></a>9.4. 3D Experiment Object Model</h3>
+<div class="sect3">
+<h4 id="_the_data"><a class="anchor" href="#_the_data"></a>9.4.1. The data</h4>
 <div class="paragraph">
 <p>This experiment uses a GeoPackage comprised of a point feature table with attribution.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
-<img src="images/3d-model-gpkg-attr-table.png" alt="#img_3d-model-experiment 1" width="800">
+<img src="images/3d-model-gpkg-attr-table.png" alt="#img_3d-model-experiment 1" width="900">
 </div>
 <div class="title">Figure ATTPh3 - 8. 3D Experiment 1 attribute table for point features.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_attrubute_changes_explored"><a class="anchor" href="#_attrubute_changes_explored"></a>9.4.2. Attrubute changes explored</h4>
+<div class="paragraph">
+<p>The following current CDB attribute changes were explored.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CNAM - no longer needed</p>
+</li>
+<li>
+<p>FACC - FSC - Change to GGDM - impact on field type</p>
+</li>
+<li>
+<p>MLOD - (LOD of the model to use) This is closely linked to tiling and LODs of vector where each point features would point to a model at a given LOD (should be lower than feature vector LOD). Presume at the moment we keep this.</p>
+</li>
+<li>
+<p>MODL - (Name of the model to use). I nthis case, we should point to a metadata file for the model. Alternatively, the content of the metadata could be encoded in GeoPackage - which is bad for tool operability.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A key challenge to resolve is how to link the model data with the feature data. Currently, the MLOD and MODL are composed and lookup into the tile index of the point feature. Is that functional capability (approach?) preserved? Do we use a model table in Geopackage with a primary key? As decided, models would remain separate files and not encoded in the GeoPackage. So, a unique file name is required for this experiment.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2600,7 +2633,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-26 23:59:34 UTC
+Last updated 2020-08-27 00:04:02 UTC
 </div>
 </div>
 </body>
