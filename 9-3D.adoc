@@ -84,11 +84,24 @@ The following are the short and medium term objectives for the 3D Model Prototyp
 
 === 3D Experiment Object Model
 
+==== The data
+
 This experiment uses a GeoPackage comprised of a point feature table with attribution.
 
 [#img_3d-model-experiment 1,reftext='{figure-caption} {counter:figure-num}']
 .3D Experiment 1 attribute table for point features.
-image::images/3d-model-gpkg-attr-table.png[width=800,align="center"]
+image::images/3d-model-gpkg-attr-table.png[width=900,align="center"]
+
+==== Attrubute changes explored
+
+The following current CDB attribute changes were explored.
+
+- CNAM - no longer needed
+- FACC - FSC - Change to GGDM - impact on field type
+- MLOD - (LOD of the model to use) This is closely linked to tiling and LODs of vector where each point features would point to a model at a given LOD (should be lower than feature vector LOD). Presume at the moment we keep this.
+- MODL - (Name of the model to use). I nthis case, we should point to a metadata file for the model. Alternatively, the content of the metadata could be encoded in GeoPackage - which is bad for tool operability.
+
+A key challenge to resolve is how to link the model data with the feature data. Currently, the MLOD and MODL are composed and lookup into the tile index of the point feature. Is that functional capability (approach?) preserved? Do we use a model table in Geopackage with a primary key? As decided, models would remain separate files and not encoded in the GeoPackage. So, a unique file name is required for this experiment.
 
 === Prototyping Experiments
 
