@@ -557,10 +557,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#_ogc_api_access_demo">14. OGC API access demo</a></li>
-<li><a href="#_visualization">15. Visualization</a></li>
-<li><a href="#_cesium_js_3d_tiles_demo">16. Cesium JS / 3D Tiles demo</a></li>
-<li><a href="#_next_steps">17. Next steps</a></li>
 </ul>
 </li>
 <li><a href="#RevisionHistory">Appendix A: Revision History</a></li>
@@ -2599,11 +2595,11 @@ While the same metadata elements are recommended for both global and local geosp
 <p><a href="http://maps.ecere.com/CDBX/X1/" class="bare">http://maps.ecere.com/CDBX/X1/</a></p>
 </div>
 <div class="paragraph">
-<p>In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using metadata extension) to make this very portable.</p>
+<p>In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using metadata extension) to make this GeoPackage very portable.</p>
 </div>
 <div class="paragraph">
 <p>Inside the GeoPackage, all layers were tiled using the [GNOSIS Global Grid](<a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid" class="bare">https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid</a>) (using TMS extension&#8201;&#8212;&#8201;<a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc</a>).
-This included imagery data (as JPG, we just added support for that) and terrain (as GeoTIFF, we also just added support for that, using gridded coverage extension&#8201;&#8212;&#8201;<a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html" class="bare">http://docs.opengeospatial.org/is/17-066r1/17-066r1.html</a>).
+This included imagery data (as JPG, we just added support for that) and terrain stored as a GeoTIFF. This was done based on the <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">GeoPackage Tiled Gridded Coverage Extension</a>.
 The data also included some vector layers (Natural and Environmental light features) stored in this experiment using Mapbox Vector Tiles, including points intended to reference 3D models ("Man-made point features" and "Tree point features").
 The vector tiles extensions are used for this ( <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc</a>, <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc</a>, <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc</a>).</p>
 </div>
@@ -2618,13 +2614,8 @@ The related table extension would be used to relate the features attributes.</p>
 <p>For the geo-specific / one glTF for the whole tile, the glTF could potentially be stored in a tiles table instead, and the models constituting the payload (much like raster or vector tiles).</p>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ogc_api_access_demo"><a class="anchor" href="#_ogc_api_access_demo"></a>14. OGC API access demo</h2>
-<div class="sectionbody">
+<div class="sect4">
+<h5 id="_ogc_api_access_demo"><a class="anchor" href="#_ogc_api_access_demo"></a>OGC API access demo</h5>
 <div class="paragraph">
 <p>At this address: <a href="https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg" class="bare">https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg</a></p>
 </div>
@@ -2633,10 +2624,8 @@ The related table extension would be used to relate the features attributes.</p>
 To some extent, this demonstrates that even though the data is tiled, this layout actually supports a wide range of use cases.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_visualization"><a class="anchor" href="#_visualization"></a>15. Visualization</h2>
-<div class="sectionbody">
+<div class="sect4">
+<h5 id="_visualization"><a class="anchor" href="#_visualization"></a>Visualization</h5>
 <div class="paragraph">
 <p>We can currently visualize this CDB X/GeoPackage elevation and imagery directly in our 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).</p>
 </div>
@@ -2644,10 +2633,8 @@ To some extent, this demonstrates that even though the data is tiled, this layou
 <p>![](<a href="http://ecere.com/tmp/cdbx1.jpg" class="bare">http://ecere.com/tmp/cdbx1.jpg</a>)</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_cesium_js_3d_tiles_demo"><a class="anchor" href="#_cesium_js_3d_tiles_demo"></a>16. Cesium JS / 3D Tiles demo</h2>
-<div class="sectionbody">
+<div class="sect4">
+<h5 id="_cesium_js_3d_tiles_demo"><a class="anchor" href="#_cesium_js_3d_tiles_demo"></a>Cesium JS / 3D Tiles demo</h5>
 <div class="paragraph">
 <p>If you head over to <a href="https://sandcastle.cesium.com/" class="bare">https://sandcastle.cesium.com/</a> and copy/paste the following 4 lines of JS code:</p>
 </div>
@@ -2669,10 +2656,8 @@ To some extent, this demonstrates that even though the data is tiled, this layou
 <p>Once I have added the 3D models to the CDBX GeoPackage it should be possible to stream as 3D Tiles straight from that as well (the CDBX/GeoPackage, rather than this CampPendletonCDB).</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>17. Next steps</h2>
-<div class="sectionbody">
+<div class="sect4">
+<h5 id="_next_steps_this_section_will_change_as_new_content_is_provided"><a class="anchor" href="#_next_steps_this_section_will_change_as_new_content_is_provided"></a>Next steps (this section will change as new content is provided)</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2698,6 +2683,9 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 <p>Support for GNOSIS Map Server streaming 3D models from CDB X/GeoPackage</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2758,7 +2746,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-28 19:15:42 UTC
+Last updated 2020-08-28 19:19:43 UTC
 </div>
 </div>
 <style>
