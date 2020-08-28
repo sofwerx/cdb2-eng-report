@@ -2598,10 +2598,16 @@ While the same metadata elements are recommended for both global and local geosp
 <p>In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using metadata extension) to make this GeoPackage very portable.</p>
 </div>
 <div class="paragraph">
-<p>Inside the GeoPackage, all layers were tiled using the [GNOSIS Global Grid](<a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid" class="bare">https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid</a>) (using TMS extension&#8201;&#8212;&#8201;<a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc</a>).
-This included imagery data (as JPG, we just added support for that) and terrain stored as a GeoTIFF. This was done based on the <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">GeoPackage Tiled Gridded Coverage Extension</a>.
-The data also included some vector layers (Natural and Environmental light features) stored in this experiment using Mapbox Vector Tiles, including points intended to reference 3D models ("Man-made point features" and "Tree point features").
-The vector tiles extensions are used for this ( <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc</a>, <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc</a>, <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc</a>).</p>
+<p>Inside the GeoPackage, all layers were tiled using the Ecere <a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid">GNOSIS Global Grid</a>. This approach was implemented for the experiment using the proposed (and early draft) <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc">GeoPackage Two Dimensional Tile matrix Set (TMS) extension</a>. This extension was defined and initially tested in the 2019 OGC Vector Tiles Pilot Phase 2.</p>
+</div>
+<div class="paragraph">
+<p>The content included imagery data, stored as JPEGs and terrain data stored as GeoTIFFs. This was accomplished using an imlpementation of the <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">OGC GeoPackage Tiled Gridded Coverage Extension</a>.</p>
+</div>
+<div class="paragraph">
+<p>The content also included the Natural and Environmental light features vector layers stored for this experiment using Mapbox Vector Tiles, including points intended to reference 3D models ("Man-made point features" and "Tree point features").</p>
+</div>
+<div class="paragraph">
+<p>The vector tiles extensions are used for this ( <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc</a>, <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc</a>, <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc</a>).</p>
 </div>
 <div class="paragraph">
 <p>I am planning to add the 3D models in the next experiments&#8201;&#8212;&#8201;for geo-specific, both one glTF for a whole tile, as well as individual models to be referenced by the points.</p>
@@ -2746,7 +2752,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-28 19:19:43 UTC
+Last updated 2020-08-28 20:01:37 UTC
 </div>
 </div>
 <style>
