@@ -84,4 +84,68 @@ Recommendation: That loss-less image compression solutions be explored for use i
 
 Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with reflectance in wavelengths other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.
 
+=== Experiments
+
+==== CDB X Tiling/GeoPackage Experiment #1 (Ecere)
+
+===== Data and GeoPackage Structure
+
+A 1.4 GB GeoPackage of the Camp Pendleton sample CDB from Presagis (originally used in OGC Testbed 13), along with an accompanying `cdb.json` can be found at:
+
+http://maps.ecere.com/CDBX/X1/
+
+In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using metadata extension) to make this very portable.
+
+Inside the GeoPackage, all layers were tiled using the [GNOSIS Global Grid](https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid) (using TMS extension -- https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc).
+This included imagery data (as JPG, we just added support for that) and terrain (as GeoTIFF, we also just added support for that, using gridded coverage extension -- http://docs.opengeospatial.org/is/17-066r1/17-066r1.html).
+The data also included some vector layers (Natural and Environmental light features) stored in this experiment using Mapbox Vector Tiles, including points intended to reference 3D models ("Man-made point features" and "Tree point features").
+The vector tiles extensions are used for this ( https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc, https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc, https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc).
+
+I am planning to add the 3D models in the next experiments -- for geo-specific, both one glTF for a whole tile, as well as individual models to be referenced by the points.
+
+For the case of points referencing the 3D models (best suited for geo-typical), those glTF files would be stored in a single 3D models table, as well as a textures table (if the models share rather than embed textures).
+The related table extension would be used to relate the features attributes.
+
+For the geo-specific / one glTF for the whole tile, the glTF could potentially be stored in a tiles table instead, and the models constituting the payload (much like raster or vector tiles).
+
+## OGC API access demo
+
+At this address: https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg
+
+You can directly access this CDB X Experiment #1 GeoPackage through our GNOSIS Map Server, including rendering maps, downloading coverages, accessing as tiles in different tiling schemes, accessing individual vector features, retrieving them as (re-merged) GeoJSON, visualizing them on GeoJSON.io and so on.
+To some extent, this demonstrates that even though the data is tiled, this layout actually supports a wide range of use cases.
+
+## Visualization
+
+We can currently visualize this CDB X/GeoPackage elevation and imagery directly in our 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).
+
+![](http://ecere.com/tmp/cdbx1.jpg)
+
+## Cesium JS / 3D Tiles demo
+
+If you head over to https://sandcastle.cesium.com/ and copy/paste the following 4 lines of JS code:
+
+```js
+var worldTerrain = Cesium.createWorldTerrain({requestWaterMask: true, requestVertexNormals: true, });
+var viewer = new Cesium.Viewer("cesiumContainer", { terrainProvider: worldTerrain });
+var scene = viewer.scene;
+var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({ url: "https://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings/3DTiles/tileset.json" }));
+```
+
+then click "Run", and zoom in onto Camp Pendleton (it's at the height of the southern part of the northernmost of those 2 islands just west of southern California), you should start seeing 3D buildings.
+
+This 3D Tiles distribution (for OGC API collection http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings) is currently being generated on the fly from our GNOSIS Data Store / E3D models. No textures just yet.
+
+Once I have added the 3D models to the CDBX GeoPackage it should be possible to stream as 3D Tiles straight from that as well (the CDBX/GeoPackage, rather than this CampPendletonCDB).
+
+## Next steps
+
+- Support for splitting in multiple GeoPackages with LoD grouping
+- A table for storing glTF models, for referenced 3D models (either only for geo-typical trees, or even the geo-specific buildings as well), and using Related tables extensions to relate the models table to other tables
+- Single glTF models covering a whole tile for geo-specific models
+- Export similar GeoPackages for San Diego CDB
+- Attribution per model within the single tile model. We support this directly in E3D, and I wonder whether glTF2 supports this.
+I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF is a Features Table which does precisely this, so I am not sure whether glTF 2 has this capability built in (i.e. allowing to use a .glb directly rather than a .b3dm).
+- Support for visualizing the dataset including 3D models in our GNOSIS Cartographer client (work required to support CDB consisting of multiple of GeoPackages as a single data source)
+- Support for GNOSIS Map Server streaming 3D models from CDB X/GeoPackage
 
