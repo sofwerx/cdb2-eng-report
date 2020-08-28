@@ -550,8 +550,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_materials">13.5.3. Materials</a></li>
 </ul>
 </li>
+<li><a href="#_experiments">13.6. Experiments</a>
+<ul class="sectlevel3">
+<li><a href="#_cdb_x_tilinggeopackage_experiment_1_ecere">13.6.1. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#_ogc_api_access_demo">14. OGC API access demo</a></li>
+<li><a href="#_visualization">15. Visualization</a></li>
+<li><a href="#_cesium_js_3d_tiles_demo">16. Cesium JS / 3D Tiles demo</a></li>
+<li><a href="#_next_steps">17. Next steps</a></li>
 </ul>
 </li>
 <li><a href="#RevisionHistory">Appendix A: Revision History</a></li>
@@ -2577,6 +2586,119 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_experiments"><a class="anchor" href="#_experiments"></a>13.6. Experiments</h3>
+<div class="sect3">
+<h4 id="_cdb_x_tilinggeopackage_experiment_1_ecere"><a class="anchor" href="#_cdb_x_tilinggeopackage_experiment_1_ecere"></a>13.6.1. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</h4>
+<div class="sect4">
+<h5 id="_data_and_geopackage_structure"><a class="anchor" href="#_data_and_geopackage_structure"></a>Data and GeoPackage Structure</h5>
+<div class="paragraph">
+<p>A 1.4 GB GeoPackage of the Camp Pendleton sample CDB from Presagis (originally used in OGC Testbed 13), along with an accompanying <code>cdb.json</code> can be found at:</p>
+</div>
+<div class="paragraph">
+<p><a href="http://maps.ecere.com/CDBX/X1/" class="bare">http://maps.ecere.com/CDBX/X1/</a></p>
+</div>
+<div class="paragraph">
+<p>In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using metadata extension) to make this very portable.</p>
+</div>
+<div class="paragraph">
+<p>Inside the GeoPackage, all layers were tiled using the [GNOSIS Global Grid](<a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid" class="bare">https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid</a>) (using TMS extension&#8201;&#8212;&#8201;<a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc</a>).
+This included imagery data (as JPG, we just added support for that) and terrain (as GeoTIFF, we also just added support for that, using gridded coverage extension&#8201;&#8212;&#8201;<a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html" class="bare">http://docs.opengeospatial.org/is/17-066r1/17-066r1.html</a>).
+The data also included some vector layers (Natural and Environmental light features) stored in this experiment using Mapbox Vector Tiles, including points intended to reference 3D models ("Man-made point features" and "Tree point features").
+The vector tiles extensions are used for this ( <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc</a>, <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc</a>, <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc</a>).</p>
+</div>
+<div class="paragraph">
+<p>I am planning to add the 3D models in the next experiments&#8201;&#8212;&#8201;for geo-specific, both one glTF for a whole tile, as well as individual models to be referenced by the points.</p>
+</div>
+<div class="paragraph">
+<p>For the case of points referencing the 3D models (best suited for geo-typical), those glTF files would be stored in a single 3D models table, as well as a textures table (if the models share rather than embed textures).
+The related table extension would be used to relate the features attributes.</p>
+</div>
+<div class="paragraph">
+<p>For the geo-specific / one glTF for the whole tile, the glTF could potentially be stored in a tiles table instead, and the models constituting the payload (much like raster or vector tiles).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ogc_api_access_demo"><a class="anchor" href="#_ogc_api_access_demo"></a>14. OGC API access demo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>At this address: <a href="https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg" class="bare">https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg</a></p>
+</div>
+<div class="paragraph">
+<p>You can directly access this CDB X Experiment #1 GeoPackage through our GNOSIS Map Server, including rendering maps, downloading coverages, accessing as tiles in different tiling schemes, accessing individual vector features, retrieving them as (re-merged) GeoJSON, visualizing them on GeoJSON.io and so on.
+To some extent, this demonstrates that even though the data is tiled, this layout actually supports a wide range of use cases.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_visualization"><a class="anchor" href="#_visualization"></a>15. Visualization</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We can currently visualize this CDB X/GeoPackage elevation and imagery directly in our 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).</p>
+</div>
+<div class="paragraph">
+<p>![](<a href="http://ecere.com/tmp/cdbx1.jpg" class="bare">http://ecere.com/tmp/cdbx1.jpg</a>)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cesium_js_3d_tiles_demo"><a class="anchor" href="#_cesium_js_3d_tiles_demo"></a>16. Cesium JS / 3D Tiles demo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you head over to <a href="https://sandcastle.cesium.com/" class="bare">https://sandcastle.cesium.com/</a> and copy/paste the following 4 lines of JS code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="js"><span class="keyword">var</span> worldTerrain = Cesium.createWorldTerrain({<span class="key">requestWaterMask</span>: <span class="predefined-constant">true</span>, <span class="key">requestVertexNormals</span>: <span class="predefined-constant">true</span>, });
+<span class="keyword">var</span> viewer = <span class="keyword">new</span> Cesium.Viewer(<span class="string"><span class="delimiter">&quot;</span><span class="content">cesiumContainer</span><span class="delimiter">&quot;</span></span>, { <span class="key">terrainProvider</span>: worldTerrain });
+<span class="keyword">var</span> scene = viewer.scene;
+<span class="keyword">var</span> tileset = scene.primitives.add(<span class="keyword">new</span> Cesium.Cesium3DTileset({ <span class="key">url</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings/3DTiles/tileset.json</span><span class="delimiter">&quot;</span></span> }));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>then click "Run", and zoom in onto Camp Pendleton (it&#8217;s at the height of the southern part of the northernmost of those 2 islands just west of southern California), you should start seeing 3D buildings.</p>
+</div>
+<div class="paragraph">
+<p>This 3D Tiles distribution (for OGC API collection <a href="http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings" class="bare">http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings</a>) is currently being generated on the fly from our GNOSIS Data Store / E3D models. No textures just yet.</p>
+</div>
+<div class="paragraph">
+<p>Once I have added the 3D models to the CDBX GeoPackage it should be possible to stream as 3D Tiles straight from that as well (the CDBX/GeoPackage, rather than this CampPendletonCDB).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>17. Next steps</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Support for splitting in multiple GeoPackages with LoD grouping</p>
+</li>
+<li>
+<p>A table for storing glTF models, for referenced 3D models (either only for geo-typical trees, or even the geo-specific buildings as well), and using Related tables extensions to relate the models table to other tables</p>
+</li>
+<li>
+<p>Single glTF models covering a whole tile for geo-specific models</p>
+</li>
+<li>
+<p>Export similar GeoPackages for San Diego CDB</p>
+</li>
+<li>
+<p>Attribution per model within the single tile model. We support this directly in E3D, and I wonder whether glTF2 supports this.
+I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF is a Features Table which does precisely this, so I am not sure whether glTF 2 has this capability built in (i.e. allowing to use a .glb directly rather than a .b3dm).</p>
+</li>
+<li>
+<p>Support for visualizing the dataset including 3D models in our GNOSIS Cartographer client (work required to support CDB consisting of multiple of GeoPackages as a single data source)</p>
+</li>
+<li>
+<p>Support for GNOSIS Map Server streaming 3D models from CDB X/GeoPackage</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2636,8 +2758,97 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-28 17:52:22 UTC
+Last updated 2020-08-28 19:15:42 UTC
 </div>
 </div>
+<style>
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style>
 </body>
 </html>
