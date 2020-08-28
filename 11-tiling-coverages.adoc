@@ -96,9 +96,12 @@ http://maps.ecere.com/CDBX/X1/
 
 In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using metadata extension) to make this GeoPackage very portable.
 
-Inside the GeoPackage, all layers were tiled using the [GNOSIS Global Grid](https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid) (using TMS extension -- https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc).
-This included imagery data (as JPG, we just added support for that) and terrain stored as a GeoTIFF. This was done based on the http://docs.opengeospatial.org/is/17-066r1/17-066r1.html[GeoPackage Tiled Gridded Coverage Extension].
-The data also included some vector layers (Natural and Environmental light features) stored in this experiment using Mapbox Vector Tiles, including points intended to reference 3D models ("Man-made point features" and "Tree point features").
+Inside the GeoPackage, all layers were tiled using the Ecere https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid[GNOSIS Global Grid]. This approach was implemented for the experiment using the proposed (and early draft) https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc[GeoPackage Two Dimensional Tile matrix Set (TMS) extension]. This extension was defined and initially tested in the 2019 OGC Vector Tiles Pilot Phase 2.
+
+The content included imagery data, stored as JPEGs and terrain data stored as GeoTIFFs. This was accomplished using an imlpementation of the http://docs.opengeospatial.org/is/17-066r1/17-066r1.html[OGC GeoPackage Tiled Gridded Coverage Extension].
+
+The content also included the Natural and Environmental light features vector layers stored for this experiment using Mapbox Vector Tiles, including points intended to reference 3D models ("Man-made point features" and "Tree point features").
+
 The vector tiles extensions are used for this ( https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc, https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc, https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc).
 
 I am planning to add the 3D models in the next experiments -- for geo-specific, both one glTF for a whole tile, as well as individual models to be referenced by the points.
