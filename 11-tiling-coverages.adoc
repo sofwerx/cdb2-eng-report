@@ -94,10 +94,10 @@ A 1.4 GB GeoPackage of the Camp Pendleton sample CDB from Presagis (originally u
 
 http://maps.ecere.com/CDBX/X1/
 
-In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using metadata extension) to make this very portable.
+In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using metadata extension) to make this GeoPackage very portable.
 
 Inside the GeoPackage, all layers were tiled using the [GNOSIS Global Grid](https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid) (using TMS extension -- https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc).
-This included imagery data (as JPG, we just added support for that) and terrain (as GeoTIFF, we also just added support for that, using gridded coverage extension -- http://docs.opengeospatial.org/is/17-066r1/17-066r1.html).
+This included imagery data (as JPG, we just added support for that) and terrain stored as a GeoTIFF. This was done based on the http://docs.opengeospatial.org/is/17-066r1/17-066r1.html[GeoPackage Tiled Gridded Coverage Extension].
 The data also included some vector layers (Natural and Environmental light features) stored in this experiment using Mapbox Vector Tiles, including points intended to reference 3D models ("Man-made point features" and "Tree point features").
 The vector tiles extensions are used for this ( https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc, https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc, https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc).
 
@@ -108,20 +108,20 @@ The related table extension would be used to relate the features attributes.
 
 For the geo-specific / one glTF for the whole tile, the glTF could potentially be stored in a tiles table instead, and the models constituting the payload (much like raster or vector tiles).
 
-## OGC API access demo
+===== OGC API access demo
 
 At this address: https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg
 
 You can directly access this CDB X Experiment #1 GeoPackage through our GNOSIS Map Server, including rendering maps, downloading coverages, accessing as tiles in different tiling schemes, accessing individual vector features, retrieving them as (re-merged) GeoJSON, visualizing them on GeoJSON.io and so on.
 To some extent, this demonstrates that even though the data is tiled, this layout actually supports a wide range of use cases.
 
-## Visualization
+===== Visualization
 
 We can currently visualize this CDB X/GeoPackage elevation and imagery directly in our 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).
 
 ![](http://ecere.com/tmp/cdbx1.jpg)
 
-## Cesium JS / 3D Tiles demo
+===== Cesium JS / 3D Tiles demo
 
 If you head over to https://sandcastle.cesium.com/ and copy/paste the following 4 lines of JS code:
 
@@ -138,7 +138,7 @@ This 3D Tiles distribution (for OGC API collection http://maps.ecere.com/ogcapi/
 
 Once I have added the 3D models to the CDBX GeoPackage it should be possible to stream as 3D Tiles straight from that as well (the CDBX/GeoPackage, rather than this CampPendletonCDB).
 
-## Next steps
+===== Next steps (this section will change as new content is provided)
 
 - Support for splitting in multiple GeoPackages with LoD grouping
 - A table for storing glTF models, for referenced 3D models (either only for geo-typical trees, or even the geo-specific buildings as well), and using Related tables extensions to relate the models table to other tables
