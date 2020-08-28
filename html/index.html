@@ -501,20 +501,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_3d_experiment_object_model">9.4. 3D Experiment Object Model</a>
 <ul class="sectlevel3">
 <li><a href="#_the_data">9.4.1. The data</a></li>
-<li><a href="#_attrubute_changes_explored">9.4.2. Attrubute changes explored</a></li>
+<li><a href="#_attribute_changes_explored">9.4.2. Attribute changes explored</a></li>
 </ul>
 </li>
-<li><a href="#_prototyping_experiments">9.5. Prototyping Experiments</a></li>
-<li><a href="#_description_of_3d_formatsencodings_and_references_for_this_section">9.6. Description of 3D formats/encodings and References for this section:</a>
+<li><a href="#_description_of_3d_formatsencodings_and_references_for_this_section">9.5. Description of 3D formats/encodings and References for this section:</a>
 <ul class="sectlevel3">
-<li><a href="#_openflight">9.6.1. OpenFlight</a></li>
-<li><a href="#_gl_transmission_format_gltf_2_0">9.6.2. GL Transmission Format (glTF) 2.0</a></li>
+<li><a href="#_openflight">9.5.1. OpenFlight</a></li>
+<li><a href="#_gl_transmission_format_gltf_2_0">9.5.2. GL Transmission Format (glTF) 2.0</a></li>
 </ul>
 </li>
-<li><a href="#_cdb_openflight_and_gltf_feature_analysis">9.7. CDB OpenFlight and glTF Feature Analysis</a></li>
+<li><a href="#_cdb_openflight_and_gltf_feature_analysis">9.6. CDB OpenFlight and glTF Feature Analysis</a></li>
 </ul>
 </li>
-<li><a href="#_supporting_more_than_cdb_1_x">10. Supporting more than CDB 1.X:</a></li>
+<li><a href="#_supporting_more_than_cdb_1_x">10. Supporting more than CDB 1.X:</a>
+<ul class="sectlevel2">
+<li><a href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature">10.1. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</a></li>
+</ul>
+</li>
 <li><a href="#metadata">11. CDB X Metadata and Integration</a></li>
 </ul>
 </li>
@@ -1608,7 +1611,7 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </div>
 </div>
 <div class="sect3">
-<h4 id="_attrubute_changes_explored"><a class="anchor" href="#_attrubute_changes_explored"></a>9.4.2. Attrubute changes explored</h4>
+<h4 id="_attribute_changes_explored"><a class="anchor" href="#_attribute_changes_explored"></a>9.4.2. Attribute changes explored</h4>
 <div class="paragraph">
 <p>The following current CDB attribute changes were explored.</p>
 </div>
@@ -1634,76 +1637,9 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_prototyping_experiments"><a class="anchor" href="#_prototyping_experiments"></a>9.5. Prototyping Experiments</h3>
-<div class="paragraph">
-<p>Two profiles.</p>
-</div>
-<div class="paragraph">
-<p>Profile 1 Storing the mesh in as 3D tile: Experiments</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Question: How to store LODs? In glTF extensions, In 3D tiles, in separate glTF</p>
-</li>
-<li>
-<p>Question: Are there missing glTF constructs?</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Profile 2 Storing the mesh in as 3D tile (Editor&#8217;s note: <code>Why just 3D Tiles? Why not a more general approach that allows other encodings/approaches?</code>)</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Question: What is the ability to source edit the mesh?</p>
-</li>
-<li>
-<p>Question: Mixing GeoPackage with 3D tiles?</p>
-</li>
-<li>
-<p>Question: CDB catalog service for 3D tile inside a tile</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Both Profile 1 and Profile 2</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Question: What are the efficient format/packing for each different end-points:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>ATAK</p>
-</li>
-<li>
-<p>Mission command (wms/wfs)</p>
-</li>
-<li>
-<p>Modsim</p>
-</li>
-<li>
-<p>Gaming</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div id="img_3d-model-experiments" class="imageblock text-center">
-<div class="content">
-<img src="images/3d-model-prototyping.png" alt="3d model prototyping" width="800">
-</div>
-<div class="title">Figure ATTPh3 - 9. Profles and Experiments for CBD-X 3D Models.</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_description_of_3d_formatsencodings_and_references_for_this_section"><a class="anchor" href="#_description_of_3d_formatsencodings_and_references_for_this_section"></a>9.6. Description of 3D formats/encodings and References for this section:</h3>
+<h3 id="_description_of_3d_formatsencodings_and_references_for_this_section"><a class="anchor" href="#_description_of_3d_formatsencodings_and_references_for_this_section"></a>9.5. Description of 3D formats/encodings and References for this section:</h3>
 <div class="sect3">
-<h4 id="_openflight"><a class="anchor" href="#_openflight"></a>9.6.1. OpenFlight</h4>
+<h4 id="_openflight"><a class="anchor" href="#_openflight"></a>9.5.1. OpenFlight</h4>
 <div class="paragraph">
 <p>OpenFlight (or .flt) is an open, freely available 3d geometry model file format originally developed by Software Systems Inc. for its MultiGen real-time 3d modeling package. OpenFlight is a format supported widely in modeling and simulation community for dynamic and static 3D model. In CDB 1.x, OpenFlight is used for  the  representation  of  3D  dynamic  models  and  RGB  format  for  the  3D model’s textures. However, while widely used and there are extensive .flt model libraries, OpenFlight is long in the tooth.</p>
 </div>
@@ -1712,7 +1648,7 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </div>
 </div>
 <div class="sect3">
-<h4 id="_gl_transmission_format_gltf_2_0"><a class="anchor" href="#_gl_transmission_format_gltf_2_0"></a>9.6.2. GL Transmission Format (glTF) 2.0</h4>
+<h4 id="_gl_transmission_format_gltf_2_0"><a class="anchor" href="#_gl_transmission_format_gltf_2_0"></a>9.5.2. GL Transmission Format (glTF) 2.0</h4>
 <div class="paragraph">
 <p>glTF is a royalty-free specification for the efficient transmission and loading of 3D scenes and models by applications. glTF uses the JSON standard. glTF is an API-neutral runtime asset delivery format developed by the Khronos Group 3D Formats Working Group.</p>
 </div>
@@ -1740,7 +1676,7 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cdb_openflight_and_gltf_feature_analysis"><a class="anchor" href="#_cdb_openflight_and_gltf_feature_analysis"></a>9.7. CDB OpenFlight and glTF Feature Analysis</h3>
+<h3 id="_cdb_openflight_and_gltf_feature_analysis"><a class="anchor" href="#_cdb_openflight_and_gltf_feature_analysis"></a>9.6. CDB OpenFlight and glTF Feature Analysis</h3>
 <div class="paragraph">
 <p>==</p>
 </div>
@@ -2241,6 +2177,73 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </li>
 </ul>
 </div>
+<div class="sect2">
+<h3 id="_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"><a class="anchor" href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"></a>10.1. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</h3>
+<div class="paragraph">
+<p>Two profiles.</p>
+</div>
+<div class="paragraph">
+<p>Profile 1 Storing the mesh in as 3D tile: Experiments</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Question: How to store LODs? In glTF extensions, In 3D tiles, in separate glTF</p>
+</li>
+<li>
+<p>Question: Are there missing glTF constructs?</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Profile 2 Storing the mesh in as 3D tile (Editor&#8217;s note: <code>Why just 3D Tiles? Why not a more general approach that allows other encodings/approaches?</code>)</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Question: What is the ability to source edit the mesh?</p>
+</li>
+<li>
+<p>Question: Mixing GeoPackage with 3D tiles?</p>
+</li>
+<li>
+<p>Question: CDB catalog service for 3D tile inside a tile</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Both Profile 1 and Profile 2</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Question: What are the efficient format/packing for each different end-points:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>ATAK</p>
+</li>
+<li>
+<p>Mission command (wms/wfs)</p>
+</li>
+<li>
+<p>Modsim</p>
+</li>
+<li>
+<p>Gaming</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div id="img_3d-model-experiments" class="imageblock text-center">
+<div class="content">
+<img src="images/3d-model-prototyping.png" alt="3d model prototyping" width="800">
+</div>
+<div class="title">Figure ATTPh3 - 9. Profles and Experiments for CBD-X 3D Models.</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2633,7 +2636,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-27 00:04:02 UTC
+Last updated 2020-08-28 17:52:22 UTC
 </div>
 </div>
 </body>
