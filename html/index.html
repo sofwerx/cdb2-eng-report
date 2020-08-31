@@ -2595,22 +2595,44 @@ While the same metadata elements are recommended for both global and local geosp
 <p><a href="http://maps.ecere.com/CDBX/X1/" class="bare">http://maps.ecere.com/CDBX/X1/</a></p>
 </div>
 <div class="paragraph">
-<p>In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using metadata extension) to make this GeoPackage very portable.</p>
+<p>In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using the GeoPackage metadata extension) to make this GeoPackage very portable.</p>
 </div>
 <div class="paragraph">
-<p>Inside the GeoPackage, all layers were tiled using the Ecere <a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid">GNOSIS Global Grid</a>. This approach was implemented for the experiment using the proposed (and early draft) <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc">GeoPackage Two Dimensional Tile matrix Set (TMS) extension</a>. This extension was defined and initially tested in the 2019 OGC Vector Tiles Pilot Phase 2.</p>
+<p>Inside the GeoPackage, all layers were tiled using the Ecere <a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid">GNOSIS Global Grid</a>. This approach was implemented for the experiment using the proposed (and early draft) <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc">GeoPackage Two Dimensional Tile matrix Set (TMS) extension</a>. This extension was defined and initially tested in the <a href="https://www.ogc.org/projects/initiatives/vtp2">2019 OGC Vector Tiles Pilot Phase 2</a>.</p>
 </div>
 <div class="paragraph">
-<p>The content included imagery data, stored as JPEGs and terrain data stored as GeoTIFFs. This was accomplished using an imlpementation of the <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">OGC GeoPackage Tiled Gridded Coverage Extension</a>.</p>
+<p>The content includes imagery data, stored as JPEGs, and terrain data stored as GeoTIFFs. This was accomplished using an imlpementation of the <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">OGC GeoPackage Tiled Gridded Coverage Extension</a>.</p>
 </div>
 <div class="paragraph">
-<p>The content also included the Natural and Environmental light features vector layers stored for this experiment using Mapbox Vector Tiles, including points intended to reference 3D models ("Man-made point features" and "Tree point features").</p>
+<p>The content also included the Natural and Environmental light features vector layers. For this experiment, this content was stored  using Mapbox Vector Tiles. This included points intended to reference 3D models such as "Man-made point features" and "Tree point features".</p>
 </div>
 <div class="paragraph">
-<p>The vector tiles extensions are used for this ( <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc</a>, <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc</a>, <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc</a>).</p>
+<p>The early draft GeoPackage Tiled Vector Data (vector tiles) extensions were used for this:</p>
 </div>
-<div class="paragraph">
-<p>I am planning to add the 3D models in the next experiments&#8201;&#8212;&#8201;for geo-specific, both one glTF for a whole tile, as well as individual models to be referenced by the points.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc">GeoPackage Tiled Vector Data Attributes Extension</a> This extension defines a relationship between features contained in a tiled layer and tiles containing those features.</p>
+</li>
+<li>
+<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc">GeoPackage Tiled Vector Data</a> The GeoPackage Tiled Vector Data extension defines the rules and requirements for encoding tiled feature data (aka "vector tiles") into a GeoPackage data store.</p>
+</li>
+<li>
+<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc">MapBox Vector Tiles extension</a> The GeoPackage Mapbox Vector Tiles extension defines the rules and requirements for encoding vector tiles in a GeoPackage data store as Mapbox Vector Tiles.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Ecere is planning to add the 3D models in the next experiments&#8201;&#8212;&#8201;for geo-specific, both one glTF for a whole tile, as well as individual models to be referenced by the points.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>For the case of points referencing the 3D models (best suited for geo-typical), those glTF files would be stored in a single 3D models table, as well as a textures table (if the models share rather than embed textures).
@@ -2752,7 +2774,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-28 20:01:37 UTC
+Last updated 2020-08-31 19:20:29 UTC
 </div>
 </div>
 <style>
