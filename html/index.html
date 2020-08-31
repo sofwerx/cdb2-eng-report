@@ -2635,8 +2635,7 @@ Ecere is planning to add the 3D models in the next experiments&#8201;&#8212;&#82
 </table>
 </div>
 <div class="paragraph">
-<p>For the case of points referencing the 3D models (best suited for geo-typical), those glTF files would be stored in a single 3D models table, as well as a textures table (if the models share rather than embed textures).
-The related table extension would be used to relate the features attributes.</p>
+<p>For the case of points referencing the 3D models (best suited for geo-typical), those glTF files would be stored in a single 3D models table, as well as a textures table (if the models share rather than embed textures). The related table extension would be used to relate the features attributes.</p>
 </div>
 <div class="paragraph">
 <p>For the geo-specific / one glTF for the whole tile, the glTF could potentially be stored in a tiles table instead, and the models constituting the payload (much like raster or vector tiles).</p>
@@ -2655,16 +2654,16 @@ To some extent, this demonstrates that even though the data is tiled, this layou
 <div class="sect4">
 <h5 id="_visualization"><a class="anchor" href="#_visualization"></a>Visualization</h5>
 <div class="paragraph">
-<p>We can currently visualize this CDB X/GeoPackage elevation and imagery directly in our 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).</p>
+<p>Ecere software can currently visualize the CDB X/GeoPackage elevation and imagery directly in the Ecere 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).</p>
 </div>
 <div class="paragraph">
 <p>![](<a href="http://ecere.com/tmp/cdbx1.jpg" class="bare">http://ecere.com/tmp/cdbx1.jpg</a>)</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_cesium_js_3d_tiles_demo"><a class="anchor" href="#_cesium_js_3d_tiles_demo"></a>Cesium JS / 3D Tiles demo</h5>
+<h5 id="_live_cesium_js_3d_tiles_demonstation"><a class="anchor" href="#_live_cesium_js_3d_tiles_demonstation"></a>Live Cesium JS / 3D Tiles demonstation</h5>
 <div class="paragraph">
-<p>If you head over to <a href="https://sandcastle.cesium.com/" class="bare">https://sandcastle.cesium.com/</a> and copy/paste the following 4 lines of JS code:</p>
+<p>Navigate to <a href="https://sandcastle.cesium.com/" class="bare">https://sandcastle.cesium.com/</a> and copy/paste the following 4 lines of JS code:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2675,13 +2674,13 @@ To some extent, this demonstrates that even though the data is tiled, this layou
 </div>
 </div>
 <div class="paragraph">
-<p>then click "Run", and zoom in onto Camp Pendleton (it&#8217;s at the height of the southern part of the northernmost of those 2 islands just west of southern California), you should start seeing 3D buildings.</p>
+<p>Then click "Run", and zoom in onto Camp Pendleton (it&#8217;s at the height of the southern part of the northernmost of those 2 islands just west of southern California), you should start seeing 3D buildings.</p>
 </div>
 <div class="paragraph">
-<p>This 3D Tiles distribution (for OGC API collection <a href="http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings" class="bare">http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings</a>) is currently being generated on the fly from our GNOSIS Data Store / E3D models. No textures just yet.</p>
+<p>This 3D Tiles distribution (for OGC API collection <a href="http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings" class="bare">http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings</a>) is currently being generated on the fly from the Ecere GNOSIS Data Store / E3D models. NOTE: No textures have been added yet.</p>
 </div>
 <div class="paragraph">
-<p>Once I have added the 3D models to the CDBX GeoPackage it should be possible to stream as 3D Tiles straight from that as well (the CDBX/GeoPackage, rather than this CampPendletonCDB).</p>
+<p>Once the 3D models are added to the CDBX GeoPackage it should be possible to stream as 3D Tiles straight from the CDBX/GeoPackage as well, rather than the original CampPendletonCDB).</p>
 </div>
 </div>
 <div class="sect4">
@@ -2774,7 +2773,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-31 19:20:29 UTC
+Last updated 2020-08-31 19:55:09 UTC
 </div>
 </div>
 <style>
