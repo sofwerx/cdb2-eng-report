@@ -110,8 +110,7 @@ The early draft GeoPackage Tiled Vector Data (vector tiles) extensions were used
 
 NOTE: Ecere is planning to add the 3D models in the next experiments -- for geo-specific, both one glTF for a whole tile, as well as individual models to be referenced by the points.
 
-For the case of points referencing the 3D models (best suited for geo-typical), those glTF files would be stored in a single 3D models table, as well as a textures table (if the models share rather than embed textures).
-The related table extension would be used to relate the features attributes.
+For the case of points referencing the 3D models (best suited for geo-typical), those glTF files would be stored in a single 3D models table, as well as a textures table (if the models share rather than embed textures). The related table extension would be used to relate the features attributes.
 
 For the geo-specific / one glTF for the whole tile, the glTF could potentially be stored in a tiles table instead, and the models constituting the payload (much like raster or vector tiles).
 
@@ -124,13 +123,13 @@ To some extent, this demonstrates that even though the data is tiled, this layou
 
 ===== Visualization
 
-We can currently visualize this CDB X/GeoPackage elevation and imagery directly in our 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).
+Ecere software can currently visualize the CDB X/GeoPackage elevation and imagery directly in the Ecere 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).
 
 ![](http://ecere.com/tmp/cdbx1.jpg)
 
-===== Cesium JS / 3D Tiles demo
+===== Live Cesium JS / 3D Tiles demonstation
 
-If you head over to https://sandcastle.cesium.com/ and copy/paste the following 4 lines of JS code:
+Navigate to https://sandcastle.cesium.com/ and copy/paste the following 4 lines of JS code:
 
 ```js
 var worldTerrain = Cesium.createWorldTerrain({requestWaterMask: true, requestVertexNormals: true, });
@@ -139,11 +138,11 @@ var scene = viewer.scene;
 var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({ url: "https://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings/3DTiles/tileset.json" }));
 ```
 
-then click "Run", and zoom in onto Camp Pendleton (it's at the height of the southern part of the northernmost of those 2 islands just west of southern California), you should start seeing 3D buildings.
+Then click "Run", and zoom in onto Camp Pendleton (it's at the height of the southern part of the northernmost of those 2 islands just west of southern California), you should start seeing 3D buildings.
 
-This 3D Tiles distribution (for OGC API collection http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings) is currently being generated on the fly from our GNOSIS Data Store / E3D models. No textures just yet.
+This 3D Tiles distribution (for OGC API collection http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings) is currently being generated on the fly from the Ecere GNOSIS Data Store / E3D models. NOTE: No textures have been added yet.
 
-Once I have added the 3D models to the CDBX GeoPackage it should be possible to stream as 3D Tiles straight from that as well (the CDBX/GeoPackage, rather than this CampPendletonCDB).
+Once the 3D models are added to the CDBX GeoPackage it should be possible to stream as 3D Tiles straight from the CDBX/GeoPackage as well, rather than the original CampPendletonCDB).
 
 ===== Next steps (this section will change as new content is provided)
 
