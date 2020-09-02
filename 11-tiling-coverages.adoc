@@ -142,9 +142,9 @@ var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({ url: "https://ma
 
 Then click "Run", and zoom in onto Camp Pendleton. Camp Pendleton is at the height of the southern part of the northernmost of the 2 islands just west of southern California. As the image is zoomed, 3D buildings should come into view.
 
-This 3D Tiles distribution (for OGC API collection http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings) is currently being generated on the fly from the Ecere GNOSIS Data Store / E3D models. NOTE: No textures have been added yet.
+This tiled 3D distribution (for OGC API collection http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings) is currently being generated on the fly from the Ecere GNOSIS Data Store / E3D models. NOTE: No textures have been added yet.
 
-Once the 3D models are added to the CDBX GeoPackage. it should be possible to stream as 3D Tiles straight from the CDBX/GeoPackage as well, rather than the original CampPendletonCDB).
+Once the 3D models are added to the CDBX GeoPackage, it should be possible to stream as 3D Tiles <CESIUM??> straight from the CDBX/GeoPackage as well, rather than the original CampPendleton CDB repository.
 
 ===== Next steps (this section will change as new content is provided)
 
