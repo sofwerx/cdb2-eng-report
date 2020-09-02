@@ -3,7 +3,11 @@
 :figure-caption: Figure ATTPh3 -
 :figure-num: 0
 
-= Summary of history of CDB X attribution discussions.
+== CDB-X Attribution
+
+For several years, there have been discussions concerning how to modify the CDB standard to support attribute coding schemes (aka controlled vocabularies) other than the current approach that is based on a Feature and Attribute Coding Catalog (FACC). However, at this time any changes to the CDB standard to accommodate other coding schemes has not occured. This section provides 1.) infromation on the current approach in CDB 1.x, 2.) requirements for evolving the CDB standard to accommodate other coding schems and 3.) the experimental framework and results from the work in the CDB-X activity.
+
+=== Current CDB 1.x Attribution Approach
 
 OGC CDB versions 1.x use a CDB Feature Data Dictionary (FDD) as the controlled vocabulary for attribution.  An Excel spreadsheet version of the CDB 1.X Feature Data Dictionary is available on the public https://external.ogc.org/twiki_public/pub/CDBswg/WebHome/CDB_FDD.xlsx[CDB wiki].
 
@@ -31,18 +35,18 @@ An OGC http://ogc.standardstracker.org/show_request.cgi?id=544[Change Request Pr
 Note:  Most of the images in this section of the report are snippets of the Miro whiteboard used for collaboration throughout Phase 3 of the Tech Sprint.  The board was archived at various points through the spring by the moderator.  At the time of the drafting of this report, the link to the Miro whiteboard is at:
 https://miro.com/app/board/o9J_kqG1Jw0=/
 
-= Phase 3 Consensus
+=== CDB-X Discussion and Requirements for CDB-X Experimentation
 
 There was early consensus during Phase 3 of the Tech Sprint to attempt to experiment with and potentially adopt an approach to attribution generally called "GGDM".  Greg Peele, one of the Tech Sprint participants, has described his work as a sub-contractor on the team recommending a Data Model for the U.S. Army One World Terrain (OWT) effort in multiple presentations to the OGC Interopable Simulation and Gaming Domain Working Group.  Greg's most recent presentation, entitled *"Entities, Attributes, and Enumerants, Oh My!  Applying GGDM for Interoperable One World Terrain Semantics"* to the ISG DWG may be found here:
 https://portal.ogc.org/files/?artifact_id=93666
 
-= Phase 3, Day 3
+==== Phase 3, Day 3
 
 [#img_Peele_Whiteboard_Day_3,reftext='{figure-caption} {counter:figure-num}']
 .Greg Peele's Whiteboard from Phase 3 Day 3.
 image::images/Greg Peele Day 3 whiteboard.png[width=1000,align="center"]
 
-= Phase 3, Day 4
+==== Phase 3, Day 4
 
 [#img_Attribution-sub-team-consensus,reftext='{figure-caption} {counter:figure-num}']
 .Day 3 Consensus and formation of the Attribution sub-team.
@@ -56,7 +60,7 @@ image::images/Day 4 Attribution in GGDM Prove me Wrong sign.png[width=500,align=
 .Attribution Day 4 Whiteboard.
 image::images/Attribution Day 4 Sub Team Whiteboard 1.png[width=1000,align="center"]
 
-= Phase 3, Day 5
+==== Phase 3, Day 5
 
 [#img_Attribution-Day-5-WIP1-Whiteboard,reftext='{figure-caption} {counter:figure-num}']
 .Attribution Day 5 Work in Progress Whiteboard One.
