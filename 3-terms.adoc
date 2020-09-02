@@ -100,6 +100,8 @@ in mathematics, a tiling (tessellation) is a collection of subsets of the space 
 |*GGDM*	|Ground-Warfighter Geospatial Data Model
 |*GPKG* |GeoPackage
 |*glTF*	|GL Transmission Format
+|*FACC* |Feature Attribute and Coding catalog
+|*FDD*  |Feature Data Dictionary
 |*LoD*  |Level of Detail
 |*MC*   |Mission Command
 |*OTW*  |Out the Window
