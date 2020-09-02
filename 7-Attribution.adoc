@@ -5,18 +5,31 @@
 
 = Summary of history of CDB X attribution discussions.
 
-The 1.x versions of OGC CDB use a CDB Feature Data Dictionary as the controlled vocabulary for attribution.  An Excel spreadsheet version of the CDB 1.X Feature Data Dictionary is available on the public https://external.ogc.org/twiki_public/pub/CDBswg/WebHome/CDB_FDD.xlsx[CDB wiki].
+OGC CDB versions 1.x use a CDB Feature Data Dictionary (FDD) as the controlled vocabulary for attribution.  An Excel spreadsheet version of the CDB 1.X Feature Data Dictionary is available on the public https://external.ogc.org/twiki_public/pub/CDBswg/WebHome/CDB_FDD.xlsx[CDB wiki].
 
-CDB V1.x feature codes and subcodes were sourced from FACC, SEDRIS, DIGEST 2.1, DGIWG FDD, UHRB, and other sources.  [The abbreviations and acronyms are defined and/or expanded in the OGC CDB 1.x Standards and Best Practices documents]
+The CDB V1.x feature codes and subcodes are primarily based on the https://gwg.nga.mil/documents/asfe/DGIWG_FACC.htm[DIGEST Feature and Attribute Coding Catalog 2.1] (FACC) with additional concepts from a few other sources.  From that website: _FACC) specifies geospatial information concepts used by member nations of the multi-national Defence Geospatial Information Working Group (DGIWG) community. These concepts characterize aspects of real-world entities (or objects) and related properties, including those that are not necessarily visible or have a tangible physical form (e.g., airspace). The DGIWG FACC is a comprehensive dictionary and coding scheme for feature types, feature attributes (properties or characteristics associated with features), and attribute values (domain of feature attributes)._
 
-An OGC Change Request Proposal (CRP) related to CDB attribution was generated during OGC Testbed 13:
-http://ogc.standardstracker.org/show_request.cgi?id=544
+[The abbreviations and acronyms are defined and/or expanded in the OGC CDB 1.x Standards and Best Practices documents]
+
+In the FACC, each major feature category is further divided into subcategories identified by the second character of the five-character code containing an alphabetic value from "A" to "Z". Finally, the third, fourth, and fifth characters of the five-character feature code are a numeric value from 000 to 999. This value provides unique feature type identification within categories. Thus, all features must be identified by all five alphanumeric characters; e.g., the feature named "Building" is denoted by the code "AL015". Feature codes are listed in Annex A of the FACC Data Dictionary.
+
+Each feature is associated with a textual description, which provides a human readable dictionary definition for the feature. Each Feature Code is also associated with a short human readable name. 
+
+|===
+|*Code*	|*Name*	|*Definition* 
+|AA010 	|Mine 	|An excavation made in the earth for the purpose of extracting natural deposits. (See also AQ090)
+|BB150 	|Landing Place 	|A place on shore where landing from the sea is possible.
+|DB180 	|Volcano 	|A mountain or hill, often conical, formed around a vent in the earth's crust through which molten rock, ash, or gases are or have been expelled.
+|FA001 	|Administrative Area 	|An area controlled by administrative authority.
+|GB075 	|Taxiway 	|A prepared surface providing access to/from runways and the aircraft parking area, terminal area, or service area, etc.
+|===
+
+An OGC http://ogc.standardstracker.org/show_request.cgi?id=544[Change Request Proposal] (CRP) related to CDB attribution was generated during OGC Testbed 13:
 
 `NOTE: An overview of the Testbed 13 activity is provided in the <<BackgroundClause, Background>> section of this ER.`
 
 Note:  Most of the images in this section of the report are snippets of the Miro whiteboard used for collaboration throughout Phase 3 of the Tech Sprint.  The board was archived at various points through the spring by the moderator.  At the time of the drafting of this report, the link to the Miro whiteboard is at:
 https://miro.com/app/board/o9J_kqG1Jw0=/
-
 
 = Phase 3 Consensus
 
