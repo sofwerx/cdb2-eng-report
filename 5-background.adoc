@@ -46,7 +46,7 @@ Some of the major enhancements that have been discussed and documented are:
 
 Making these enhancements may allow the use and implementation of a CDB structured data store for application areas in addition to aviation simulators.
 
-[[testbed13]]
+[[attrtestbed13]]
 
 === Attribution - An OGC Testbed 13 CDB Activity in 
 
