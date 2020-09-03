@@ -52,8 +52,22 @@ Synonym for “height”
 (SOURCE: https://portal.opengeospatial.org/files/?artifact_id=19820[OGC Abstract Topic 6: Schema for coverage geometry and functions])
 
 *4.x* +
+*feature data dictionary* +
+A Feature data dictionary is a collection of descriptions of the Feature objects or items in a Feature data model for the benefit of programmers and others who need to refer to them.
+
+(SOURCE: OGC Testbed-13: CDB Engineering Report - 17-042)
+
+*4.x* +
 *foundation data* + 
 authoritative data and models that have been curated and stored in a CDB repository. Foundation data uses known and agreed to controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and supported by the required metadata.
+
+*4.x* +
+*geospecific model* + 
+A Geospecific model is instanced once and only once within a CDB. Geospecific models usually correspond to unique (in either shape, size, texture, materials or attribution), man-made, real world 3D features. NOTE: Being discussed for possible evolution as part of CDB 2.0
+
+*4.x* +
+*geotypical model* + 
+A Geotypical model is instanced multiple times within a CDB data store. Geotypical models correspond to representative (in shape, size, texture, materials and attribution) models of real-world manmade or natural 3D features.
 
 *4.x* +
 *height* +
