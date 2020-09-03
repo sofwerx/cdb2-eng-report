@@ -48,13 +48,19 @@ Making these enhancements may allow the use and implementation of a CDB structur
 
 === Attribution - An OGC Testbed 13 CDB Activity in 
 
-During the OGC Testbed-13 Interoperability Initiative, there was a CDB work item in which the particpants investigated:
+The http://docs.opengeospatial.org/per/17-042.html[CDB Engineering Report] (ER) summarizes the CDB sub-thread. The ERdocument is structured in three main sections and includes:
 
-. The conceptual model of an OGC CDB 1.0 datastore as a UML (Unified Modeling Language) diagram to show different datasets (the 3D models, vector features and coverages) structure;
-. How to process and use a NAS-based Profile as a CDB feature/attribute data model or a GML-SF0 application schema;
-. How to access, navigate and visualize a CDB dataset using OGC web services (such as WFS and WCS).
+- A feasibility study; 
+- The implementation of data models and schemas mapping that are based on the feasibility study results; and 
+- A set of OGC web services that implement the CDB in the form of WFS and WCS (Web Coverage Service) instances.
 
-The http://docs.opengeospatial.org/per/17-042.html[CDB Engineering Report] (ER) summarizes the CDB sub-thread:
+This Testbed 13 Engineering Report describes:
+
+- The conceptual model of an OGC CDB 1.0 datastore as a UML (Unified Modeling Language) diagram to show different datasets (the 3D models, vector features and coverages) structure;
+
+- How to process and use a NAS-based Profile as a CDB feature/attribute data model or a GML-SF0 application schema;
+
+- How to access, navigate and visualize a CDB dataset using OGC web services (such as WFS and WCS).
 
 Change Request proposals have been discussed for the OGC CDB 2.0 and will be submitted by December 31, 2017.
 
