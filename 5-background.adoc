@@ -50,7 +50,7 @@ Making these enhancements may allow the use and implementation of a CDB structur
 
 === Attribution - An OGC Testbed 13 CDB Activity in 
 
-The http://docs.opengeospatial.org/per/17-042.html[CDB Engineering Report] (ER) summarizes the CDB sub-thread activity. The CDB activity was into three main work packages:
+The http://docs.opengeospatial.org/per/17-042.html[CDB Engineering Report] (ER) summarizes the CDB sub-thread activity. The CDB activity was divided into three main work packages:
 
 - A feasibility study; 
 - The implementation of data models and schemas mapping that are based on the feasibility study results; and 
@@ -62,7 +62,7 @@ This Testbed 13 Engineering Report describes the approach taken and the results 
 - How to process and use a NAS-based Profile as a CDB feature/attribute data model or a GML-SF0 application schema;
 - How to access, navigate and visualize a CDB dataset using OGC web services (such as WFS and WCS).
 
-The Testbed 13 also resulted in a formal http://ogc.standardstracker.org/show_request.cgi?id=544[OGC Change Request Proposal] that was submitted for consideration in April 2018. The Change Request provides:
+The Testbed 13 CDB activity also resulted in a formal http://ogc.standardstracker.org/show_request.cgi?id=544[OGC Change Request Proposal] that was submitted for consideration in April 2018. The Change Request provides:
 
 - Recommendations for replacing FACC feature code and indexing structure to be consistent with the application schemas (e.g. NAS data model) under discussion for the OGC CDB 2.0;
 - Recommendations for supporting application schemas in CDB (level of complexity: Esri Geodatabase, GML-Simple Features Level 0 application schema) are being discussed for the OGC CDB 2.0;
