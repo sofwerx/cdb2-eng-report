@@ -558,9 +558,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_findings_from_experiments">14.6. Findings from experiments</a></li>
-<li><a href="#_details_of_experiments">14.7. Details of Experiments</a>
+<li><a href="#_cdb_x_tilinggeopackage_experiment_1_ecere">14.7. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</a>
 <ul class="sectlevel3">
-<li><a href="#_cdb_x_tilinggeopackage_experiment_1_ecere">14.7.1. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</a></li>
+<li><a href="#_data_and_geopackage_structure">14.7.1. Data and GeoPackage Structure</a></li>
+<li><a href="#_ogc_api_access_demo">14.7.2. OGC API access demo</a></li>
+<li><a href="#_visualization">14.7.3. Visualization</a></li>
+<li><a href="#_live_cesium_js_3d_tiles_demonstation">14.7.4. Live Cesium JS / 3D Tiles demonstation</a></li>
+<li><a href="#_next_steps_this_section_will_change_as_new_content_is_provided">14.7.5. Next steps (this section will change as new content is provided)</a></li>
+</ul>
+</li>
+<li><a href="#_flightsafety_geopackage_tiling_experiments">14.8. FlightSafety GeoPackage Tiling Experiments</a>
+<ul class="sectlevel3">
+<li><a href="#_flightsafety_experiment_1">14.8.1. FlightSafety Experiment 1</a></li>
+<li><a href="#_flightsafety_experiment_2">14.8.2. FlightSafety Experiment 2</a></li>
+<li><a href="#_observations">14.8.3. Observations</a></li>
 </ul>
 </li>
 </ul>
@@ -2686,11 +2697,9 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_details_of_experiments"><a class="anchor" href="#_details_of_experiments"></a>14.7. Details of Experiments</h3>
+<h3 id="_cdb_x_tilinggeopackage_experiment_1_ecere"><a class="anchor" href="#_cdb_x_tilinggeopackage_experiment_1_ecere"></a>14.7. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</h3>
 <div class="sect3">
-<h4 id="_cdb_x_tilinggeopackage_experiment_1_ecere"><a class="anchor" href="#_cdb_x_tilinggeopackage_experiment_1_ecere"></a>14.7.1. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</h4>
-<div class="sect4">
-<h5 id="_data_and_geopackage_structure"><a class="anchor" href="#_data_and_geopackage_structure"></a>Data and GeoPackage Structure</h5>
+<h4 id="_data_and_geopackage_structure"><a class="anchor" href="#_data_and_geopackage_structure"></a>14.7.1. Data and GeoPackage Structure</h4>
 <div class="paragraph">
 <p>A 1.4 GB GeoPackage of the Camp Pendleton sample CDB from Presagis (originally used in OGC Testbed 13), along with an accompanying <code>cdb.json</code> can be found at:</p>
 </div>
@@ -2744,8 +2753,8 @@ Ecere is planning to add the 3D models in the next experiments&#8201;&#8212;&#82
 <p>For the geo-specific / one glTF for the whole tile, the glTF could potentially be stored in a tiles table instead, and the models constituting the payload (much like raster or vector tiles).</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_ogc_api_access_demo"><a class="anchor" href="#_ogc_api_access_demo"></a>OGC API access demo</h5>
+<div class="sect3">
+<h4 id="_ogc_api_access_demo"><a class="anchor" href="#_ogc_api_access_demo"></a>14.7.2. OGC API access demo</h4>
 <div class="paragraph">
 <p>At this address: <a href="https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg" class="bare">https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg</a></p>
 </div>
@@ -2754,8 +2763,8 @@ Ecere is planning to add the 3D models in the next experiments&#8201;&#8212;&#82
 To some extent, this demonstrates that even though the data is tiled, this layout actually supports a wide range of use cases.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_visualization"><a class="anchor" href="#_visualization"></a>Visualization</h5>
+<div class="sect3">
+<h4 id="_visualization"><a class="anchor" href="#_visualization"></a>14.7.3. Visualization</h4>
 <div class="paragraph">
 <p>Ecere software can currently visualize the CDB X/GeoPackage elevation and imagery directly in the Ecere 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).</p>
 </div>
@@ -2766,8 +2775,8 @@ To some extent, this demonstrates that even though the data is tiled, this layou
 <div class="title">Figure Mtd_Ph3 - 18. Ecere Camp Pendleton GeoPackage in CDB X.</div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_live_cesium_js_3d_tiles_demonstation"><a class="anchor" href="#_live_cesium_js_3d_tiles_demonstation"></a>Live Cesium JS / 3D Tiles demonstation</h5>
+<div class="sect3">
+<h4 id="_live_cesium_js_3d_tiles_demonstation"><a class="anchor" href="#_live_cesium_js_3d_tiles_demonstation"></a>14.7.4. Live Cesium JS / 3D Tiles demonstation</h4>
 <div class="paragraph">
 <p>Navigate to <a href="https://sandcastle.cesium.com/" class="bare">https://sandcastle.cesium.com/</a> and copy/paste the following four (4) lines of Java Script code:</p>
 </div>
@@ -2789,8 +2798,8 @@ To some extent, this demonstrates that even though the data is tiled, this layou
 <p>Once the 3D models are added to the CDBX GeoPackage, it should be possible to stream as 3D Tiles &lt;CESIUM??&gt; straight from the CDBX/GeoPackage as well, rather than the original CampPendleton CDB repository.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_next_steps_this_section_will_change_as_new_content_is_provided"><a class="anchor" href="#_next_steps_this_section_will_change_as_new_content_is_provided"></a>Next steps (this section will change as new content is provided)</h5>
+<div class="sect3">
+<h4 id="_next_steps_this_section_will_change_as_new_content_is_provided"><a class="anchor" href="#_next_steps_this_section_will_change_as_new_content_is_provided"></a>14.7.5. Next steps (this section will change as new content is provided)</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2817,6 +2826,90 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_flightsafety_geopackage_tiling_experiments"><a class="anchor" href="#_flightsafety_geopackage_tiling_experiments"></a>14.8. FlightSafety GeoPackage Tiling Experiments</h3>
+<div class="paragraph">
+<p><strong>Setup</strong>: The data used for these experiments are primarily freely available, and include the following
+* Blue Marble (NASA) that was georeferenced using GDAL - <a href="https://visibleearth.nasa.gov/collection/1484/blue-marble" class="bare">https://visibleearth.nasa.gov/collection/1484/blue-marble</a>
+* The high resolution inset is from USGS downloads of Central Park in New York City</p>
+</div>
+<div class="paragraph">
+<p><strong>Tiling Scheme</strong>: The tiling scheme uses the [GNOSIS Global Grid](<a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid" class="bare">https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid</a>) (using TMS extension&#8201;&#8212;&#8201;<a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc</a>).  We are using the same type of json file that Ecere is using in their experiment.</p>
+</div>
+<div class="paragraph">
+<p><strong>LOD Grouping</strong> The grouping is pre-set per experiment.  The groups are calculated from the highest LOD, back to coarser LODs.  For example, if there are 7 LODs (0-6) and a grouping of 4, then LODs 3 through 7 are in one GeoPackage, and LODs 0 through 2 are in another GeoPackage.</p>
+</div>
+<div class="paragraph">
+<p><strong>Directory and Naming Scheme</strong> Each top level tile is within a directory that encodes the LOD, the row (rows are counted from the top, so north to south), and the column (longitude west to east).  Fox example, "L0_R1_C2".  Each tile directory contains one GeoPackage file (for example "Imagery_L0_L2_R1_C2.gpkg") and all the tile directories that refine this area (such as "L3_R9_C22").  There were two intentions to this directory structure:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Limit the number of files in a directory (to keep from running into OS limitations).</p>
+</li>
+<li>
+<p>Make it a bit easier to export a portion of the world by hand from one CDB X to another.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_flightsafety_experiment_1"><a class="anchor" href="#_flightsafety_experiment_1"></a>14.8.1. FlightSafety Experiment 1</h4>
+<div class="sect4">
+<h5 id="_purpose_of_experiment"><a class="anchor" href="#_purpose_of_experiment"></a>Purpose of Experiment</h5>
+<div class="paragraph">
+<p>This experiment is to show how the top levels of the tiling scheme work, to show the LOD groupings within multiple GeoPackage files, and to show the proposed directory and file naming.  There are 8 top level tiles (2 rows and 4 columns), and all GeoPackages that refine one of these tiles is under that tile&#8217;s directory structure.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_processing"><a class="anchor" href="#_processing"></a>Processing</h5>
+<div class="paragraph">
+<p>This experiment uses the NASA Blue Marble imagery to approximate world-wide imagery at a high level.  This provides 7 levels of detail of data (L0 to L6).  Normally, the GeoPackage files should be larger for efficient use, but to show the LOD groupings, only 4 LODs are grouped together.  Also, the imagery is stored as Jpeg, so that tools can view the imagery easier.  We originally were creating Jpeg2000 files, but it was harder to check the results in a tool like "DB Browser for SQLite".  The data size for this experiment is around 300 MB.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_data_location"><a class="anchor" href="#_data_location"></a>Data Location</h5>
+<div class="paragraph">
+<p>Compressed 7-zip file at:  <a href="https://drive.google.com/drive/folders/1zfdBnAHpf9McLTbaJotdKGR_tXQad4dy?usp=sharing" class="bare">https://drive.google.com/drive/folders/1zfdBnAHpf9McLTbaJotdKGR_tXQad4dy?usp=sharing</a></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_flightsafety_experiment_2"><a class="anchor" href="#_flightsafety_experiment_2"></a>14.8.2. FlightSafety Experiment 2</h4>
+<div class="sect4">
+<h5 id="_purpose_of_experiment_2"><a class="anchor" href="#_purpose_of_experiment_2"></a>Purpose of Experiment</h5>
+<div class="paragraph">
+<p>This experiment is to further test the limits of the LOD grouping and directory organization.  It will be the World CDB X from experiment 1 with a small higher resolution inset of imagery.  Added was some 15m data at LOD level 12 covering New York City, and 2 ft imagery covering Central Park on Manhattan Island at LOD level 16.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_processing_2"><a class="anchor" href="#_processing_2"></a>Processing</h5>
+<div class="paragraph">
+<p>Same processing as experiment 1, but with an LOD grouping of 6 (thought during our planning to be ideal balancing size and number of sub-directories ( (2<sup>6)</sup>2 = 4096 maximum directories within one folder).  The maximum LOD for this experiment is 16 (60cm).  To find the highest resolution data, look at file CDBX_highres\Imagery\L0_R0_C1\L5_R17_C37\L11_R1120_C2412\Imagery_L11_L16_R1120_C2412.gpkg.  The data size for this experiment is almost 1.5 GB.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_data_location_2"><a class="anchor" href="#_data_location_2"></a>Data Location</h5>
+<div class="paragraph">
+<p>Compressed 7-zip file at:  <a href="https://drive.google.com/drive/folders/1zKuu0oQy3K5oKestuPIvL-BRiSPn9oaO?usp=sharing" class="bare">https://drive.google.com/drive/folders/1zKuu0oQy3K5oKestuPIvL-BRiSPn9oaO?usp=sharing</a></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_observations"><a class="anchor" href="#_observations"></a>14.8.3. Observations</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The file names and directory names are pretty hard to read and understand by looking at the files. But since the tiles are rarely on a "geocell" boundary, their might not be a good naming scheme.</p>
+</li>
+<li>
+<p>Creating the LOD groupings based on the highest LOD of data makes it difficult to add data of a higher resolution later on.  It might also make it harder to create "Versions" of the data that have been updated.</p>
+</li>
+<li>
+<p>There are a lot of directories created with this tiling and naming scheme.  In general, there is a 1-to-1 ratio of files to directories.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -2879,7 +2972,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-04 14:58:51 UTC
+Last updated 2020-09-08 22:18:16 UTC
 </div>
 </div>
 <style>
