@@ -48,10 +48,6 @@ image::images/Greg Peele Day 3 whiteboard.png[width=1000,align="center"]
 
 ==== Phase 3, Day 4
 
-[#img_Attribution-sub-team-consensus,reftext='{figure-caption} {counter:figure-num}']
-.Day 3 Consensus and formation of the Attribution sub-team.
-image::images/Attribution sub-team consensus.png[width=250,align="center"]
-
 [#img_Attribution-in-GGDM-prove-me-wrong,reftext='{figure-caption} {counter:figure-num}']
 .'Attribution will be in GGDM, Prove me Wrong' Day 4 Sign.
 image::images/Day 4 Attribution in GGDM Prove me Wrong sign.png[width=500,align="center"]
