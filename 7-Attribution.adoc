@@ -5,7 +5,7 @@
 
 == CDB-X Attribution
 
-For several years, there have been discussions concerning how to modify the CDB standard to support attribute coding schemes (aka controlled vocabularies) other than the current approach that is based on a Feature and Attribute Coding Catalog (FACC). However, at this time any changes to the CDB standard to accommodate other coding schemes has not occured. This section provides 1.) infromation on the current approach in CDB 1.x, 2.) requirements for evolving the CDB standard to accommodate other coding schems and 3.) the experimental framework and results from the work in the CDB-X activity.
+For several years, there have been discussions concerning how to modify the CDB standard to support attribute coding schemes (aka controlled vocabularies) other than the current approach that is based on a Feature and Attribute Coding Catalog (FACC). However, at this time any changes to the CDB standard to accommodate other coding schemes have not occured. This section provides 1.) information on the current approach in CDB 1.x, 2.) requirements for evolving the CDB standard to accommodate other coding schems and 3.) the experimental framework and results from the work in the CDB-X activity.
 
 === Current CDB 1.x Attribution Approach
 
