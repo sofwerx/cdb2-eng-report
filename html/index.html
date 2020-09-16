@@ -490,9 +490,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_current_cdb_1_x_attribution_approach">8.1. Current CDB 1.x Attribution Approach</a></li>
 <li><a href="#_cdb_x_discussion_and_requirements_for_cdb_x_experimentation">8.2. CDB-X Discussion and Requirements for CDB-X Experimentation</a>
 <ul class="sectlevel3">
-<li><a href="#_phase_3_day_3">8.2.1. Phase 3, Day 3</a></li>
-<li><a href="#_phase_3_day_4">8.2.2. Phase 3, Day 4</a></li>
-<li><a href="#_phase_3_day_5">8.2.3. Phase 3, Day 5</a></li>
+<li><a href="#_experimentation_backround">8.2.1. Experimentation Backround</a></li>
+<li><a href="#_some_questions_to_be_addressed_during_experimentation">8.2.2. Some questions to be addressed during experimentation</a></li>
+<li><a href="#_phase_3_day_3">8.2.3. Phase 3, Day 3</a></li>
+<li><a href="#_phase_3_day_4">8.2.4. Phase 3, Day 4</a></li>
+<li><a href="#_phase_3_day_5">8.2.5. Phase 3, Day 5</a></li>
 </ul>
 </li>
 </ul>
@@ -1459,12 +1461,46 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 </div>
 <div class="sect2">
 <h3 id="_cdb_x_discussion_and_requirements_for_cdb_x_experimentation"><a class="anchor" href="#_cdb_x_discussion_and_requirements_for_cdb_x_experimentation"></a>8.2. CDB-X Discussion and Requirements for CDB-X Experimentation</h3>
+<div class="sect3">
+<h4 id="_experimentation_backround"><a class="anchor" href="#_experimentation_backround"></a>8.2.1. Experimentation Backround</h4>
 <div class="paragraph">
-<p>There was early consensus during Phase 3 of the Tech Sprint to attempt to experiment with and potentially adopt an approach to attribution generally called "GGDM".  Greg Peele, one of the Tech Sprint participants, has described his work as a sub-contractor on the team recommending a Data Model for the U.S. Army One World Terrain (OWT) effort in multiple presentations to the OGC Interopable Simulation and Gaming Domain Working Group.  Greg&#8217;s most recent presentation, entitled <strong>"Entities, Attributes, and Enumerants, Oh My!  Applying GGDM for Interoperable One World Terrain Semantics"</strong> to the ISG DWG may be found here:
+<p>There was early consensus during Phase 3 of the CDB-X tech sprint to experiment with and potentially adopt an approach to CDB attribution generally called "GGDM".</p>
+</div>
+<div class="paragraph">
+<p>Greg Peele, one of the Tech Sprint participants, has described his work as a sub-contractor on the team recommending a Data Model for the U.S. Army One World Terrain (OWT) effort in multiple presentations to the OGC Interopable Simulation and Gaming Domain Working Group.  Greg&#8217;s most recent presentation, entitled <strong>"Entities, Attributes, and Enumerants, Oh My!  Applying GGDM for Interoperable One World Terrain Semantics"</strong> to the ISG DWG may be found here:
 <a href="https://portal.ogc.org/files/?artifact_id=93666" class="bare">https://portal.ogc.org/files/?artifact_id=93666</a></p>
 </div>
+</div>
 <div class="sect3">
-<h4 id="_phase_3_day_3"><a class="anchor" href="#_phase_3_day_3"></a>8.2.1. Phase 3, Day 3</h4>
+<h4 id="_some_questions_to_be_addressed_during_experimentation"><a class="anchor" href="#_some_questions_to_be_addressed_during_experimentation"></a>8.2.2. Some questions to be addressed during experimentation</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>GGDM/NAS define standard layers that subdivide vector features into semantic sets (i.e. hydrology, industry, extraction, etc.). Is this meaningful to CDB? Or is it irrelevant?</p>
+</li>
+<li>
+<p>GGDM can be cross walked to NGA TDS 7.1. What are the missing attributes between M&amp;S and TDS?</p>
+</li>
+<li>
+<p>Is there a challenge on the Sim for reading Feature Codes Vs Attribution?</p>
+</li>
+<li>
+<p>What are the format implications: vector and mesh formats must support GGDM attribution and entity types?</p>
+</li>
+<li>
+<p>Metadata: GGDM defines metadata as attributes. Encoding decision: separate metadata table referenced from features via foreign key? Or flattened metadata attributes present on every feature?</p>
+</li>
+<li>
+<p>GGDM does not have mandatory attribution fields. All fields are optional. What are the implications?</p>
+</li>
+<li>
+<p>What attribution is missing from GGDM for CDB?</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_phase_3_day_3"><a class="anchor" href="#_phase_3_day_3"></a>8.2.3. Phase 3, Day 3</h4>
 <div id="img_Peele_Whiteboard_Day_3" class="imageblock text-center">
 <div class="content">
 <img src="images/Greg%20Peele%20Day%203%20whiteboard.png" alt="Greg Peele Day 3 whiteboard" width="1000">
@@ -1473,7 +1509,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 </div>
 </div>
 <div class="sect3">
-<h4 id="_phase_3_day_4"><a class="anchor" href="#_phase_3_day_4"></a>8.2.2. Phase 3, Day 4</h4>
+<h4 id="_phase_3_day_4"><a class="anchor" href="#_phase_3_day_4"></a>8.2.4. Phase 3, Day 4</h4>
 <div id="img_Attribution-in-GGDM-prove-me-wrong" class="imageblock text-center">
 <div class="content">
 <img src="images/Day%204%20Attribution%20in%20GGDM%20Prove%20me%20Wrong%20sign.png" alt="Day 4 Attribution in GGDM Prove me Wrong sign" width="500">
@@ -1488,7 +1524,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 </div>
 </div>
 <div class="sect3">
-<h4 id="_phase_3_day_5"><a class="anchor" href="#_phase_3_day_5"></a>8.2.3. Phase 3, Day 5</h4>
+<h4 id="_phase_3_day_5"><a class="anchor" href="#_phase_3_day_5"></a>8.2.5. Phase 3, Day 5</h4>
 <div id="img_Attribution-Day-5-WIP1-Whiteboard" class="imageblock text-center">
 <div class="content">
 <img src="images/Day%205%20Attribution%20Whiteboard%20WIP1.png" alt="Day 5 Attribution Whiteboard WIP1" width="1000">
@@ -3007,7 +3043,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-16 20:45:47 UTC
+Last updated 2020-09-16 21:03:29 UTC
 </div>
 </div>
 <style>
