@@ -37,8 +37,22 @@ https://miro.com/app/board/o9J_kqG1Jw0=/
 
 === CDB-X Discussion and Requirements for CDB-X Experimentation
 
-There was early consensus during Phase 3 of the Tech Sprint to attempt to experiment with and potentially adopt an approach to attribution generally called "GGDM".  Greg Peele, one of the Tech Sprint participants, has described his work as a sub-contractor on the team recommending a Data Model for the U.S. Army One World Terrain (OWT) effort in multiple presentations to the OGC Interopable Simulation and Gaming Domain Working Group.  Greg's most recent presentation, entitled *"Entities, Attributes, and Enumerants, Oh My!  Applying GGDM for Interoperable One World Terrain Semantics"* to the ISG DWG may be found here:
+==== Experimentation Backround
+
+There was early consensus during Phase 3 of the CDB-X tech sprint to experiment with and potentially adopt an approach to CDB attribution generally called "GGDM".
+
+Greg Peele, one of the Tech Sprint participants, has described his work as a sub-contractor on the team recommending a Data Model for the U.S. Army One World Terrain (OWT) effort in multiple presentations to the OGC Interopable Simulation and Gaming Domain Working Group.  Greg's most recent presentation, entitled *"Entities, Attributes, and Enumerants, Oh My!  Applying GGDM for Interoperable One World Terrain Semantics"* to the ISG DWG may be found here:
 https://portal.ogc.org/files/?artifact_id=93666
+
+==== Some questions to be addressed during experimentation
+
+. GGDM/NAS define standard layers that subdivide vector features into semantic sets (i.e. hydrology, industry, extraction, etc.). Is this meaningful to CDB? Or is it irrelevant?
+. GGDM can be cross walked to NGA TDS 7.1. What are the missing attributes between M&S and TDS?
+. Is there a challenge on the Sim for reading Feature Codes Vs Attribution?
+. What are the format implications: vector and mesh formats must support GGDM attribution and entity types?
+. Metadata: GGDM defines metadata as attributes. Encoding decision: separate metadata table referenced from features via foreign key? Or flattened metadata attributes present on every feature?
+. GGDM does not have mandatory attribution fields. All fields are optional. What are the implications?
+. What attribution is missing from GGDM for CDB?
 
 ==== Phase 3, Day 3
 
