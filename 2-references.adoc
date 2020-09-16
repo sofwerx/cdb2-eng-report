@@ -5,4 +5,7 @@ The following normative documents are referenced in this document.
 
 .NOTE: 	Only normative standards are referenced here, e.g. OGC, ISO or other SDO standards. All other references are listed in the bibliography. Example:
 
-* https://portal.opengeospatial.org/files/?artifact_id=38867&version=2[OGC 06-121r9, OGC® Web Services Common Standard]
+* https://portal.opengeospatial.org/files/15-113r5[Volume 1: OGC CDB Core Standard: Model and Physical Data Store Structure]
+* https://portal.opengeospatial.org/files/16-007r4[Volume 11: OGC CDB Core Standard Conceptual Model]
+* https://portal.opengeospatial.org/files/12-128r15[OGC Geopackage Encoding Standard - with Corrigendum version 1.2.1]
+* https://github.com/KhronosGroup/glTF/tree/master/specification/2.0[GL Transmission Format (glTF) version 2.0]
