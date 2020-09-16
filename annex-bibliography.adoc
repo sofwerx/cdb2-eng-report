@@ -5,3 +5,6 @@
 
 [[STAC2017]]
 [1] STAC: https://stacspec.org/[Spatio Temporal Asset Catalogs.] (2017).
+
+[[GGDM2020]]
+[2] https://ggdm.erdc.dren.mil/[Ground-Warfighter Geospatial Data Model (GGDM)] (2020)
