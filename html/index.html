@@ -3018,10 +3018,10 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </ul>
 </div>
 <div class="paragraph">
-<p>So my work in the GeoPackage CDB IE was strictly testing existing shapefile performance vs GeoPackage performance from a flight simulation runtime perspective.  So how fast can we pull data out of a GeoPackage in the same manner that we process shapefiles.  GeoPackage creation timing wasn&#8217;t that interesting to us at the time.  We were also testing the different approaches put forward on how to structure the GeoPackage to contain the data, whether that was one GeoPackage containing a single shapefile&#8217;s features, one GeoPackage table containing all the features at a given level of detail, or one GeoPackage table containing all the features at all the levels of detail.  Changing the CDB conceptual model or levels of detail was outside the scope of this project.</p>
+<p>For the GeoPackage CDB Interoperabilty Experiment, FlightSafety strictly tested existing Shapefile performance vs GeoPackage performance from a flight simulation runtime perspective.  So how fast can we pull data out of a GeoPackage in the same manner that we process shapefiles.  GeoPackage creation timing wasn&#8217;t that interesting to us at the time.  We were also testing the different approaches put forward on how to structure the GeoPackage to contain the data, whether that was one GeoPackage containing a single shapefile&#8217;s features, one GeoPackage table containing all the features at a given level of detail, or one GeoPackage table containing all the features at all the levels of detail.  Changing the CDB conceptual model or levels of detail was outside the scope of this project.</p>
 </div>
 <div class="paragraph">
-<p>We found that querying large numbers of features out of very large tables was dependent on how the GeoPackage was structured.  The original conversion of the field columns queried was to a string, making these fields integers made it faster, but creating an index on those columns was an order of magnitude faster.
+<p>FlightSafety found that querying large numbers of features out of very large tables was dependent on how the GeoPackage was structured.  The original conversion of the field columns queried was to a string, making these fields integers made it faster, but creating an index on those columns was an order of magnitude faster.
 The table here shows the three different GeoPackage organizations, how many features ended up in the table we are querying, and how fast we could pull out 16k of rows from that table.  Each test pulled out the same set of 16k rows.  The highlighted data shows how structuring the GeoPackage matters when it comes to performance.</p>
 </div>
 </div>
@@ -3088,7 +3088,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-22 21:56:43 UTC
+Last updated 2020-09-22 21:57:53 UTC
 </div>
 </div>
 <style>
