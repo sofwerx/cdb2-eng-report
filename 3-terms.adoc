@@ -109,8 +109,10 @@ in mathematics, a tiling (tessellation) is a collection of subsets of the space 
 ===	Abbreviated terms
 
 |===
+|*ATAK* |Android Tactical Assault Kit
 |*COTS*	|Commercial Off The Shelf
 |*CRS*	 |Coordinate Reference System
+|*DGIM* |Disaster Geo-Information Management
 |*GGDM*	|Ground-Warfighter Geospatial Data Model
 |*GPKG* |GeoPackage
 |*glTF*	|GL Transmission Format
@@ -118,10 +120,15 @@ in mathematics, a tiling (tessellation) is a collection of subsets of the space 
 |*FDD*  |Feature Data Dictionary
 |*LoD*  |Level of Detail
 |*MC*   |Mission Command
+|*NAS*  |NSG Application Schema
+|*NSG*  |National System for Geospatial-Intelligence
 |*OTW*  |Out the Window
 |*OWT*  |One World Terrain
 |*PBR*  |Physically-Based Rendering (PBR)
 |*SOF*  |Special Operations Forces
 |*STAC* |SpatioTemporal Asset Catalog
+|*TIFF* |Tagged Image File Format
+|*TMS*  |Tile Map Service
+|*TMS*  |Tile Matrix Set
 |===
 
