@@ -166,7 +166,7 @@ include::11-tiling-coverages.adoc[]
 
 //include::annex-b.adoc[]
 
-//include::annex-c.adoc[]
+include::annex-c-tile-coverages.adoc[]
 
 // *****************************************************************************
 // Revision History should be the last annex before the Bibliography.
