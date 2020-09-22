@@ -3,3 +3,6 @@ For the GeoPackage CDB Interoperabilty Experiment, FlightSafety strictly tested 
 FlightSafety found that querying large numbers of features out of very large tables was dependent on how the GeoPackage was structured.  The original conversion of the field columns queried was to a string, making these fields integers made it faster, but creating an index on those columns was an order of magnitude faster.
 The table here shows the three different GeoPackage organizations, how many features ended up in the table we are querying, and how fast we could pull out 16k of rows from that table.  Each test pulled out the same set of 16k rows.  The highlighted data shows how structuring the GeoPackage matters when it comes to performance.
 
+[#img_fs-gpkg-performance,reftext='{figure-caption} {counter:figure-num}']
+.Performance.
+image::images/fs-gpkg-performance.png[width=800,align="center"]
