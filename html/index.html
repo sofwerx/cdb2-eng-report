@@ -3024,6 +3024,12 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 <p>FlightSafety found that querying large numbers of features out of very large tables was dependent on how the GeoPackage was structured.  The original conversion of the field columns queried was to a string, making these fields integers made it faster, but creating an index on those columns was an order of magnitude faster.
 The table here shows the three different GeoPackage organizations, how many features ended up in the table we are querying, and how fast we could pull out 16k of rows from that table.  Each test pulled out the same set of 16k rows.  The highlighted data shows how structuring the GeoPackage matters when it comes to performance.</p>
 </div>
+<div id="img_fs-gpkg-performance" class="imageblock text-center">
+<div class="content">
+<img src="images/fs-gpkg-performance.png" alt="fs gpkg performance" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 18. Performance.</div>
+</div>
 </div>
 </div>
 </div>
@@ -3088,7 +3094,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-22 21:57:53 UTC
+Last updated 2020-09-22 22:00:01 UTC
 </div>
 </div>
 <style>
