@@ -4,7 +4,9 @@
 :figure-num: 0
 
 [%hardbreaks]
-= An analysis of how 'versioning' is used in legacy OGC CDB 1.X, and how that experience leads to use cases for exploration of versioning in CDB X.
+= CDB Versioning, old and new
+
+==An analysis of how 'versioning' is used in legacy OGC CDB 1.X, and how that experience leads to use cases for exploration of versioning in CDB X.
 
 From the beginning of the development of CDB, the concept of versioning was designed to support the development and distribution of "small changes" and to support end-site CDB servers capability to link each dataset called a CDB to a 'parent' CDB dataset using the Version.xml file in the Metadata subdirectory under the CDB-dataset top level directory.
 
