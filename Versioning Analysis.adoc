@@ -1,0 +1,7 @@
+[[Versioning_in_Legacy_CDB]]
+
+:figure-caption: Figure Versioning -
+:figure-num: 0
+
+[%hardbreaks]
+= An analysis of how 'versioning' is used in legacy OGC CDB 1.X, and how that experience leads to use cases for exploration of versioning in CDB X.
