@@ -31,5 +31,19 @@ The slide below is a screen shot of a utility called the CAE CDB Update Manager 
 image::Images/CAE DSE 2012 Demonstration Laptops.jpg[width=800,align="center"]
 
 [#img_Presagis CDB Versioning Explanation Slide,reftext='{figure-caption} {counter:figure-num}']
-.A specific chain of CDB versions from CDB Boot at the bottom to CDB_WORLD at the top.+
+.A specific chain of CDB versions from CDB Boot at the bottom to CDB (root) at the top.+
+image::Images/CDB Update Manager annotated screen shot.jpg[width=800,align="center"]
+
+The boxes and arrows on the graphic above are the author's attempt to show just some of the flexibility available using CDB versioning.  The simulator clients themselves can be set to always point to CDB_BOOT, an 'empty' CDB that only points 'up' to some content.
+
+The top-level CDB_WORLD database can be a managed product maintained by a provider, for which regular updates are provided for example by subscription.  In this example CDB_WORLD_COMPACT_R1 was created specifically for these laptop demonstrators to fit on 1TB of total HDD capability on the server laptop.  At some later point some additional data for North Africa was added to blend with the subsequent development of the Yemen dataset.  CDB_NAV_V4 is another product-managed dataset that provides regularly updated worldwide NAV data.  There are multiple area/airport datasets that were added to the demonstration from various sources; these datasets have mutually exclusive coverage, i.e. they don't overlap in coverage.  Near the bottom of this chain are the datasets from which files are found when 'location' is in the Yemen dataset coverage area.  Datasets in this hierarchy can obviously be of different size, contain different LODs, could potentially contain datasets with different constraints such as security or licensing limits.
+
+The following two graphics compare the various CDB dataset versions that comprise the Yemen data and the lower resolution ocean and world representations:
+
+[#img_CAE DSE 2012 Laptop Hardware,reftext='{figure-caption} {counter:figure-num}']
+.CDB Laptop Simulation Demonstration Hardware+
+image::Images/CAE DSE 2012 Demonstration Laptops.jpg[width=800,align="center"]
+
+[#img_Presagis CDB Versioning Explanation Slide,reftext='{figure-caption} {counter:figure-num}']
+.A specific chain of CDB versions from CDB Boot at the bottom to CDB (root) at the top.+
 image::Images/CDB Update Manager annotated screen shot.jpg[width=800,align="center"]
