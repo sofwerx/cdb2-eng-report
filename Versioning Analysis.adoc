@@ -31,5 +31,5 @@ The slide below is a screen shot of a utility called the CAE CDB Update Manager 
 image::Images/CAE DSE 2012 Demonstration Laptops.jpg[width=800,align="center"]
 
 [#img_Presagis CDB Versioning Explanation Slide,reftext='{figure-caption} {counter:figure-num}']
-.Versioning graphic, please disregard the number blocks from this re-used slide.+
-image::Images/Presagis Versioning Presentation slide.jpg[width=800,align="center"]
+.A specific chain of CDB versions from CDB Boot at the bottom to CDB_WORLD at the top.+
+image::Images/CDB Update Manager annotated screen shot.jpg[width=800,align="center"]
