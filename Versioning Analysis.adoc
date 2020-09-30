@@ -70,6 +70,11 @@ Versioning is used extensively in fielded CDB implementations.  A primary princi
 
 Versioning is used to distribute a small change very rapidly.  In a previous Integration Analysis document, this author asked all those experimenting in this Tech Sprint to declare how their implementation would deal with a change in which a bridge near this street corner in Yemen is damaged/destroyed.  In CDB 1.X, that small change could be a single Openflight file in a CDB version.  This very small CDB version can be very quickly developed and transported to widely dispersed simulation sites.  Including the change in the 'world' of end site simulation clients after the CDB dataset containing the changed file is on the local CDB server requires rewriting only two version.xml files and restarting the simulation clients.  In actual practice, if the original Openflight model included one or more damage states, the change could actually be accomplished by a selector for the damaged model instead of the default/undamaged model.
 
+[#img_Sira Island Bridge damage state,reftext='{figure-caption} {counter:figure-num}']
+.Openflight damage 'state' of Sira Island Bridge.+
+image::images/Sira Island Yemen bridge damage.png[width=800,align="center]
+
+
 Versioning is used so that background level data, including things like worldwide NAV data, can be maintained and distributed on a different schedule than other more localized data.
 
 Versioning is used so that CDB datasets that may have some constraint in one or more layers (such as licensing or security classification) can be distributed separately from unrestricted datasets of the same coverage, and linked into the version chain when appropriate.
@@ -77,7 +82,3 @@ Versioning is used so that CDB datasets that may have some constraint in one or 
 Versioning is used to proved temporary changes to a dataset, such as fortifications or obstacles or other objects that support a specific training or rehearsal, but are not part of the permanent CDB collection for the same coverage.
 
 Versioning is also used to quickly disseminate changes that will become part of the permanent collection, but are able to be linked immediately for use and 'flattened' into a parent coverage when appropriate at a later date.
-
-[#img_Sira Island Bridge damage state,reftext='{figure-caption} {counter:figure-num}']
-.Openflight damage 'state' of Sira Island Bridge.+
-image::images/Sira Island Yemen bridge damage.png[width=800,align="center]
