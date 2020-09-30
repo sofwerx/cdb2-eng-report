@@ -23,11 +23,11 @@ In practical use CDB servers at simulation end-sites may not be managed by exper
 The slide below is a screen shot of a utility called the CAE CDB Update Manager Client, running on a CDB Server, that is part of a CDB simulation demonstration hosted on three laptop computers of about 2012 vintage.  The first image is the laptop computer hardware, the second image is the current chain of versions on the CDB Server laptop at the time of the screenshot.
 
 [#img_CAE DSE 2012 Laptop Hardware,reftext='{figure-caption} {counter:figure-num}']
-.CDB Laptop Simulation Demonstration Hardware +
+.CDB Laptop Simulation Demonstration Hardware.
 image::images/CAE DSE 2012 Demonstration Laptops.jpg[width=800,align="center"]
 
 [#img_Presagis CDB Versioning Explanation Slide,reftext='{figure-caption} {counter:figure-num}']
-.A specific chain of CDB versions from CDB Boot at the bottom to CDB (root) at the top.+
+.A specific chain of CDB versions from CDB Boot at the bottom to CDB (root) at the top.
 image::images/CDB Update Manager annotated screen shot.jpg[width=800,align="center"]
 
 The boxes and arrows on the graphic above are the author's attempt to show just some of the flexibility available using CDB versioning.  The simulator clients themselves can be set to always point to CDB_BOOT, an 'empty' CDB that only points 'up' to some content.
