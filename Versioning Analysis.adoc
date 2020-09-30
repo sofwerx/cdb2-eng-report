@@ -11,8 +11,8 @@ The specific mechanism that enables versioning in OGC CDB 1.x is the XML element
 The figure below, courtesy of Presagis / Hermann Brassard, shows a Version.xml file in a CDB with top-level directory named 'CDB_V1' pointing to a parent CDB top-level directory named 'CDB':
 
 image::images/Presagis Versioning Presentation slide.jpg[width=800,align="center"]
-[#img_PresagisCDBVersioningExplanationSlide,reftext='{figure-caption} {counter:figure-num}']
-*. Versioning graphic: Illustrating how to use a version to 'add' a single elevation coverage file at a specific location.*
+[#img_PresagisCDBVersioningExplanationSlide]
+*. {figure-caption}{counter:figure-num} Versioning graphic: Illustrating how to use a version to 'add' a single elevation coverage file at a specific location.*
 
 OGC CDB's original versioning approach relies on simulation clients to start looking for any file at the 'bottom' of the hierarchy of CDB datasets available on the server and linked by metadata.  Since simulation clients know in advance 'where they are' and 'where they want to go' a file search starts with a location.  Because of the rigid directory and file naming structure of CDB, a simulation client knows where to look for any file and what the file, if present, will be named. In the example above, the simulation client would start looking in CDB_V1.  In this example, CDB_V1 contains only a single file, a .tif file for N31 E065 Elevation at L00 and U0.  If the simulation client is looking for anything else, it will fail to find the file it is looking for, look at Version.xml in CDB_V1, find the <PreviousIncrementalRootDirectory name=“{path\}CDB”/> XML element, and look again for the file in the next higher level CDB dataset in the hierarchy.
 
