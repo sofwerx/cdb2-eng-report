@@ -11,7 +11,7 @@ The specific mechanism that enables versioning in OGC CDB 1.x is the XML element
 The figure below, courtesy of Presagis / Hermann Brassard, shows a Version.xml file in a CDB with top-level directory named 'CDB_V1' pointing to a parent CDB top-level directory named 'CDB':
 
 [#img_PresagisCDBVersioningExplanationSlide,reftext='{figure-caption} {counter:figure-num}']
-Versioning graphic: Illustrating how to use a version to 'add' a single elevation coverage file at a specific location. +
+.Versioning graphic: Illustrating how to use a version to 'add' a single elevation coverage file at a specific location. +
 
 image::images/Presagis Versioning Presentation slide.jpg[width=800,align="center"]
 
