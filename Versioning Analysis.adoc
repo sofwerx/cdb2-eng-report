@@ -1,9 +1,9 @@
 [[Versioning_in_Legacy_CDB]]
 
-:figure-caption: Figure Versioning -
+:figure-caption: Figure VERS -
 :figure-num: 0
 
-[%hardbreaks]
+
 = CDB Versioning, old and new
 
 == A review of how 'versioning' is used in legacy OGC CDB 1.X, and how that experience leads to use cases for exploration of versioning in CDB X.
@@ -55,3 +55,9 @@ In the following graphic, the laptop demonstration visual client is an image gen
 [#img_Demo IG startup with full CDB chain,reftext='{figure-caption} {counter:figure-num}']
 .Demonstration IG at startup with full CDB version chain from World to OYAA.+
 image::images/Demo laptop IG at startup with full version chain.jpg[width=800,align="center"]
+
+In the following graphic, the same image generator with the same starup Viewpoint position, but with a much simpler chain of CDB datasets renders a very different scene.  Note the mountains in background for comparison of the detailed Aden street view above and this view of the same location and viewpoint but with only background level imagery and elevation data:
+
+[#img_Demo IG startup with only background CDB chain,reftext='{figure-caption} {counter:figure-num}']
+.Demonstration IG at startup with full CDB version chain from World to OYAA.+
+image::images/Demo Laptop IG at startup with only background datasets in the version chain.jpg[width=800,align="center
