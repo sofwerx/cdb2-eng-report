@@ -1,6 +1,5 @@
 [[Versioning_in_Legacy_CDB]]
 
-:figure-caption: Figure VERS -
 :figure-num: 0
 
 
