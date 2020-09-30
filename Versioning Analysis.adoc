@@ -52,6 +52,6 @@ So, with the above background in mind, we can look at how the CDB database(s) at
 
 In the following graphic, the laptop demonstration visual client is an image generator, for which the startup Viewpoint position (what I guess we should now call a GeoPose?) is 'looking' at a street corner in Aden, Yemen.  If we startup that image generator with the chain of CDB datasets shown in the 'Update Manager' window, the IG renders the scene of the street corner on the right half of the Figure:
 
-[#img_Yemen Database Coverages,reftext='{figure-caption} {counter:figure-num}']
+[#img_Demo IG startup with full CDB chain,reftext='{figure-caption} {counter:figure-num}']
 ..+
-image::images/Yemen Coverages and Resolution graphic.jpg[width=800,align="center"]
+image::images/Demo laptop IG at startup with full version chain.jpg[width=800,align="center"]
