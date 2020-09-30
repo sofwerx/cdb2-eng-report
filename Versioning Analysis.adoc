@@ -81,3 +81,13 @@ Versioning is used so that CDB datasets that may have some constraint in one or 
 Versioning is used to proved temporary changes to a dataset, such as fortifications or obstacles or other objects that support a specific training or rehearsal, but are not part of the permanent CDB collection for the same coverage.
 
 Versioning is also used to quickly disseminate changes that will become part of the permanent collection, but are able to be linked immediately for use and 'flattened' into a parent coverage when appropriate at a later date.
+
+The German Army Aviation Training School in Buchenberg, Germany, has 12 helicopter flight simulators (CH-53, UH-1D, EC-135, with multiple CDB clients (out-the-window visuals; non-visual sensors; computer-generated-forces); there are other simulators within the German Armed Forces that also have CDB simulator clients and that share interoperable CDB datasets with the Army helicopter school.
+
+  The CDB holdings include world-wide background data; higher resolution datasets for Europe and Germany; some country data procedurally generated; some airports procedurally generated; some country data created from satellite imagery and hand modelling; some airports created from satellite imagery and hand-modelling; both the procedurally-generated and satellite/hand modelled data under continuous update and generation of additional content
+
+  There are multiple distributed CDB servers; ther is a main 'enterprise' facility CDB repository on site, there are offsite CDB repositories and content creation facilities at the Luftwaffe Fighter Weapons Center Synthet Environment site and the CAE Stollberg.
+
+  The CDB versioning capability is integral to management of the site.
+
+  
