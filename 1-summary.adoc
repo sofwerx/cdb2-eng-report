@@ -1,6 +1,8 @@
 == Subject
 This Engineering Report documents a CDB Experimental (CDB X) Conceptual Model as well as the results of CDB X rapid prototyping activites conducted during the 3D Geospatial Series Tech Sprint II - OGC CDB 2.0. This activity was performed in support of Special Operations Forces (SOF) Future Concepts. This effort hopes to accelerate evolution of the OGC CDB standard to meet the needs of planning, rehearsal, and Mission Command systems providing decision support to Special Operations Forces and enabling SOF tactical and operational advantage. OGC industry standards enable interoperability of geospatial data across systems and applications that SOF Operators and analysts use across warfighting functions.
 
+CDB X - Meeting the requirements for tactical GEOINT that can be used across warfighting functions.
+
 == Executive Summary
 
 Since 2018 the CDB community has discussed and considered what CDB version 2.0 might might provide in terms of capabilities. These discussion also touched on architecture and related logical models. Many of these CDB 2.0 discussion have occured as part of the OGC standards work. More recently, other organizations such as SOCOM and NGA, have vigorously engaged in these discussions. However, progress has been relatively slow. 
@@ -19,7 +21,17 @@ Phase 4: 07 September 2020 to 25 September 2020 Proposed Draft Specification: Pa
 
 Phase 5: 05 October 2020 to 30 October 2020 Final Report: Participants will write a final report summarizing activities to date, recommendations for the OGC SWG and other standards bodies to consider, and contributions of each participant.
 
+=== Recommendations
 
+The following are the recommendations for changes, enhancements, and design principals for not just CDB 2.0 but also CDB version 1.3. The version 1.3 chnages are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path the version 2.0
+
+==== Attribution
+
+`Recommendation 1 Extended Attributes - Version 1.3` The subgroup discussion on this topic is titled: https://github.com/sofwerx/cdb2-concept/issues/25[Should Extended Attributes be preserved at the logical data model level?] The suggestion is that the CDB SWG discuss this issue and possible solution as a possible change for CDB version 1.3. Some additional testing may be required to determine if this capability can be added to version 1.3 or not.
+
+`Recommendation 2 Attribute defaut values - Version 1.3` The subgroup discussion on this topic is titled: https://github.com/sofwerx/cdb2-concept/issues/32[Attribute Default Values #32]. The recommendation is that Defaults.xml can be used to define global attribute defaults as well as per-dataset defaults. Doing per-entity defaults would be a straight forward extension that could be proposed for CDB 1.3 as a transition path. The subgroup suggests that the CDB SWG discussion this for possible inclusion in version 1.3. A change request for this approach to specifying default values is also suggested.
+
+`Recommendation 3 Attribute Terms - Version 1.3` The subgroup discussion on this topic is titled: https://github.com/sofwerx/cdb2-concept/issues/31[Capture Attribute Terms (Enumerants) in Metadata #31]. Attributes describing qualitative values are present in CDB 1.2 and the list of valid values  for each attribute are documented in the human-readable specification with both the vocabulary term name and its integer numeric value (index). However, the machine-readable XML metadata does not contain any of this information and treats these attribute types as raw integers with only a minimum and maximum value constraint. It may make sense as a transition path to update CDB 1.3 to define additional XML elements in a backward compatible way to capture these definitions from the existing specification into the machine-readable XML metadata. The conceptual model in the CDB 1.2 specification does align with how GGDM treats such attributes, so there is no fundamental incompatibility, and the proposed CDB X dictionary design accounts for properly tracking the terms for qualitative attributes in a machine-readable way in SQLite.
 
 ===	Document contributor contact points
 
@@ -29,21 +41,20 @@ All questions regarding this document should be directed to the editor or the co
 [width="80%",options="header",caption=""]
 |====================
 |Name |Organization | Role
-| Tracey Birch | CloudLake/USSOCOM SOF AT&L | Editor
 | David Graham | Eaglecapsystems | Editor
 | Carl Reed, PhD | Carl Reed & Associates | Editor
 | Kevin Bentley | Cognitics | Contributor
-| Tracey Birch | CloudLake/USSOCOM SOF AT&L | Contributor/Faciltator
 | Holly Black | CAE | Contributor
 | Hermann Bressard | Presagis | Contributor
 | Patrick Cozzi | CESIUM | Contributor
-| Brian Ford | FLightSAfety | Contributor
+| Brian Ford | FlightSAfety | Contributor
 | Ryan Franz | FlightSafety | Contributor
 | Jay Freeman | CAE | Contributor
 | Jérôme Jacovella-St-Louis | Ecere | Contributor
-| Michala Hill | Cognitics | Contributor/Facilitator
+| Michala Hill | Cognitics | Facilitator/Contributor
 | Greg Peele | Geometric Progress | Contributor
 | Vaughn Whisker | ARL PSU | Contributor
+| Tracey Birch | CloudLake/USSOCOM SOF AT&L | Emeritus
 |====================
 
 

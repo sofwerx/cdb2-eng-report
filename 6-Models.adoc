@@ -1,15 +1,65 @@
 [[CDB2Models]]
 
-== CDB X Conceptual and Logical Models
+== CDB X Design Goals, Use Cases, and Conceptual/Logical Models
 
-This clause documents draft design objectives and CDB 2.0 Conceptual and Logical Models.
+This section documents draft design objectives, the targer use cases, and the CDB X Conceptual and Logical Models.
 
 === CDB X Design Goals and Objectives
 
 The following are the design goals and objectives for a tiled CDB X repository.
 
 * Be fast :-)
-* All geometry for any vector feature data shall be compliant with the OGC/ISO Simple Features Geometry Model.
+* Geometry model: All geometry for any vector feature data shall be compliant with the OGC/ISO Simple Features Geometry Model.
+* Correlation Requirement: CDB-T, CDB-S, CDB-G and CDB-A profiles shall correlate to the data defined in CDB-F 
+* Derivative and Optional structures: CDB-T, CDB-S, CDB-G and CDB-A profiles shall encode its rules and mechanisms for optimization in a self-describing form.
+* Holistic Foundation: CDB-T, CDB-S, CDB-G and CDB-A structures shall all be generated from the data defined in CDB-F
+* Deployment: CDB-F shall be able to be deployed on the cloud, in relational databases, and on a file system.
+
+=== Use Cases
+ 
+The following are summaries of key use cases identified during this project.
+ 
+`Tactical Use Case`: <need short description> Possible impact: Define a profle of the foundation data in a form most suitable for tactical devices (CDB-T, where T is for tactical), such as ATAK.
+
+`Gaming Use Case` <need short description> Possible impact: Define a derivative and optional structure of the .foundation data in a form most suitable for gaming devices 
+(CDB-G, where G is for gaming), such as Unreal or Unity.
+
+`M&S Use Case` <need short description> Possible impact: Define a porfile of the foundation data in a form most suitable for simulators (CDB-S, where S is for simulators)
+
+`Analytics Use Case` <need short description> Possible impact: Define a derivative and optional structure of the datasets in a form most suitable for analytics using AI/ML (CDB-A, where A is for analytics)
+
+`Data Transport` <need short description> Possible impact: Optimize the speed data synchronization between all echelons and data systems for CDB-F and CDB-T  
+
+`DDIL Deployment` CDB-F, CDB-T, and CDB-A must be able to deploy in DDIL environments. 
+
+NOTE: Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of tiling schemes  (Profile should include Tiling structure, LOD structure, optimization, etc.) CDB-A may generate topology, extended attributes and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of relationship schemes
+
+*This is future work and actually would not be part of a core CDB-X standard Configuration Management.*  Define an abstract mechanism for configuration management applicable to multiple deployment strategies (file systems, RDMS and cloud) relational databases for CDB-F, CDB-S, CDB-G, CDB-T and CDB-A.  Support Versioning, attribution, synchronization
+
+
+=== Definition of Concepts
+
+==== Foundation Data
+
+Foundation data are the authoritative data and models that have been curated per the rules defined in the CDB standard, and stored in a CDB repository. Foundation data utilizes known and consensus controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and the required metadata has been documented.
+
+For example, as per the current CDB standard (and industry best practice), a road network (RoadNetwork dataset in CDB 1.2) could be considered as foundation data. In CDB 1.2, there are a set of requirements associated with how the roads data are structured and attributed and stored in a CDB repository.
+
+The specification of any foundation data layer (such as RoadNetwork) at the logical model level can be 100% independent from the storage environment, end user use case(s) and so on while at the same time also having the requirements based on industry knowledge and use case requirements.
+
+For example:
+
+Requirement: The RoadNetwork shall be considered as a foundation data layer in a CDB repository.
+
+Sub-requirement: All roads in a roads layer SHALL use a known road classification system to identify the roads type. This could be the US DoT classification, the current FACC classification, or the newer GDDM.
+
+Sub-requirement: The RoadNetwork SHALL be topologically structured. (This enables network analysis etc). NOTE: The how is not specified at the logical model level.
+
+Sub-requirements: The RoadNetwork Dataset SHALL be used to specify all of the road networks..
+
+Notice that there is no mention of the actual storage structure, enabling software, storage formats, tiling and so forth. 
+
+==== Reference Systems
 
 === 3D Models
 

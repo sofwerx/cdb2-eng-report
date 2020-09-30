@@ -10,7 +10,10 @@ For CDB X, the particpants in the 3D Geospatial Series Tech Sprint II – OGC CD
 
 The remainder of this section discusses the findings of the comparison as well as lessons learned from the prototyping activity.
 
+[[Questions]]
 === Questions to be addressed
+
+Following are some of the questions that the 3D Modelling Subgroup initially identified as needing further discussion and possible experimentation. These formed the basis for the specific questions and approaches uses in the CDB-X 3D Prototyping and Experimentation.
 
 . Models be stored in GeoPackage (Editors Note: `Is this a good idea? One could store the glTF in the CDB data store without using GeoPackage - just as OpenFlight today. Need to think about also perhaps having I3S, 3D Tiles, CityGML and other encodings.`)
 . Models preferred to be glTF (others allowed) (glb package?)
@@ -30,34 +33,75 @@ The remainder of this section discusses the findings of the comparison as well a
 
 CDB catalog service for 3D tile inside a tile
 
-=== Prototyping Experiments
+=== CDB X Requirements for 3D Model Components
 
-Two profiles.
+Based on the questions and followup discussion, the CDB X participants derived the following requirements for CDB-X model components.
 
-Profile 1 Storing the mesh in as 3D tile: Experiments
+[width="90%",cols="2,6"]
+|===
+|*Requirement*|*Objectives*
+|Improve interoperability with OWT|* Align 3D model geometry attribution in order to support conversion between the two standards. Test that conversion in both directions. +
+* Support similar encoding (glTF) to support convergence as standards evolve.
+|Serve archiving/repository use case and runtime usage|* Package 3D models LODs in an easy to edit manner while allowing fast runtime access of independent LODs. +
+* Increase 3D tools (edit and view) interoperability. +
+* Support multiple encoding with metadata to identify which one is used (Starting with OpenFlight and glTF).
+|Modernize CDB | * Support newer 3D encoding formats (glTF initially) +
+* Support newer attribution (NAS/GGDM) in point feature and in 3D geometry +
+* Provide flexibility to extend 3D models components and attribution +
+* Review LOD “bins” in context of today’s GPU capabilities +
+* Added constructs for better game engine support (navigation and collision mesh, PBR etc..) +
+*Review lightpoint (Dataset and in 3D model), light source, lightmap.
+|Support SOF use cases : Same dataset for M&S and C2 including the mission command and TAK devices| 
+* ATAK: Support 3D view and attribution +
+* ATAK:  Support building interior 3D encoding (and 2D floorplan?) +
+* ATAK:  Support packing 3D models in small memory footprint +
+* ATAK:  Support LOD selection “per model or per zone” to transfer only the required data +
+* Mission command: Support merging of CDB (Versioning) to cover large area +
+* Mission command: Support 3D WEB based map steaming
+|=== 
 
-. Question: How to store LODs? In glTF extensions, In 3D tiles, in separate glTF
-. Question: Are there missing glTF constructs?
+=== Short and Medium Term Objectives
 
-Profile 2 Storing the mesh in as 3D tile (Editor's note: `Why just 3D Tiles? Why not a more general approach that allows other encodings/approaches?`)
+The following are the short and medium term objectives for the 3D Model Prototyping and Experimentation. These design objectives are based on the initial set of <<questions,questions>> posed by the CDB-X participants.
 
-. Question: What is the ability to source edit the mesh?
-. Question: Mixing GeoPackage with 3D tiles?
-. Question: CDB catalog service for 3D tile inside a tile
+. Support more 3D model encoding with metadata detailing which is used. Preserve OpenFlight (and potentially improve its usage), add glTF with extensions
 
-Both Profile 1 and Profile 2
+. Reduce file count and package models better while providing enough indexing data to allow readers to quickly extract only what they need. Metadata/catalog - support editing/replace use case
 
-. Question: What are the efficient format/packing for each different end-points:
-.. ATAK
-.. Mission command (wms/wfs)
-.. Modsim
-.. Gaming
+. Address GS, GT, model instancing
 
-3d-model-prototyping.png
-[#img_3d-model-experiments,reftext='{figure-caption} {counter:figure-num}']
-.Profles and Experiments for CBD-X 3D Models.
-image::images/3d-model-prototyping.png[width=800,align="center"]
+. Support Building interior with navigation mesh and collision mesh
 
+. Encode 3D models in glTF
+
+.. Node grouping, LOD grouping in json
+
+.. Define CDB extensions for glTF
+
+.. Look at tools to allow CDB attribution editing
+
+. Model packing with MetaData
+
+=== 3D Experiment Object Model
+
+==== The data
+
+This experiment uses a GeoPackage comprised of a point feature table with attribution.
+
+[#img_3d-model-experiment 1,reftext='{figure-caption} {counter:figure-num}']
+.3D Experiment 1 attribute table for point features.
+image::images/3d-model-gpkg-attr-table.png[width=900,align="center"]
+
+==== Attribute changes explored
+
+The following current CDB attribute changes were explored.
+
+- CNAM - no longer needed
+- FACC - FSC - Change to GGDM - impact on field type
+- MLOD - (LOD of the model to use) This is closely linked to tiling and LODs of vector where each point features would point to a model at a given LOD (should be lower than feature vector LOD). Presume at the moment we keep this.
+- MODL - (Name of the model to use). I nthis case, we should point to a metadata file for the model. Alternatively, the content of the metadata could be encoded in GeoPackage - which is bad for tool operability.
+
+A key challenge to resolve is how to link the model data with the feature data. Currently, the MLOD and MODL are composed and lookup into the tile index of the point feature. Is that functional capability (approach?) preserved? Do we use a model table in Geopackage with a primary key? As decided, models would remain separate files and not encoded in the GeoPackage. So, a unique file name is required for this experiment.
 
 === Description of 3D formats/encodings and References for this section:
 
@@ -84,3 +128,34 @@ https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/FB_geomet
 https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit[KHR_materials_unlit] is an extension that defines an unlit shading model for use in glTF 2.0 materials, as an alternative to the Physically Based Rendering (PBR) shading models provided by the core specification. 
 
 https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform[KHR_texture_transform] is an extension that adds offset, rotation, and scale properties to textureInfo structures. These properties would typically be implemented as an affine transform on the UV coordinates. 
+
+=== CDB OpenFlight and glTF Feature Analysis
+
+include::opf-gltf-analysis.adoc[]
+
+=== Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.
+
+Two profiles.
+
+Profile 1 Storing the mesh in as 3D tile: Experiments
+
+. Question: How to store LODs? In glTF extensions, In 3D tiles, in separate glTF
+. Question: Are there missing glTF constructs?
+
+Profile 2 Storing the mesh in as 3D tile (Editor's note: `Why just 3D Tiles? Why not a more general approach that allows other encodings/approaches?`)
+
+. Question: What is the ability to source edit the mesh?
+. Question: Mixing GeoPackage with 3D tiles?
+. Question: CDB catalog service for 3D tile inside a tile
+
+Both Profile 1 and Profile 2
+
+. Question: What are the efficient format/packing for each different end-points:
+.. ATAK
+.. Mission command (wms/wfs)
+.. Modsim
+.. Gaming
+
+[#img_3d-model-experiments,reftext='{figure-caption} {counter:figure-num}']
+.Profles and Experiments for CBD-X 3D Models.
+image::images/3d-model-prototyping.png[width=800,align="center"]

@@ -2,7 +2,19 @@
 
 For the purposes of this report, the definitions specified in Clause 4 of the OWS Common Implementation Standard https://portal.opengeospatial.org/files/?artifact_id=38867&version=2[OGC 06-121r9] shall apply. In addition, the following terms and definitions apply.
 
-*4.1* +
+*4.x* +
+*authoritative data* +
+Officially recognized data that can be certified and is provided by an authoritative source.
+
+(SOURCE: Authority and Authoritative Sources: Clarification of Terms and Concepts for Cadastral Data. FGDC/NIST 2008)
+
+*4.x* +
+*authoritative data source* +
+An information technology (IT) term used by system designers to identify a system process that assures the veracity of data sources.  These IT processes should be followed by all geospatial data providers.  The data may be original or it may come from one or more external sources all of which are validated for quality and accuracy.
+
+(SOURCE: Authority and Authoritative Sources: Clarification of Terms and Concepts for Cadastral Data. FGDC/NIST 2008)
+
+*4.x* +
 *conceptual model* +
 description of common concepts and their relationships, particularly in order to facilitate exchange of information between parties within a specific domain. A conceptual model is explicitly chosen to be independent of design or implementation concerns.
 
@@ -38,6 +50,24 @@ A data store is a repository for persistently storing and managing collections o
 Synonym for “height”
  
 (SOURCE: https://portal.opengeospatial.org/files/?artifact_id=19820[OGC Abstract Topic 6: Schema for coverage geometry and functions])
+
+*4.x* +
+*feature data dictionary* +
+A Feature data dictionary is a collection of descriptions of the Feature objects or items in a Feature data model for the benefit of programmers and others who need to refer to them.
+
+(SOURCE: OGC Testbed-13: CDB Engineering Report - 17-042)
+
+*4.x* +
+*foundation data* + 
+authoritative data and models that have been curated and stored in a CDB repository. Foundation data uses known and agreed to controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and supported by the required metadata.
+
+*4.x* +
+*geospecific model* + 
+A Geospecific model is instanced once and only once within a CDB. Geospecific models usually correspond to unique (in either shape, size, texture, materials or attribution), man-made, real world 3D features. NOTE: Being discussed for possible evolution as part of CDB 2.0
+
+*4.x* +
+*geotypical model* + 
+A Geotypical model is instanced multiple times within a CDB data store. Geotypical models correspond to representative (in shape, size, texture, materials and attribution) models of real-world manmade or natural 3D features.
 
 *4.x* +
 *height* +
@@ -79,17 +109,27 @@ in mathematics, a tiling (tessellation) is a collection of subsets of the space 
 ===	Abbreviated terms
 
 |===
+|*ATAK* |Android Tactical Assault Kit
 |*COTS*	|Commercial Off The Shelf
 |*CRS*	 |Coordinate Reference System
+|*DGIM* |Disaster Geo-Information Management
 |*GGDM*	|Ground-Warfighter Geospatial Data Model
 |*GPKG* |GeoPackage
 |*glTF*	|GL Transmission Format
+|*FACC* |Feature Attribute and Coding catalog
+|*FDD*  |Feature Data Dictionary
+|*FSC*  |Feature Sub-code
 |*LoD*  |Level of Detail
 |*MC*   |Mission Command
+|*NAS*  |NSG Application Schema
+|*NSG*  |National System for Geospatial-Intelligence
 |*OTW*  |Out the Window
 |*OWT*  |One World Terrain
 |*PBR*  |Physically-Based Rendering (PBR)
 |*SOF*  |Special Operations Forces
 |*STAC* |SpatioTemporal Asset Catalog
+|*TIFF* |Tagged Image File Format
+|*TMS*  |Tile Map Service
+|*TMS*  |Tile Matrix Set
 |===
 

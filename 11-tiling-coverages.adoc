@@ -84,4 +84,125 @@ Recommendation: That loss-less image compression solutions be explored for use i
 
 Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with reflectance in wavelengths other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.
 
+=== Findings from experiments
 
+The following graph compares the CDB 1.x zones with the Gnosis grid and shows how the GNOSIS algorithm helps to keep the typical tile closer to a “square” than CDB’s zones.
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.CDB 1.x to GNOSIS Comparison - Ratio.
+image::images/cdb-gnosis-ratio.png[width=600,align="center"]
+
+
+=== CDB X Tiling/GeoPackage Experiment #1 (Ecere)
+
+==== Data and GeoPackage Structure
+
+A 1.4 GB GeoPackage of the Camp Pendleton sample CDB from Presagis (originally used in OGC Testbed 13), along with an accompanying `cdb.json` can be found at:
+
+http://maps.ecere.com/CDBX/X1/
+
+In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using the GeoPackage metadata extension) to make this GeoPackage very portable.
+
+Inside the GeoPackage, all layers were tiled using the Ecere https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid[GNOSIS Global Grid]. This approach was implemented for the experiment using the proposed (and early draft) https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc[GeoPackage Two Dimensional Tile matrix Set (TMS) extension]. This extension was defined and initially tested in the https://www.ogc.org/projects/initiatives/vtp2[2019 OGC Vector Tiles Pilot Phase 2].
+
+The content includes imagery data, stored as JPEGs, and terrain data stored as GeoTIFFs. This was accomplished using an imlpementation of the http://docs.opengeospatial.org/is/17-066r1/17-066r1.html[OGC GeoPackage Tiled Gridded Coverage Extension].
+
+The content also included the Natural and Environmental light features vector layers. For this experiment, this content was stored  using Mapbox Vector Tiles. This included points intended to reference 3D models such as "Man-made point features" and "Tree point features".
+
+The early draft GeoPackage Tiled Vector Data (vector tiles) extensions were used for this:
+
+. https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc[GeoPackage Tiled Vector Data Attributes Extension] This extension defines a relationship between features contained in a tiled layer and tiles containing those features.
+. https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc[GeoPackage Tiled Vector Data] The GeoPackage Tiled Vector Data extension defines the rules and requirements for encoding tiled feature data (aka "vector tiles") into a GeoPackage data store.
+. https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc[MapBox Vector Tiles extension] The GeoPackage Mapbox Vector Tiles extension defines the rules and requirements for encoding vector tiles in a GeoPackage data store as Mapbox Vector Tiles.
+
+NOTE: Ecere is planning to add the 3D models in the next experiments -- for geo-specific, both one glTF for a whole tile, as well as individual models to be referenced by the points.
+
+For the case of points referencing the 3D models (best suited for geo-typical), those glTF files would be stored in a single 3D models table, as well as a textures table (if the models share rather than embed textures). The related table extension would be used to relate the features attributes.
+
+For the geo-specific / one glTF for the whole tile, the glTF could potentially be stored in a tiles table instead, and the models constituting the payload (much like raster or vector tiles).
+
+==== OGC API access demo
+
+At this address: https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg
+
+You can directly access this CDB X Experiment #1 GeoPackage through our GNOSIS Map Server, including rendering maps, downloading coverages, accessing as tiles in different tiling schemes, accessing individual vector features, retrieving them as (re-merged) GeoJSON, visualizing them on GeoJSON.io and so on.
+To some extent, this demonstrates that even though the data is tiled, this layout actually supports a wide range of use cases.
+
+==== Visualization
+
+Ecere software can currently visualize the CDB X/GeoPackage elevation and imagery directly in the Ecere 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Ecere Camp Pendleton GeoPackage in CDB X.
+image::images/ecere-cdbx-1.png[width=600,align="center"]
+
+==== Live Cesium JS / 3D Tiles demonstation
+
+Navigate to https://sandcastle.cesium.com/ and copy/paste the following four (4) lines of Java Script code:
+
+```js
+var worldTerrain = Cesium.createWorldTerrain({requestWaterMask: true, requestVertexNormals: true, });
+var viewer = new Cesium.Viewer("cesiumContainer", { terrainProvider: worldTerrain });
+var scene = viewer.scene;
+var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({ url: "https://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings/3DTiles/tileset.json" }));
+```
+
+Then click "Run", and zoom in onto Camp Pendleton. Camp Pendleton is at the height of the southern part of the northernmost of the 2 islands just west of southern California. As the image is zoomed, 3D buildings should come into view.
+
+This tiled 3D distribution (for OGC API collection http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings) is currently being generated on the fly from the Ecere GNOSIS Data Store / E3D models. NOTE: No textures have been added yet.
+
+Once the 3D models are added to the CDBX GeoPackage, it should be possible to stream as 3D Tiles <CESIUM??> straight from the CDBX/GeoPackage as well, rather than the original CampPendleton CDB repository.
+
+==== Next steps (this section will change as new content is provided)
+
+- Support for splitting in multiple GeoPackages with LoD grouping
+- A table for storing glTF models, for referenced 3D models (either only for geo-typical trees, or even the geo-specific buildings as well), and using Related tables extensions to relate the models table to other tables
+- Single glTF models covering a whole tile for geo-specific models
+- Export similar GeoPackages for San Diego CDB
+- Attribution per model within the single tile model. We support this directly in E3D, and I wonder whether glTF2 supports this.
+I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF is a Features Table which does precisely this, so I am not sure whether glTF 2 has this capability built in (i.e. allowing to use a .glb directly rather than a .b3dm).
+- Support for visualizing the dataset including 3D models in our GNOSIS Cartographer client (work required to support CDB consisting of multiple of GeoPackages as a single data source)
+- Support for GNOSIS Map Server streaming 3D models from CDB X/GeoPackage
+
+=== FlightSafety GeoPackage Tiling Experiments
+
+*Setup*: The data used for these experiments are primarily freely available, and include the following
+* Blue Marble (NASA) that was georeferenced using GDAL - https://visibleearth.nasa.gov/collection/1484/blue-marble
+* The high resolution inset is from USGS downloads of Central Park in New York City
+
+*Tiling Scheme*: The tiling scheme uses the [GNOSIS Global Grid](https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid) (using TMS extension -- https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc).  We are using the same type of json file that Ecere is using in their experiment.
+
+*LOD Grouping* The grouping is pre-set per experiment.  The groups are calculated from the highest LOD, back to coarser LODs.  For example, if there are 7 LODs (0-6) and a grouping of 4, then LODs 3 through 7 are in one GeoPackage, and LODs 0 through 2 are in another GeoPackage.
+
+*Directory and Naming Scheme* Each top level tile is within a directory that encodes the LOD, the row (rows are counted from the top, so north to south), and the column (longitude west to east).  Fox example, "L0_R1_C2".  Each tile directory contains one GeoPackage file (for example "Imagery_L0_L2_R1_C2.gpkg") and all the tile directories that refine this area (such as "L3_R9_C22").  There were two intentions to this directory structure:
+
+- Limit the number of files in a directory (to keep from running into OS limitations).
+- Make it a bit easier to export a portion of the world by hand from one CDB X to another.
+
+==== FlightSafety Experiment 1
+
+===== Purpose of Experiment
+This experiment is to show how the top levels of the tiling scheme work, to show the LOD groupings within multiple GeoPackage files, and to show the proposed directory and file naming.  There are 8 top level tiles (2 rows and 4 columns), and all GeoPackages that refine one of these tiles is under that tile's directory structure.
+
+===== Processing
+This experiment uses the NASA Blue Marble imagery to approximate world-wide imagery at a high level.  This provides 7 levels of detail of data (L0 to L6).  Normally, the GeoPackage files should be larger for efficient use, but to show the LOD groupings, only 4 LODs are grouped together.  Also, the imagery is stored as Jpeg, so that tools can view the imagery easier.  We originally were creating Jpeg2000 files, but it was harder to check the results in a tool like "DB Browser for SQLite".  The data size for this experiment is around 300 MB.
+
+===== Data Location
+Compressed 7-zip file at:  https://drive.google.com/drive/folders/1zfdBnAHpf9McLTbaJotdKGR_tXQad4dy?usp=sharing
+
+==== FlightSafety Experiment 2
+
+===== Purpose of Experiment
+
+This experiment is to further test the limits of the LOD grouping and directory organization.  It will be the World CDB X from experiment 1 with a small higher resolution inset of imagery.  Added was some 15m data at LOD level 12 covering New York City, and 2 ft imagery covering Central Park on Manhattan Island at LOD level 16.
+
+===== Processing
+Same processing as experiment 1, but with an LOD grouping of 6 (thought during our planning to be ideal balancing size and number of sub-directories ( (2^6)^2 = 4096 maximum directories within one folder).  The maximum LOD for this experiment is 16 (60cm).  To find the highest resolution data, look at file CDBX_highres\Imagery\L0_R0_C1\L5_R17_C37\L11_R1120_C2412\Imagery_L11_L16_R1120_C2412.gpkg.  The data size for this experiment is almost 1.5 GB.
+
+===== Data Location
+Compressed 7-zip file at:  https://drive.google.com/drive/folders/1zKuu0oQy3K5oKestuPIvL-BRiSPn9oaO?usp=sharing
+
+==== Observations
+* The file names and directory names are pretty hard to read and understand by looking at the files. But since the tiles are rarely on a "geocell" boundary, their might not be a good naming scheme.
+* Creating the LOD groupings based on the highest LOD of data makes it difficult to add data of a higher resolution later on.  It might also make it harder to create "Versions" of the data that have been updated.
+* There are a lot of directories created with this tiling and naming scheme.  In general, there is a 1-to-1 ratio of files to directories.
