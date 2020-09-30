@@ -77,3 +77,7 @@ Versioning is used so that CDB datasets that may have some constraint in one or 
 Versioning is used to proved temporary changes to a dataset, such as fortifications or obstacles or other objects that support a specific training or rehearsal, but are not part of the permanent CDB collection for the same coverage.
 
 Versioning is also used to quickly disseminate changes that will become part of the permanent collection, but are able to be linked immediately for use and 'flattened' into a parent coverage when appropriate at a later date.
+
+[#img_Sira Island Bridge damage state,reftext='{figure-caption} {counter:figure-num}']
+.Openflight damage 'state' of Sira Island Bridge.+
+image::images/Sira Island Yemen bridge damage.png[width=800,align="center]
