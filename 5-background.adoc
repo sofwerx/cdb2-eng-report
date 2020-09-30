@@ -46,21 +46,27 @@ Some of the major enhancements that have been discussed and documented are:
 
 Making these enhancements may allow the use and implementation of a CDB structured data store for application areas in addition to aviation simulators.
 
-=== A further note on attribution
+[[attrtestbed13]]
 
-During the OGC Testbed-13 Interoperability Initiative, there was a CDB work item in which the particpants investigated
+=== Attribution - An OGC Testbed 13 CDB Activity in 
 
-. The conceptual model of an OGC CDB 1.0 datastore as a UML (Unified Modeling Language) diagram to show different datasets (the 3D models, vector features and coverages) structure;
-. How to process and use a NAS-based Profile as a CDB feature/attribute data model or a GML-SF0 application schema;
-. How to access, navigate and visualize a CDB dataset using OGC web services (such as WFS and WCS).
+The http://docs.opengeospatial.org/per/17-042.html[CDB Engineering Report] (ER) summarizes the CDB sub-thread activity. The CDB activity was divided into three main work packages:
 
-The OGC Testbed 13 CDB Engineering Report (ER) summarizes the CDB sub-thread:
+- A feasibility study; 
+- The implementation of data models and schemas mapping that are based on the feasibility study results; and 
+- A set of OGC web services that implement the CDB in the form of WFS and WCS (Web Coverage Service) instances.
 
-Change Request proposals have been discussed for the OGC CDB 2.0 and will be submitted by December 31, 2017.
+This Testbed 13 Engineering Report describes the approach taken and the results of the experimentation:
 
-- The recommendations for replacing FACC feature code and indexing structure to be consistent with the application schemas (e.g. NAS data model) under discussion for the OGC CDB 2.0;
-- The recommendations for supporting application schemas in CDB (level of complexity: Esri Geodatabase, GML-SF0 application schema) are being discussed for the OGC CDB 2.0;
-- The method to expand the supported encodings and formats for an OGC CDB compliant datastore;
-- Generating a coherent attribute schema for CDB 1.0 based on the "CDB_Attribute.xml" file.
+- The conceptual model of an OGC CDB 1.0 datastore as a UML (Unified Modeling Language) diagram to show different datasets (the 3D models, vector features and coverages) structure;
+- How to process and use a NAS-based Profile as a CDB feature/attribute data model or a GML-SF0 application schema;
+- How to access, navigate and visualize a CDB dataset using OGC web services (such as WFS and WCS).
+
+The Testbed 13 CDB activity also resulted in a formal http://ogc.standardstracker.org/show_request.cgi?id=544[OGC Change Request Proposal] that was submitted for consideration in April 2018. The Change Request provides:
+
+- Recommendations for replacing FACC feature code and indexing structure to be consistent with the application schemas (e.g. NAS data model) under discussion for the OGC CDB 2.0;
+- Recommendations for supporting application schemas in CDB (level of complexity: Esri Geodatabase, GML-Simple Features Level 0 application schema) are being discussed for the OGC CDB 2.0;
+- A method to expand the supported encodings and formats for an OGC CDB compliant datastore;
+- Guidance on generating a coherent attribute schema for CDB 1.0 based on the "CDB_Attribute.xml" file.
 
 

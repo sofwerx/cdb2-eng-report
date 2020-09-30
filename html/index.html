@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>CDB X Conceptual Model with Prototyping Examples:</title>
+<title>CDB X Conceptual Model with Prototyping Examples and Recommendations</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,15 +438,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body id="bibtexAttributes" class="book">
 <div id="header">
-<h1>CDB X Conceptual Model with Prototyping Examples:</h1>
+<h1>CDB X Conceptual Model with Prototyping Examples and Recommendations</h1>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_subject">1. Subject</a></li>
 <li><a href="#_executive_summary">2. Executive Summary</a>
 <ul class="sectlevel2">
-<li><a href="#_document_contributor_contact_points">2.1. Document contributor contact points</a></li>
-<li><a href="#_foreword">2.2. Foreword</a></li>
+<li><a href="#_recommendations">2.1. Recommendations</a>
+<ul class="sectlevel3">
+<li><a href="#_attribution">2.1.1. Attribution</a></li>
+</ul>
+</li>
+<li><a href="#_document_contributor_contact_points">2.2. Document contributor contact points</a></li>
+<li><a href="#_foreword">2.3. Foreword</a></li>
 </ul>
 </li>
 <li><a href="#references">3. References</a></li>
@@ -461,44 +466,73 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_what_is_cdb">6.1. What is CDB?</a></li>
 <li><a href="#_ogc_cdb_1_x_history">6.2. OGC CDB 1.x History</a></li>
 <li><a href="#_ogc_cdb_2_0">6.3. OGC CDB 2.0</a></li>
-<li><a href="#_a_further_note_on_attribution">6.4. A further note on attribution</a></li>
+<li><a href="#attrtestbed13">6.4. Attribution - An OGC Testbed 13 CDB Activity in</a></li>
 </ul>
 </li>
-<li><a href="#CDB2Models">7. CDB X Conceptual and Logical Models</a>
+<li><a href="#CDB2Models">7. CDB X Design Goals, Use Cases, and Conceptual/Logical Models</a>
 <ul class="sectlevel2">
 <li><a href="#_cdb_x_design_goals_and_objectives">7.1. CDB X Design Goals and Objectives</a></li>
-<li><a href="#_3d_models">7.2. 3D Models</a></li>
-<li><a href="#_attribution">7.3. Attribution</a></li>
-<li><a href="#_tilingcoveragesimagery">7.4. Tiling/Coverages/Imagery</a></li>
-<li><a href="#_vector_data">7.5. Vector Data</a></li>
+<li><a href="#_use_cases">7.2. Use Cases</a></li>
+<li><a href="#_definition_of_concepts">7.3. Definition of Concepts</a>
+<ul class="sectlevel3">
+<li><a href="#_foundation_data">7.3.1. Foundation Data</a></li>
+<li><a href="#_reference_systems">7.3.2. Reference Systems</a></li>
 </ul>
 </li>
-<li><a href="#Attribution">Summary of history of CDB X attribution discussions.</a></li>
-<li><a href="#_phase_3_consensus">Phase 3 Consensus</a></li>
-<li><a href="#_phase_3_day_3">Phase 3, Day 3</a></li>
-<li><a href="#_phase_3_day_4">Phase 3, Day 4</a></li>
-<li><a href="#_phase_3_day_5">Phase 3, Day 5</a></li>
+<li><a href="#_3d_models">7.4. 3D Models</a></li>
+<li><a href="#_attribution_2">7.5. Attribution</a></li>
+<li><a href="#_tilingcoveragesimagery">7.6. Tiling/Coverages/Imagery</a></li>
+<li><a href="#_vector_data">7.7. Vector Data</a></li>
+</ul>
+</li>
+<li><a href="#Attribution">8. CDB-X Attribution</a>
+<ul class="sectlevel2">
+<li><a href="#_current_cdb_1_x_attribution_approach">8.1. Current CDB 1.x Attribution Approach</a></li>
+<li><a href="#_cdb_x_discussion_and_requirements_for_cdb_x_experimentation">8.2. CDB-X Discussion and Requirements for CDB-X Experimentation</a>
+<ul class="sectlevel3">
+<li><a href="#_experimentation_backround">8.2.1. Experimentation Backround</a></li>
+<li><a href="#_some_questions_to_be_addressed_during_experimentation">8.2.2. Some questions to be addressed during experimentation</a></li>
+<li><a href="#_phase_3_day_3">8.2.3. Phase 3, Day 3</a></li>
+<li><a href="#_phase_3_day_4">8.2.4. Phase 3, Day 4</a></li>
+<li><a href="#_phase_3_day_5">8.2.5. Phase 3, Day 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#_plan_for_experimentation_in_subsequent_phases">Plan for Experimentation in subsequent phases</a>
 <ul class="sectlevel1">
-<li><a href="#vectorgpkg">8. CDB X All Vector Data in GeoPackage</a>
+<li><a href="#vectorgpkg">9. CDB X All Vector Data in GeoPackage</a>
 <ul class="sectlevel2">
-<li><a href="#_general">8.1. General</a></li>
-<li><a href="#_question_to_be_answered">8.2. Question to be answered</a></li>
+<li><a href="#_general">9.1. General</a></li>
+<li><a href="#_question_to_be_answered">9.2. Question to be answered</a></li>
 </ul>
 </li>
-<li><a href="#threedcontent">9. 3D Models and other 3D Content</a>
+<li><a href="#threedcontent">10. 3D Models and other 3D Content</a>
 <ul class="sectlevel2">
-<li><a href="#_questions_to_be_addressed">9.1. Questions to be addressed</a></li>
-<li><a href="#_prototyping_experiments">9.2. Prototyping Experiments</a></li>
-<li><a href="#_description_of_3d_formatsencodings_and_references_for_this_section">9.3. Description of 3D formats/encodings and References for this section:</a>
+<li><a href="#Questions">10.1. Questions to be addressed</a></li>
+<li><a href="#_cdb_x_requirements_for_3d_model_components">10.2. CDB X Requirements for 3D Model Components</a></li>
+<li><a href="#_short_and_medium_term_objectives">10.3. Short and Medium Term Objectives</a></li>
+<li><a href="#_3d_experiment_object_model">10.4. 3D Experiment Object Model</a>
 <ul class="sectlevel3">
-<li><a href="#_openflight">9.3.1. OpenFlight</a></li>
-<li><a href="#_gl_transmission_format_gltf_2_0">9.3.2. GL Transmission Format (glTF) 2.0</a></li>
+<li><a href="#_the_data">10.4.1. The data</a></li>
+<li><a href="#_attribute_changes_explored">10.4.2. Attribute changes explored</a></li>
 </ul>
 </li>
+<li><a href="#_description_of_3d_formatsencodings_and_references_for_this_section">10.5. Description of 3D formats/encodings and References for this section:</a>
+<ul class="sectlevel3">
+<li><a href="#_openflight">10.5.1. OpenFlight</a></li>
+<li><a href="#_gl_transmission_format_gltf_2_0">10.5.2. GL Transmission Format (glTF) 2.0</a></li>
 </ul>
 </li>
-<li><a href="#metadata">10. CDB X Metadata and Integration</a></li>
+<li><a href="#_cdb_openflight_and_gltf_feature_analysis">10.6. CDB OpenFlight and glTF Feature Analysis</a></li>
+</ul>
+</li>
+<li><a href="#_supporting_more_than_cdb_1_x">11. Supporting more than CDB 1.X:</a>
+<ul class="sectlevel2">
+<li><a href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature">11.1. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</a></li>
+</ul>
+</li>
+<li><a href="#metadata">12. CDB X Metadata and Integration</a></li>
 </ul>
 </li>
 <li><a href="#_summary_of_history_of_cdb_x_metadata_discussions">Summary of history of CDB X metadata discussions.</a>
@@ -511,31 +545,48 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_phase_3_day_5_2">Phase 3, Day 5</a></li>
 <li><a href="#_plan_for_experimentation_in_subsequent_phases_2">Plan for Experimentation in subsequent phases</a>
 <ul class="sectlevel1">
-<li><a href="#tiling">11. Tiling and Tiled Coverages</a></li>
-<li><a href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage">12. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</a>
+<li><a href="#tiling">13. Tiling and Tiled Coverages</a></li>
+<li><a href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage">14. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</a>
 <ul class="sectlevel2">
-<li><a href="#_general_2">12.1. General</a>
+<li><a href="#_general_2">14.1. General</a>
 <ul class="sectlevel3">
-<li><a href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space">12.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</a></li>
-<li><a href="#_ogc_two_dimensional_tile_matrix_set_standard">12.1.2. OGC Two Dimensional Tile Matrix Set Standard</a></li>
+<li><a href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space">14.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</a></li>
+<li><a href="#_ogc_two_dimensional_tile_matrix_set_standard">14.1.2. OGC Two Dimensional Tile Matrix Set Standard</a></li>
 </ul>
 </li>
-<li><a href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers">12.2. Design Objectives for CDB X Tiling and LoDs and Layers</a></li>
-<li><a href="#_proposed_tiling_logical_model_for_cdb_x">12.3. Proposed Tiling Logical Model for CDB X</a></li>
-<li><a href="#_proposed_cdb_x_tiling_structure">12.4. Proposed CDB X Tiling Structure</a></li>
-<li><a href="#_additional_cdb_x_recommendations">12.5. Additional CDB X Recommendations</a>
+<li><a href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers">14.2. Design Objectives for CDB X Tiling and LoDs and Layers</a></li>
+<li><a href="#_proposed_tiling_logical_model_for_cdb_x">14.3. Proposed Tiling Logical Model for CDB X</a></li>
+<li><a href="#_proposed_cdb_x_tiling_structure">14.4. Proposed CDB X Tiling Structure</a></li>
+<li><a href="#_additional_cdb_x_recommendations">14.5. Additional CDB X Recommendations</a>
 <ul class="sectlevel3">
-<li><a href="#_elevation_minmax">12.5.1. Elevation min/max</a></li>
-<li><a href="#_image_compression_jpeg">12.5.2. Image Compression - JPEG</a></li>
-<li><a href="#_materials">12.5.3. Materials</a></li>
+<li><a href="#_elevation_minmax">14.5.1. Elevation min/max</a></li>
+<li><a href="#_image_compression_jpeg">14.5.2. Image Compression - JPEG</a></li>
+<li><a href="#_materials">14.5.3. Materials</a></li>
+</ul>
+</li>
+<li><a href="#_findings_from_experiments">14.6. Findings from experiments</a></li>
+<li><a href="#_cdb_x_tilinggeopackage_experiment_1_ecere">14.7. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</a>
+<ul class="sectlevel3">
+<li><a href="#_data_and_geopackage_structure">14.7.1. Data and GeoPackage Structure</a></li>
+<li><a href="#_ogc_api_access_demo">14.7.2. OGC API access demo</a></li>
+<li><a href="#_visualization">14.7.3. Visualization</a></li>
+<li><a href="#_live_cesium_js_3d_tiles_demonstation">14.7.4. Live Cesium JS / 3D Tiles demonstation</a></li>
+<li><a href="#_next_steps_this_section_will_change_as_new_content_is_provided">14.7.5. Next steps (this section will change as new content is provided)</a></li>
+</ul>
+</li>
+<li><a href="#_flightsafety_geopackage_tiling_experiments">14.8. FlightSafety GeoPackage Tiling Experiments</a>
+<ul class="sectlevel3">
+<li><a href="#_flightsafety_experiment_1">14.8.1. FlightSafety Experiment 1</a></li>
+<li><a href="#_flightsafety_experiment_2">14.8.2. FlightSafety Experiment 2</a></li>
+<li><a href="#_observations">14.8.3. Observations</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#RevisionHistory">Appendix A: Revision History</a></li>
-<li><a href="#Bibliography">Appendix B: Bibliography</a></li>
+<li><a href="#RevisionHistory">Annex A: Revision History</a></li>
+<li><a href="#Bibliography">Annex B: Bibliography</a></li>
 </ul>
 </div>
 </div>
@@ -564,7 +615,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Editors: David Graham, Carl Reed</p>
 </div>
 <div class="paragraph">
-<p>Title: CDB X Conceptual Model with Prototyping Examples:</p>
+<p>Title: CDB X Conceptual Model with Prototyping Examples and Recommendations</p>
 </div>
 <hr>
 <div class="paragraph">
@@ -613,6 +664,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>This Engineering Report documents a CDB Experimental (CDB X) Conceptual Model as well as the results of CDB X rapid prototyping activites conducted during the 3D Geospatial Series Tech Sprint II - OGC CDB 2.0. This activity was performed in support of Special Operations Forces (SOF) Future Concepts. This effort hopes to accelerate evolution of the OGC CDB standard to meet the needs of planning, rehearsal, and Mission Command systems providing decision support to Special Operations Forces and enabling SOF tactical and operational advantage. OGC industry standards enable interoperability of geospatial data across systems and applications that SOF Operators and analysts use across warfighting functions.</p>
 </div>
+<div class="paragraph">
+<p>CDB X - Meeting the requirements for tactical GEOINT that can be used across warfighting functions.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -643,7 +697,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Phase 5: 05 October 2020 to 30 October 2020 Final Report: Participants will write a final report summarizing activities to date, recommendations for the OGC SWG and other standards bodies to consider, and contributions of each participant.</p>
 </div>
 <div class="sect2">
-<h3 id="_document_contributor_contact_points"><a class="anchor" href="#_document_contributor_contact_points"></a>2.1. Document contributor contact points</h3>
+<h3 id="_recommendations"><a class="anchor" href="#_recommendations"></a>2.1. Recommendations</h3>
+<div class="paragraph">
+<p>The following are the recommendations for changes, enhancements, and design principals for not just CDB 2.0 but also CDB version 1.3. The version 1.3 chnages are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path the version 2.0</p>
+</div>
+<div class="sect3">
+<h4 id="_attribution"><a class="anchor" href="#_attribution"></a>2.1.1. Attribution</h4>
+<div class="paragraph">
+<p><code>Recommendation 1 Extended Attributes - Version 1.3</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/25">Should Extended Attributes be preserved at the logical data model level?</a> The suggestion is that the CDB SWG discuss this issue and possible solution as a possible change for CDB version 1.3. Some additional testing may be required to determine if this capability can be added to version 1.3 or not.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 2 Attribute defaut values - Version 1.3</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/32">Attribute Default Values #32</a>. The recommendation is that Defaults.xml can be used to define global attribute defaults as well as per-dataset defaults. Doing per-entity defaults would be a straight forward extension that could be proposed for CDB 1.3 as a transition path. The subgroup suggests that the CDB SWG discussion this for possible inclusion in version 1.3. A change request for this approach to specifying default values is also suggested.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 3 Attribute Terms - Version 1.3</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/31">Capture Attribute Terms (Enumerants) in Metadata #31</a>. Attributes describing qualitative values are present in CDB 1.2 and the list of valid values  for each attribute are documented in the human-readable specification with both the vocabulary term name and its integer numeric value (index). However, the machine-readable XML metadata does not contain any of this information and treats these attribute types as raw integers with only a minimum and maximum value constraint. It may make sense as a transition path to update CDB 1.3 to define additional XML elements in a backward compatible way to capture these definitions from the existing specification into the machine-readable XML metadata. The conceptual model in the CDB 1.2 specification does align with how GGDM treats such attributes, so there is no fundamental incompatibility, and the proposed CDB X dictionary design accounts for properly tracking the terms for qualitative attributes in a machine-readable way in SQLite.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_document_contributor_contact_points"><a class="anchor" href="#_document_contributor_contact_points"></a>2.2. Document contributor contact points</h3>
 <div class="paragraph">
 <p>All questions regarding this document should be directed to the editor or the contributors:</p>
 </div>
@@ -665,11 +737,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tracey Birch</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CloudLake/USSOCOM SOF AT&amp;L</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Editor</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">David Graham</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Eaglecapsystems</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Editor</p></td>
@@ -683,11 +750,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">Kevin Bentley</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cognitics</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Contributor</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tracey Birch</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CloudLake/USSOCOM SOF AT&amp;L</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Contributor/Faciltator</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Holly Black</p></td>
@@ -706,7 +768,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Brian Ford</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FLightSAfety</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FlightSAfety</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Contributor</p></td>
 </tr>
 <tr>
@@ -727,7 +789,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Michala Hill</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cognitics</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Contributor/Facilitator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Facilitator/Contributor</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Greg Peele</p></td>
@@ -739,11 +801,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">ARL PSU</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Contributor</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tracey Birch</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CloudLake/USSOCOM SOF AT&amp;L</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Emeritus</p></td>
+</tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_foreword"><a class="anchor" href="#_foreword"></a>2.2. Foreword</h3>
+<h3 id="_foreword"><a class="anchor" href="#_foreword"></a>2.3. Foreword</h3>
 <div class="paragraph">
 <p>Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.</p>
 </div>
@@ -760,10 +827,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The following normative documents are referenced in this document.</p>
 </div>
 <div class="ulist">
-<div class="title">NOTE: 	Only normative standards are referenced here, e.g. OGC, ISO or other SDO standards. All other references are listed in the bibliography. Example:</div>
+<div class="title">NOTE: 	Only normative standards are referenced here, e.g. OGC, ISO or other SDO standards. All other references are listed in the bibliography.</div>
 <ul>
 <li>
-<p><a href="https://portal.opengeospatial.org/files/?artifact_id=38867&amp;version=2">OGC 06-121r9, OGC® Web Services Common Standard</a></p>
+<p>OGC: 15-113r5 <a href="https://portal.opengeospatial.org/files/15-113r5">Volume 1: CDB Core Standard: Model and Physical Data Store Structure</a></p>
+</li>
+<li>
+<p>OGC: 16-007r4 <a href="https://portal.opengeospatial.org/files/16-007r4">Volume 11: CDB Core Standard Conceptual Model</a></p>
+</li>
+<li>
+<p>OGC: 12-128r15 <a href="https://portal.opengeospatial.org/files/12-128r15">Geopackage Encoding Standard - with Corrigendum version 1.2.1</a></p>
+</li>
+<li>
+<p>OGC: 18-000 <a href="http://docs.opengeospatial.org/is/18-000/18-000.html">GeoPackage Related Tables Extension</a></p>
+</li>
+<li>
+<p>OGC: 17-066r1 <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">GeoPackage Extension for Tiled Gridded Coverage Data</a></p>
+</li>
+<li>
+<p>Khronos <a href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0">GL Transmission Format (glTF) version 2.0</a></p>
 </li>
 </ul>
 </div>
@@ -776,7 +858,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>For the purposes of this report, the definitions specified in Clause 4 of the OWS Common Implementation Standard <a href="https://portal.opengeospatial.org/files/?artifact_id=38867&amp;version=2">OGC 06-121r9</a> shall apply. In addition, the following terms and definitions apply.</p>
 </div>
 <div class="paragraph">
-<p><strong>4.1</strong><br>
+<p><strong>4.x</strong><br>
+<strong>authoritative data</strong><br>
+Officially recognized data that can be certified and is provided by an authoritative source.</p>
+</div>
+<div class="paragraph">
+<p>(SOURCE: Authority and Authoritative Sources: Clarification of Terms and Concepts for Cadastral Data. FGDC/NIST 2008)</p>
+</div>
+<div class="paragraph">
+<p><strong>4.x</strong><br>
+<strong>authoritative data source</strong><br>
+An information technology (IT) term used by system designers to identify a system process that assures the veracity of data sources.  These IT processes should be followed by all geospatial data providers.  The data may be original or it may come from one or more external sources all of which are validated for quality and accuracy.</p>
+</div>
+<div class="paragraph">
+<p>(SOURCE: Authority and Authoritative Sources: Clarification of Terms and Concepts for Cadastral Data. FGDC/NIST 2008)</p>
+</div>
+<div class="paragraph">
+<p><strong>4.x</strong><br>
 <strong>conceptual model</strong><br>
 description of common concepts and their relationships, particularly in order to facilitate exchange of information between parties within a specific domain. A conceptual model is explicitly chosen to be independent of design or implementation concerns.</p>
 </div>
@@ -824,6 +922,29 @@ Synonym for “height”</p>
 </div>
 <div class="paragraph">
 <p>(SOURCE: <a href="https://portal.opengeospatial.org/files/?artifact_id=19820">OGC Abstract Topic 6: Schema for coverage geometry and functions</a>)</p>
+</div>
+<div class="paragraph">
+<p><strong>4.x</strong><br>
+<strong>feature data dictionary</strong><br>
+A Feature data dictionary is a collection of descriptions of the Feature objects or items in a Feature data model for the benefit of programmers and others who need to refer to them.</p>
+</div>
+<div class="paragraph">
+<p>(SOURCE: OGC Testbed-13: CDB Engineering Report - 17-042)</p>
+</div>
+<div class="paragraph">
+<p><strong>4.x</strong><br>
+<strong>foundation data</strong><br>
+authoritative data and models that have been curated and stored in a CDB repository. Foundation data uses known and agreed to controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and supported by the required metadata.</p>
+</div>
+<div class="paragraph">
+<p><strong>4.x</strong><br>
+<strong>geospecific model</strong><br>
+A Geospecific model is instanced once and only once within a CDB. Geospecific models usually correspond to unique (in either shape, size, texture, materials or attribution), man-made, real world 3D features. NOTE: Being discussed for possible evolution as part of CDB 2.0</p>
+</div>
+<div class="paragraph">
+<p><strong>4.x</strong><br>
+<strong>geotypical model</strong><br>
+A Geotypical model is instanced multiple times within a CDB data store. Geotypical models correspond to representative (in shape, size, texture, materials and attribution) models of real-world manmade or natural 3D features.</p>
 </div>
 <div class="paragraph">
 <p><strong>4.x</strong><br>
@@ -907,12 +1028,20 @@ A web resource, or simply resource, is any identifiable thing, whether digital, 
 </colgroup>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ATAK</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Android Tactical Assault Kit</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>COTS</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Commercial Off The Shelf</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CRS</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Coordinate Reference System</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>DGIM</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disaster Geo-Information Management</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>GGDM</strong></p></td>
@@ -927,12 +1056,32 @@ A web resource, or simply resource, is any identifiable thing, whether digital, 
 <td class="tableblock halign-left valign-top"><p class="tableblock">GL Transmission Format</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>FACC</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature Attribute and Coding catalog</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>FDD</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature Data Dictionary</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>FSC</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature Sub-code</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LoD</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Level of Detail</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MC</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mission Command</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NAS</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NSG Application Schema</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NSG</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">National System for Geospatial-Intelligence</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>OTW</strong></p></td>
@@ -954,6 +1103,18 @@ A web resource, or simply resource, is any identifiable thing, whether digital, 
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>STAC</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SpatioTemporal Asset Catalog</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TIFF</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tagged Image File Format</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TMS</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tile Map Service</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TMS</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tile Matrix Set</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -966,16 +1127,22 @@ A web resource, or simply resource, is any identifiable thing, whether digital, 
 <p>Section 5 provides the background and history of CDB to provide the context for the CDB X work described in this Engineering Report.</p>
 </div>
 <div class="paragraph">
-<p>Section 6 discusses the Attribution Topic</p>
+<p>Section 6 Documents any models, such as the OGC/ISO Simple Features geometry model that are germane to the CDB 2.0 work.</p>
 </div>
 <div class="paragraph">
-<p>Section 7 presents the solution developed in this testbed. A clear mapping of requirements to solutions is provided. The section shows additional work is required to implement 3D tiles, which could not be addressed in this activity.</p>
+<p>Section 7 Attribution in CDB 1.3 and 2.0: Section 7 discusses the Attribution Topic and the work and recommendations of the Attribution Subgroup.</p>
 </div>
 <div class="paragraph">
-<p>Section 8 provides a summary of the main findings and discusses links to other tasks such as WFS 3.0 and WMTS 2.3.</p>
+<p>Section 8 Vectors-GeoPackage:</p>
 </div>
 <div class="paragraph">
-<p>Annex A provides code snippets that illustrate the functionality of the Vector Tiling Engine and shall help to implement similar technology. It briefly discusses the key issues we experienced during implementation.</p>
+<p>Section 9 3D</p>
+</div>
+<div class="paragraph">
+<p>Section 10 top-level-metadata</p>
+</div>
+<div class="paragraph">
+<p>Section 11 Tiling coverages in CDB X</p>
 </div>
 </div>
 </div>
@@ -1071,12 +1238,28 @@ In the OGC, a major version number indicates that the new version is not backwar
 </div>
 </div>
 <div class="sect2">
-<h3 id="_a_further_note_on_attribution"><a class="anchor" href="#_a_further_note_on_attribution"></a>6.4. A further note on attribution</h3>
+<h3 id="attrtestbed13"><a class="anchor" href="#attrtestbed13"></a>6.4. Attribution - An OGC Testbed 13 CDB Activity in</h3>
 <div class="paragraph">
-<p>During the OGC Testbed-13 Interoperability Initiative, there was a CDB work item in which the particpants investigated</p>
+<p>The <a href="http://docs.opengeospatial.org/per/17-042.html">CDB Engineering Report</a> (ER) summarizes the CDB sub-thread activity. The CDB activity was divided into three main work packages:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
+<li>
+<p>A feasibility study;</p>
+</li>
+<li>
+<p>The implementation of data models and schemas mapping that are based on the feasibility study results; and</p>
+</li>
+<li>
+<p>A set of OGC web services that implement the CDB in the form of WFS and WCS (Web Coverage Service) instances.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This Testbed 13 Engineering Report describes the approach taken and the results of the experimentation:</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>The conceptual model of an OGC CDB 1.0 datastore as a UML (Unified Modeling Language) diagram to show different datasets (the 3D models, vector features and coverages) structure;</p>
 </li>
@@ -1086,27 +1269,24 @@ In the OGC, a major version number indicates that the new version is not backwar
 <li>
 <p>How to access, navigate and visualize a CDB dataset using OGC web services (such as WFS and WCS).</p>
 </li>
-</ol>
+</ul>
 </div>
 <div class="paragraph">
-<p>The OGC Testbed 13 CDB Engineering Report (ER) summarizes the CDB sub-thread:</p>
-</div>
-<div class="paragraph">
-<p>Change Request proposals have been discussed for the OGC CDB 2.0 and will be submitted by December 31, 2017.</p>
+<p>The Testbed 13 CDB activity also resulted in a formal <a href="http://ogc.standardstracker.org/show_request.cgi?id=544">OGC Change Request Proposal</a> that was submitted for consideration in April 2018. The Change Request provides:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The recommendations for replacing FACC feature code and indexing structure to be consistent with the application schemas (e.g. NAS data model) under discussion for the OGC CDB 2.0;</p>
+<p>Recommendations for replacing FACC feature code and indexing structure to be consistent with the application schemas (e.g. NAS data model) under discussion for the OGC CDB 2.0;</p>
 </li>
 <li>
-<p>The recommendations for supporting application schemas in CDB (level of complexity: Esri Geodatabase, GML-SF0 application schema) are being discussed for the OGC CDB 2.0;</p>
+<p>Recommendations for supporting application schemas in CDB (level of complexity: Esri Geodatabase, GML-Simple Features Level 0 application schema) are being discussed for the OGC CDB 2.0;</p>
 </li>
 <li>
-<p>The method to expand the supported encodings and formats for an OGC CDB compliant datastore;</p>
+<p>A method to expand the supported encodings and formats for an OGC CDB compliant datastore;</p>
 </li>
 <li>
-<p>Generating a coherent attribute schema for CDB 1.0 based on the "CDB_Attribute.xml" file.</p>
+<p>Guidance on generating a coherent attribute schema for CDB 1.0 based on the "CDB_Attribute.xml" file.</p>
 </li>
 </ul>
 </div>
@@ -1114,10 +1294,10 @@ In the OGC, a major version number indicates that the new version is not backwar
 </div>
 </div>
 <div class="sect1">
-<h2 id="CDB2Models"><a class="anchor" href="#CDB2Models"></a>7. CDB X Conceptual and Logical Models</h2>
+<h2 id="CDB2Models"><a class="anchor" href="#CDB2Models"></a>7. CDB X Design Goals, Use Cases, and Conceptual/Logical Models</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This clause documents draft design objectives and CDB 2.0 Conceptual and Logical Models.</p>
+<p>This section documents draft design objectives, the targer use cases, and the CDB X Conceptual and Logical Models.</p>
 </div>
 <div class="sect2">
 <h3 id="_cdb_x_design_goals_and_objectives"><a class="anchor" href="#_cdb_x_design_goals_and_objectives"></a>7.1. CDB X Design Goals and Objectives</h3>
@@ -1130,25 +1310,114 @@ In the OGC, a major version number indicates that the new version is not backwar
 <p>Be fast :-)</p>
 </li>
 <li>
-<p>All geometry for any vector feature data shall be compliant with the OGC/ISO Simple Features Geometry Model.</p>
+<p>Geometry model: All geometry for any vector feature data shall be compliant with the OGC/ISO Simple Features Geometry Model.</p>
+</li>
+<li>
+<p>Correlation Requirement: CDB-T, CDB-S, CDB-G and CDB-A profiles shall correlate to the data defined in CDB-F</p>
+</li>
+<li>
+<p>Derivative and Optional structures: CDB-T, CDB-S, CDB-G and CDB-A profiles shall encode its rules and mechanisms for optimization in a self-describing form.</p>
+</li>
+<li>
+<p>Holistic Foundation: CDB-T, CDB-S, CDB-G and CDB-A structures shall all be generated from the data defined in CDB-F</p>
+</li>
+<li>
+<p>Deployment: CDB-F shall be able to be deployed on the cloud, in relational databases, and on a file system.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3d_models"><a class="anchor" href="#_3d_models"></a>7.2. 3D Models</h3>
+<h3 id="_use_cases"><a class="anchor" href="#_use_cases"></a>7.2. Use Cases</h3>
+<div class="paragraph">
+<p>The following are summaries of key use cases identified during this project.</p>
+</div>
+<div class="paragraph">
+<p><code>Tactical Use Case</code>: &lt;need short description&gt; Possible impact: Define a profle of the foundation data in a form most suitable for tactical devices (CDB-T, where T is for tactical), such as ATAK.</p>
+</div>
+<div class="paragraph">
+<p><code>Gaming Use Case</code> &lt;need short description&gt; Possible impact: Define a derivative and optional structure of the .foundation data in a form most suitable for gaming devices
+(CDB-G, where G is for gaming), such as Unreal or Unity.</p>
+</div>
+<div class="paragraph">
+<p><code>M&amp;S Use Case</code> &lt;need short description&gt; Possible impact: Define a porfile of the foundation data in a form most suitable for simulators (CDB-S, where S is for simulators)</p>
+</div>
+<div class="paragraph">
+<p><code>Analytics Use Case</code> &lt;need short description&gt; Possible impact: Define a derivative and optional structure of the datasets in a form most suitable for analytics using AI/ML (CDB-A, where A is for analytics)</p>
+</div>
+<div class="paragraph">
+<p><code>Data Transport</code> &lt;need short description&gt; Possible impact: Optimize the speed data synchronization between all echelons and data systems for CDB-F and CDB-T</p>
+</div>
+<div class="paragraph">
+<p><code>DDIL Deployment</code> CDB-F, CDB-T, and CDB-A must be able to deploy in DDIL environments.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of tiling schemes  (Profile should include Tiling structure, LOD structure, optimization, etc.) CDB-A may generate topology, extended attributes and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of relationship schemes
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>This is future work and actually would not be part of a core CDB-X standard Configuration Management.</strong>  Define an abstract mechanism for configuration management applicable to multiple deployment strategies (file systems, RDMS and cloud) relational databases for CDB-F, CDB-S, CDB-G, CDB-T and CDB-A.  Support Versioning, attribution, synchronization</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_definition_of_concepts"><a class="anchor" href="#_definition_of_concepts"></a>7.3. Definition of Concepts</h3>
+<div class="sect3">
+<h4 id="_foundation_data"><a class="anchor" href="#_foundation_data"></a>7.3.1. Foundation Data</h4>
+<div class="paragraph">
+<p>Foundation data are the authoritative data and models that have been curated per the rules defined in the CDB standard, and stored in a CDB repository. Foundation data utilizes known and consensus controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and the required metadata has been documented.</p>
+</div>
+<div class="paragraph">
+<p>For example, as per the current CDB standard (and industry best practice), a road network (RoadNetwork dataset in CDB 1.2) could be considered as foundation data. In CDB 1.2, there are a set of requirements associated with how the roads data are structured and attributed and stored in a CDB repository.</p>
+</div>
+<div class="paragraph">
+<p>The specification of any foundation data layer (such as RoadNetwork) at the logical model level can be 100% independent from the storage environment, end user use case(s) and so on while at the same time also having the requirements based on industry knowledge and use case requirements.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="paragraph">
+<p>Requirement: The RoadNetwork shall be considered as a foundation data layer in a CDB repository.</p>
+</div>
+<div class="paragraph">
+<p>Sub-requirement: All roads in a roads layer SHALL use a known road classification system to identify the roads type. This could be the US DoT classification, the current FACC classification, or the newer GDDM.</p>
+</div>
+<div class="paragraph">
+<p>Sub-requirement: The RoadNetwork SHALL be topologically structured. (This enables network analysis etc). NOTE: The how is not specified at the logical model level.</p>
+</div>
+<div class="paragraph">
+<p>Sub-requirements: The RoadNetwork Dataset SHALL be used to specify all of the road networks..</p>
+</div>
+<div class="paragraph">
+<p>Notice that there is no mention of the actual storage structure, enabling software, storage formats, tiling and so forth.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reference_systems"><a class="anchor" href="#_reference_systems"></a>7.3.2. Reference Systems</h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3d_models"><a class="anchor" href="#_3d_models"></a>7.4. 3D Models</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_attribution"><a class="anchor" href="#_attribution"></a>7.3. Attribution</h3>
+<h3 id="_attribution_2"><a class="anchor" href="#_attribution_2"></a>7.5. Attribution</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_tilingcoveragesimagery"><a class="anchor" href="#_tilingcoveragesimagery"></a>7.4. Tiling/Coverages/Imagery</h3>
+<h3 id="_tilingcoveragesimagery"><a class="anchor" href="#_tilingcoveragesimagery"></a>7.6. Tiling/Coverages/Imagery</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_vector_data"><a class="anchor" href="#_vector_data"></a>7.5. Vector Data</h3>
+<h3 id="_vector_data"><a class="anchor" href="#_vector_data"></a>7.7. Vector Data</h3>
 <div id="img_geometry-model" class="imageblock text-center">
 <div class="content">
 <img src="images/Simple_Features_Model.jpg" alt="Simple Features Model" width="800">
@@ -1158,38 +1427,118 @@ In the OGC, a major version number indicates that the new version is not backwar
 </div>
 </div>
 </div>
-<h1 id="Attribution" class="sect0"><a class="anchor" href="#Attribution"></a>Summary of history of CDB X attribution discussions.</h1>
-<div class="openblock partintro">
-<div class="content">
+<div class="sect1">
+<h2 id="Attribution"><a class="anchor" href="#Attribution"></a>8. CDB-X Attribution</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>The 1.x versions of OGC CDB use a CDB Feature Data Dictionary as the controlled vocabulary for attribution.  An Excel spreadsheet version of the CDB 1.X Feature Data Dictionary is available on the public <a href="https://external.ogc.org/twiki_public/pub/CDBswg/WebHome/CDB_FDD.xlsx">CDB wiki</a>.</p>
+<p>For several years, there have been discussions concerning how to modify the CDB standard to support attribute coding schemes (aka controlled vocabularies) other than the current approach that is based on a Feature and Attribute Coding Catalog (FACC). However, at this time any changes to the CDB standard to accommodate other coding schemes have not occured. This section provides 1.) information on the current approach in CDB 1.x, 2.) requirements for evolving the CDB standard to accommodate other coding schems and 3.) the experimental framework and results from the work in the CDB-X activity.</p>
+</div>
+<div class="sect2">
+<h3 id="_current_cdb_1_x_attribution_approach"><a class="anchor" href="#_current_cdb_1_x_attribution_approach"></a>8.1. Current CDB 1.x Attribution Approach</h3>
+<div class="paragraph">
+<p>OGC CDB versions 1.x use a CDB Feature Data Dictionary (FDD) as the controlled vocabulary for attribution.  An Excel spreadsheet version of the CDB 1.X Feature Data Dictionary is available on the public <a href="https://external.ogc.org/twiki_public/pub/CDBswg/WebHome/CDB_FDD.xlsx">CDB wiki</a>.</p>
 </div>
 <div class="paragraph">
-<p>CDB V1.x feature codes and subcodes were sourced from FACC, SEDRIS, DIGEST 2.1, DGIWG FDD, UHRB, and other sources.  [The abbreviations and acronyms are defined and/or expanded in the OGC CDB 1.x Standards and Best Practices documents]</p>
+<p>The CDB V1.x feature codes and subcodes are primarily based on the <a href="https://gwg.nga.mil/documents/asfe/DGIWG_FACC.htm">DIGEST Feature and Attribute Coding Catalog 2.1</a> (FACC) with additional concepts from a few other sources.  From that website: <em>FACC) specifies geospatial information concepts used by member nations of the multi-national Defence Geospatial Information Working Group (DGIWG) community. These concepts characterize aspects of real-world entities (or objects) and related properties, including those that are not necessarily visible or have a tangible physical form (e.g., airspace). The DGIWG FACC is a comprehensive dictionary and coding scheme for feature types, feature attributes (properties or characteristics associated with features), and attribute values (domain of feature attributes).</em></p>
 </div>
 <div class="paragraph">
-<p>An OGC Change Request Proposal (CRP) related to CDB attribution was generated during OGC Testbed 13:
-<a href="http://ogc.standardstracker.org/show_request.cgi?id=544" class="bare">http://ogc.standardstracker.org/show_request.cgi?id=544</a></p>
+<p>In the FACC, each major feature category is further divided into subcategories identified by the second character of the five-character code containing an alphabetic value from "A" to "Z". Finally, the third, fourth, and fifth characters of the five-character feature code are a numeric value from 000 to 999. This value provides unique feature type identification within categories. Thus, all features must be identified by all five alphanumeric characters; e.g., the feature named "Building" is denoted by the code "AL015". Feature codes are listed in Annex A of the FACC Data Dictionary.</p>
 </div>
 <div class="paragraph">
-<p><code>NOTE: An overview of the Testbed 13 activity is provided in the <a href="#BackgroundClause">Background</a> section of this ER.</code></p>
+<p>Each feature is associated with a textual description, which provides a human readable dictionary definition for the feature. Each Feature Code is also associated with a short human readable name.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Definition</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AA010</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mine</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An excavation made in the earth for the purpose of extracting natural deposits. (See also AQ090)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BB150</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Landing Place</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A place on shore where landing from the sea is possible.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DB180</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Volcano</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A mountain or hill, often conical, formed around a vent in the earth&#8217;s crust through which molten rock, ash, or gases are or have been expelled.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FA001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Administrative Area</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An area controlled by administrative authority.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GB075</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Taxiway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A prepared surface providing access to/from runways and the aircraft parking area, terminal area, or service area, etc.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>An OGC <a href="http://ogc.standardstracker.org/show_request.cgi?id=544">Change Request Proposal</a> (CRP) related to CDB attribution was generated during OGC Testbed 13:</p>
+</div>
+<div class="paragraph">
+<p><code>NOTE: An overview of the Testbed 13 activity is provided in the <a href="#attrtestbed13">Background Section</a> section of this ER.</code></p>
 </div>
 <div class="paragraph">
 <p>Note:  Most of the images in this section of the report are snippets of the Miro whiteboard used for collaboration throughout Phase 3 of the Tech Sprint.  The board was archived at various points through the spring by the moderator.  At the time of the drafting of this report, the link to the Miro whiteboard is at:
 <a href="https://miro.com/app/board/o9J_kqG1Jw0=/" class="bare">https://miro.com/app/board/o9J_kqG1Jw0=/</a></p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_cdb_x_discussion_and_requirements_for_cdb_x_experimentation"><a class="anchor" href="#_cdb_x_discussion_and_requirements_for_cdb_x_experimentation"></a>8.2. CDB-X Discussion and Requirements for CDB-X Experimentation</h3>
+<div class="sect3">
+<h4 id="_experimentation_backround"><a class="anchor" href="#_experimentation_backround"></a>8.2.1. Experimentation Backround</h4>
+<div class="paragraph">
+<p>There was early consensus during Phase 3 of the CDB-X tech sprint to experiment with and potentially adopt an approach to CDB attribution generally called "GGDM".</p>
 </div>
-<h1 id="_phase_3_consensus" class="sect0"><a class="anchor" href="#_phase_3_consensus"></a>Phase 3 Consensus</h1>
-<div class="openblock partintro">
-<div class="content">
-There was early consensus during Phase 3 of the Tech Sprint to attempt to experiment with and potentially adopt an approach to attribution generally called "GGDM".  Greg Peele, one of the Tech Sprint participants, has described his work as a sub-contractor on the team recommending a Data Model for the U.S. Army One World Terrain (OWT) effort in multiple presentations to the OGC Interopable Simulation and Gaming Domain Working Group.  Greg&#8217;s most recent presentation, entitled <strong>"Entities, Attributes, and Enumerants, Oh My!  Applying GGDM for Interoperable One World Terrain Semantics"</strong> to the ISG DWG may be found here:
-<a href="https://portal.ogc.org/files/?artifact_id=93666" class="bare">https://portal.ogc.org/files/?artifact_id=93666</a>
+<div class="paragraph">
+<p>Greg Peele, one of the Tech Sprint participants, has described his work as a sub-contractor on the team recommending a Data Model for the U.S. Army One World Terrain (OWT) effort in multiple presentations to the OGC Interopable Simulation and Gaming Domain Working Group.  Greg&#8217;s most recent presentation, entitled <strong>"Entities, Attributes, and Enumerants, Oh My!  Applying GGDM for Interoperable One World Terrain Semantics"</strong> to the ISG DWG may be found here:
+<a href="https://portal.ogc.org/files/?artifact_id=93666" class="bare">https://portal.ogc.org/files/?artifact_id=93666</a></p>
 </div>
 </div>
-<h1 id="_phase_3_day_3" class="sect0"><a class="anchor" href="#_phase_3_day_3"></a>Phase 3, Day 3</h1>
-<div class="openblock partintro">
-<div class="content">
+<div class="sect3">
+<h4 id="_some_questions_to_be_addressed_during_experimentation"><a class="anchor" href="#_some_questions_to_be_addressed_during_experimentation"></a>8.2.2. Some questions to be addressed during experimentation</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>GGDM/NAS define standard layers that subdivide vector features into semantic sets (i.e. hydrology, industry, extraction, etc.). Is this meaningful to CDB? Or is it irrelevant?</p>
+</li>
+<li>
+<p>GGDM can be cross walked to NGA TDS 7.1. What are the missing attributes between M&amp;S and TDS?</p>
+</li>
+<li>
+<p>Is there a challenge on the Sim for reading Feature Codes Vs Attribution?</p>
+</li>
+<li>
+<p>What are the format implications: vector and mesh formats must support GGDM attribution and entity types?</p>
+</li>
+<li>
+<p>Metadata: GGDM defines metadata as attributes. Encoding decision: separate metadata table referenced from features via foreign key? Or flattened metadata attributes present on every feature?</p>
+</li>
+<li>
+<p>GGDM does not have mandatory attribution fields. All fields are optional. What are the implications?</p>
+</li>
+<li>
+<p>What attribution is missing from GGDM for CDB?</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_phase_3_day_3"><a class="anchor" href="#_phase_3_day_3"></a>8.2.3. Phase 3, Day 3</h4>
 <div id="img_Peele_Whiteboard_Day_3" class="imageblock text-center">
 <div class="content">
 <img src="images/Greg%20Peele%20Day%203%20whiteboard.png" alt="Greg Peele Day 3 whiteboard" width="1000">
@@ -1197,60 +1546,52 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 <div class="title">Figure ATTPh3 - 2. Greg Peele&#8217;s Whiteboard from Phase 3 Day 3.</div>
 </div>
 </div>
-</div>
-<h1 id="_phase_3_day_4" class="sect0"><a class="anchor" href="#_phase_3_day_4"></a>Phase 3, Day 4</h1>
-<div class="openblock partintro">
-<div class="content">
-<div id="img_Attribution-sub-team-consensus" class="imageblock text-center">
-<div class="content">
-<img src="images/Attribution%20sub-team%20consensus.png" alt="Attribution sub team consensus" width="250">
-</div>
-<div class="title">Figure ATTPh3 - 3. Day 3 Consensus and formation of the Attribution sub-team.</div>
-</div>
+<div class="sect3">
+<h4 id="_phase_3_day_4"><a class="anchor" href="#_phase_3_day_4"></a>8.2.4. Phase 3, Day 4</h4>
 <div id="img_Attribution-in-GGDM-prove-me-wrong" class="imageblock text-center">
 <div class="content">
 <img src="images/Day%204%20Attribution%20in%20GGDM%20Prove%20me%20Wrong%20sign.png" alt="Day 4 Attribution in GGDM Prove me Wrong sign" width="500">
 </div>
-<div class="title">Figure ATTPh3 - 4. 'Attribution will be in GGDM, Prove me Wrong' Day 4 Sign.</div>
+<div class="title">Figure ATTPh3 - 3. 'Attribution will be in GGDM, Prove me Wrong' Day 4 Sign.</div>
 </div>
 <div id="img_Attribution-Day-4-Whiteboard" class="imageblock text-center">
 <div class="content">
 <img src="images/Attribution%20Day%204%20Sub%20Team%20Whiteboard%201.png" alt="Attribution Day 4 Sub Team Whiteboard 1" width="1000">
 </div>
-<div class="title">Figure ATTPh3 - 5. Attribution Day 4 Whiteboard.</div>
+<div class="title">Figure ATTPh3 - 4. Attribution Day 4 Whiteboard.</div>
 </div>
 </div>
-</div>
-<h1 id="_phase_3_day_5" class="sect0"><a class="anchor" href="#_phase_3_day_5"></a>Phase 3, Day 5</h1>
-<div class="openblock partintro">
-<div class="content">
+<div class="sect3">
+<h4 id="_phase_3_day_5"><a class="anchor" href="#_phase_3_day_5"></a>8.2.5. Phase 3, Day 5</h4>
 <div id="img_Attribution-Day-5-WIP1-Whiteboard" class="imageblock text-center">
 <div class="content">
 <img src="images/Day%205%20Attribution%20Whiteboard%20WIP1.png" alt="Day 5 Attribution Whiteboard WIP1" width="1000">
 </div>
-<div class="title">Figure ATTPh3 - 6. Attribution Day 5 Work in Progress Whiteboard One.</div>
+<div class="title">Figure ATTPh3 - 5. Attribution Day 5 Work in Progress Whiteboard One.</div>
 </div>
 <div id="img_Attribution-Day-5-WIP2-whiteboard" class="imageblock text-center">
 <div class="content">
 <img src="images/Day%205%20Attribution%20Whiteboard%20WIP2.png" alt="Day 5 Attribution Whiteboard WIP2" width="1000">
 </div>
-<div class="title">Figure ATTPh3 - 7. Attribution Day 5 Work in Progress Whiteboard Two.</div>
+<div class="title">Figure ATTPh3 - 6. Attribution Day 5 Work in Progress Whiteboard Two.</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <h1 id="_plan_for_experimentation_in_subsequent_phases" class="sect0"><a class="anchor" href="#_plan_for_experimentation_in_subsequent_phases"></a>Plan for Experimentation in subsequent phases</h1>
 <div class="sect1">
-<h2 id="vectorgpkg"><a class="anchor" href="#vectorgpkg"></a>8. CDB X All Vector Data in GeoPackage</h2>
+<h2 id="vectorgpkg"><a class="anchor" href="#vectorgpkg"></a>9. CDB X All Vector Data in GeoPackage</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This clause provides discussion using GeoPackage for vector data storage including requirements and the results of the prototyping activities.</p>
 </div>
 <div class="sect2">
-<h3 id="_general"><a class="anchor" href="#_general"></a>8.1. General</h3>
+<h3 id="_general"><a class="anchor" href="#_general"></a>9.1. General</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_question_to_be_answered"><a class="anchor" href="#_question_to_be_answered"></a>8.2. Question to be answered</h3>
+<h3 id="_question_to_be_answered"><a class="anchor" href="#_question_to_be_answered"></a>9.2. Question to be answered</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1307,7 +1648,7 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </div>
 </div>
 <div class="sect1">
-<h2 id="threedcontent"><a class="anchor" href="#threedcontent"></a>9. 3D Models and other 3D Content</h2>
+<h2 id="threedcontent"><a class="anchor" href="#threedcontent"></a>10. 3D Models and other 3D Content</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section discusses the proposal to use glTF to encode and store 3D models in the CDB X data store. This section also describes the prototype testing performed during the the &lt;activity&gt;. In CDB, 3D models are such phenomenon as trees (static), transmission towers, or helicopters (dynamic).</p>
@@ -1322,7 +1663,10 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 <p>The remainder of this section discusses the findings of the comparison as well as lessons learned from the prototyping activity.</p>
 </div>
 <div class="sect2">
-<h3 id="_questions_to_be_addressed"><a class="anchor" href="#_questions_to_be_addressed"></a>9.1. Questions to be addressed</h3>
+<h3 id="Questions"><a class="anchor" href="#Questions"></a>10.1. Questions to be addressed</h3>
+<div class="paragraph">
+<p>Following are some of the questions that the 3D Modelling Subgroup initially identified as needing further discussion and possible experimentation. These formed the basis for the specific questions and approaches uses in the CDB-X 3D Prototyping and Experimentation.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1378,7 +1722,676 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_prototyping_experiments"><a class="anchor" href="#_prototyping_experiments"></a>9.2. Prototyping Experiments</h3>
+<h3 id="_cdb_x_requirements_for_3d_model_components"><a class="anchor" href="#_cdb_x_requirements_for_3d_model_components"></a>10.2. CDB X Requirements for 3D Model Components</h3>
+<div class="paragraph">
+<p>Based on the questions and followup discussion, the CDB X participants derived the following requirements for CDB-X model components.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Requirement</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Objectives</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve interoperability with OWT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Align 3D model geometry attribution in order to support conversion between the two standards. Test that conversion in both directions.<br>
+* Support similar encoding (glTF) to support convergence as standards evolve.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Serve archiving/repository use case and runtime usage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Package 3D models LODs in an easy to edit manner while allowing fast runtime access of independent LODs.<br>
+* Increase 3D tools (edit and view) interoperability.<br>
+* Support multiple encoding with metadata to identify which one is used (Starting with OpenFlight and glTF).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Modernize CDB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* Support newer 3D encoding formats (glTF initially)<br>
+* Support newer attribution (NAS/GGDM) in point feature and in 3D geometry<br>
+* Provide flexibility to extend 3D models components and attribution<br>
+* Review LOD “bins” in context of today’s GPU capabilities<br>
+* Added constructs for better game engine support (navigation and collision mesh, PBR etc..)<br>
+*Review lightpoint (Dataset and in 3D model), light source, lightmap.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Support SOF use cases : Same dataset for M&amp;S and C2 including the mission command and TAK devices</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* ATAK: Support 3D view and attribution<br>
+* ATAK:  Support building interior 3D encoding (and 2D floorplan?)<br>
+* ATAK:  Support packing 3D models in small memory footprint<br>
+* ATAK:  Support LOD selection “per model or per zone” to transfer only the required data<br>
+* Mission command: Support merging of CDB (Versioning) to cover large area<br>
+* Mission command: Support 3D WEB based map steaming</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_short_and_medium_term_objectives"><a class="anchor" href="#_short_and_medium_term_objectives"></a>10.3. Short and Medium Term Objectives</h3>
+<div class="paragraph">
+<p>The following are the short and medium term objectives for the 3D Model Prototyping and Experimentation. These design objectives are based on the initial set of <a href="#questions">questions</a> posed by the CDB-X participants.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Support more 3D model encoding with metadata detailing which is used. Preserve OpenFlight (and potentially improve its usage), add glTF with extensions</p>
+</li>
+<li>
+<p>Reduce file count and package models better while providing enough indexing data to allow readers to quickly extract only what they need. Metadata/catalog - support editing/replace use case</p>
+</li>
+<li>
+<p>Address GS, GT, model instancing</p>
+</li>
+<li>
+<p>Support Building interior with navigation mesh and collision mesh</p>
+</li>
+<li>
+<p>Encode 3D models in glTF</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Node grouping, LOD grouping in json</p>
+</li>
+<li>
+<p>Define CDB extensions for glTF</p>
+</li>
+<li>
+<p>Look at tools to allow CDB attribution editing</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Model packing with MetaData</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3d_experiment_object_model"><a class="anchor" href="#_3d_experiment_object_model"></a>10.4. 3D Experiment Object Model</h3>
+<div class="sect3">
+<h4 id="_the_data"><a class="anchor" href="#_the_data"></a>10.4.1. The data</h4>
+<div class="paragraph">
+<p>This experiment uses a GeoPackage comprised of a point feature table with attribution.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/3d-model-gpkg-attr-table.png" alt="#img_3d-model-experiment 1" width="900">
+</div>
+<div class="title">Figure ATTPh3 - 7. 3D Experiment 1 attribute table for point features.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_attribute_changes_explored"><a class="anchor" href="#_attribute_changes_explored"></a>10.4.2. Attribute changes explored</h4>
+<div class="paragraph">
+<p>The following current CDB attribute changes were explored.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CNAM - no longer needed</p>
+</li>
+<li>
+<p>FACC - FSC - Change to GGDM - impact on field type</p>
+</li>
+<li>
+<p>MLOD - (LOD of the model to use) This is closely linked to tiling and LODs of vector where each point features would point to a model at a given LOD (should be lower than feature vector LOD). Presume at the moment we keep this.</p>
+</li>
+<li>
+<p>MODL - (Name of the model to use). I nthis case, we should point to a metadata file for the model. Alternatively, the content of the metadata could be encoded in GeoPackage - which is bad for tool operability.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A key challenge to resolve is how to link the model data with the feature data. Currently, the MLOD and MODL are composed and lookup into the tile index of the point feature. Is that functional capability (approach?) preserved? Do we use a model table in Geopackage with a primary key? As decided, models would remain separate files and not encoded in the GeoPackage. So, a unique file name is required for this experiment.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_description_of_3d_formatsencodings_and_references_for_this_section"><a class="anchor" href="#_description_of_3d_formatsencodings_and_references_for_this_section"></a>10.5. Description of 3D formats/encodings and References for this section:</h3>
+<div class="sect3">
+<h4 id="_openflight"><a class="anchor" href="#_openflight"></a>10.5.1. OpenFlight</h4>
+<div class="paragraph">
+<p>OpenFlight (or .flt) is an open, freely available 3d geometry model file format originally developed by Software Systems Inc. for its MultiGen real-time 3d modeling package. OpenFlight is a format supported widely in modeling and simulation community for dynamic and static 3D model. In CDB 1.x, OpenFlight is used for  the  representation  of  3D  dynamic  models  and  RGB  format  for  the  3D model’s textures. However, while widely used and there are extensive .flt model libraries, OpenFlight is long in the tooth.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.opengeospatial.org/files/90663">OpenFlight v16</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_gl_transmission_format_gltf_2_0"><a class="anchor" href="#_gl_transmission_format_gltf_2_0"></a>10.5.2. GL Transmission Format (glTF) 2.0</h4>
+<div class="paragraph">
+<p>glTF is a royalty-free specification for the efficient transmission and loading of 3D scenes and models by applications. glTF uses the JSON standard. glTF is an API-neutral runtime asset delivery format developed by the Khronos Group 3D Formats Working Group.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0">glTF 2.0</a> GitHub repo and description.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_lights_punctual">KHR_lights_punctual</a> is an extension that defines a set of lights for use with glTF 2.0. Lights define light sources within a scene.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_lod">MSFT_lod</a> is an extension that adds the ability to specify various Levels of Detail (LOD) to a glTF asset.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/EXT_mesh_gpu_instancing">EXT_mesh_gpu_instancing</a> is an extension that is specfically designed to enable GPU instancing which renders many copies of a single mesh at once using a small number of draw calls. It&#8217;s useful for things like trees, grass, road signs, etc.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/FB_geometry_metadata">FB_geometry_metadata</a> is an extension that annotates glTF scene objects with a summary of the cumulative geometric complexity and scene-space extents of the scene&#8217;s associated scene graph. <code>Editors note: While the computed total vertex and primitive count are metadata this is very limited metadata and may not meet the needs of the CDB X community.</code></p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit">KHR_materials_unlit</a> is an extension that defines an unlit shading model for use in glTF 2.0 materials, as an alternative to the Physically Based Rendering (PBR) shading models provided by the core specification.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform">KHR_texture_transform</a> is an extension that adds offset, rotation, and scale properties to textureInfo structures. These properties would typically be implemented as an affine transform on the UV coordinates.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cdb_openflight_and_gltf_feature_analysis"><a class="anchor" href="#_cdb_openflight_and_gltf_feature_analysis"></a>10.6. CDB OpenFlight and glTF Feature Analysis</h3>
+<div class="paragraph">
+<p>==</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>OpenFlight Construct</strong></th>
+<th class="tableblock halign-left valign-top"><strong>CDB Requirement/Guidelines</strong><br>
+(all from Chapter 6)</th>
+<th class="tableblock halign-left valign-top"><strong>Notes</strong></th>
+<th class="tableblock halign-left valign-top"><strong>glTF Equivalent</strong></th>
+<th class="tableblock halign-left valign-top"><strong>New glTF extension required</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Mapping OF to glTF difficulty</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Implemented in converter prototype</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node Hierarchy</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Req 2 - Global Zone</p>
+</div>
+<div class="paragraph">
+<p>Req 3 - Model Zone</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.5.6.1 - Model Landing Zone</p>
+</div>
+<div class="paragraph">
+<p>Req 17 - Model Footprint Zone</p>
+</div>
+<div class="paragraph">
+<p>Req 18 - Model Footprint Hierarchy</p>
+</div>
+<div class="paragraph">
+<p>Req 19 - Model Cutout Zone</p>
+</div>
+<div class="paragraph">
+<p>Req 20 - Model Cutout Geometry</p>
+</div>
+<div class="paragraph">
+<p>Req 21 - Model Pseudo-Interior Zone</p>
+</div>
+<div class="paragraph">
+<p>Req 22 - Model Interior Zone</p>
+</div>
+<div class="paragraph">
+<p>Req 4 - Layers</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chap 6.2 - Using hierarchy to organize models helps identify components of intereset</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node Hierarchy fully supported</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comment Attribute</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Req 14 â€“ Zone Names</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.5.3.1 - Zone Material Index</p>
+</div>
+<div class="paragraph">
+<p>Req 16 - Hot Spot Temperature</p>
+</div>
+<div class="paragraph">
+<p>Req 23 - Model Point (Damage)</p>
+</div>
+<div class="paragraph">
+<p>Req 24 - Model Point (DIS Origin)</p>
+</div>
+<div class="paragraph">
+<p>Req 25 - Model Point (View Point)</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.6.2.3 - Model Attach Point</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.6.2.4 - Model Anchor Point</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.6.2.5 - Model Center of Mass</p>
+</div>
+<div class="paragraph">
+<p>Req 29 - Damage State (Levels)</p>
+</div>
+<div class="paragraph">
+<p>Req 36 - Model Vendor Attributes</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Comment field is used to extend OpenFlight node for CDB specialization for many uses</p>
+</div>
+<div class="paragraph">
+<p>A number of constructs are available in the OF spec that could be natively encoded in the format instead of using the comment field.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"extras" property allows storage of an object with any number of named properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node Attribution</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 13 - Model Zone Bounding Box</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Group node has bounding box attribute</p>
+</div>
+<div class="paragraph">
+<p>Other attributes available on the node:</p>
+</div>
+<div class="paragraph">
+<p>Roof Flag</p>
+</div>
+<div class="paragraph">
+<p>Culture Footprint</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Primitives have min/max properties.</p>
+</div>
+<div class="paragraph">
+<p>For general nodes, we could store this in the extras property</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External Referencing</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Chap 6.2.4 - Model Master File</p>
+</div>
+<div class="paragraph">
+<p>Req 6 â€“ Use XRef node to reference other files</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.2.5.1 - Models straddling multiple files</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.2.5.2 - Models with multiple LODs</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Model Master File (comprised of xrefs) ensures a Model is seen as a single "object" even though its constituents are stored in separate files</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No external referencing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Difficult</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Partial</p>
+</div>
+<div class="paragraph">
+<p>The converter can parse external references and combine them into one gltf file (using mesh instancing for repeated references)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Level of Detail Node</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Chap 6.2.5.2 - Models with multiple LODs</p>
+</div>
+<div class="paragraph">
+<p>Req 26 - Significant Size</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.8.1 - Exchange LODs</p>
+</div>
+<div class="paragraph">
+<p>Chap 6.8.2 - Additive LODs</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>LOD node contained in XRefs in master file</p>
+</div>
+<div class="paragraph">
+<p>Significant Size attribute on LOD</p>
+</div>
+<div class="paragraph">
+<p>LOD node support exchange and additive LOD strategies</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Requires extension (MSFT_lod)</p>
+</div>
+<div class="paragraph">
+<p>No sig size. Works with switch in/out</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Yes</p>
+</div>
+<div class="paragraph">
+<p>Uses MSFT_lod extension</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch Node</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Req 27 - Switch Masks (one per state)</p>
+</div>
+<div class="paragraph">
+<p>Req 28 - Switch Mask Names</p>
+</div>
+<div class="paragraph">
+<p>Req 29 - Damage State (Transition)</p>
+</div>
+<div class="paragraph">
+<p>Req 31 - Blur State (Transition)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch node supports multiple masks. Each mask can be named.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No native support for this.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Degree of Freedom Node</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Req 32 - Articulation</p>
+</div>
+<div class="paragraph">
+<p>Req 33 - Gimbal Limits</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DOF node supports min/max limits for each degree of articulation (translation, scale, rotation)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Skins, Joints, Animations.</p>
+</div>
+<div class="paragraph">
+<p>glTF is more flexible/complex than OF when it comes to animated models</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Light Point Node</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 35 - Model Light Points</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Light Point node can represent individual points or light â€˜stringâ€™</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No native support.</p>
+</div>
+<div class="paragraph">
+<p>Existing extensions for light sources but these are a different concept than light points</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Difficult</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Projection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 1 - Specify Projections</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required projections for GTModel, GSModel, MModel and T2DModel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Could be specified in extras property at the scene level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Coordinate System</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Req 7 - X (left/right), Y (front/back), Z (bottom/top)</p>
+</div>
+<div class="paragraph">
+<p>Req 8 - Origin (0,0,0)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">These are native OpenFlight conventions</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>glTF 2.0 uses a right-handed coordinate system, with x point right, y point up and z backward</p>
+</div>
+<div class="paragraph">
+<p>Changing this requires an extension and would reduce performance and interoperability</p>
+</div>
+<div class="paragraph">
+<p>Would recommend keeping glTF&#8217;s axis system and adjusting the standard if needed.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Local Coordinate System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chap 6.3.1.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transformation Matrix is used to specify LCS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transformations on nodes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Units</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Char 6.3.1.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Header attribute is used to specify Units</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Can be specified in extras property</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instancing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 11 - Avoid repeating identical pieces of geometry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Efficiency - smaller database size</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Multiple nodes can instantiate the same mesh.</p>
+</div>
+<div class="paragraph">
+<p>However, there is no concept of node instancing. OF is more flexible</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mesh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 11 - Favor mesh over polygons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Efficiency - smaller database size, fewer graphics states</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Mesh is supported and highly recommended over polygons.</p>
+</div>
+<div class="paragraph">
+<p>In OF many models use individual polygon nodes, but this would be inefficient in glTF. May lead to large geojson files.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Yes</p>
+</div>
+<div class="paragraph">
+<p>Polygon nodes at the same level with the same textures are merged into one mesh</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vertex Ordering</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 11 - CCW order of verts define polygon â€˜frontâ€™</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GLTF uses CCW ordering of vertices</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relative Priority</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 12 - Layers of coplanar geometry</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Relative Priority attribute at :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Face</p>
+</li>
+<li>
+<p>Mesh</p>
+</li>
+<li>
+<p>Object</p>
+</li>
+<li>
+<p>Group</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not supported natively. Could be stored in "extras"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Textures</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Req 37 - Textures stored in separate files from models</p>
+</div>
+<div class="paragraph">
+<p>Req 41 - Relative Texture Paths</p>
+</div>
+<div class="paragraph">
+<p>Req 42 - Object Shadow Attribute</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Loading efficiency</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Textures supported.</p>
+</div>
+<div class="paragraph">
+<p>Materials in glTF are similar to extended materials in OF, but not all layers from openflight exist in glTF.</p>
+</div>
+<div class="paragraph">
+<p>Ex: Light map, specular map, reflection map.</p>
+</div>
+<div class="paragraph">
+<p>Material textures are not a concept in gltf. Would require extension.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>==</p>
+</div>
+<div class="paragraph">
+<p>==</p>
+</div>
+<div class="paragraph">
+<p>==</p>
+</div>
+<div class="paragraph">
+<p>==</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_supporting_more_than_cdb_1_x"><a class="anchor" href="#_supporting_more_than_cdb_1_x"></a>11. Supporting more than CDB 1.X:</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenFlight capabilities that could be leveraged:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Extensions</p>
+</li>
+<li>
+<p>Extended Materials</p>
+</li>
+<li>
+<p>Hotspots</p>
+</li>
+<li>
+<p>LOD Transitions</p>
+</li>
+<li>
+<p>Cultural Footprint</p>
+</li>
+<li>
+<p>Point Nodes (Model Points instead of using tranforms)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>OpenFlight to glTF converter</p>
+</div>
+<div class="paragraph">
+<p>30 july 2020:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command line tool converting OpenFlight file into glTF</p>
+</li>
+<li>
+<p>Node hierarchy support and ported into glTF json file</p>
+</li>
+<li>
+<p>Polygons are converted to mesh on a per group basis</p>
+</li>
+<li>
+<p>No texture support yet</p>
+</li>
+<li>
+<p>LOD: using MSFT_LOD extension</p>
+<div class="ulist">
+<ul>
+<li>
+<p>LOD attribution for Significant size is not present</p>
+</li>
+<li>
+<p>LOD attribution â€¦.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><span class="image"><img src="extracted-media/media/image1.jpeg" alt="image"></span><span class="image"><img src="extracted-media/media/image2.png" alt="C:\Users\hermann\AppData\Local\Microsoft\Windows\INetCache\Content.Word\gltfNodes.PNG" width="246" height="562"></span></p>
+</div>
+<div class="paragraph">
+<p>glTF import in Blender</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="extracted-media/media/image3.png" alt="image"></span></p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>LOD nodes (Extension) are not supported in Blender â€“ imported as just a node, with all 3 LODs visible at the same time (but could be separated as they are in different nodes)</p>
+</li>
+<li>
+<p>No node attribution</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"><a class="anchor" href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"></a>11.1. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</h3>
 <div class="paragraph">
 <p>Two profiles.</p>
 </div>
@@ -1437,9 +2450,6 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>3d-model-prototyping.png</p>
-</div>
 <div id="img_3d-model-experiments" class="imageblock text-center">
 <div class="content">
 <img src="images/3d-model-prototyping.png" alt="3d model prototyping" width="800">
@@ -1447,49 +2457,10 @@ There was early consensus during Phase 3 of the Tech Sprint to attempt to experi
 <div class="title">Figure ATTPh3 - 8. Profles and Experiments for CBD-X 3D Models.</div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_description_of_3d_formatsencodings_and_references_for_this_section"><a class="anchor" href="#_description_of_3d_formatsencodings_and_references_for_this_section"></a>9.3. Description of 3D formats/encodings and References for this section:</h3>
-<div class="sect3">
-<h4 id="_openflight"><a class="anchor" href="#_openflight"></a>9.3.1. OpenFlight</h4>
-<div class="paragraph">
-<p>OpenFlight (or .flt) is an open, freely available 3d geometry model file format originally developed by Software Systems Inc. for its MultiGen real-time 3d modeling package. OpenFlight is a format supported widely in modeling and simulation community for dynamic and static 3D model. In CDB 1.x, OpenFlight is used for  the  representation  of  3D  dynamic  models  and  RGB  format  for  the  3D model’s textures. However, while widely used and there are extensive .flt model libraries, OpenFlight is long in the tooth.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.opengeospatial.org/files/90663">OpenFlight v16</a></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_gl_transmission_format_gltf_2_0"><a class="anchor" href="#_gl_transmission_format_gltf_2_0"></a>9.3.2. GL Transmission Format (glTF) 2.0</h4>
-<div class="paragraph">
-<p>glTF is a royalty-free specification for the efficient transmission and loading of 3D scenes and models by applications. glTF uses the JSON standard. glTF is an API-neutral runtime asset delivery format developed by the Khronos Group 3D Formats Working Group.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/KhronosGroup/glTF/tree/master/specification/2.0">glTF 2.0</a> GitHub repo and description.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_lights_punctual">KHR_lights_punctual</a> is an extension that defines a set of lights for use with glTF 2.0. Lights define light sources within a scene.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/MSFT_lod">MSFT_lod</a> is an extension that adds the ability to specify various Levels of Detail (LOD) to a glTF asset.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/EXT_mesh_gpu_instancing">EXT_mesh_gpu_instancing</a> is an extension that is specfically designed to enable GPU instancing which renders many copies of a single mesh at once using a small number of draw calls. It&#8217;s useful for things like trees, grass, road signs, etc.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/FB_geometry_metadata">FB_geometry_metadata</a> is an extension that annotates glTF scene objects with a summary of the cumulative geometric complexity and scene-space extents of the scene&#8217;s associated scene graph. <code>Editors note: While the computed total vertex and primitive count are metadata this is very limited metadata and may not meet the needs of the CDB X community.</code></p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit">KHR_materials_unlit</a> is an extension that defines an unlit shading model for use in glTF 2.0 materials, as an alternative to the Physically Based Rendering (PBR) shading models provided by the core specification.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform">KHR_texture_transform</a> is an extension that adds offset, rotation, and scale properties to textureInfo structures. These properties would typically be implemented as an affine transform on the UV coordinates.</p>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="metadata"><a class="anchor" href="#metadata"></a>10. CDB X Metadata and Integration</h2>
+<h2 id="metadata"><a class="anchor" href="#metadata"></a>12. CDB X Metadata and Integration</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section discusses metadata in CDB X</p>
@@ -1653,19 +2624,19 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <h1 id="_plan_for_experimentation_in_subsequent_phases_2" class="sect0"><a class="anchor" href="#_plan_for_experimentation_in_subsequent_phases_2"></a>Plan for Experimentation in subsequent phases</h1>
 <div class="sect1">
-<h2 id="tiling"><a class="anchor" href="#tiling"></a>11. Tiling and Tiled Coverages</h2>
+<h2 id="tiling"><a class="anchor" href="#tiling"></a>13. Tiling and Tiled Coverages</h2>
 <div class="sectionbody">
 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"><a class="anchor" href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"></a>12. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</h2>
+<h2 id="_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"><a class="anchor" href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"></a>14. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This clause provides discussion of tiled data and GeoPackage requirements and the results of the prototyping activities.</p>
 </div>
 <div class="sect2">
-<h3 id="_general_2"><a class="anchor" href="#_general_2"></a>12.1. General</h3>
+<h3 id="_general_2"><a class="anchor" href="#_general_2"></a>14.1. General</h3>
 <div class="paragraph">
 <p>Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the:</p>
 </div>
@@ -1680,7 +2651,7 @@ While the same metadata elements are recommended for both global and local geosp
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"><a class="anchor" href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"></a>12.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</h4>
+<h4 id="_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"><a class="anchor" href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"></a>14.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</h4>
 <div class="paragraph">
 <p>This OGC Abstract Specification consists of two Parts: A General Tiling Conceptual Model and, based on the Conceptual Model, a Logical Model for the Tessellation (Tiling) of 2D Euclidean Space. Tiling  of  2D  Euclidean  space  is  the  most  commonly  known  approach  to  partitioning  space  in traditional  geospatial  technology.  However,  there  are  also  common  elements  and/or  semantics  for any approach to partitioning space in any dimension. The logical model in this document defines a set  common  required  elements  and  then  follows  with  more  specific  requirements  for  the  two dimensional case.</p>
 </div>
@@ -1692,14 +2663,14 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ogc_two_dimensional_tile_matrix_set_standard"><a class="anchor" href="#_ogc_two_dimensional_tile_matrix_set_standard"></a>12.1.2. OGC Two Dimensional Tile Matrix Set Standard</h4>
+<h4 id="_ogc_two_dimensional_tile_matrix_set_standard"><a class="anchor" href="#_ogc_two_dimensional_tile_matrix_set_standard"></a>14.1.2. OGC Two Dimensional Tile Matrix Set Standard</h4>
 <div class="paragraph">
 <p>The OGC Tile Matrix Set standard defines the rules and requirements for a tile matrix set as a way to index space based on a set of regular grids defining a domain (tile matrix) for a limited list of scales in a Coordinate Reference System (CRS) as defined in [OGC 08-015r2] Abstract Specification Topic 2: Spatial Referencing by Coordinates. Each tile matrix is divided into regular tiles. In a tile matrix set, a tile can be univocally identified by a tile column a tile row and a tile matrix identifier. This document presents a data structure defining the properties of the tile matrix set in both UML diagrams and in tabular form. This document also presents a data structure to define a subset of a tile matrix set called tile matrix set limits. XML and JSON encodings are suggested both for tile matrix sets and tile matrix set limits. Finally, the document offers practical examples of tile matrix sets both for common global projections and for specific regions.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_design_objectives_for_cdb_x_tiling_and_lods_and_layers"><a class="anchor" href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers"></a>12.2. Design Objectives for CDB X Tiling and LoDs and Layers</h3>
+<h3 id="_design_objectives_for_cdb_x_tiling_and_lods_and_layers"><a class="anchor" href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers"></a>14.2. Design Objectives for CDB X Tiling and LoDs and Layers</h3>
 <div class="paragraph">
 <p>The following are the key design principals for a CDB X tiling, levels of detail, and layering.</p>
 </div>
@@ -1749,7 +2720,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_tiling_logical_model_for_cdb_x"><a class="anchor" href="#_proposed_tiling_logical_model_for_cdb_x"></a>12.3. Proposed Tiling Logical Model for CDB X</h3>
+<h3 id="_proposed_tiling_logical_model_for_cdb_x"><a class="anchor" href="#_proposed_tiling_logical_model_for_cdb_x"></a>14.3. Proposed Tiling Logical Model for CDB X</h3>
 <div class="paragraph">
 <p>The following figure, based on the Tiling Abstract Specification Logical Model and the CDB 1.x Conceptual Model, shows the properties by class (concept) and the relationships between the classes.</p>
 </div>
@@ -1761,7 +2732,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_cdb_x_tiling_structure"><a class="anchor" href="#_proposed_cdb_x_tiling_structure"></a>12.4. Proposed CDB X Tiling Structure</h3>
+<h3 id="_proposed_cdb_x_tiling_structure"><a class="anchor" href="#_proposed_cdb_x_tiling_structure"></a>14.4. Proposed CDB X Tiling Structure</h3>
 <div class="paragraph">
 <p>This section describes the proposed tiling structure and LoD (levels?) structure in CDB X. (<code>Probably need small section on consistenccy with version 1.x?</code>)</p>
 </div>
@@ -1796,33 +2767,275 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_additional_cdb_x_recommendations"><a class="anchor" href="#_additional_cdb_x_recommendations"></a>12.5. Additional CDB X Recommendations</h3>
+<h3 id="_additional_cdb_x_recommendations"><a class="anchor" href="#_additional_cdb_x_recommendations"></a>14.5. Additional CDB X Recommendations</h3>
 <div class="paragraph">
 <p>The following are recommendations and suggested additional discussion topics. These recommendations and discussion topics resulted from the Tiling sub-groups discussion on an enhanced tiling model for CDB X and the potential impacts on the various data types (layers) in the current CDB standard and existing CDB data stores.</p>
 </div>
 <div class="sect3">
-<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>12.5.1. Elevation min/max</h4>
+<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>14.5.1. Elevation min/max</h4>
 <div class="paragraph">
 <p>CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded coverage contained in a tile to the tile metadata. Note: The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>12.5.2. Image Compression - JPEG</h4>
+<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>14.5.2. Image Compression - JPEG</h4>
 <div class="paragraph">
 <p>Recommendation: That loss-less image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: <a href="https://flif.info/">FLIF - Free Lossless Image Format</a>.NOTE: JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_materials"><a class="anchor" href="#_materials"></a>12.5.3. Materials</h4>
+<h4 id="_materials"><a class="anchor" href="#_materials"></a>14.5.3. Materials</h4>
 <div class="paragraph">
 <p>Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with reflectance in wavelengths other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_findings_from_experiments"><a class="anchor" href="#_findings_from_experiments"></a>14.6. Findings from experiments</h3>
+<div class="paragraph">
+<p>The following graph compares the CDB 1.x zones with the Gnosis grid and shows how the GNOSIS algorithm helps to keep the typical tile closer to a “square” than CDB’s zones.</p>
+</div>
+<div id="img_logical-model" class="imageblock text-center">
+<div class="content">
+<img src="images/cdb-gnosis-ratio.png" alt="cdb gnosis ratio" width="600">
+</div>
+<div class="title">Figure Mtd_Ph3 - 16. CDB 1.x to GNOSIS Comparison - Ratio.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cdb_x_tilinggeopackage_experiment_1_ecere"><a class="anchor" href="#_cdb_x_tilinggeopackage_experiment_1_ecere"></a>14.7. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</h3>
+<div class="sect3">
+<h4 id="_data_and_geopackage_structure"><a class="anchor" href="#_data_and_geopackage_structure"></a>14.7.1. Data and GeoPackage Structure</h4>
+<div class="paragraph">
+<p>A 1.4 GB GeoPackage of the Camp Pendleton sample CDB from Presagis (originally used in OGC Testbed 13), along with an accompanying <code>cdb.json</code> can be found at:</p>
+</div>
+<div class="paragraph">
+<p><a href="http://maps.ecere.com/CDBX/X1/" class="bare">http://maps.ecere.com/CDBX/X1/</a></p>
+</div>
+<div class="paragraph">
+<p>In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using the GeoPackage metadata extension) to make this GeoPackage very portable.</p>
+</div>
+<div class="paragraph">
+<p>Inside the GeoPackage, all layers were tiled using the Ecere <a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid">GNOSIS Global Grid</a>. This approach was implemented for the experiment using the proposed (and early draft) <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc">GeoPackage Two Dimensional Tile matrix Set (TMS) extension</a>. This extension was defined and initially tested in the <a href="https://www.ogc.org/projects/initiatives/vtp2">2019 OGC Vector Tiles Pilot Phase 2</a>.</p>
+</div>
+<div class="paragraph">
+<p>The content includes imagery data, stored as JPEGs, and terrain data stored as GeoTIFFs. This was accomplished using an imlpementation of the <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">OGC GeoPackage Tiled Gridded Coverage Extension</a>.</p>
+</div>
+<div class="paragraph">
+<p>The content also included the Natural and Environmental light features vector layers. For this experiment, this content was stored  using Mapbox Vector Tiles. This included points intended to reference 3D models such as "Man-made point features" and "Tree point features".</p>
+</div>
+<div class="paragraph">
+<p>The early draft GeoPackage Tiled Vector Data (vector tiles) extensions were used for this:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc">GeoPackage Tiled Vector Data Attributes Extension</a> This extension defines a relationship between features contained in a tiled layer and tiles containing those features.</p>
+</li>
+<li>
+<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc">GeoPackage Tiled Vector Data</a> The GeoPackage Tiled Vector Data extension defines the rules and requirements for encoding tiled feature data (aka "vector tiles") into a GeoPackage data store.</p>
+</li>
+<li>
+<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc">MapBox Vector Tiles extension</a> The GeoPackage Mapbox Vector Tiles extension defines the rules and requirements for encoding vector tiles in a GeoPackage data store as Mapbox Vector Tiles.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Ecere is planning to add the 3D models in the next experiments&#8201;&#8212;&#8201;for geo-specific, both one glTF for a whole tile, as well as individual models to be referenced by the points.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For the case of points referencing the 3D models (best suited for geo-typical), those glTF files would be stored in a single 3D models table, as well as a textures table (if the models share rather than embed textures). The related table extension would be used to relate the features attributes.</p>
+</div>
+<div class="paragraph">
+<p>For the geo-specific / one glTF for the whole tile, the glTF could potentially be stored in a tiles table instead, and the models constituting the payload (much like raster or vector tiles).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ogc_api_access_demo"><a class="anchor" href="#_ogc_api_access_demo"></a>14.7.2. OGC API access demo</h4>
+<div class="paragraph">
+<p>At this address: <a href="https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg" class="bare">https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg</a></p>
+</div>
+<div class="paragraph">
+<p>You can directly access this CDB X Experiment #1 GeoPackage through our GNOSIS Map Server, including rendering maps, downloading coverages, accessing as tiles in different tiling schemes, accessing individual vector features, retrieving them as (re-merged) GeoJSON, visualizing them on GeoJSON.io and so on.
+To some extent, this demonstrates that even though the data is tiled, this layout actually supports a wide range of use cases.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_visualization"><a class="anchor" href="#_visualization"></a>14.7.3. Visualization</h4>
+<div class="paragraph">
+<p>Ecere software can currently visualize the CDB X/GeoPackage elevation and imagery directly in the Ecere 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).</p>
+</div>
+<div id="img_logical-model" class="imageblock text-center">
+<div class="content">
+<img src="images/ecere-cdbx-1.png" alt="ecere cdbx 1" width="600">
+</div>
+<div class="title">Figure Mtd_Ph3 - 17. Ecere Camp Pendleton GeoPackage in CDB X.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_live_cesium_js_3d_tiles_demonstation"><a class="anchor" href="#_live_cesium_js_3d_tiles_demonstation"></a>14.7.4. Live Cesium JS / 3D Tiles demonstation</h4>
+<div class="paragraph">
+<p>Navigate to <a href="https://sandcastle.cesium.com/" class="bare">https://sandcastle.cesium.com/</a> and copy/paste the following four (4) lines of Java Script code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="js"><span class="keyword">var</span> worldTerrain = Cesium.createWorldTerrain({<span class="key">requestWaterMask</span>: <span class="predefined-constant">true</span>, <span class="key">requestVertexNormals</span>: <span class="predefined-constant">true</span>, });
+<span class="keyword">var</span> viewer = <span class="keyword">new</span> Cesium.Viewer(<span class="string"><span class="delimiter">&quot;</span><span class="content">cesiumContainer</span><span class="delimiter">&quot;</span></span>, { <span class="key">terrainProvider</span>: worldTerrain });
+<span class="keyword">var</span> scene = viewer.scene;
+<span class="keyword">var</span> tileset = scene.primitives.add(<span class="keyword">new</span> Cesium.Cesium3DTileset({ <span class="key">url</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings/3DTiles/tileset.json</span><span class="delimiter">&quot;</span></span> }));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then click "Run", and zoom in onto Camp Pendleton. Camp Pendleton is at the height of the southern part of the northernmost of the 2 islands just west of southern California. As the image is zoomed, 3D buildings should come into view.</p>
+</div>
+<div class="paragraph">
+<p>This tiled 3D distribution (for OGC API collection <a href="http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings" class="bare">http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings</a>) is currently being generated on the fly from the Ecere GNOSIS Data Store / E3D models. NOTE: No textures have been added yet.</p>
+</div>
+<div class="paragraph">
+<p>Once the 3D models are added to the CDBX GeoPackage, it should be possible to stream as 3D Tiles &lt;CESIUM??&gt; straight from the CDBX/GeoPackage as well, rather than the original CampPendleton CDB repository.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_next_steps_this_section_will_change_as_new_content_is_provided"><a class="anchor" href="#_next_steps_this_section_will_change_as_new_content_is_provided"></a>14.7.5. Next steps (this section will change as new content is provided)</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Support for splitting in multiple GeoPackages with LoD grouping</p>
+</li>
+<li>
+<p>A table for storing glTF models, for referenced 3D models (either only for geo-typical trees, or even the geo-specific buildings as well), and using Related tables extensions to relate the models table to other tables</p>
+</li>
+<li>
+<p>Single glTF models covering a whole tile for geo-specific models</p>
+</li>
+<li>
+<p>Export similar GeoPackages for San Diego CDB</p>
+</li>
+<li>
+<p>Attribution per model within the single tile model. We support this directly in E3D, and I wonder whether glTF2 supports this.
+I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF is a Features Table which does precisely this, so I am not sure whether glTF 2 has this capability built in (i.e. allowing to use a .glb directly rather than a .b3dm).</p>
+</li>
+<li>
+<p>Support for visualizing the dataset including 3D models in our GNOSIS Cartographer client (work required to support CDB consisting of multiple of GeoPackages as a single data source)</p>
+</li>
+<li>
+<p>Support for GNOSIS Map Server streaming 3D models from CDB X/GeoPackage</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_flightsafety_geopackage_tiling_experiments"><a class="anchor" href="#_flightsafety_geopackage_tiling_experiments"></a>14.8. FlightSafety GeoPackage Tiling Experiments</h3>
+<div class="paragraph">
+<p><strong>Setup</strong>: The data used for these experiments are primarily freely available, and include the following
+* Blue Marble (NASA) that was georeferenced using GDAL - <a href="https://visibleearth.nasa.gov/collection/1484/blue-marble" class="bare">https://visibleearth.nasa.gov/collection/1484/blue-marble</a>
+* The high resolution inset is from USGS downloads of Central Park in New York City</p>
+</div>
+<div class="paragraph">
+<p><strong>Tiling Scheme</strong>: The tiling scheme uses the [GNOSIS Global Grid](<a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid" class="bare">https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid</a>) (using TMS extension&#8201;&#8212;&#8201;<a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc</a>).  We are using the same type of json file that Ecere is using in their experiment.</p>
+</div>
+<div class="paragraph">
+<p><strong>LOD Grouping</strong> The grouping is pre-set per experiment.  The groups are calculated from the highest LOD, back to coarser LODs.  For example, if there are 7 LODs (0-6) and a grouping of 4, then LODs 3 through 7 are in one GeoPackage, and LODs 0 through 2 are in another GeoPackage.</p>
+</div>
+<div class="paragraph">
+<p><strong>Directory and Naming Scheme</strong> Each top level tile is within a directory that encodes the LOD, the row (rows are counted from the top, so north to south), and the column (longitude west to east).  Fox example, "L0_R1_C2".  Each tile directory contains one GeoPackage file (for example "Imagery_L0_L2_R1_C2.gpkg") and all the tile directories that refine this area (such as "L3_R9_C22").  There were two intentions to this directory structure:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Limit the number of files in a directory (to keep from running into OS limitations).</p>
+</li>
+<li>
+<p>Make it a bit easier to export a portion of the world by hand from one CDB X to another.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_flightsafety_experiment_1"><a class="anchor" href="#_flightsafety_experiment_1"></a>14.8.1. FlightSafety Experiment 1</h4>
+<div class="sect4">
+<h5 id="_purpose_of_experiment"><a class="anchor" href="#_purpose_of_experiment"></a>Purpose of Experiment</h5>
+<div class="paragraph">
+<p>This experiment is to show how the top levels of the tiling scheme work, to show the LOD groupings within multiple GeoPackage files, and to show the proposed directory and file naming.  There are 8 top level tiles (2 rows and 4 columns), and all GeoPackages that refine one of these tiles is under that tile&#8217;s directory structure.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_processing"><a class="anchor" href="#_processing"></a>Processing</h5>
+<div class="paragraph">
+<p>This experiment uses the NASA Blue Marble imagery to approximate world-wide imagery at a high level.  This provides 7 levels of detail of data (L0 to L6).  Normally, the GeoPackage files should be larger for efficient use, but to show the LOD groupings, only 4 LODs are grouped together.  Also, the imagery is stored as Jpeg, so that tools can view the imagery easier.  We originally were creating Jpeg2000 files, but it was harder to check the results in a tool like "DB Browser for SQLite".  The data size for this experiment is around 300 MB.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_data_location"><a class="anchor" href="#_data_location"></a>Data Location</h5>
+<div class="paragraph">
+<p>Compressed 7-zip file at:  <a href="https://drive.google.com/drive/folders/1zfdBnAHpf9McLTbaJotdKGR_tXQad4dy?usp=sharing" class="bare">https://drive.google.com/drive/folders/1zfdBnAHpf9McLTbaJotdKGR_tXQad4dy?usp=sharing</a></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_flightsafety_experiment_2"><a class="anchor" href="#_flightsafety_experiment_2"></a>14.8.2. FlightSafety Experiment 2</h4>
+<div class="sect4">
+<h5 id="_purpose_of_experiment_2"><a class="anchor" href="#_purpose_of_experiment_2"></a>Purpose of Experiment</h5>
+<div class="paragraph">
+<p>This experiment is to further test the limits of the LOD grouping and directory organization.  It will be the World CDB X from experiment 1 with a small higher resolution inset of imagery.  Added was some 15m data at LOD level 12 covering New York City, and 2 ft imagery covering Central Park on Manhattan Island at LOD level 16.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_processing_2"><a class="anchor" href="#_processing_2"></a>Processing</h5>
+<div class="paragraph">
+<p>Same processing as experiment 1, but with an LOD grouping of 6 (thought during our planning to be ideal balancing size and number of sub-directories ( (2<sup>6)</sup>2 = 4096 maximum directories within one folder).  The maximum LOD for this experiment is 16 (60cm).  To find the highest resolution data, look at file CDBX_highres\Imagery\L0_R0_C1\L5_R17_C37\L11_R1120_C2412\Imagery_L11_L16_R1120_C2412.gpkg.  The data size for this experiment is almost 1.5 GB.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_data_location_2"><a class="anchor" href="#_data_location_2"></a>Data Location</h5>
+<div class="paragraph">
+<p>Compressed 7-zip file at:  <a href="https://drive.google.com/drive/folders/1zKuu0oQy3K5oKestuPIvL-BRiSPn9oaO?usp=sharing" class="bare">https://drive.google.com/drive/folders/1zKuu0oQy3K5oKestuPIvL-BRiSPn9oaO?usp=sharing</a></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_observations"><a class="anchor" href="#_observations"></a>14.8.3. Observations</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The file names and directory names are pretty hard to read and understand by looking at the files. But since the tiles are rarely on a "geocell" boundary, their might not be a good naming scheme.</p>
+</li>
+<li>
+<p>Creating the LOD groupings based on the highest LOD of data makes it difficult to add data of a higher resolution later on.  It might also make it harder to create "Versions" of the data that have been updated.</p>
+</li>
+<li>
+<p>There are a lot of directories created with this tiling and naming scheme.  In general, there is a 1-to-1 ratio of files to directories.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For the GeoPackage CDB Interoperabilty Experiment, FlightSafety strictly tested existing Shapefile performance vs GeoPackage performance from a flight simulation runtime perspective.  So how fast can we pull data out of a GeoPackage in the same manner that we process shapefiles.  GeoPackage creation timing wasn&#8217;t that interesting to us at the time.  We were also testing the different approaches put forward on how to structure the GeoPackage to contain the data, whether that was one GeoPackage containing a single shapefile&#8217;s features, one GeoPackage table containing all the features at a given level of detail, or one GeoPackage table containing all the features at all the levels of detail.  Changing the CDB conceptual model or levels of detail was outside the scope of this project.</p>
+</div>
+<div class="paragraph">
+<p>FlightSafety found that querying large numbers of features out of very large tables was dependent on how the GeoPackage was structured.  The original conversion of the field columns queried was to a string, making these fields integers made it faster, but creating an index on those columns was an order of magnitude faster.
+The table here shows the three different GeoPackage organizations, how many features ended up in the table we are querying, and how fast we could pull out 16k of rows from that table.  Each test pulled out the same set of 16k rows.  The highlighted data shows how structuring the GeoPackage matters when it comes to performance.</p>
+</div>
+<div id="img_fs-gpkg-performance" class="imageblock text-center">
+<div class="content">
+<img src="images/fs-gpkg-performance.png" alt="fs gpkg performance" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 18. Performance.</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="RevisionHistory"><a class="anchor" href="#RevisionHistory"></a>Appendix A: Revision History</h2>
+<h2 id="RevisionHistory"><a class="anchor" href="#RevisionHistory"></a>Annex A: Revision History</h2>
 <div class="sectionbody">
 <div class="exampleblock">
 <div class="content">
@@ -1862,10 +3075,13 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect1">
-<h2 id="Bibliography"><a class="anchor" href="#Bibliography"></a>Appendix B: Bibliography</h2>
+<h2 id="Bibliography"><a class="anchor" href="#Bibliography"></a>Annex B: Bibliography</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>bibliography::[]</p>
+<div id="STAC2017" class="paragraph">
+<p>[1] STAC: <a href="https://stacspec.org/">Spatio Temporal Asset Catalogs.</a> (2017).</p>
+</div>
+<div id="GGDM2020" class="paragraph">
+<p>[2] <a href="https://ggdm.erdc.dren.mil/">Ground-Warfighter Geospatial Data Model (GGDM)</a> (2020)</p>
 </div>
 </div>
 </div>
@@ -1878,8 +3094,97 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-01 23:16:02 UTC
+Last updated 2020-09-22 22:00:53 UTC
 </div>
 </div>
+<style>
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style>
 </body>
 </html>

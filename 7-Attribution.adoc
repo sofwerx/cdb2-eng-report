@@ -3,37 +3,64 @@
 :figure-caption: Figure ATTPh3 -
 :figure-num: 0
 
-= Summary of history of CDB X attribution discussions.
+== CDB-X Attribution
 
-The 1.x versions of OGC CDB use a CDB Feature Data Dictionary as the controlled vocabulary for attribution.  An Excel spreadsheet version of the CDB 1.X Feature Data Dictionary is available on the public https://external.ogc.org/twiki_public/pub/CDBswg/WebHome/CDB_FDD.xlsx[CDB wiki].
+For several years, there have been discussions concerning how to modify the CDB standard to support attribute coding schemes (aka controlled vocabularies) other than the current approach that is based on a Feature and Attribute Coding Catalog (FACC). However, at this time any changes to the CDB standard to accommodate other coding schemes have not occured. This section provides 1.) information on the current approach in CDB 1.x, 2.) requirements for evolving the CDB standard to accommodate other coding schems and 3.) the experimental framework and results from the work in the CDB-X activity.
 
-CDB V1.x feature codes and subcodes were sourced from FACC, SEDRIS, DIGEST 2.1, DGIWG FDD, UHRB, and other sources.  [The abbreviations and acronyms are defined and/or expanded in the OGC CDB 1.x Standards and Best Practices documents]
+=== Current CDB 1.x Attribution Approach
 
-An OGC Change Request Proposal (CRP) related to CDB attribution was generated during OGC Testbed 13:
-http://ogc.standardstracker.org/show_request.cgi?id=544
+OGC CDB versions 1.x use a CDB Feature Data Dictionary (FDD) as the controlled vocabulary for attribution.  An Excel spreadsheet version of the CDB 1.X Feature Data Dictionary is available on the public https://external.ogc.org/twiki_public/pub/CDBswg/WebHome/CDB_FDD.xlsx[CDB wiki].
 
-`NOTE: An overview of the Testbed 13 activity is provided in the <<BackgroundClause, Background>> section of this ER.`
+The CDB V1.x feature codes and subcodes are primarily based on the https://gwg.nga.mil/documents/asfe/DGIWG_FACC.htm[DIGEST Feature and Attribute Coding Catalog 2.1] (FACC) with additional concepts from a few other sources.  From that website: _FACC) specifies geospatial information concepts used by member nations of the multi-national Defence Geospatial Information Working Group (DGIWG) community. These concepts characterize aspects of real-world entities (or objects) and related properties, including those that are not necessarily visible or have a tangible physical form (e.g., airspace). The DGIWG FACC is a comprehensive dictionary and coding scheme for feature types, feature attributes (properties or characteristics associated with features), and attribute values (domain of feature attributes)._
+
+[The abbreviations and acronyms are defined and/or expanded in the OGC CDB 1.x Standards and Best Practices documents]
+
+In the FACC, each major feature category is further divided into subcategories identified by the second character of the five-character code containing an alphabetic value from "A" to "Z". Finally, the third, fourth, and fifth characters of the five-character feature code are a numeric value from 000 to 999. This value provides unique feature type identification within categories. Thus, all features must be identified by all five alphanumeric characters; e.g., the feature named "Building" is denoted by the code "AL015". Feature codes are listed in Annex A of the FACC Data Dictionary.
+
+Each feature is associated with a textual description, which provides a human readable dictionary definition for the feature. Each Feature Code is also associated with a short human readable name. 
+
+|===
+|*Code*	|*Name*	|*Definition* 
+|AA010 	|Mine 	|An excavation made in the earth for the purpose of extracting natural deposits. (See also AQ090)
+|BB150 	|Landing Place 	|A place on shore where landing from the sea is possible.
+|DB180 	|Volcano 	|A mountain or hill, often conical, formed around a vent in the earth's crust through which molten rock, ash, or gases are or have been expelled.
+|FA001 	|Administrative Area 	|An area controlled by administrative authority.
+|GB075 	|Taxiway 	|A prepared surface providing access to/from runways and the aircraft parking area, terminal area, or service area, etc.
+|===
+
+An OGC http://ogc.standardstracker.org/show_request.cgi?id=544[Change Request Proposal] (CRP) related to CDB attribution was generated during OGC Testbed 13:
+
+`NOTE: An overview of the Testbed 13 activity is provided in the <<attrtestbed13, Background Section>> section of this ER.`
 
 Note:  Most of the images in this section of the report are snippets of the Miro whiteboard used for collaboration throughout Phase 3 of the Tech Sprint.  The board was archived at various points through the spring by the moderator.  At the time of the drafting of this report, the link to the Miro whiteboard is at:
 https://miro.com/app/board/o9J_kqG1Jw0=/
 
+=== CDB-X Discussion and Requirements for CDB-X Experimentation
 
-= Phase 3 Consensus
+==== Experimentation Backround
 
-There was early consensus during Phase 3 of the Tech Sprint to attempt to experiment with and potentially adopt an approach to attribution generally called "GGDM".  Greg Peele, one of the Tech Sprint participants, has described his work as a sub-contractor on the team recommending a Data Model for the U.S. Army One World Terrain (OWT) effort in multiple presentations to the OGC Interopable Simulation and Gaming Domain Working Group.  Greg's most recent presentation, entitled *"Entities, Attributes, and Enumerants, Oh My!  Applying GGDM for Interoperable One World Terrain Semantics"* to the ISG DWG may be found here:
+There was early consensus during Phase 3 of the CDB-X tech sprint to experiment with and potentially adopt an approach to CDB attribution generally called "GGDM".
+
+Greg Peele, one of the Tech Sprint participants, has described his work as a sub-contractor on the team recommending a Data Model for the U.S. Army One World Terrain (OWT) effort in multiple presentations to the OGC Interopable Simulation and Gaming Domain Working Group.  Greg's most recent presentation, entitled *"Entities, Attributes, and Enumerants, Oh My!  Applying GGDM for Interoperable One World Terrain Semantics"* to the ISG DWG may be found here:
 https://portal.ogc.org/files/?artifact_id=93666
 
-= Phase 3, Day 3
+==== Some questions to be addressed during experimentation
+
+. GGDM/NAS define standard layers that subdivide vector features into semantic sets (i.e. hydrology, industry, extraction, etc.). Is this meaningful to CDB? Or is it irrelevant?
+. GGDM can be cross walked to NGA TDS 7.1. What are the missing attributes between M&S and TDS?
+. Is there a challenge on the Sim for reading Feature Codes Vs Attribution?
+. What are the format implications: vector and mesh formats must support GGDM attribution and entity types?
+. Metadata: GGDM defines metadata as attributes. Encoding decision: separate metadata table referenced from features via foreign key? Or flattened metadata attributes present on every feature?
+. GGDM does not have mandatory attribution fields. All fields are optional. What are the implications?
+. What attribution is missing from GGDM for CDB?
+
+==== Phase 3, Day 3
 
 [#img_Peele_Whiteboard_Day_3,reftext='{figure-caption} {counter:figure-num}']
 .Greg Peele's Whiteboard from Phase 3 Day 3.
 image::images/Greg Peele Day 3 whiteboard.png[width=1000,align="center"]
 
-= Phase 3, Day 4
-
-[#img_Attribution-sub-team-consensus,reftext='{figure-caption} {counter:figure-num}']
-.Day 3 Consensus and formation of the Attribution sub-team.
-image::images/Attribution sub-team consensus.png[width=250,align="center"]
+==== Phase 3, Day 4
 
 [#img_Attribution-in-GGDM-prove-me-wrong,reftext='{figure-caption} {counter:figure-num}']
 .'Attribution will be in GGDM, Prove me Wrong' Day 4 Sign.
@@ -43,7 +70,7 @@ image::images/Day 4 Attribution in GGDM Prove me Wrong sign.png[width=500,align=
 .Attribution Day 4 Whiteboard.
 image::images/Attribution Day 4 Sub Team Whiteboard 1.png[width=1000,align="center"]
 
-= Phase 3, Day 5
+==== Phase 3, Day 5
 
 [#img_Attribution-Day-5-WIP1-Whiteboard,reftext='{figure-caption} {counter:figure-num}']
 .Attribution Day 5 Work in Progress Whiteboard One.
