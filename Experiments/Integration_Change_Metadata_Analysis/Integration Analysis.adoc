@@ -1,0 +1,96 @@
+[[Integration_Experimental_Analysis]]
+
+:figure-caption: Figure Integration / Analysis -
+:figure-num: 0
+
+[%hardbreaks]
+
+= An analysis experiment to explore 'whole-of-CDB X' Integration_Experimental_Analysis
+
+This is the development of a scenario within which to analyze and explore how CDB X will provide for inheritance of top-level 'parent' metadata, making a 'small change' in an already developed and deployed CDB X dataset, and how a change in resource constraints in a small high LOD area is aggregated back 'up' into higher packaging of CDB X.
+
+The 'Use Cases' for this specific scenario are Mission Rehearsal and Mission Planning.  The specific end-user target for this analysis are Special Operations helicopter crews and potential other Special Operations mounted and dismounted resources.
+
+The high level idea is the identification of a specific road bridge in an existing CDB dataset viewed in the context of the highest LOD available, such that vehicle driver eyepoints have the best representation of the ground-based viewpoints.  In this scenario, the road bridge will be damaged by a kinetic event.  The change to the dataset requires the removal/replacement of files, possible deletion of files, possible addition of files, and the 'packaging' of the changes so they can be disseminated in a new target named CDB (CDB version) that can be added quickly to an already deployed repository to provide for the changes resulting from the damaged bridge.
+
+One of the test databases available to the Tech Sprint is the "Yemen" CDB database from Presagis.  The images and other information here is from the pre-Presagis CAE internal Yemen database, so it is possible some of the references below will need to be updated.
+
+For general orientation, the overall description of the CDB Yemen Database follows:
+
+[#img_CDB CAE Yemen Database Description slide,reftext='{figure-caption} {counter:figure-num}']
+.An overall description of the Yemen CDB dataset.+
+image::Images/CDB Yemen Database in a world database description.png[width=1000,align="center"]
+
+
+A recent Google maps rendering of the general area of Aden Yemen:
+
+[#img_Google Maps recent Yemen overview,reftext='{figure-caption} {counter:figure-num}']
+.Aden, Yemen general overview.+
+image::Images/Aden Yemen overhead map view.png[width=800,align="center"]
+
+
+A lower level recent Google maps rendering of the bridge to Sira Island, Aden, Yemen:
+
+[#img_Google Maps recent Sira Island bridge,reftext='{figure-caption} {counter:figure-num}']
+.Bridge to Sira Island, Aden, Yemen.+
+image::Images/Sira Island Bridge Google Maps View.png[width=800,align="center"]
+
+
+The following are relatively low-resolution images of the Sira Island bridge and the area around it from an image generator rendering the Yemen CDB.
+
+[#img_Vehicles on the road to Sira bridge,reftext='{figure-caption} {counter:figure-num}']
+.Vehicles on the road to the bridge before Bang.+
+image::Images/Vehicles on the road to the bridge before bang.png[width=800,align="center"]
+
+
+[#img_Sira bridge from the island side before Bang,reftext='{figure-caption} {counter:figure-num}']
+.Sira bridge view from the island side before Bang.+
+image::Images/Bridge view from the other side before bang.png[width=800,align="center"]
+
+
+[#img_HMMV on Sira bridge just before Bang,reftext='{figure-caption} {counter:figure-num}']
+.HMMV on the Sira Island bridge just before IED detonation in a rehearsal scenario.+
+image::Images/Bridge with HMMV before bang.png[width=800,align="center"]
+
+
+[#img_Sira Island bridge damaged with clearing smoke,reftext='{figure-caption} {counter:figure-num}']
+.Clearing smoke after IED damage to Sira Island bridge in an IED scenario.+
+image::Images/Bridge with explosion and smoke clearing.png[width=800,align="center"]
+
+
+[#img_Sira Island bridge distant view of damage,reftext='{figure-caption} {counter:figure-num}']
+.Damaged / fallen Sira Island bridge in background as scenario helicopters depart.+
+image::Images/Bridge and island area view from departing helos.png[width=800,align="center"]
+
+== Experiment / Analysis Objectives
+
+Document how to make this small change to a CDB dataset.  The images shown were taken from CAE internal R&D in which the changes in the bridge and surrounding area resulting from the IED detonation are 'dynamic', i.e. there was no stopping of the simulation and reloading of a 'static' database.
+
+For this experiment, the objective is to document how this change, the damage to a bridge, will be accomplished in the planned CDB X dataset(s).
+
+=== What needs to change?
+
+The intact 3D model of the bridge needs to be removed.
+One or more new 3D models of the damaged bridge / remaining bridge parts need to added to the dataset and located with associated vector files.
+The main road vector network across the bridge needs to be 'broken' at the bridge, presumably resulting in two 'fragment' road network vectors.
+New imagery, elevation data, and material code raster files need to replace older files representing the cratering and scorched earth and concrete at the two bridge 'ends' where the old bridge 'fit' into the terrain.
+
+=== Change to metadata constraints (security)
+
+For the purpose of this scenario, the entire Yemen CDB dataset was unclassified and without any constraints.   In this scenario, the source data for the damaged bridge is NOT unrestricted.  The analysis needs to examine how more-restrictive source data resulting in 'child' metadata objects inside a CDB X dataset at a high LOD, i.e. the 3D models of the bridge/fragments, the interrupted road network vector, new elevation and imagery data, is 'aggregated' as the object is packaged or contained in higher LOD and larger geospatial tiles or indexing of filesets and directories.
+
+=== Change in temporal metadata
+
+All of the changed files will need to marked with more recent temporal metadata than the data before the change, and the aggregation of new 'child' temporal metadata in higher level objects, files, and directories needs to be documented.
+
+=== Change in provenance/quality metadata.
+
+All of the changed files will need to marked with more recent provenance metadata than the data before the change, and the aggregation of new 'child' provenance metadata in higher level objects, files, and directories needs to be documented.
+
+== Analysis of changed file 'before and after' location within the CDB-X structure
+
+Assuming that the Yemen database has been accurately converted into the CDB-X experimental datasets for the several sub-group experiments.  An analysis will be conducted to show all of the files that need to be located and opened by the self-describing structure of CDB-X to accomplish the change resulting from the damaged bridge.
+
+== Analysis of 'packaging' of the change.
+
+Development of the minimum satisfactory datasets and packaging necessary to develop and disseminate this change in this specific CDB-X dataset, and how it is expected that mission rehearsal and mission planning clients will receive, install, and render the change.
