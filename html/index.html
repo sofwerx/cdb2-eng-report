@@ -1972,16 +1972,16 @@ The 3D model group recommends that a new CDB standard adaopts the latest version
 <h3 id="_investigation_1_make_cdb_3d_models_easier_to_maintainmodify"><a class="anchor" href="#_investigation_1_make_cdb_3d_models_easier_to_maintainmodify"></a>10.7. Investigation 1 - Make CDB 3D models easier to maintain/modify</h3>
 <div class="paragraph">
 <p>One of the objective of the 3D model refactoring in CDB is to facilitate the editing process. CDB 1.X, 3D model encoding is hard because:
-. 1- OpenFlight format has fewer editing tools than other more recent 3D formats. This leads the team to investigate glTF encoding.
-. 2- CDB 1.X model components (geometry, texture, metadata) as well as level of details (lods) of those components are stored in different folder. This distribution is not well supported by editing tools and edits often requires to updated many files, including collections such as zips. This leads the team to investigate a component grouping for all 3D model components.</p>
+. OpenFlight format has fewer editing tools than other more recent 3D formats. This leads the team to investigate glTF encoding.
+. CDB 1.X model components (geometry, texture, metadata) as well as level of details (lods) of those components are stored in different folder. This distribution is not well supported by editing tools and edits often requires to updated many files, including collections such as zips. This leads the team to investigate a component grouping for all 3D model components.</p>
 </div>
 <div class="paragraph">
 <p>While investigating those solution, one needs to understand the motivation behind the original CDB structure and assess if the impact of the change against the original design criteria.</p>
 </div>
 <div class="paragraph">
 <p>CDB 1.X Geospecific 3D models was likely motivated by:
-. 1- A single encoding (OpenFlight) for 3D model geometry: At the time of the original spec, OpenFlight remained the most adopted format for 3D models in the Modeling and simulation industry. It meet the requirement of open format, was efficient binary encoding, and was an editable source format supported by a number of tools. Having a single possible encoding increases interoperability by reducing the number of encoding to support on both the producer and the consumer of CDB. Supporting different encodings (OpenFlight and glTF) may result in less interoperability. In some cases, multiple versions of a CDB with the different encodings may be required as different consumers may only support one encoder.
-. 2- Facilitate parallel access to all components as opposed to sequential. By grouping all components into datasets (textures geometry, material etc&#8230;&#8203;) into tiles and LODs, a client can assess which tile and component is required and fetch all components in parallel, that is without having to read the result of a request before sending a new request (like wait for geometry to identified referred textures and materials).</p>
+. A single encoding (OpenFlight) for 3D model geometry: At the time of the original spec, OpenFlight remained the most adopted format for 3D models in the Modeling and simulation industry. It meet the requirement of open format, was efficient binary encoding, and was an editable source format supported by a number of tools. Having a single possible encoding increases interoperability by reducing the number of encoding to support on both the producer and the consumer of CDB. Supporting different encodings (OpenFlight and glTF) may result in less interoperability. In some cases, multiple versions of a CDB with the different encodings may be required as different consumers may only support one encoder.
+. Facilitate parallel access to all components as opposed to sequential. By grouping all components into datasets (textures geometry, material etc&#8230;&#8203;) into tiles and LODs, a client can assess which tile and component is required and fetch all components in parallel, that is without having to read the result of a request before sending a new request (like wait for geometry to identified referred textures and materials).</p>
 </div>
 <div class="paragraph">
 <p><strong>Focusing on GeoSpecific models</strong>
@@ -2456,24 +2456,95 @@ The initial experimentation targeted the Geospecific models inside the CDB struc
 <div class="sect3">
 <h4 id="_task_2_developing_gltf_cdb_extensions"><a class="anchor" href="#_task_2_developing_gltf_cdb_extensions"></a>11.1. TASK 2 - Developing glTF CDB extensions</h4>
 <div class="paragraph">
-<p><strong>Cesium to provide the input</strong></p>
+<p>The CDB glTF extension contains most of the required CDB-specific features, but there are some possible additions that could be made.</p>
+</div>
+<div class="paragraph">
+<p><strong>Coordinate reference system</strong>
+Openflight can store the projection of a model in its header and this is currently not possible in glTF.
+While not strictly required for CDB (projection is enforced by CDB spec), the group judged this would be useful for interoperability. There&#8217;s also interest in such an extension for One World Terrain, so this should likely be done as a stand-alone extension and not as part of the CDB extension</p>
+</div>
+<div class="paragraph">
+<p><strong>Per face metadata</strong>
+The current spec with openflight allows for storing materials or relative priority per-face. However, in glTF faces are usually collapsed into meshes, so there is no way to store information per polygon.
+With the current extension, the solution would be to group polygons with the same relative priority and material into a single mesh and store the information at the mesh level.</p>
+</div>
+<div class="paragraph">
+<p>There is an extension in progress for OWT to store metadata at the feature level: <a href="https://github.com/CesiumGS/glTF/pull/1">link</a>
+This extension currently supports storing per-vertex metadata, but it could possibly be expanded to support per-face metadata and used in CDB.</p>
+</div>
+<div class="paragraph">
+<p><strong>External References</strong>
+This is one of the larger challenges encountered during our investigations. There has been discussion in the past about including an external reference extension in glTF but it was decided not to include it.
+In past cases, separate index files were used to reference multiple glTF files from a common source. This is sufficient for some cases, but does not help for the use case of sharing geometry between multiple models. For example sharing common roof clutter objects between different buildings</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension"><a class="anchor" href="#_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension"></a>11.2. TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="images/Tank-model_3Dview.jpg" alt="Tank model 3Dview" width="900">
+<div class="paragraph">
+<p>Here are some images of a tank 3D model in both format. This model was selected as benchmark as it contains a number OpenFlight specific constructs leveraged in the CDB. Converting this model will exercise many of the proposed glTF extensions.
+image::images/Tank-model_3Dview.jpg[width=900,align="center"]
+image::images/TankModel_nodes_OpenFlight.png[width=300] image::images/TankModel_nodes_glTF.jpg[width=300]</p>
 </div>
+<div class="sect4">
+<h5 id="_ofgltf_size_comparison_metrics"><a class="anchor" href="#_ofgltf_size_comparison_metrics"></a>OF/gltf size comparison metrics:</h5>
+<div class="paragraph">
+<p><strong>Small CDB size comparisons (898 GS models - without textures)</strong>
+Comparing the size of the 300_GSModelGeometry and 303_GSModelDescriptor folders from the source CDB to the 999_ModelGeometry folder in the converted CDB:</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/TankModel_nodes_OpenFlight.png" alt="TankModel nodes OpenFlight" width="300">
+<table class="tableblock frame-all grid-all" style="width: 30%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Format</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Openflight</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11.0MB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ascii gltf</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.16MB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.83MB</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Size comparison for a single very large model</strong></p>
 </div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/TankModel_nodes_glTF.jpg" alt="TankModel nodes glTF" width="300">
+<table class="tableblock frame-all grid-all" style="width: 30%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Format</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Openflight</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16.7 MB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ascii gltf</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.27 MB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10.78 MB</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In the CDB test case the Ascii glTF is slightly smaller than Openflight, and the binary glb is almost twice as small.
+In the test case with a single large model both the binary and ascii glTF provide a large improvement, but the binary file is actually slightly larger than the ascii gltf. The reason for this is not entirely clear, but it seems to be an outlier based on other tests.</p>
 </div>
 </div>
 </div>
@@ -2490,8 +2561,8 @@ The initial experimentation targeted the Geospecific models inside the CDB struc
 <div class="paragraph">
 <p>This investigation was not done by the 3D group but the tiling group did&#8230;&#8203;.
 This type of solution has significant impact on the CDB data model:
-. 1- The mesh solution merges many CDB datasets into one. The elevation and 3D features along with the imagery are now all merged into one dataset.
-. 2- The attribution to objects on the terrain is currently done in the vector, with a reference to the geometry. I a mesh case, the linkage will likely need to be revered and have the geometry link to the attribution.</p>
+. The mesh solution merges many CDB datasets into one. The elevation and 3D features along with the imagery are now all merged into one dataset.
+. The attribution to objects on the terrain is currently done in the vector, with a reference to the geometry. In a mesh case, the linkage will likely need to be revered and have the geometry link to the attribution.</p>
 </div>
 </div>
 </div>
@@ -3131,7 +3202,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-07 16:19:06 UTC
+Last updated 2020-10-07 16:41:23 UTC
 </div>
 </div>
 <style>
