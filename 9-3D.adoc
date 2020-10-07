@@ -163,14 +163,14 @@ image::images/3d-model-prototyping.png[width=800,align="center"]
 
 === Investigation 1 - Make CDB 3D models easier to maintain/modify
 One of the objective of the 3D model refactoring in CDB is to facilitate the editing process. CDB 1.X, 3D model encoding is hard because:
-. 1- OpenFlight format has fewer editing tools than other more recent 3D formats. This leads the team to investigate glTF encoding.
-. 2- CDB 1.X model components (geometry, texture, metadata) as well as level of details (lods) of those components are stored in different folder. This distribution is not well supported by editing tools and edits often requires to updated many files, including collections such as zips. This leads the team to investigate a component grouping for all 3D model components.
+. OpenFlight format has fewer editing tools than other more recent 3D formats. This leads the team to investigate glTF encoding.
+. CDB 1.X model components (geometry, texture, metadata) as well as level of details (lods) of those components are stored in different folder. This distribution is not well supported by editing tools and edits often requires to updated many files, including collections such as zips. This leads the team to investigate a component grouping for all 3D model components.
 
 While investigating those solution, one needs to understand the motivation behind the original CDB structure and assess if the impact of the change against the original design criteria.  
 
 CDB 1.X Geospecific 3D models was likely motivated by:
-. 1- A single encoding (OpenFlight) for 3D model geometry: At the time of the original spec, OpenFlight remained the most adopted format for 3D models in the Modeling and simulation industry. It meet the requirement of open format, was efficient binary encoding, and was an editable source format supported by a number of tools. Having a single possible encoding increases interoperability by reducing the number of encoding to support on both the producer and the consumer of CDB. Supporting different encodings (OpenFlight and glTF) may result in less interoperability. In some cases, multiple versions of a CDB with the different encodings may be required as different consumers may only support one encoder.
-. 2- Facilitate parallel access to all components as opposed to sequential. By grouping all components into datasets (textures geometry, material etc...) into tiles and LODs, a client can assess which tile and component is required and fetch all components in parallel, that is without having to read the result of a request before sending a new request (like wait for geometry to identified referred textures and materials). 
+. A single encoding (OpenFlight) for 3D model geometry: At the time of the original spec, OpenFlight remained the most adopted format for 3D models in the Modeling and simulation industry. It meet the requirement of open format, was efficient binary encoding, and was an editable source format supported by a number of tools. Having a single possible encoding increases interoperability by reducing the number of encoding to support on both the producer and the consumer of CDB. Supporting different encodings (OpenFlight and glTF) may result in less interoperability. In some cases, multiple versions of a CDB with the different encodings may be required as different consumers may only support one encoder.
+. Facilitate parallel access to all components as opposed to sequential. By grouping all components into datasets (textures geometry, material etc...) into tiles and LODs, a client can assess which tile and component is required and fetch all components in parallel, that is without having to read the result of a request before sending a new request (like wait for geometry to identified referred textures and materials). 
 
 *Focusing on GeoSpecific models*
 The initial experimentation targeted the Geospecific models inside the CDB structure as those represent the most challenge. The geoTypical models would need to be reviewed but will likely apply a sub-set of the GeoSpecific concepts. The list of tasks below show the investigation that took place along with the results:
@@ -182,13 +182,56 @@ OGC CDB 1.X relies on a number of OpenFlight constructs that have no equivalent 
 include::opf-gltf-analysis.adoc[]
 
 ==== TASK 2 - Developing glTF CDB extensions
+The CDB glTF extension contains most of the required CDB-specific features, but there are some possible additions that could be made.
 
-*Cesium to provide the input*
+*Coordinate reference system*
+Openflight can store the projection of a model in its header and this is currently not possible in glTF. 
+While not strictly required for CDB (projection is enforced by CDB spec), the group judged this would be useful for interoperability. There's also interest in such an extension for One World Terrain, so this should likely be done as a stand-alone extension and not as part of the CDB extension
+
+*Per face metadata*
+The current spec with openflight allows for storing materials or relative priority per-face. However, in glTF faces are usually collapsed into meshes, so there is no way to store information per polygon. 
+With the current extension, the solution would be to group polygons with the same relative priority and material into a single mesh and store the information at the mesh level.
+
+There is an extension in progress for OWT to store metadata at the feature level: https://github.com/CesiumGS/glTF/pull/1[link]
+This extension currently supports storing per-vertex metadata, but it could possibly be expanded to support per-face metadata and used in CDB. 
+
+*External References*
+This is one of the larger challenges encountered during our investigations. There has been discussion in the past about including an external reference extension in glTF but it was decided not to include it.
+In past cases, separate index files were used to reference multiple glTF files from a common source. This is sufficient for some cases, but does not help for the use case of sharing geometry between multiple models. For example sharing common roof clutter objects between different buildings
 
 ==== TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension
+Here are some images of a tank 3D model in both format. This model was selected as benchmark as it contains a number OpenFlight specific constructs leveraged in the CDB. Converting this model will exercise many of the proposed glTF extensions.
 image::images/Tank-model_3Dview.jpg[width=900,align="center"]
-image::images/TankModel_nodes_OpenFlight.png[width=300]
-image::images/TankModel_nodes_glTF.jpg[width=300]
+image::images/TankModel_nodes_OpenFlight.png[width=300] image::images/TankModel_nodes_glTF.jpg[width=300]
+
+===== OF/gltf size comparison metrics:
+
+*Small CDB size comparisons (898 GS models - without textures)*
+Comparing the size of the 300_GSModelGeometry and 303_GSModelDescriptor folders from the source CDB to the 999_ModelGeometry folder in the converted CDB:
+
+[width="30%",cols="2,4]
+|===
+|*Format*|*Size*
+|Openflight|11.0MB 
+|Ascii gltf|9.16MB
+|Binary glb|6.83MB
+|=== 
+
+
+*Size comparison for a single very large model*
+
+[width="30%",cols="2,4]
+|===
+|*Format*|*Size*
+|Openflight|16.7 MB 
+|Ascii gltf|9.27 MB
+|Binary glb|10.78 MB
+|=== 
+
+In the CDB test case the Ascii glTF is slightly smaller than Openflight, and the binary glb is almost twice as small. 
+In the test case with a single large model both the binary and ascii glTF provide a large improvement, but the binary file is actually slightly larger than the ascii gltf. The reason for this is not entirely clear, but it seems to be an outlier based on other tests.
+
+
 
 ==== TASK 4 - Define a new structure to store 3D models
 
@@ -200,8 +243,8 @@ image::images/TankModel_nodes_glTF.jpg[width=300]
 === Investigation 2 - Merging all geometry in a tile
 This investigation was not done by the 3D group but the tiling group did....
 This type of solution has significant impact on the CDB data model:
-. 1- The mesh solution merges many CDB datasets into one. The elevation and 3D features along with the imagery are now all merged into one dataset.
-. 2- The attribution to objects on the terrain is currently done in the vector, with a reference to the geometry. I a mesh case, the linkage will likely need to be revered and have the geometry link to the attribution.
+. The mesh solution merges many CDB datasets into one. The elevation and 3D features along with the imagery are now all merged into one dataset.
+. The attribution to objects on the terrain is currently done in the vector, with a reference to the geometry. In a mesh case, the linkage will likely need to be revered and have the geometry link to the attribution.
  
 
 
