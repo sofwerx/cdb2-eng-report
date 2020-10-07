@@ -47,7 +47,7 @@ Req 4 - Layers
 
 |Chap 6.2 - Using hierarchy to organize models helps identify components of intereset |Node Hierarchy fully supported |No |Easy |Yes
 |Comment Attribute a|
-Req 14 â€“ Zone Names
+Req 14 - Zone Names
 
 Chap 6.5.3.1 - Zone Material Index
 
@@ -74,7 +74,7 @@ Comment field is used to extend OpenFlight node for CDB specialization for many 
 
 A number of constructs are available in the OF spec that could be natively encoded in the format instead of using the comment field.
 
-|"extras" property allows storage of an object with any number of named properties |No |Easy |
+|Implemented using CDB extension |Yes |Easy |Yes
 |Node Attribution |Req 13 - Model Zone Bounding Box a|
 Group node has bounding box attribute
 
@@ -87,13 +87,13 @@ Culture Footprint
 a|
 Primitives have min/max properties.
 
-For general nodes, we could store this in the extras property
+For general nodes, this must be stored using the CDB extension
 
-|No |Easy |
+|Yes |Easy |Yes
 |External Referencing a|
 Chap 6.2.4 - Model Master File
 
-Req 6 â€“ Use XRef node to reference other files
+Req 6 - Use XRef node to reference other files
 
 Chap 6.2.5.1 - Models straddling multiple files
 
@@ -139,7 +139,7 @@ Req 29 - Damage State (Transition)
 
 Req 31 - Blur State (Transition)
 
-|Switch node supports multiple masks. Each mask can be named. |No native support for this. |Yes |Medium | 
+|Switch node supports multiple masks. Each mask can be named. |No native support for this. |Yes |Medium |Yes 
 
 |Degree of Freedom Node a|
 
@@ -153,13 +153,17 @@ Skins, Joints, Animations.
 glTF is more flexible/complex than OF when it comes to animated models
 
 |No |Medium |
-|Light Point Node |Req 35 - Model Light Points |Light Point node can represent individual points or light â€˜stringâ€™ a|
+|Light Point Node |Req 35 - Model Light Points |Light Point node can represent individual points or light "string" a|
 No native support.
 
 Existing extensions for light sources but these are a different concept than light points
 
 |Yes |Difficult |
-|Projection |Req 1 - Specify Projections |Required projections for GTModel, GSModel, MModel and T2DModel |Could be specified in extras property at the scene level |No |Easy |
+|Projection |Req 1 - Specify Projections |Required projections for GTModel, GSModel, MModel and T2DModel a|
+Could be done as part of the CDB extension or using a separate extension to improve interoperability.
+
+Technically not required for CDB because CDB enforces the projection of models. GSModels, GTModels and MModels must use flat earth and T2DModels must use geodetic. 
+|No |Medium |
 |Coordinate System a|
 Req 7 - X (left/right), Y (front/back), Z (bottom/top)
 
@@ -191,7 +195,7 @@ Yes
 
 Polygon nodes at the same level with the same textures are merged into one mesh
 
-|Vertex Ordering |Req 11 - CCW order of verts define polygon â€˜frontâ€™ | |GLTF uses CCW ordering of vertices |No |Easy |Yes
+|Vertex Ordering |Req 11 - CCW order of verts define polygon "front" | |GLTF uses CCW ordering of vertices |No |Easy |Yes
 |Relative Priority |Req 12 - Layers of coplanar geometry a|
 Relative Priority attribute at :
 
@@ -200,7 +204,14 @@ Relative Priority attribute at :
 * Object
 * Group
 
-|Not supported natively. Could be stored in "extras" |No |Easy |
+a|Not supported natively. Can be stored in an extension, but per-face priority is more complicated. 
+
+Two possible solutions : 
+
+* Faces with different priorities should be grouped in separate meshes 
+* Use an extension to support per-face metadata
+
+|No |Easy |
 |Textures a|
 Req 37 - Textures stored in separate files from models
 
@@ -217,7 +228,7 @@ Ex: Light map, specular map, reflection map.
 
 Material textures are not a concept in gltf. Would require extension.
 
-|Yes |Hard |
+|Yes |Difficult |Yes
 |===
 
 == 
@@ -239,25 +250,3 @@ OpenFlight capabilities that could be leveraged:
 * Cultural Footprint
 * Point Nodes (Model Points instead of using tranforms)
 
-OpenFlight to glTF converter
-
-30 july 2020:
-
-* Command line tool converting OpenFlight file into glTF
-* Node hierarchy support and ported into glTF json file
-* Polygons are converted to mesh on a per group basis
-* No texture support yet
-* LOD: using MSFT_LOD extension
-** LOD attribution for Significant size is not present
-** LOD attribution â€¦.
-
-____
-image:extracted-media/media/image1.jpeg[image]image:extracted-media/media/image2.png[C:\Users\hermann\AppData\Local\Microsoft\Windows\INetCache\Content.Word\gltfNodes.PNG,width=246,height=562]
-
-glTF import in Blender
-
-image:extracted-media/media/image3.png[image]
-____
-
-* LOD nodes (Extension) are not supported in Blender â€“ imported as just a node, with all 3 LODs visible at the same time (but could be separated as they are in different nodes)
-* No node attribution

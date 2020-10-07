@@ -2,11 +2,11 @@
 == 3D Models and other 3D Content
 
 
-This section discusses the proposal to use glTF to encode and store 3D models in the CDB X data store. This section also describes the prototype testing performed during the the <activity>. In CDB, 3D models are such phenomenon as trees (static), transmission towers, or helicopters (dynamic).
+This section discusses the proposal to use glTF to encode and store 3D models in the CDB X data store. This section also describes the prototype testing performed during the the <activity>. In CDB, 3D models are such phenomenon as trees (static), buildings, transmission towers, or helicopters (dynamic).
 
 Currently, the OpenFlight specification is used to define all the 3D models in a CDB data store. The current OGC CDB 1.x core standard and https://portal.opengeospatial.org/files/16-009r4[Volume 6 CDB Rules for Encoding Data using OpenFlight] specifies all of the rules and requirements for using OpenFlight models in a CDB data store. The early advantage OpenFlight held over many 3d geometry model file formats (.obj, .dxf, .3ds) was its specific real-time 3d graphics industry design.
 
-For CDB X, the particpants in the 3D Geospatial Series Tech Sprint II – OGC CDB 2.0 activity agreed that a more modern 3D model encoding and transmission format should be explored. Based on wide adoption and use in many domains, the Khronos glTF 2.0 specification was selected for further research and prototyping. A key part of this activity was to perform a detailed analysis of glTF functionality as compared to OpenFlight capabilities. The participants agreed that no (or as little as possible) funcitonality should be lost. NOTE: glTF will not be a replacement for OpenFlight in a CDB data store. Instead, glTF is recommended as the preferred encoding for CDB 3D Models. There are a few OpenFlight to glTF conversion tools.
+For CDB X, the participants in the 3D Geospatial Series Tech Sprint II – OGC CDB 2.0 activity agreed that a more modern 3D model encoding and transmission format should be explored. Based on wide adoption and use in many domains, the Khronos glTF 2.0 specification was selected for further research and prototyping. A key part of this activity was to perform a detailed analysis of glTF functionality as compared to OpenFlight capabilities. The participants agreed that no (or as little as possible) functionality should be lost. NOTE: glTF will not be a replacement for OpenFlight in a CDB data store. Instead, glTF is recommended as the preferred encoding for CDB 3D Models. There are a few OpenFlight to glTF conversion tools.
 
 The remainder of this section discusses the findings of the comparison as well as lessons learned from the prototyping activity.
 
@@ -35,7 +35,7 @@ CDB catalog service for 3D tile inside a tile
 
 === CDB X Requirements for 3D Model Components
 
-Based on the questions and followup discussion, the CDB X participants derived the following requirements for CDB-X model components.
+Based on the questions and follow-up discussion, the CDB X participants derived the following requirements for CDB-X model components.
 
 [width="90%",cols="2,6"]
 |===
@@ -99,7 +99,7 @@ The following current CDB attribute changes were explored.
 - CNAM - no longer needed
 - FACC - FSC - Change to GGDM - impact on field type
 - MLOD - (LOD of the model to use) This is closely linked to tiling and LODs of vector where each point features would point to a model at a given LOD (should be lower than feature vector LOD). Presume at the moment we keep this.
-- MODL - (Name of the model to use). I nthis case, we should point to a metadata file for the model. Alternatively, the content of the metadata could be encoded in GeoPackage - which is bad for tool operability.
+- MODL - (Name of the model to use). In this case, we should point to a metadata file for the model. Alternatively, the content of the metadata could be encoded in GeoPackage - which is bad for tool operability.
 
 A key challenge to resolve is how to link the model data with the feature data. Currently, the MLOD and MODL are composed and lookup into the tile index of the point feature. Is that functional capability (approach?) preserved? Do we use a model table in Geopackage with a primary key? As decided, models would remain separate files and not encoded in the GeoPackage. So, a unique file name is required for this experiment.
 
@@ -107,9 +107,12 @@ A key challenge to resolve is how to link the model data with the feature data. 
 
 ==== OpenFlight
 
-OpenFlight (or .flt) is an open, freely available 3d geometry model file format originally developed by Software Systems Inc. for its MultiGen real-time 3d modeling package. OpenFlight is a format supported widely in modeling and simulation community for dynamic and static 3D model. In CDB 1.x, OpenFlight is used for  the  representation  of  3D  dynamic  models  and  RGB  format  for  the  3D model’s textures. However, while widely used and there are extensive .flt model libraries, OpenFlight is long in the tooth.
+OpenFlight (or .flt) is an open, freely available 3d geometry model file format originally developed by Software Systems Inc. for its MultiGen real-time 3d modeling package and now actively maintained by the OGC member https://www.presagis.com/en/[Presagis]. OpenFlight is an open format, binary encoded with support for user extensions, which is supported widely in modeling and simulation community for dynamic and static 3D model. OpenFlight has numerous constructs that have no equivalent to date in other open standards. In CDB 1.x, OpenFlight is used for  the  representation  of  3D  static and dynamic  models  and  RGB  format  for  the  3D model’s textures. OpenFlight is now an OGC Community standard.
 
 https://portal.opengeospatial.org/files/90663[OpenFlight v16]
+
+*recommendation*
+The 3D model group recommends that a new CDB standard adaopts the latest version of OpenFlight, leveraging the extended materials, hot spots and other important constructs it brings.
 
 ==== GL Transmission Format (glTF) 2.0
 
@@ -129,9 +132,6 @@ https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_mate
 
 https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform[KHR_texture_transform] is an extension that adds offset, rotation, and scale properties to textureInfo structures. These properties would typically be implemented as an affine transform on the UV coordinates. 
 
-=== CDB OpenFlight and glTF Feature Analysis
-
-include::opf-gltf-analysis.adoc[]
 
 === Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.
 
@@ -159,3 +159,49 @@ Both Profile 1 and Profile 2
 [#img_3d-model-experiments,reftext='{figure-caption} {counter:figure-num}']
 .Profles and Experiments for CBD-X 3D Models.
 image::images/3d-model-prototyping.png[width=800,align="center"]
+
+
+=== Investigation 1 - Make CDB 3D models easier to maintain/modify
+One of the objective of the 3D model refactoring in CDB is to facilitate the editing process. CDB 1.X, 3D model encoding is hard because:
+. 1- OpenFlight format has fewer editing tools than other more recent 3D formats. This leads the team to investigate glTF encoding.
+. 2- CDB 1.X model components (geometry, texture, metadata) as well as level of details (lods) of those components are stored in different folder. This distribution is not well supported by editing tools and edits often requires to updated many files, including collections such as zips. This leads the team to investigate a component grouping for all 3D model components.
+
+While investigating those solution, one needs to understand the motivation behind the original CDB structure and assess if the impact of the change against the original design criteria.  
+
+CDB 1.X Geospecific 3D models was likely motivated by:
+. 1- A single encoding (OpenFlight) for 3D model geometry: At the time of the original spec, OpenFlight remained the most adopted format for 3D models in the Modeling and simulation industry. It meet the requirement of open format, was efficient binary encoding, and was an editable source format supported by a number of tools. Having a single possible encoding increases interoperability by reducing the number of encoding to support on both the producer and the consumer of CDB. Supporting different encodings (OpenFlight and glTF) may result in less interoperability. In some cases, multiple versions of a CDB with the different encodings may be required as different consumers may only support one encoder.
+. 2- Facilitate parallel access to all components as opposed to sequential. By grouping all components into datasets (textures geometry, material etc...) into tiles and LODs, a client can assess which tile and component is required and fetch all components in parallel, that is without having to read the result of a request before sending a new request (like wait for geometry to identified referred textures and materials). 
+
+*Focusing on GeoSpecific models*
+The initial experimentation targeted the Geospecific models inside the CDB structure as those represent the most challenge. The geoTypical models would need to be reviewed but will likely apply a sub-set of the GeoSpecific concepts. The list of tasks below show the investigation that took place along with the results:
+
+
+==== TASK 1 - CDB OpenFlight and glTF Feature Analysis
+
+OGC CDB 1.X relies on a number of OpenFlight constructs that have no equivalent in glTF. One of the first task of the group was to list all PGC CDB 1.X requirements w.r.t. 3D model encodings and assess if glTF has equivalent constructs.  The following document reports on this analysis.
+include::opf-gltf-analysis.adoc[]
+
+==== TASK 2 - Developing glTF CDB extensions
+
+*Cesium to provide the input*
+
+==== TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension
+image::images/Tank-model_3Dview.jpg[width=900,align="center"]
+image::images/TankModel_nodes_OpenFlight.png[width=300]
+image::images/TankModel_nodes_glTF.jpg[width=300]
+
+==== TASK 4 - Define a new structure to store 3D models
+
+
+==== TASK 5 - Define an index file for all 3D model components
+
+
+
+=== Investigation 2 - Merging all geometry in a tile
+This investigation was not done by the 3D group but the tiling group did....
+This type of solution has significant impact on the CDB data model:
+. 1- The mesh solution merges many CDB datasets into one. The elevation and 3D features along with the imagery are now all merged into one dataset.
+. 2- The attribution to objects on the terrain is currently done in the vector, with a reference to the geometry. I a mesh case, the linkage will likely need to be revered and have the geometry link to the attribution.
+ 
+
+
