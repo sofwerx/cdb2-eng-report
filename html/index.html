@@ -524,12 +524,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_gl_transmission_format_gltf_2_0">10.5.2. GL Transmission Format (glTF) 2.0</a></li>
 </ul>
 </li>
-<li><a href="#_cdb_openflight_and_gltf_feature_analysis">10.6. CDB OpenFlight and glTF Feature Analysis</a></li>
+<li><a href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature">10.6. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</a></li>
+<li><a href="#_investigation_1_make_cdb_3d_models_easier_to_maintainmodify">10.7. Investigation 1 - Make CDB 3D models easier to maintain/modify</a>
+<ul class="sectlevel3">
+<li><a href="#_task_1_cdb_openflight_and_gltf_feature_analysis">10.7.1. TASK 1 - CDB OpenFlight and glTF Feature Analysis</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_supporting_more_than_cdb_1_x">11. Supporting more than CDB 1.X:</a>
-<ul class="sectlevel2">
-<li><a href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature">11.1. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</a></li>
+<ul class="sectlevel3">
+<li><a href="#_task_2_developing_gltf_cdb_extensions">11.1. TASK 2 - Developing glTF CDB extensions</a></li>
+<li><a href="#_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension">11.2. TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension</a></li>
+<li><a href="#_task_4_define_a_new_structure_to_store_3d_models">11.3. TASK 4 - Define a new structure to store 3D models</a></li>
+<li><a href="#_task_5_define_an_index_file_for_all_3d_model_components">11.4. TASK 5 - Define an index file for all 3D model components</a></li>
+<li><a href="#_investigation_2_merging_all_geometry_in_a_tile">11.5. Investigation 2 - Merging all geometry in a tile</a></li>
 </ul>
 </li>
 <li><a href="#metadata">12. CDB X Metadata and Integration</a></li>
@@ -1651,13 +1660,13 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <h2 id="threedcontent"><a class="anchor" href="#threedcontent"></a>10. 3D Models and other 3D Content</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section discusses the proposal to use glTF to encode and store 3D models in the CDB X data store. This section also describes the prototype testing performed during the the &lt;activity&gt;. In CDB, 3D models are such phenomenon as trees (static), transmission towers, or helicopters (dynamic).</p>
+<p>This section discusses the proposal to use glTF to encode and store 3D models in the CDB X data store. This section also describes the prototype testing performed during the the &lt;activity&gt;. In CDB, 3D models are such phenomenon as trees (static), buildings, transmission towers, or helicopters (dynamic).</p>
 </div>
 <div class="paragraph">
 <p>Currently, the OpenFlight specification is used to define all the 3D models in a CDB data store. The current OGC CDB 1.x core standard and <a href="https://portal.opengeospatial.org/files/16-009r4">Volume 6 CDB Rules for Encoding Data using OpenFlight</a> specifies all of the rules and requirements for using OpenFlight models in a CDB data store. The early advantage OpenFlight held over many 3d geometry model file formats (.obj, .dxf, .3ds) was its specific real-time 3d graphics industry design.</p>
 </div>
 <div class="paragraph">
-<p>For CDB X, the particpants in the 3D Geospatial Series Tech Sprint II – OGC CDB 2.0 activity agreed that a more modern 3D model encoding and transmission format should be explored. Based on wide adoption and use in many domains, the Khronos glTF 2.0 specification was selected for further research and prototyping. A key part of this activity was to perform a detailed analysis of glTF functionality as compared to OpenFlight capabilities. The participants agreed that no (or as little as possible) funcitonality should be lost. NOTE: glTF will not be a replacement for OpenFlight in a CDB data store. Instead, glTF is recommended as the preferred encoding for CDB 3D Models. There are a few OpenFlight to glTF conversion tools.</p>
+<p>For CDB X, the participants in the 3D Geospatial Series Tech Sprint II – OGC CDB 2.0 activity agreed that a more modern 3D model encoding and transmission format should be explored. Based on wide adoption and use in many domains, the Khronos glTF 2.0 specification was selected for further research and prototyping. A key part of this activity was to perform a detailed analysis of glTF functionality as compared to OpenFlight capabilities. The participants agreed that no (or as little as possible) functionality should be lost. NOTE: glTF will not be a replacement for OpenFlight in a CDB data store. Instead, glTF is recommended as the preferred encoding for CDB 3D Models. There are a few OpenFlight to glTF conversion tools.</p>
 </div>
 <div class="paragraph">
 <p>The remainder of this section discusses the findings of the comparison as well as lessons learned from the prototyping activity.</p>
@@ -1724,7 +1733,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <div class="sect2">
 <h3 id="_cdb_x_requirements_for_3d_model_components"><a class="anchor" href="#_cdb_x_requirements_for_3d_model_components"></a>10.2. CDB X Requirements for 3D Model Components</h3>
 <div class="paragraph">
-<p>Based on the questions and followup discussion, the CDB X participants derived the following requirements for CDB-X model components.</p>
+<p>Based on the questions and follow-up discussion, the CDB X participants derived the following requirements for CDB-X model components.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1840,7 +1849,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <p>MLOD - (LOD of the model to use) This is closely linked to tiling and LODs of vector where each point features would point to a model at a given LOD (should be lower than feature vector LOD). Presume at the moment we keep this.</p>
 </li>
 <li>
-<p>MODL - (Name of the model to use). I nthis case, we should point to a metadata file for the model. Alternatively, the content of the metadata could be encoded in GeoPackage - which is bad for tool operability.</p>
+<p>MODL - (Name of the model to use). In this case, we should point to a metadata file for the model. Alternatively, the content of the metadata could be encoded in GeoPackage - which is bad for tool operability.</p>
 </li>
 </ul>
 </div>
@@ -1854,10 +1863,14 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <div class="sect3">
 <h4 id="_openflight"><a class="anchor" href="#_openflight"></a>10.5.1. OpenFlight</h4>
 <div class="paragraph">
-<p>OpenFlight (or .flt) is an open, freely available 3d geometry model file format originally developed by Software Systems Inc. for its MultiGen real-time 3d modeling package. OpenFlight is a format supported widely in modeling and simulation community for dynamic and static 3D model. In CDB 1.x, OpenFlight is used for  the  representation  of  3D  dynamic  models  and  RGB  format  for  the  3D model’s textures. However, while widely used and there are extensive .flt model libraries, OpenFlight is long in the tooth.</p>
+<p>OpenFlight (or .flt) is an open, freely available 3d geometry model file format originally developed by Software Systems Inc. for its MultiGen real-time 3d modeling package and now actively maintained by the OGC member <a href="https://www.presagis.com/en/">Presagis</a>. OpenFlight is an open format, binary encoded with support for user extensions, which is supported widely in modeling and simulation community for dynamic and static 3D model. OpenFlight has numerous constructs that have no equivalent to date in other open standards. In CDB 1.x, OpenFlight is used for  the  representation  of  3D  static and dynamic  models  and  RGB  format  for  the  3D model’s textures. OpenFlight is now an OGC Community standard.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://portal.opengeospatial.org/files/90663">OpenFlight v16</a></p>
+</div>
+<div class="paragraph">
+<p><strong>recommendation</strong>
+The 3D model group recommends that a new CDB standard adaopts the latest version of OpenFlight, leveraging the extended materials, hot spots and other important constructs it brings.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1889,9 +1902,96 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cdb_openflight_and_gltf_feature_analysis"><a class="anchor" href="#_cdb_openflight_and_gltf_feature_analysis"></a>10.6. CDB OpenFlight and glTF Feature Analysis</h3>
+<h3 id="_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"><a class="anchor" href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"></a>10.6. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</h3>
 <div class="paragraph">
-<p>==</p>
+<p>Two profiles.</p>
+</div>
+<div class="paragraph">
+<p>Profile 1 Storing the mesh in as 3D tile: Experiments</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Question: How to store LODs? In glTF extensions, In 3D tiles, in separate glTF</p>
+</li>
+<li>
+<p>Question: Are there missing glTF constructs?</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Profile 2 Storing the mesh in as 3D tile (Editor&#8217;s note: <code>Why just 3D Tiles? Why not a more general approach that allows other encodings/approaches?</code>)</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Question: What is the ability to source edit the mesh?</p>
+</li>
+<li>
+<p>Question: Mixing GeoPackage with 3D tiles?</p>
+</li>
+<li>
+<p>Question: CDB catalog service for 3D tile inside a tile</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Both Profile 1 and Profile 2</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Question: What are the efficient format/packing for each different end-points:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>ATAK</p>
+</li>
+<li>
+<p>Mission command (wms/wfs)</p>
+</li>
+<li>
+<p>Modsim</p>
+</li>
+<li>
+<p>Gaming</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div id="img_3d-model-experiments" class="imageblock text-center">
+<div class="content">
+<img src="images/3d-model-prototyping.png" alt="3d model prototyping" width="800">
+</div>
+<div class="title">Figure ATTPh3 - 8. Profles and Experiments for CBD-X 3D Models.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_investigation_1_make_cdb_3d_models_easier_to_maintainmodify"><a class="anchor" href="#_investigation_1_make_cdb_3d_models_easier_to_maintainmodify"></a>10.7. Investigation 1 - Make CDB 3D models easier to maintain/modify</h3>
+<div class="paragraph">
+<p>One of the objective of the 3D model refactoring in CDB is to facilitate the editing process. CDB 1.X, 3D model encoding is hard because:
+. 1- OpenFlight format has fewer editing tools than other more recent 3D formats. This leads the team to investigate glTF encoding.
+. 2- CDB 1.X model components (geometry, texture, metadata) as well as level of details (lods) of those components are stored in different folder. This distribution is not well supported by editing tools and edits often requires to updated many files, including collections such as zips. This leads the team to investigate a component grouping for all 3D model components.</p>
+</div>
+<div class="paragraph">
+<p>While investigating those solution, one needs to understand the motivation behind the original CDB structure and assess if the impact of the change against the original design criteria.</p>
+</div>
+<div class="paragraph">
+<p>CDB 1.X Geospecific 3D models was likely motivated by:
+. 1- A single encoding (OpenFlight) for 3D model geometry: At the time of the original spec, OpenFlight remained the most adopted format for 3D models in the Modeling and simulation industry. It meet the requirement of open format, was efficient binary encoding, and was an editable source format supported by a number of tools. Having a single possible encoding increases interoperability by reducing the number of encoding to support on both the producer and the consumer of CDB. Supporting different encodings (OpenFlight and glTF) may result in less interoperability. In some cases, multiple versions of a CDB with the different encodings may be required as different consumers may only support one encoder.
+. 2- Facilitate parallel access to all components as opposed to sequential. By grouping all components into datasets (textures geometry, material etc&#8230;&#8203;) into tiles and LODs, a client can assess which tile and component is required and fetch all components in parallel, that is without having to read the result of a request before sending a new request (like wait for geometry to identified referred textures and materials).</p>
+</div>
+<div class="paragraph">
+<p><strong>Focusing on GeoSpecific models</strong>
+The initial experimentation targeted the Geospecific models inside the CDB structure as those represent the most challenge. The geoTypical models would need to be reviewed but will likely apply a sub-set of the GeoSpecific concepts. The list of tasks below show the investigation that took place along with the results:</p>
+</div>
+<div class="sect3">
+<h4 id="_task_1_cdb_openflight_and_gltf_feature_analysis"><a class="anchor" href="#_task_1_cdb_openflight_and_gltf_feature_analysis"></a>10.7.1. TASK 1 - CDB OpenFlight and glTF Feature Analysis</h4>
+<div class="paragraph">
+<p>OGC CDB 1.X relies on a number of OpenFlight constructs that have no equivalent in glTF. One of the first task of the group was to list all PGC CDB 1.X requirements w.r.t. 3D model encodings and assess if glTF has equivalent constructs.  The following document reports on this analysis.
+==</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1957,7 +2057,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Comment Attribute</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Req 14 â€“ Zone Names</p>
+<p>Req 14 - Zone Names</p>
 </div>
 <div class="paragraph">
 <p>Chap 6.5.3.1 - Zone Material Index</p>
@@ -1995,10 +2095,10 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <div class="paragraph">
 <p>A number of constructs are available in the OF spec that could be natively encoded in the format instead of using the comment field.</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"extras" property allows storage of an object with any number of named properties</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implemented using CDB extension</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Node Attribution</p></td>
@@ -2019,11 +2119,11 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <p>Primitives have min/max properties.</p>
 </div>
 <div class="paragraph">
-<p>For general nodes, we could store this in the extras property</p>
+<p>For general nodes, this must be stored using the CDB extension</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">External Referencing</p></td>
@@ -2031,7 +2131,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <p>Chap 6.2.4 - Model Master File</p>
 </div>
 <div class="paragraph">
-<p>Req 6 â€“ Use XRef node to reference other files</p>
+<p>Req 6 - Use XRef node to reference other files</p>
 </div>
 <div class="paragraph">
 <p>Chap 6.2.5.1 - Models straddling multiple files</p>
@@ -2106,7 +2206,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <td class="tableblock halign-left valign-top"><p class="tableblock">No native support for this.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Degree of Freedom Node</p></td>
@@ -2130,7 +2230,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Light Point Node</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Req 35 - Model Light Points</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Light Point node can represent individual points or light â€˜stringâ€™</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Light Point node can represent individual points or light "string"</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>No native support.</p>
 </div>
@@ -2145,9 +2245,14 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <td class="tableblock halign-left valign-top"><p class="tableblock">Projection</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Req 1 - Specify Projections</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Required projections for GTModel, GSModel, MModel and T2DModel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Could be specified in extras property at the scene level</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Could be done as part of the CDB extension or using a separate extension to improve interoperability.</p>
+</div>
+<div class="paragraph">
+<p>Technically not required for CDB because CDB enforces the projection of models. GSModels, GTModels and MModels must use flat earth and T2DModels must use geodetic.</p>
+</div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -2225,7 +2330,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Vertex Ordering</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Req 11 - CCW order of verts define polygon â€˜frontâ€™</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Req 11 - CCW order of verts define polygon "front"</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GLTF uses CCW ordering of vertices</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
@@ -2254,7 +2359,22 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 </li>
 </ul>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Not supported natively. Could be stored in "extras"</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Not supported natively. Can be stored in an extension, but per-face priority is more complicated.</p>
+</div>
+<div class="paragraph">
+<p>Two possible solutions :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Faces with different priorities should be grouped in separate meshes</p>
+</li>
+<li>
+<p>Use an extension to support per-face metadata</p>
+</li>
+</ul>
+</div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Easy</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2284,8 +2404,8 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <p>Material textures are not a concept in gltf. Would require extension.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hard</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Difficult</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 </tr>
 </tbody>
 </table>
@@ -2300,6 +2420,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 </div>
 <div class="paragraph">
 <p>==</p>
+</div>
 </div>
 </div>
 </div>
@@ -2332,129 +2453,45 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 </li>
 </ul>
 </div>
+<div class="sect3">
+<h4 id="_task_2_developing_gltf_cdb_extensions"><a class="anchor" href="#_task_2_developing_gltf_cdb_extensions"></a>11.1. TASK 2 - Developing glTF CDB extensions</h4>
 <div class="paragraph">
-<p>OpenFlight to glTF converter</p>
+<p><strong>Cesium to provide the input</strong></p>
 </div>
-<div class="paragraph">
-<p>30 july 2020:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Command line tool converting OpenFlight file into glTF</p>
-</li>
-<li>
-<p>Node hierarchy support and ported into glTF json file</p>
-</li>
-<li>
-<p>Polygons are converted to mesh on a per group basis</p>
-</li>
-<li>
-<p>No texture support yet</p>
-</li>
-<li>
-<p>LOD: using MSFT_LOD extension</p>
-<div class="ulist">
-<ul>
-<li>
-<p>LOD attribution for Significant size is not present</p>
-</li>
-<li>
-<p>LOD attribution â€¦.</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension"><a class="anchor" href="#_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension"></a>11.2. TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension</h4>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/Tank-model_3Dview.jpg" alt="Tank model 3Dview" width="900">
 </div>
-</li>
-</ul>
 </div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p><span class="image"><img src="extracted-media/media/image1.jpeg" alt="image"></span><span class="image"><img src="extracted-media/media/image2.png" alt="C:\Users\hermann\AppData\Local\Microsoft\Windows\INetCache\Content.Word\gltfNodes.PNG" width="246" height="562"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/TankModel_nodes_OpenFlight.png" alt="TankModel nodes OpenFlight" width="300">
 </div>
-<div class="paragraph">
-<p>glTF import in Blender</p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="extracted-media/media/image3.png" alt="image"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/TankModel_nodes_glTF.jpg" alt="TankModel nodes glTF" width="300">
 </div>
-</blockquote>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>LOD nodes (Extension) are not supported in Blender â€“ imported as just a node, with all 3 LODs visible at the same time (but could be separated as they are in different nodes)</p>
-</li>
-<li>
-<p>No node attribution</p>
-</li>
-</ul>
+</div>
+<div class="sect3">
+<h4 id="_task_4_define_a_new_structure_to_store_3d_models"><a class="anchor" href="#_task_4_define_a_new_structure_to_store_3d_models"></a>11.3. TASK 4 - Define a new structure to store 3D models</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_task_5_define_an_index_file_for_all_3d_model_components"><a class="anchor" href="#_task_5_define_an_index_file_for_all_3d_model_components"></a>11.4. TASK 5 - Define an index file for all 3D model components</h4>
+
 </div>
 <div class="sect2">
-<h3 id="_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"><a class="anchor" href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"></a>11.1. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</h3>
+<h3 id="_investigation_2_merging_all_geometry_in_a_tile"><a class="anchor" href="#_investigation_2_merging_all_geometry_in_a_tile"></a>11.5. Investigation 2 - Merging all geometry in a tile</h3>
 <div class="paragraph">
-<p>Two profiles.</p>
-</div>
-<div class="paragraph">
-<p>Profile 1 Storing the mesh in as 3D tile: Experiments</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Question: How to store LODs? In glTF extensions, In 3D tiles, in separate glTF</p>
-</li>
-<li>
-<p>Question: Are there missing glTF constructs?</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Profile 2 Storing the mesh in as 3D tile (Editor&#8217;s note: <code>Why just 3D Tiles? Why not a more general approach that allows other encodings/approaches?</code>)</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Question: What is the ability to source edit the mesh?</p>
-</li>
-<li>
-<p>Question: Mixing GeoPackage with 3D tiles?</p>
-</li>
-<li>
-<p>Question: CDB catalog service for 3D tile inside a tile</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Both Profile 1 and Profile 2</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Question: What are the efficient format/packing for each different end-points:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>ATAK</p>
-</li>
-<li>
-<p>Mission command (wms/wfs)</p>
-</li>
-<li>
-<p>Modsim</p>
-</li>
-<li>
-<p>Gaming</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div id="img_3d-model-experiments" class="imageblock text-center">
-<div class="content">
-<img src="images/3d-model-prototyping.png" alt="3d model prototyping" width="800">
-</div>
-<div class="title">Figure ATTPh3 - 8. Profles and Experiments for CBD-X 3D Models.</div>
+<p>This investigation was not done by the 3D group but the tiling group did&#8230;&#8203;.
+This type of solution has significant impact on the CDB data model:
+. 1- The mesh solution merges many CDB datasets into one. The elevation and 3D features along with the imagery are now all merged into one dataset.
+. 2- The attribution to objects on the terrain is currently done in the vector, with a reference to the geometry. I a mesh case, the linkage will likely need to be revered and have the geometry link to the attribution.</p>
 </div>
 </div>
 </div>
@@ -3094,7 +3131,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-02 17:16:09 UTC
+Last updated 2020-10-07 16:19:06 UTC
 </div>
 </div>
 <style>
