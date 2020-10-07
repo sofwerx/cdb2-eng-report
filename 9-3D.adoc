@@ -111,8 +111,11 @@ OpenFlight (or .flt) is an open, freely available 3d geometry model file format 
 
 https://portal.opengeospatial.org/files/90663[OpenFlight v16]
 
-*recommendation*
+.recommendation
+[source,ruby]
+----
 The 3D model group recommends that a new CDB standard adaopts the latest version of OpenFlight, leveraging the extended materials, hot spots and other important constructs it brings.
+----
 
 ==== GL Transmission Format (glTF) 2.0
 
@@ -192,8 +195,7 @@ While not strictly required for CDB (projection is enforced by CDB spec), the gr
 The current spec with openflight allows for storing materials or relative priority per-face. However, in glTF faces are usually collapsed into meshes, so there is no way to store information per polygon. 
 With the current extension, the solution would be to group polygons with the same relative priority and material into a single mesh and store the information at the mesh level.
 
-There is an extension in progress for OWT to store metadata at the feature level: https://github.com/CesiumGS/glTF/pull/1[link]
-This extension currently supports storing per-vertex metadata, but it could possibly be expanded to support per-face metadata and used in CDB. 
+There is an extension in progress for OWT to store metadata at the feature level. https://github.com/CesiumGS/glTF/pull/1[This extension] currently supports storing per-vertex metadata, but it could possibly be expanded to support per-face metadata and used in CDB. 
 
 *External References*
 This is one of the larger challenges encountered during our investigations. There has been discussion in the past about including an external reference extension in glTF but it was decided not to include it.
@@ -202,7 +204,8 @@ In past cases, separate index files were used to reference multiple glTF files f
 ==== TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension
 Here are some images of a tank 3D model in both format. This model was selected as benchmark as it contains a number OpenFlight specific constructs leveraged in the CDB. Converting this model will exercise many of the proposed glTF extensions.
 image::images/Tank-model_3Dview.jpg[width=900,align="center"]
-image::images/TankModel_nodes_OpenFlight.png[width=300] image::images/TankModel_nodes_glTF.jpg[width=300]
+image::images/TankModel_nodes_OpenFlight.png[width=300] 
+image::images/TankModel_nodes_glTF.jpg[width=300]
 
 ===== OF/gltf size comparison metrics:
 
