@@ -2566,6 +2566,12 @@ In the test case with a single large model both the binary and ascii glTF provid
 <div class="sect3">
 <h4 id="_task_4_define_a_new_structure_to_store_3d_models"><a class="anchor" href="#_task_4_define_a_new_structure_to_store_3d_models"></a>11.3. TASK 4 - Define a new structure to store 3D models</h4>
 <div class="paragraph">
+<p>The storing of 3D models can be either in files and folders or inside a Geopackage.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_task_5_define_an_index_file_for_all_3d_model_components"><a class="anchor" href="#_task_5_define_an_index_file_for_all_3d_model_components"></a>11.4. TASK 5 - Define an index file for all 3D model components</h4>
+<div class="paragraph">
 <p>The grouping of all components of a 3D model together imposes the presence of an indexing file, listing all those components. The list of components proposed include: Feature attribution (GGDM), reference to source model used, model exterior, Model interior, Collision volume and nav mesh. Splitting those constructs into separate component follows the current logic of CDB splitting the dataset in order to quickly access only required data without having to load larger component that include all only to reject most of it. It also server the purpose of rapid update by allowing the change of one element without the other (update nav mesh, or interior without changing the complete model).</p>
 </div>
 <div class="paragraph">
@@ -2578,11 +2584,21 @@ There has a request to also store the model georeferencing inside this file. The
 <div class="paragraph">
 <p>This file content and structure requires a review and alignment with the rest of the CDB metadata.</p>
 </div>
+<div class="paragraph">
+<p><strong>task:</strong> convert sample to object model and produce associated schema.
+.<strong>Sample XML model indexing file</strong></p>
+</div>
 <div class="listingblock">
-<div class="title"><strong>Sample XML model indexing file</strong></div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="comment">&lt;!-- &quot;Model&quot; node includes encoding statement. Should this info be pushed down,
+     maybe in the geometry node? Do we allow multiple encodings all referenced
+         in the same indxing file?
+--&gt;</span>
 <span class="tag">&lt;Model</span> <span class="attribute-name">encoding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">OpenFlight</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">multi-instance</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="comment">&lt;!-- &quot;Name&quot; has to be unique in a tile. Do we need this info or we rely on the filename
+             or geopackage entry name.
+    --&gt;</span>
         <span class="tag">&lt;Name&gt;</span>cdb_swa_gs_hotel_03<span class="tag">&lt;/name&gt;</span>
         <span class="tag">&lt;Identification&gt;</span>
                 <span class="tag">&lt;GGDM&gt;</span>
@@ -2591,10 +2607,16 @@ There has a request to also store the model georeferencing inside this file. The
                 <span class="tag">&lt;/GGDM&gt;</span>
         <span class="tag">&lt;/Identification&gt;</span>
 
-        <span class="tag">&lt;model_complete_source</span> <span class="attribute-name">file</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">My_hotel_model_full_Detail.obj</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">encoding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">obj</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="comment">&lt;!-- model_complete_source - do we allow uses to store this in CDB? Where? Any format?
+         This model would typically include all LODs and possibly constructs not supported
+         by CDB. This would likely also require the storing of the source textures. As such,
+         a zip is likely a better container. Still, inclusion of this will increase CDB size
+    --&gt;</span>
+        <span class="tag">&lt;model_complete_source</span> <span class="attribute-name">file</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">My_hotel_model_full_Detail.obj</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">encoding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">obj</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
 
-        <span class="tag">&lt;/model_complete_source&gt;</span>
-
+    <span class="comment">&lt;!-- model_exterior - Following current CDB, exterior (shell) of a model should be seperated
+         from interiror and other mesh representation for load/stream efficency.
+        --&gt;</span>
         <span class="tag">&lt;model_exterior&gt;</span>
                 <span class="tag">&lt;LODherarchy</span> <span class="attribute-name">coarsestCDBLOD</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">finestCDBLOD</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
                         <span class="tag">&lt;RootModel&gt;</span>  <span class="comment">&lt;!-- root model points to all LODs --&gt;</span>
@@ -2617,6 +2639,11 @@ There has a request to also store the model georeferencing inside this file. The
                         <span class="tag">&lt;/LevelOfDetail&gt;</span>
                 <span class="tag">&lt;/LODherarchy&gt;</span>
         <span class="tag">&lt;/model_exterior&gt;</span>
+    <span class="comment">&lt;!-- model_interior - The linkage between exteriror and interior geometry currently relies on XREF in
+             OpenFlight in order to position/connect interior with exterior. (requirement for glTF)
+                 Alternatively, model with the interior could be a higher LOD of an object. This is not precluded
+                 by the standard (as long a geometry comply to CDB geometry LOD rules).
+        --&gt;</span>
         <span class="tag">&lt;model_interior&gt;</span>
                 <span class="tag">&lt;LODherarchy</span> <span class="attribute-name">coarsestCDBLOD</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">finestCDBLOD</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
                         <span class="tag">&lt;RootModel&gt;</span>  <span class="comment">&lt;!-- root model points to all LODs --&gt;</span>
@@ -2637,10 +2664,6 @@ There has a request to also store the model georeferencing inside this file. The
 <span class="tag">&lt;/Model&gt;</span></code></pre>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_task_5_define_an_index_file_for_all_3d_model_components"><a class="anchor" href="#_task_5_define_an_index_file_for_all_3d_model_components"></a>11.4. TASK 5 - Define an index file for all 3D model components</h4>
-
 </div>
 <div class="sect2">
 <h3 id="_investigation_2_merging_all_geometry_in_a_tile"><a class="anchor" href="#_investigation_2_merging_all_geometry_in_a_tile"></a>11.5. Investigation 2 - Merging all geometry in a tile</h3>
@@ -3288,7 +3311,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-08 14:34:18 UTC
+Last updated 2020-10-08 17:47:45 UTC
 </div>
 </div>
 <style>
