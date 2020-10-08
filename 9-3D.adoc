@@ -111,10 +111,11 @@ OpenFlight (or .flt) is an open, freely available 3d geometry model file format 
 
 https://portal.opengeospatial.org/files/90663[OpenFlight v16]
 
-.recommendation
+.*Recommendation*
 [source,ruby]
 ----
-The 3D model group recommends that a new CDB standard adaopts the latest version of OpenFlight, leveraging the extended materials, hot spots and other important constructs it brings.
+The 3D model group recommends that a new CDB standard adaopts the latest version of OpenFlight, 
+leveraging the extended materials, hot spots and other important constructs it brings.
 ----
 
 ==== GL Transmission Format (glTF) 2.0
@@ -202,10 +203,12 @@ This is one of the larger challenges encountered during our investigations. Ther
 In past cases, separate index files were used to reference multiple glTF files from a common source. This is sufficient for some cases, but does not help for the use case of sharing geometry between multiple models. For example sharing common roof clutter objects between different buildings
 
 ==== TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension
-Here are some images of a tank 3D model in both format. This model was selected as benchmark as it contains a number OpenFlight specific constructs leveraged in the CDB. Converting this model will exercise many of the proposed glTF extensions.
+
 image::images/Tank-model_3Dview.jpg[width=900,align="center"]
 image::images/TankModel_nodes_OpenFlight.png[width=300] 
 image::images/TankModel_nodes_glTF.jpg[width=300]
+
+Above are some images of a tank 3D model in both format. This model was selected as benchmark as it contains a number OpenFlight specific constructs leveraged in the CDB. Converting this model will exercise many of the proposed glTF extensions.
 
 ===== OF/gltf size comparison metrics:
 
@@ -215,9 +218,9 @@ Comparing the size of the 300_GSModelGeometry and 303_GSModelDescriptor folders 
 [width="30%",cols="2,4]
 |===
 |*Format*|*Size*
-|Openflight|11.0MB 
-|Ascii gltf|9.16MB
-|Binary glb|6.83MB
+|Openflight|11.0 MB 
+|Ascii gltf|9.16 MB
+|Binary glb|6.83 MB
 |=== 
 
 
@@ -237,6 +240,75 @@ In the test case with a single large model both the binary and ascii glTF provid
 
 
 ==== TASK 4 - Define a new structure to store 3D models
+
+
+The grouping of all components of a 3D model together imposes the presence of an indexing file, listing all those components. The list of components proposed include: Feature attribution (GGDM), reference to source model used, model exterior, Model interior, Collision volume and nav mesh. Splitting those constructs into separate component follows the current logic of CDB splitting the dataset in order to quickly access only required data without having to load larger component that include all only to reject most of it. It also server the purpose of rapid update by allowing the change of one element without the other (update nav mesh, or interior without changing the complete model).
+
+Some consideration should be maded to ensure all existing GSModelDescriptor information is migrated into this file.
+
+*duplication of information*
+There has a request to also store the model georeferencing inside this file. The challenge with this is the duplication of information as, CDB positions models based on the point feature. Changing the georeferencing in this file would not lead to a change in the model position. CDB typically avoid duplication of information as it creates confusion. In this same idea, one would argue that the model attribution (GGDB) should not be there either as it also a duplication.
+
+This file content and structure requires a review and alignment with the rest of the CDB metadata.
+
+.*Sample XML model indexing file*
+[source,xml]
+----
+<?xml version="1.0" encoding="utf-8"?>
+<Model encoding="OpenFlight" multi-instance="false">
+	<Name>cdb_swa_gs_hotel_03</name>
+	<Identification>
+		<GGDM>
+			<Code>AL015 </Code>
+			<Subcode>0 </Subcode>
+		</GGDM>
+	</Identification>
+
+	<model_complete_source file="My_hotel_model_full_Detail.obj" encoding="obj">
+
+	</model_complete_source>
+	
+	<model_exterior>
+		<LODherarchy coarsestCDBLOD="1" finestCDBLOD="5">
+			<RootModel>  <!-- root model points to all LODs -->
+				<geometry file="cdb_swa_gs_hotel_03_ROOT.flt"/>
+				<Metadata>myFile.xml</Metadata>
+			</RootModel>
+			<LevelOfDetail LOD="2">
+				<geometry>
+					<file>cdb_swa_gs_hotel_03_L02.flt</file>
+				</geometry>
+				<Metadata>N12E044_D303_S001_T001_L02_U1_R1_AL015_000_cdb_swa_gs_hotel_03.xml</Metadata>
+				<!-- need to add provenance to metadata -->
+			</LevelOfDetail>
+			<LevelOfDetail LOD="5">
+				<geometry>
+					<file>cdb_swa_gs_hotel_03_L05.flt</file>
+				</geometry>
+				<Metadata>N12E044_D303_S001_T001_L05_U1_R1_AL015_000_cdb_swa_gs_hotel_03.xml</Metadata>
+				<!-- need to add provenance to metadata -->
+			</LevelOfDetail>
+		</LODherarchy>
+	</model_exterior>
+	<model_interior>
+		<LODherarchy coarsestCDBLOD="5" finestCDBLOD="5">
+			<RootModel>  <!-- root model points to all LODs -->
+				<geometry file="cdb_swa_gs_hotel_interior.flt"/>
+				<Metadata>myFile.xml</Metadata>
+			</RootModel>
+			<LevelOfDetail LOD="5">
+				<geometry>
+					<file>cdb_swa_gs_hotel_interior_L05.flt</file>
+				</geometry>
+				<Metadata>N12E044_D303_S001_T001_L01_U1_R1_AL015_000_cdb_swa_gs_hotel_03.xml</Metadata>
+				<!-- need to add provenance to metadata -->
+			</LevelOfDetail>
+		</LODherarchy>
+	</model_interior>
+	<collision_volume/>
+	<navigation_mesh/>
+</Model>
+----
 
 
 ==== TASK 5 - Define an index file for all 3D model components
