@@ -241,6 +241,10 @@ In the test case with a single large model both the binary and ascii glTF provid
 
 ==== TASK 4 - Define a new structure to store 3D models
 
+The storing of 3D models can be either in files and folders or inside a Geopackage. 
+
+
+==== TASK 5 - Define an index file for all 3D model components
 
 The grouping of all components of a 3D model together imposes the presence of an indexing file, listing all those components. The list of components proposed include: Feature attribution (GGDM), reference to source model used, model exterior, Model interior, Collision volume and nav mesh. Splitting those constructs into separate component follows the current logic of CDB splitting the dataset in order to quickly access only required data without having to load larger component that include all only to reject most of it. It also server the purpose of rapid update by allowing the change of one element without the other (update nav mesh, or interior without changing the complete model).
 
@@ -251,11 +255,19 @@ There has a request to also store the model georeferencing inside this file. The
 
 This file content and structure requires a review and alignment with the rest of the CDB metadata.
 
+*task:* convert sample to object model and produce associated schema.
 .*Sample XML model indexing file*
 [source,xml]
 ----
 <?xml version="1.0" encoding="utf-8"?>
+<!-- "Model" node includes encoding statement. Should this info be pushed down, 
+     maybe in the geometry node? Do we allow multiple encodings all referenced
+	 in the same indxing file?
+-->
 <Model encoding="OpenFlight" multi-instance="false">
+	<!-- "Name" has to be unique in a tile. Do we need this info or we rely on the filename
+	     or geopackage entry name.
+    -->
 	<Name>cdb_swa_gs_hotel_03</name>
 	<Identification>
 		<GGDM>
@@ -264,10 +276,16 @@ This file content and structure requires a review and alignment with the rest of
 		</GGDM>
 	</Identification>
 
-	<model_complete_source file="My_hotel_model_full_Detail.obj" encoding="obj">
-
-	</model_complete_source>
+    <!-- model_complete_source - do we allow uses to store this in CDB? Where? Any format? 
+         This model would typically include all LODs and possibly constructs not supported 
+         by CDB. This would likely also require the storing of the source textures. As such,
+         a zip is likely a better container. Still, inclusion of this will increase CDB size 
+    -->
+	<model_complete_source file="My_hotel_model_full_Detail.obj" encoding="obj"/>
 	
+    <!-- model_exterior - Following current CDB, exterior (shell) of a model should be seperated
+         from interiror and other mesh representation for load/stream efficency.
+	-->
 	<model_exterior>
 		<LODherarchy coarsestCDBLOD="1" finestCDBLOD="5">
 			<RootModel>  <!-- root model points to all LODs -->
@@ -290,6 +308,11 @@ This file content and structure requires a review and alignment with the rest of
 			</LevelOfDetail>
 		</LODherarchy>
 	</model_exterior>
+    <!-- model_interior - The linkage between exteriror and interior geometry currently relies on XREF in
+	     OpenFlight in order to position/connect interior with exterior. (requirement for glTF)
+		 Alternatively, model with the interior could be a higher LOD of an object. This is not precluded
+		 by the standard (as long a geometry comply to CDB geometry LOD rules).
+	-->
 	<model_interior>
 		<LODherarchy coarsestCDBLOD="5" finestCDBLOD="5">
 			<RootModel>  <!-- root model points to all LODs -->
@@ -311,7 +334,6 @@ This file content and structure requires a review and alignment with the rest of
 ----
 
 
-==== TASK 5 - Define an index file for all 3D model components
 
 
 
