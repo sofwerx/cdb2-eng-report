@@ -1869,9 +1869,10 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <p><a href="https://portal.opengeospatial.org/files/90663">OpenFlight v16</a></p>
 </div>
 <div class="listingblock">
-<div class="title">recommendation</div>
+<div class="title"><strong>Recommendation</strong></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="ruby"><span class="constant">The</span> <span class="integer">3</span><span class="constant">D</span> model group recommends that a new <span class="constant">CDB</span> standard adaopts the latest version of <span class="constant">OpenFlight</span>, leveraging the extended materials, hot spots <span class="keyword">and</span> other important constructs it brings.</code></pre>
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="constant">The</span> <span class="integer">3</span><span class="constant">D</span> model group recommends that a new <span class="constant">CDB</span> standard adaopts the latest version of <span class="constant">OpenFlight</span>,
+leveraging the extended materials, hot spots <span class="keyword">and</span> other important constructs it brings.</code></pre>
 </div>
 </div>
 </div>
@@ -2481,11 +2482,23 @@ In past cases, separate index files were used to reference multiple glTF files f
 </div>
 <div class="sect3">
 <h4 id="_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension"><a class="anchor" href="#_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension"></a>11.2. TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension</h4>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/Tank-model_3Dview.jpg" alt="Tank model 3Dview" width="900">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TankModel_nodes_OpenFlight.png" alt="TankModel nodes OpenFlight" width="300">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TankModel_nodes_glTF.jpg" alt="TankModel nodes glTF" width="300">
+</div>
+</div>
 <div class="paragraph">
-<p>Here are some images of a tank 3D model in both format. This model was selected as benchmark as it contains a number OpenFlight specific constructs leveraged in the CDB. Converting this model will exercise many of the proposed glTF extensions.
-image::images/Tank-model_3Dview.jpg[width=900,align="center"]
-image::images/TankModel_nodes_OpenFlight.png[width=300]
-image::images/TankModel_nodes_glTF.jpg[width=300]</p>
+<p>Above are some images of a tank 3D model in both format. This model was selected as benchmark as it contains a number OpenFlight specific constructs leveraged in the CDB. Converting this model will exercise many of the proposed glTF extensions.</p>
 </div>
 <div class="sect4">
 <h5 id="_ofgltf_size_comparison_metrics"><a class="anchor" href="#_ofgltf_size_comparison_metrics"></a>OF/gltf size comparison metrics:</h5>
@@ -2505,15 +2518,15 @@ Comparing the size of the 300_GSModelGeometry and 303_GSModelDescriptor folders 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Openflight</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">11.0MB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11.0 MB</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ascii gltf</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9.16MB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.16 MB</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Binary glb</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.83MB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.83 MB</p></td>
 </tr>
 </tbody>
 </table>
@@ -2552,7 +2565,78 @@ In the test case with a single large model both the binary and ascii glTF provid
 </div>
 <div class="sect3">
 <h4 id="_task_4_define_a_new_structure_to_store_3d_models"><a class="anchor" href="#_task_4_define_a_new_structure_to_store_3d_models"></a>11.3. TASK 4 - Define a new structure to store 3D models</h4>
+<div class="paragraph">
+<p>The grouping of all components of a 3D model together imposes the presence of an indexing file, listing all those components. The list of components proposed include: Feature attribution (GGDM), reference to source model used, model exterior, Model interior, Collision volume and nav mesh. Splitting those constructs into separate component follows the current logic of CDB splitting the dataset in order to quickly access only required data without having to load larger component that include all only to reject most of it. It also server the purpose of rapid update by allowing the change of one element without the other (update nav mesh, or interior without changing the complete model).</p>
+</div>
+<div class="paragraph">
+<p>Some consideration should be maded to ensure all existing GSModelDescriptor information is migrated into this file.</p>
+</div>
+<div class="paragraph">
+<p><strong>duplication of information</strong>
+There has a request to also store the model georeferencing inside this file. The challenge with this is the duplication of information as, CDB positions models based on the point feature. Changing the georeferencing in this file would not lead to a change in the model position. CDB typically avoid duplication of information as it creates confusion. In this same idea, one would argue that the model attribution (GGDB) should not be there either as it also a duplication.</p>
+</div>
+<div class="paragraph">
+<p>This file content and structure requires a review and alignment with the rest of the CDB metadata.</p>
+</div>
+<div class="listingblock">
+<div class="title"><strong>Sample XML model indexing file</strong></div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="tag">&lt;Model</span> <span class="attribute-name">encoding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">OpenFlight</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">multi-instance</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;Name&gt;</span>cdb_swa_gs_hotel_03<span class="tag">&lt;/name&gt;</span>
+        <span class="tag">&lt;Identification&gt;</span>
+                <span class="tag">&lt;GGDM&gt;</span>
+                        <span class="tag">&lt;Code&gt;</span>AL015 <span class="tag">&lt;/Code&gt;</span>
+                        <span class="tag">&lt;Subcode&gt;</span>0 <span class="tag">&lt;/Subcode&gt;</span>
+                <span class="tag">&lt;/GGDM&gt;</span>
+        <span class="tag">&lt;/Identification&gt;</span>
 
+        <span class="tag">&lt;model_complete_source</span> <span class="attribute-name">file</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">My_hotel_model_full_Detail.obj</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">encoding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">obj</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+
+        <span class="tag">&lt;/model_complete_source&gt;</span>
+
+        <span class="tag">&lt;model_exterior&gt;</span>
+                <span class="tag">&lt;LODherarchy</span> <span class="attribute-name">coarsestCDBLOD</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">finestCDBLOD</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                        <span class="tag">&lt;RootModel&gt;</span>  <span class="comment">&lt;!-- root model points to all LODs --&gt;</span>
+                                <span class="tag">&lt;geometry</span> <span class="attribute-name">file</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cdb_swa_gs_hotel_03_ROOT.flt</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+                                <span class="tag">&lt;Metadata&gt;</span>myFile.xml<span class="tag">&lt;/Metadata&gt;</span>
+                        <span class="tag">&lt;/RootModel&gt;</span>
+                        <span class="tag">&lt;LevelOfDetail</span> <span class="attribute-name">LOD</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">2</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                                <span class="tag">&lt;geometry&gt;</span>
+                                        <span class="tag">&lt;file&gt;</span>cdb_swa_gs_hotel_03_L02.flt<span class="tag">&lt;/file&gt;</span>
+                                <span class="tag">&lt;/geometry&gt;</span>
+                                <span class="tag">&lt;Metadata&gt;</span>N12E044_D303_S001_T001_L02_U1_R1_AL015_000_cdb_swa_gs_hotel_03.xml<span class="tag">&lt;/Metadata&gt;</span>
+                                <span class="comment">&lt;!-- need to add provenance to metadata --&gt;</span>
+                        <span class="tag">&lt;/LevelOfDetail&gt;</span>
+                        <span class="tag">&lt;LevelOfDetail</span> <span class="attribute-name">LOD</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                                <span class="tag">&lt;geometry&gt;</span>
+                                        <span class="tag">&lt;file&gt;</span>cdb_swa_gs_hotel_03_L05.flt<span class="tag">&lt;/file&gt;</span>
+                                <span class="tag">&lt;/geometry&gt;</span>
+                                <span class="tag">&lt;Metadata&gt;</span>N12E044_D303_S001_T001_L05_U1_R1_AL015_000_cdb_swa_gs_hotel_03.xml<span class="tag">&lt;/Metadata&gt;</span>
+                                <span class="comment">&lt;!-- need to add provenance to metadata --&gt;</span>
+                        <span class="tag">&lt;/LevelOfDetail&gt;</span>
+                <span class="tag">&lt;/LODherarchy&gt;</span>
+        <span class="tag">&lt;/model_exterior&gt;</span>
+        <span class="tag">&lt;model_interior&gt;</span>
+                <span class="tag">&lt;LODherarchy</span> <span class="attribute-name">coarsestCDBLOD</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">finestCDBLOD</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                        <span class="tag">&lt;RootModel&gt;</span>  <span class="comment">&lt;!-- root model points to all LODs --&gt;</span>
+                                <span class="tag">&lt;geometry</span> <span class="attribute-name">file</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cdb_swa_gs_hotel_interior.flt</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+                                <span class="tag">&lt;Metadata&gt;</span>myFile.xml<span class="tag">&lt;/Metadata&gt;</span>
+                        <span class="tag">&lt;/RootModel&gt;</span>
+                        <span class="tag">&lt;LevelOfDetail</span> <span class="attribute-name">LOD</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                                <span class="tag">&lt;geometry&gt;</span>
+                                        <span class="tag">&lt;file&gt;</span>cdb_swa_gs_hotel_interior_L05.flt<span class="tag">&lt;/file&gt;</span>
+                                <span class="tag">&lt;/geometry&gt;</span>
+                                <span class="tag">&lt;Metadata&gt;</span>N12E044_D303_S001_T001_L01_U1_R1_AL015_000_cdb_swa_gs_hotel_03.xml<span class="tag">&lt;/Metadata&gt;</span>
+                                <span class="comment">&lt;!-- need to add provenance to metadata --&gt;</span>
+                        <span class="tag">&lt;/LevelOfDetail&gt;</span>
+                <span class="tag">&lt;/LODherarchy&gt;</span>
+        <span class="tag">&lt;/model_interior&gt;</span>
+        <span class="tag">&lt;collision_volume</span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;navigation_mesh</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/Model&gt;</span></code></pre>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_task_5_define_an_index_file_for_all_3d_model_components"><a class="anchor" href="#_task_5_define_an_index_file_for_all_3d_model_components"></a>11.4. TASK 5 - Define an index file for all 3D model components</h4>
@@ -3204,7 +3288,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-07 16:47:38 UTC
+Last updated 2020-10-08 14:34:18 UTC
 </div>
 </div>
 <style>
