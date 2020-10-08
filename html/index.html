@@ -1868,9 +1868,11 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <div class="paragraph">
 <p><a href="https://portal.opengeospatial.org/files/90663">OpenFlight v16</a></p>
 </div>
-<div class="paragraph">
-<p><strong>recommendation</strong>
-The 3D model group recommends that a new CDB standard adaopts the latest version of OpenFlight, leveraging the extended materials, hot spots and other important constructs it brings.</p>
+<div class="listingblock">
+<div class="title">recommendation</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="constant">The</span> <span class="integer">3</span><span class="constant">D</span> model group recommends that a new <span class="constant">CDB</span> standard adaopts the latest version of <span class="constant">OpenFlight</span>, leveraging the extended materials, hot spots <span class="keyword">and</span> other important constructs it brings.</code></pre>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -2469,8 +2471,7 @@ The current spec with openflight allows for storing materials or relative priori
 With the current extension, the solution would be to group polygons with the same relative priority and material into a single mesh and store the information at the mesh level.</p>
 </div>
 <div class="paragraph">
-<p>There is an extension in progress for OWT to store metadata at the feature level: <a href="https://github.com/CesiumGS/glTF/pull/1">link</a>
-This extension currently supports storing per-vertex metadata, but it could possibly be expanded to support per-face metadata and used in CDB.</p>
+<p>There is an extension in progress for OWT to store metadata at the feature level. <a href="https://github.com/CesiumGS/glTF/pull/1">This extension</a> currently supports storing per-vertex metadata, but it could possibly be expanded to support per-face metadata and used in CDB.</p>
 </div>
 <div class="paragraph">
 <p><strong>External References</strong>
@@ -2483,7 +2484,8 @@ In past cases, separate index files were used to reference multiple glTF files f
 <div class="paragraph">
 <p>Here are some images of a tank 3D model in both format. This model was selected as benchmark as it contains a number OpenFlight specific constructs leveraged in the CDB. Converting this model will exercise many of the proposed glTF extensions.
 image::images/Tank-model_3Dview.jpg[width=900,align="center"]
-image::images/TankModel_nodes_OpenFlight.png[width=300] image::images/TankModel_nodes_glTF.jpg[width=300]</p>
+image::images/TankModel_nodes_OpenFlight.png[width=300]
+image::images/TankModel_nodes_glTF.jpg[width=300]</p>
 </div>
 <div class="sect4">
 <h5 id="_ofgltf_size_comparison_metrics"><a class="anchor" href="#_ofgltf_size_comparison_metrics"></a>OF/gltf size comparison metrics:</h5>
@@ -3202,7 +3204,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-07 16:41:23 UTC
+Last updated 2020-10-07 16:47:38 UTC
 </div>
 </div>
 <style>
