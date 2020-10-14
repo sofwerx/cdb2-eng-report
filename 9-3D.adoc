@@ -114,7 +114,7 @@ https://portal.opengeospatial.org/files/90663[OpenFlight v16]
 .*Recommendation*
 [source,ruby]
 ----
-The 3D model group recommends that a new CDB standard adaopts the latest version of OpenFlight, 
+The 3D model group recommends that a new CDB standard adopts the latest version of OpenFlight,
 leveraging the extended materials, hot spots and other important constructs it brings.
 ----
 
@@ -135,6 +135,8 @@ https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/FB_geomet
 https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit[KHR_materials_unlit] is an extension that defines an unlit shading model for use in glTF 2.0 materials, as an alternative to the Physically Based Rendering (PBR) shading models provided by the core specification. 
 
 https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform[KHR_texture_transform] is an extension that adds offset, rotation, and scale properties to textureInfo structures. These properties would typically be implemented as an affine transform on the UV coordinates. 
+
+https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/AGI_articulations[AGI_articulations] is an extension that adds articulations that define the names and ranges of allowable motions of nodes on a models. The extension includes articulation stages, pointing vectors, and attach points.
 
 
 === Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.
@@ -186,6 +188,18 @@ OGC CDB 1.X relies on a number of OpenFlight constructs that have no equivalent 
 include::opf-gltf-analysis.adoc[]
 
 ==== TASK 2 - Developing glTF CDB extensions
+
+`EXT_CDB` is a draft glTF extension that adds CDB simulation capabilities identified as missing from glTF. The capabilities include:
+
+* Indicate that a glTF node is a certain type of CDB point: attachment point, anchor point, center of mass, DIS origin, or viewpoint
+* Reference light points from glTF nodes
+* Attach CDB zones to glTF nodes
+* Assign switch nodes to a glTF node to represent damage states
+* Store model attributes on a glTF node
+* Extend materials with CDB texture types: detail texture, contaminants texture, and material map texture
+
+The full schema can be found https://github.com/sofwerx/cdb2-concept/blob/3Dmodels_prototype/3Dmodel_Prototype/glTF-CDB-extension-schema.zip[here] (TODO - need link to updated schema)
+
 The CDB glTF extension contains most of the required CDB-specific features, but there are some possible additions that could be made.
 
 *Coordinate reference system*
@@ -201,6 +215,37 @@ There is an extension in progress for OWT to store metadata at the feature level
 *External References*
 This is one of the larger challenges encountered during our investigations. There has been discussion in the past about including an external reference extension in glTF but it was decided not to include it.
 In past cases, separate index files were used to reference multiple glTF files from a common source. This is sufficient for some cases, but does not help for the use case of sharing geometry between multiple models. For example sharing common roof clutter objects between different buildings
+
+===== Extensions Roadmap
+
+One of the challenges was deciding which CDB capabilities belong in `EXT_CDB` and which belong in standalone extensions, judged by their utility to the wider glTF ecosystem. The group also investigated whether it was possible to leverage existing glTF extensions. Finally, the group determined that some capabilities should go in the model indexing file rather than in the glTF. Our recommendations are below:
+
+*EXT_CDB*
+
+* CDB-specific constructs like points, zones, lights, light maps, and extended texture types.
+
+*Possible standalone extensions*
+
+* Coordinate reference system - shared interest with One World Terrain and possibly wider glTF ecosystem
+* Switch nodes - shared interest with One World Terrain moving models format
+* External references - some interest in wider glTF ecosystem, but many unresolved implementation details
+
+*Leverage existing extensions*
+
+* Articulations - https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/AGI_articulations[AGI_articulations]
+* Metadata - https://github.com/CesiumGS/glTF/pull/1[EXT_feature_metadata] - extension for storing metadata at different levels of granularity - per-mesh, per-face, per-vertex, and per-texel. This could be a good candidate for CDB model attributes and material map textures.
+
+*Model indexing file*
+
+* Model LODs
+* Interior and exteriors
+* Navigation and collision mesh
+
+===== Adoption
+
+The initial approach was to create a monolithic CDB glTF extension so that editors and viewers would only need to support a single extension to load CDB glTF models. However the group found that there was a significant amount of overlap between CDB and OWT requirements and shifted towards a more granular approach to avoid multiple redundant extensions being developed. Generally glTF extensions that have seen wider adoption are both simple and useful to a wide variety of vendors. Suggested next steps are to collaborate more closely with OWT stakeholders and reach out to the wider glTF community for review, followed by practical experimentation in runtime engines. After OGC finalization the extensions may be formalized as either ratified Khronos extensions (KHR prefix) or, more likely, Multi-Vendor extensions (EXT prefix), and be listed in the https://github.com/KhronosGroup/glTF/tree/master/extensions[glTF Extension Registry].
+
+Another key topic for adoption is editor support. glTF has seen increasing adoption in 3D modelling software like Blender, 3DS Max, and Maya but extensions are often lost during the import/export process. Workarounds have been proposed such as storing extension information outside of the glTF (see https://github.com/AnalyticalGraphicsInc/gmdf[The glTF Metadata File (GMDF) for Systems Tool Kit (STK)]). Some capabilities like per-face feature assignment are not possible in standard modelling packages and would require plugins. The most likely path of adoption is native support for the extensions in simulation editors and plugins for more general purpose 3D modeling software.
 
 ==== TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension
 
@@ -241,14 +286,19 @@ In the test case with a single large model both the binary and ascii glTF provid
 
 ==== TASK 4 - Define a new structure to store 3D models
 
-The storing of 3D models can be either in files and folders or inside a Geopackage. 
+The storing of 3D models can be either in files and folders or inside a Geopackage. Where the prototype stopped short of packing the resulting glTF files, a number of elements need to be considered when this gets investigated. Those are:
+
+*File based approach*
+. Use zip - One challenge of CDB 1.X is the large number of files. Where many small files are not optimal on I/O, putting all datasets into one large file would lead to large amount of data needing to be scanned to extract what is needed. A ZIP is a good format to allow quick access to the content index in order to decode only the required data. As such, it would be recommended to group each model data into a zip (all LODs, textures etc...) while keeping the xml (index file) seperate. A quick access to the index file would allow to identfiy what is required to be loaded into each ZIP. This way, a client server could work with a scheme similar to teh OGC getCapabilities to query the available data prior to accessing the actual payload.
+
+*GeoPackage based approach*
 
 
 ==== TASK 5 - Define an index file for all 3D model components
 
 The grouping of all components of a 3D model together imposes the presence of an indexing file, listing all those components. The list of components proposed include: Feature attribution (GGDM), reference to source model used, model exterior, Model interior, Collision volume and nav mesh. Splitting those constructs into separate component follows the current logic of CDB splitting the dataset in order to quickly access only required data without having to load larger component that include all only to reject most of it. It also server the purpose of rapid update by allowing the change of one element without the other (update nav mesh, or interior without changing the complete model).
 
-Some consideration should be maded to ensure all existing GSModelDescriptor information is migrated into this file.
+Some consideration should be made to ensure all existing GSModelDescriptor information is migrated into this file (texture mapping info being one).
 
 *duplication of information*
 There has a request to also store the model georeferencing inside this file. The challenge with this is the duplication of information as, CDB positions models based on the point feature. Changing the georeferencing in this file would not lead to a change in the model position. CDB typically avoid duplication of information as it creates confusion. In this same idea, one would argue that the model attribution (GGDB) should not be there either as it also a duplication.
