@@ -233,14 +233,19 @@ The directory structure was changed from having each GeoPackage within a directo
 .Top GeoPackage Level.
 image::images/topTilesNew.JPG[width=400,align="center"]
 
-![Mid-level directory structure](https://raw.githubusercontent.com/ryanfranz/ImagesUpload/master/level0New.JPG)
-![Leaf directory structure](https://raw.githubusercontent.com/ryanfranz/ImagesUpload/master/level4New.JPG)
+[#img_level0New,reftext='{figure-caption} {counter:figure-num}']
+.Mid-level directory structure.
+image::images/level0New.JPG[width=400,align="center"]
+
+[#img_level4New,reftext='{figure-caption} {counter:figure-num}']
+.Leaf directory structure.
+image::images/level4New.JPG[width=400,align="center"]
 
 ===== Processing
 
 This experiment uses the NASA Blue Marble imagery as world-wide imagery and USGS GTOPO30 elevation data.  This provides 7 levels of detail of data (L0 to L6).  Normally, the GeoPackage files should be larger for efficient use, but to show the LOD groupings, only 3 LODs are grouped together.  The imagery is stored as Jpeg, so that SQLite tools can view the imagery easier, and the elevation is stored as 32-bit floating point GeoTiff files.  The uncompressed data size for this experiment is around 3.05 GB.
 
-For experiment 3, the imagery and elevation layers were built into different GeoPackages and different directory structures.  For experiment 4, the imagery and elevation were combined into a single set of GeoPackages and directories while keeping the LOD grouping.
+For Experiment 3, the imagery and elevation layers were built into different GeoPackages and different directory structures.  For Experiment 4, the imagery and elevation were combined into a single set of GeoPackages and directories while keeping the LOD grouping.
 
 ===== Data Location
 
