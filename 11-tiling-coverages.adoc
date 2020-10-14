@@ -231,7 +231,7 @@ The directory structure was changed from having each GeoPackage within a directo
 
 [#img_topTilesNew,reftext='{figure-caption} {counter:figure-num}']
 .Top GeoPackage Level.
-image::images/topTilesNew.JPG.jpg[width=400,align="center"]
+image::images/topTilesNew.JPG[width=400,align="center"]
 
 ![Mid-level directory structure](https://raw.githubusercontent.com/ryanfranz/ImagesUpload/master/level0New.JPG)
 ![Leaf directory structure](https://raw.githubusercontent.com/ryanfranz/ImagesUpload/master/level4New.JPG)
