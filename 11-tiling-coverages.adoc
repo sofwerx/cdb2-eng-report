@@ -229,7 +229,10 @@ These experiments utilized two different tiled layers: Imagery and Elevation.  T
 
 The directory structure was changed from having each GeoPackage within a directory of the same name (yielding a 1:1 ratio of files to directories) to having a finer resolution GeoPackage in a directory with the coarser tile name.  If there is even finer/higher resolution data beyond this GeoPackage, that data will be found in a directory at the same level as the GeoPackage with the tile name that matches most of the GeoPackage filename (except for the end lod value).  Pictures of the structure below:
 
-![Top GeoPackage Level](https://raw.githubusercontent.com/ryanfranz/ImagesUpload/master/topTilesNew.JPG)
+[#img_topTilesNew,reftext='{figure-caption} {counter:figure-num}']
+.Top GeoPackage Level.
+image::images/topTilesNew[1].JPG.jpg[width=400,align="center"]
+
 ![Mid-level directory structure](https://raw.githubusercontent.com/ryanfranz/ImagesUpload/master/level0New.JPG)
 ![Leaf directory structure](https://raw.githubusercontent.com/ryanfranz/ImagesUpload/master/level4New.JPG)
 
