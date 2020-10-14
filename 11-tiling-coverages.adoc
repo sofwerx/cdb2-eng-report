@@ -208,7 +208,48 @@ The same processing was used as in  Experiment 1 but with an LOD grouping of 6. 
 ===== Data Location
 Compressed 7-zip file at:  https://drive.google.com/drive/folders/1zKuu0oQy3K5oKestuPIvL-BRiSPn9oaO?usp=sharing
 
-==== Observations
+==== Observations from Experiments 1 and 2
+
 * The file names and directory names are pretty hard to read and understand by looking at the files. However, since the tiles are rarely on a "geocell" boundary, a good naming scheme may not exist.
 * Creating the LOD groupings based on the highest LOD of data makes it difficult to add data of a higher resolution later on.  This might also make it harder to create "Versions" of the data that have been updated.
 * There were a considerable number of directories created with this tiling and naming scheme.  In general, there is a 1-to-1 ratio of files to directories.
+
+==== FlightSafety Experiments 3 and 4
+
+=====  Purpose of Experiment
+
+These experiments utilized two different tiled layers: Imagery and Elevation.  The constraints for this experiment were :
+
+* There are two different tiled layers: Imagery and Elevation.
+* The data coverage was world-wide, containing 1000m resolution imagery and elevation.
+* The directory structure was reworked to reduce the number of directories produced so that it was no longer a 1-to-1 file to directory ratio.  To copy over a section of the world, one would need to copy both the GeoPackage and the directory with similar names
+* The GeoPackage files were renamed to be *lod_row_col_endlod*.gpkg, to keep the lod/row/column triplet together.  For example, Imagery_L4_R9_C6_L6.gpkg
+
+=====  Updated Directory Structure
+
+The directory structure was changed from having each GeoPackage within a directory of the same name (yielding a 1:1 ratio of files to directories) to having a finer resolution GeoPackage in a directory with the coarser tile name.  If there is even finer/higher resolution data beyond this GeoPackage, that data will be found in a directory at the same level as the GeoPackage with the tile name that matches most of the GeoPackage filename (except for the end lod value).  Pictures of the structure below:
+
+![Top GeoPackage Level](https://raw.githubusercontent.com/ryanfranz/ImagesUpload/master/topTilesNew.JPG)
+![Mid-level directory structure](https://raw.githubusercontent.com/ryanfranz/ImagesUpload/master/level0New.JPG)
+![Leaf directory structure](https://raw.githubusercontent.com/ryanfranz/ImagesUpload/master/level4New.JPG)
+
+===== Processing
+
+This experiment uses the NASA Blue Marble imagery as world-wide imagery and USGS GTOPO30 elevation data.  This provides 7 levels of detail of data (L0 to L6).  Normally, the GeoPackage files should be larger for efficient use, but to show the LOD groupings, only 3 LODs are grouped together.  The imagery is stored as Jpeg, so that SQLite tools can view the imagery easier, and the elevation is stored as 32-bit floating point GeoTiff files.  The uncompressed data size for this experiment is around 3.05 GB.
+
+For experiment 3, the imagery and elevation layers were built into different GeoPackages and different directory structures.  For experiment 4, the imagery and elevation were combined into a single set of GeoPackages and directories while keeping the LOD grouping.
+
+===== Data Location
+
+The Experiment 3 compressed 7-zip file is loacted here:  https://drive.google.com/drive/folders/1XpljPt_TrqqxsgcWaxLhi9C1qLE0nI32?usp=sharing
+
+The Experiment 4 compressed 7-zip file is located here:  https://drive.google.com/drive/folders/1ipgsWaQmy2GWfUwnKVffJwggm6rXKcRj?usp=sharing
+
+==== Observations for Experiments 3 and 4
+
+* The file names and directory names are pretty hard to read and understand by looking at the files. However since the tiles are rarely on a "geocell" boundary, their might not be a good naming scheme.
+* Creating the LOD groupings based on the highest LOD of data makes it difficult to add data of a higher resolution later on.  This might also make it harder to create "Versions" of the data that have been updated.
+* There are a lot of directories created with this tiling and naming scheme.  In general, there is a 1-to-1 ratio of files to directories, and directories seem to be more work for an OS to create/modify/delete.
+* Official GeoPackage standards are pretty rigid for raster data.  Tiles support a very limited set of raster types (PNG or JPG), and the coverage extension supports only 16-bit PNG or 32-bit float GeoTiff.  Current OGC CDB 1.1 supports data types of 8-bit unsigned, 8/16/32 bit signed, and 32-bit floating point data types, with CDB 1.2 adding the capability to support Tiff bilevel images (1-bit).
+* Do we need the extra flexibility of putting different layers in different directory structures (and thus different GeoPackage files)?
+
