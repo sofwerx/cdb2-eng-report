@@ -30,17 +30,17 @@ The OGC Tile Matrix Set standard defines the rules and requirements for a tile m
 The following are the key design principals for a CDB X tiling, levels of detail, and layering.
 
 * OGC GeoPackage structured containers are a primary storage format for derived vector data layers, coverages, and other data types as identified (`TBD`). The two OGC Standards of relevance are https://portal.opengeospatial.org/files/12-128r15[OGC GeoPackage version 1.1] and http://docs.opengeospatial.org/is/17-066r1/17-066r1.html[OGC GeoPackage Extension for Tiled Gridded Coverage Data].
-* Have metadata for whole dataset listing how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)
+* Use metadata for whole datasets that describe how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)
+* Provide for fewer top level tiles than in OGC CDB 1.x
 * Store imagery in GeoPackage according to the tiling scheme specified below (`need anchor`)
-* Store coverage data in GeoPackage according to the tiling scheme specified below (`need anchor`). Suggested coverage types based on current CDB standard and user specified requirements: (Spherical body surface): Elevation models, imagery, multi-spectral, raster (such as classified satellite imagery). Should be extensible to support other types.
+* Store coverage data in GeoPackage according to the tiling scheme specified below (`need anchor`). Suggested coverage types based on current CDB standard and user specified requirements: (Ellipsoidal body surface): Elevation models, visual and non-visual (multi-spectral) imagery, terrain light maps (emmisive at night), and raster materials (for non-visual sensors). Should be extensible to support other types.
 * Coordinate Reference System is WGS 84 with epoch encoding (same as current CDB Standard except for epoch).
-* Need to keep the  various encodings that CDB 1.x already has:
-** Integer Elevation
-** 8-bit Raster Material Mixtures
-** Imagery Compression:
+* Need to keep the various encodings that CDB 1.x already has:
+** Elevation compression encodings (use of scaled integers vs floating point for smaller data sizes)
+** Elevation grids that are adjustable (better terrain fidelity at lower LODs/zoom levels)
+** Raster Material encodings using multiple coverage layers
+** Imagery Compression (Imagery is typically the largest layer in CDB by disk storage)
 * Must enable a "relatively" easy migration path from the CDB 1.1/1.2 tiling/LoD structure into the CDB X structure.
-* CDB X must support integer compressed heights (elevations)
-* CDB X must support GeoTIFF as an encoding for images.
 
 === Proposed Tiling Logical Model for CDB X
 
