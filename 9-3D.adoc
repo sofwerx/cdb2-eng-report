@@ -167,20 +167,22 @@ Both Profile 1 and Profile 2
 image::images/3d-model-prototyping.png[width=800,align="center"]
 
 
-=== Investigation 1 - Make CDB 3D models easier to maintain/modify
-One of the objective of the 3D model refactoring in CDB is to facilitate the editing process. CDB 1.X, 3D model encoding is hard because:
-. OpenFlight format has fewer editing tools than other more recent 3D formats. This leads the team to investigate glTF encoding.
-. CDB 1.X model components (geometry, texture, metadata) as well as level of details (lods) of those components are stored in different folder. This distribution is not well supported by editing tools and edits often requires to updated many files, including collections such as zips. This leads the team to investigate a component grouping for all 3D model components.
+=== Investigation 1 - Make CDB 3D models easier to maintain and/or modify
 
-While investigating those solution, one needs to understand the motivation behind the original CDB structure and assess if the impact of the change against the original design criteria.  
+One of the objective of the 3D model refactoring in CDB is to facilitate the editing {*Update*} process. In the CDB 1.X environment, 3D model encoding is hard because:
+. The OpenFlight format has fewer editing tools than in newer 3D formats {*Give an example*}. This situation led the 3D subgroup to investigate the glTF encoding for possible use in CDB-X.
+. The CDB 1.X model components (geometry, texture, metadata) as well as the Level of Detail (LoD) for those components are stored in different folders. This distribution is not well supported by editing tools and edits often require updating many files, including collections contained in Zip files. Therefore the 3D subgroup investigated a grouping for all 3D model components.
 
-CDB 1.X Geospecific 3D models was likely motivated by:
-. A single encoding (OpenFlight) for 3D model geometry: At the time of the original spec, OpenFlight remained the most adopted format for 3D models in the Modeling and simulation industry. It meet the requirement of open format, was efficient binary encoding, and was an editable source format supported by a number of tools. Having a single possible encoding increases interoperability by reducing the number of encoding to support on both the producer and the consumer of CDB. Supporting different encodings (OpenFlight and glTF) may result in less interoperability. In some cases, multiple versions of a CDB with the different encodings may be required as different consumers may only support one encoder.
-. Facilitate parallel access to all components as opposed to sequential. By grouping all components into datasets (textures geometry, material etc...) into tiles and LODs, a client can assess which tile and component is required and fetch all components in parallel, that is without having to read the result of a request before sending a new request (like wait for geometry to identified referred textures and materials). 
+While investigating these potential solutions, understand the motivationing and design requirements behind the original CDB structure is required so as to properly assess the impact of the changes against the original design criteria. This would include a determination on the current installed CDB user base.
+
+CDB 1.X Geospecific 3D models were likely motivated by:
+
+. A single encoding (OpenFlight) for 3D model geometry: At the time of the development of the original CDB specification, OpenFlight was the most adopted and used format for 3D models in the Modeling and Simulation industry. OpenFlight meet the requirements for an open format, an efficient binary encoding, and an editable source format supported by a number of tools. Having a single possible encoding increases interoperability by reducing the number of encoding to support on both the CDB producer and the consumer side. Supporting different encodings (OpenFlight and glTF) may result in less interoperability. In some cases, multiple versions of a CDB with the different encodings may be required as different consumers may only support one encoder.
+. Facilitate parallel access to all components as opposed to sequential access. By grouping all components into datasets (textures geometry, material etc...) into tiles and LODs, a client can assess which tile and component is required and fetch all components in parallel. In other words, without having to read the result of a request before sending a new request (like waiting for geometry to identified {*Confusing here. Not sure what to write*} referred textures and materials). 
 
 *Focusing on GeoSpecific models*
-The initial experimentation targeted the Geospecific models inside the CDB structure as those represent the most challenge. The geoTypical models would need to be reviewed but will likely apply a sub-set of the GeoSpecific concepts. The list of tasks below show the investigation that took place along with the results:
 
+The initial experimentation targeted Geospecific models inside the CDB structure. This was because they represent the greatest challenge. The GeoTypical models still need to be reviewed. However, the belief is that a sub-set of the GeoSpecific concepts can also be applied to GeoTypical models. The list of tasks below show the investigation that took place along with the results:
 
 ==== TASK 1 - CDB OpenFlight and glTF Feature Analysis
 
