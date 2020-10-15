@@ -37,12 +37,66 @@ https://miro.com/app/board/o9J_kqG1Jw0=/
 
 === CDB-X Discussion and Requirements for CDB-X Experimentation
 
-==== Experimentation Backround
+==== Experimentation Background
 
 There was early consensus during Phase 3 of the CDB-X tech sprint to experiment with and potentially adopt an approach to CDB attribution generally called "GGDM".
 
 Greg Peele, one of the Tech Sprint participants, has described his work as a sub-contractor on the team recommending a Data Model for the U.S. Army One World Terrain (OWT) effort in multiple presentations to the OGC Interopable Simulation and Gaming Domain Working Group.  Greg's most recent presentation, entitled *"Entities, Attributes, and Enumerants, Oh My!  Applying GGDM for Interoperable One World Terrain Semantics"* to the ISG DWG may be found here:
 https://portal.ogc.org/files/?artifact_id=93666
+
+Outline points:
+* Explain what GGDM is, why it exists, and its relationship to parent NGA standards NAS and NCV
+* Explain GGDM's relationship to existing CDB FDD and DIGEST FACC
+* Explain benefits of moving to GGDM and NAS and why OWT did so
+
+==== Experimentation Goals
+Outline points:
+* Establish that GGDM can replace existing FDD and identify mismatches in metamodel
+* Identify changes in CDB structure, if any, moving to GGDM would cause
+* Conduct initial mapping of CDB FDD and identify gaps in GGDM
+* Cross-reference gaps to parent standards NAS and NCV
+* Cross-reference current and planned approach to other OGC standards
+* Cross-reference to OWT work for interoperability
+
+=== CDB X Experiment Findings
+==== Entity Metamodel Comparison
+
+==== Feature Subcodes not in GGDM
+
+==== Mapping from TDS and GGDM to CDB
+
+==== Grouping Features into Datasets and Categories
+
+==== Per-Entity vs. Per-Dataset Attributes
+
+==== Existing FDD Metadata Missing Needed Definitions
+
+==== Mandatory vs. Optional Attributes and Default Values
+
+==== Advanced Attribute Constraints and CDB Validation
+
+==== Instance, Class, and Extended Attributes
+
+==== CDB Vector Geometry Data Model vs. Other OGC Standards
+
+==== Entity Dictionary Storage Design
+
+==== Organizing Attributes by Domain
+
+==== Data Dictionary Versioning, Changes, and Extensions
+
+==== Impacts of Attribution Changes on Vector Encoding
+
+==== Impacts of Attribution Changes on 3D Models
+
+==== Feature-level Metadata
+
+==== Relationship to Light Points
+
+==== Relationship to Materials
+
+==== Building Interior Considerations
+
 
 ==== Some questions to be addressed during experimentation
 
