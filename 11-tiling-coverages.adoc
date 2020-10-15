@@ -62,6 +62,7 @@ The drawbacks to changing the tiling scheme include:
 
 * The new tiling scheme is incompatible with OGC CDB 1.x, and would require merging and splitting and changing the resolution of current CDB tiles (such as imagery)
 * Some applications might have more trouble with tiles that are not based on integer latitude and longitude boundaries, or on a variable number of "zones" where the longitude size of the tile can change near the poles.
+* Tile naming (numbering) would be different, starting from the top left corner of a tile matrix vs starting from the bottom left corner of the OGC CDB 1.x set of tiles.
 
 Using  GPKG Tiled Gridded Coverage standard. Discussed "materials" and their requirements as coverages. Suggest a change request to allow 8, 16 bit and 32 TIFF (integer or float). (Not only for materials, but also heights (aka elevation))
 
