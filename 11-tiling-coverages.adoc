@@ -53,11 +53,13 @@ image::images/tiling_logical_model.jpg[width=800,align="center"]
 === Proposed CDB X Tiling Structure
 
 The proposed tiling scheme would be based on the GNOSISGlobalGrid (`reference?`), where the entire world is tiled in a 2x4 grid with each tile 90 degrees on a side.  This is zoom level 0 (or tile matrix identifier "0").  Each successive zoom level increases by one, until the level can accomdate the highest resolution data that is to be stored within the CDB X.  With each successive zoom level, each tile is split into four new tiles, except for any tile that would touch either the north or south pole is not split in longitude.  This has several key improvements over OGC CDB 1.0:
+
 * OGC CDB 1.x has 41,220 top level tiles, requiring possibly opening huge numbers of files to show the Earth at world scales.  The proposed CDB X tiling would use 8 tiles to show the coarsest level of detail of a coverage.
 * The concept of "zones" in OGC CDB 1.x are still present in the tiling scheme, but algorithmically derived rather than at fixed latitudes.  New zones are introduced at higher levels of detail, keeping the tiles near the poles closer to an ideal square shape than in OGC CDB 1.x
 * The ratio of the longitude size of tiles is always a 2:1 ratio, where OGC CDB 1.x has several ratios that must be supported, like 3:2 and 4:3
 
 The drawbacks to changing the tiling scheme include:
+
 * The new tiling scheme is incompatible with OGC CDB 1.x, and would require merging and splitting and changing the resolution of current CDB tiles (such as imagery)
 * Some applications might have more trouble with tiles that are not based on integer latitude and longitude boundaries, or on a variable number of "zones" where the longitude size of the tile can change near the poles.
 
