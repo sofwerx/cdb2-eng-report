@@ -144,7 +144,7 @@ include::4-overview.adoc[]
 
 include::5-background.adoc[]
 
-include::6-Models.adoc[]
+include::6-Conceptual-Model.adoc[]
 
 include::7-Attribution.adoc[]
 
