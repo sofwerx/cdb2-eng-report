@@ -538,7 +538,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension">11.2. TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension</a></li>
 <li><a href="#_task_4_define_a_new_structure_to_store_3d_models">11.3. TASK 4 - Define a new structure to store 3D models</a></li>
 <li><a href="#_task_5_define_an_index_file_for_all_3d_model_components">11.4. TASK 5 - Define an index file for all 3D model components</a></li>
-<li><a href="#_investigation_2_merging_all_geometry_in_a_tile">11.5. Investigation 2 - Merging all geometry in a tile</a></li>
+<li><a href="#_investigation_2_merging_all_geometry_in_a_tile_i_am_assuming_this_section_will_get_more_information_and_an_edit">11.5. Investigation 2 - Merging all geometry in a tile {<strong>I am assuming this section will get more information - and an edit</strong>}</a></li>
 </ul>
 </li>
 <li><a href="#metadata">12. CDB X Metadata and Integration</a></li>
@@ -2003,13 +2003,15 @@ leveraging the extended materials, hot spots <span class="keyword">and</span> ot
 <p><strong>Focusing on GeoSpecific models</strong></p>
 </div>
 <div class="paragraph">
-<p>The initial experimentation targeted Geospecific models inside the CDB structure. This was because they represent the greatest challenge. The GeoTypical models still need to be reviewed. However, the belief is that a sub-set of the GeoSpecific concepts can also be applied to GeoTypical models. The list of tasks below show the investigation that took place along with the results:</p>
+<p>The initial experimentation targeted Geospecific models inside the CDB structure. This was because they represent the greatest challenge. The GeoTypical models still need to be reviewed. However, the belief is that a sub-set of the GeoSpecific concepts can also be applied to GeoTypical models. The tasks describe below document the investigation along with the results:</p>
 </div>
 <div class="sect3">
 <h4 id="_task_1_cdb_openflight_and_gltf_feature_analysis"><a class="anchor" href="#_task_1_cdb_openflight_and_gltf_feature_analysis"></a>10.7.1. TASK 1 - CDB OpenFlight and glTF Feature Analysis</h4>
 <div class="paragraph">
-<p>OGC CDB 1.X relies on a number of OpenFlight constructs that have no equivalent in glTF. One of the first task of the group was to list all PGC CDB 1.X requirements w.r.t. 3D model encodings and assess if glTF has equivalent constructs.  The following document reports on this analysis.
-==</p>
+<p>OGC CDB 1.X relies on a number of OpenFlight constructs that have no equivalent in glTF. One of the first task of the group was to list all OGC CDB 1.X requirements with regard to 3D model encodings and assess whether glTF has equivalent constructs.  The following provides details of the resultes of the analysis.</p>
+</div>
+<div class="paragraph">
+<p>==</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2474,27 +2476,27 @@ leveraging the extended materials, hot spots <span class="keyword">and</span> ot
 <div class="sect3">
 <h4 id="_task_2_developing_gltf_cdb_extensions"><a class="anchor" href="#_task_2_developing_gltf_cdb_extensions"></a>11.1. TASK 2 - Developing glTF CDB extensions</h4>
 <div class="paragraph">
-<p><code>EXT_CDB</code> is a draft glTF extension that adds CDB simulation capabilities identified as missing from glTF. The capabilities include:</p>
+<p><code>EXT_CDB</code> is a draft glTF extension that adds required CDB simulation capabilities identified as missing from glTF. The new (and prototype) capabilities include:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Indicate that a glTF node is a certain type of CDB point: attachment point, anchor point, center of mass, DIS origin, or viewpoint</p>
+<p>Indicating that a glTF node is a certain type of CDB point: Attachment point, anchor point, center of mass, DIS origin, or viewpoint.</p>
 </li>
 <li>
-<p>Reference light points from glTF nodes</p>
+<p>Referencing light points from glTF nodes.</p>
 </li>
 <li>
-<p>Attach CDB zones to glTF nodes</p>
+<p>Attaching CDB zones to glTF nodes.</p>
 </li>
 <li>
-<p>Assign switch nodes to a glTF node to represent damage states</p>
+<p>Assigning switch nodes to a glTF node to represent damage states.</p>
 </li>
 <li>
-<p>Store model attributes on a glTF node</p>
+<p>Storing model attributes on a glTF node.</p>
 </li>
 <li>
-<p>Extend materials with CDB texture types: detail texture, contaminants texture, and material map texture</p>
+<p>Extending materials with CDB texture types: Detail texture, contaminants texture, and material map texture.</p>
 </li>
 </ul>
 </div>
@@ -2502,38 +2504,38 @@ leveraging the extended materials, hot spots <span class="keyword">and</span> ot
 <p>The full schema can be found <a href="https://github.com/sofwerx/cdb2-concept/blob/3Dmodels_prototype/3Dmodel_Prototype/glTF-CDB-extension-schema.zip">here</a> (TODO - need link to updated schema)</p>
 </div>
 <div class="paragraph">
-<p>The CDB glTF extension contains most of the required CDB-specific features, but there are some possible additions that could be made.</p>
+<p>The CDB glTF extension contains most of the required CDB-specific features. However there are some possible additions that could be made:</p>
 </div>
 <div class="paragraph">
-<p><strong>Coordinate reference system</strong>
-Openflight can store the projection of a model in its header and this is currently not possible in glTF.
-While not strictly required for CDB (projection is enforced by CDB spec), the group judged this would be useful for interoperability. There&#8217;s also interest in such an extension for One World Terrain, so this should likely be done as a stand-alone extension and not as part of the CDB extension</p>
+<p><strong>Coordinate reference system (CRS)</strong>
+Openflight can store the CRS of a model in its header and this capability is currently not possible in glTF.
+While not strictly required for CDB (A CRS of WGS 84 (EPSG 4326 and EPSG 4329) is mandated by the CDB standard), the 3D subgroup determined that this would be useful for interoperability. There is also interest in such an extension for One World Terrain (OWT). Therefore, specifying a CRS should likely be done as a stand-alone extension and not as part of the CDB glTF extension</p>
 </div>
 <div class="paragraph">
 <p><strong>Per face metadata</strong>
-The current spec with openflight allows for storing materials or relative priority per-face. However, in glTF faces are usually collapsed into meshes, so there is no way to store information per polygon.
+The current OpenFlight specification allows for storing materials or relative priority per-face. However, in glTF faces are usually collapsed into meshes so there is no way to store information per polygon.
 With the current extension, the solution would be to group polygons with the same relative priority and material into a single mesh and store the information at the mesh level.</p>
 </div>
 <div class="paragraph">
-<p>There is an extension in progress for OWT to store metadata at the feature level. <a href="https://github.com/CesiumGS/glTF/pull/1">This extension</a> currently supports storing per-vertex metadata, but it could possibly be expanded to support per-face metadata and used in CDB.</p>
+<p>There is an OWT extension in progress to enable storing metadata at the feature level. <a href="https://github.com/CesiumGS/glTF/pull/1">This extension</a> currently supports storing per-vertex metadata but that extension could possibly be expanded to support per-face metadata and used in a CDB datastore.</p>
 </div>
 <div class="paragraph">
 <p><strong>External References</strong>
-This is one of the larger challenges encountered during our investigations. There has been discussion in the past about including an external reference extension in glTF but it was decided not to include it.
-In past cases, separate index files were used to reference multiple glTF files from a common source. This is sufficient for some cases, but does not help for the use case of sharing geometry between multiple models. For example sharing common roof clutter objects between different buildings</p>
+This is one of the larger challenges encountered during our investigations. In the past there was discussion about including an external reference extension in glTF but it was decided not to include it {<strong>Who made this decision?</strong>}.
+In past cases, separate index files were used to reference multiple glTF files from a common source. This is sufficient for some cases but does not help for the use case of sharing geometry between multiple models. For example sharing common roof clutter objects between different buildings</p>
 </div>
 <div class="sect4">
 <h5 id="_extensions_roadmap"><a class="anchor" href="#_extensions_roadmap"></a>Extensions Roadmap</h5>
 <div class="paragraph">
-<p>One of the challenges was deciding which CDB capabilities belong in <code>EXT_CDB</code> and which belong in standalone extensions, judged by their utility to the wider glTF ecosystem. The group also investigated whether it was possible to leverage existing glTF extensions. Finally, the group determined that some capabilities should go in the model indexing file rather than in the glTF. Our recommendations are below:</p>
+<p>One of the challenges was deciding which CDB capabilities belong in <code>EXT_CDB</code> and which belong in standalone extensions. This is especially true when judged by an extension&#8217;s utility to the wider glTF ecosystem. The 3D subgroup also investigated whether leveraging existing glTF extensions is possible. Finally, the 3D subgroup determined that some capabilities should go in the model indexing file rather than in the glTF. Our recommendations are below:</p>
 </div>
 <div class="paragraph">
-<p><strong>EXT_CDB</strong></p>
+<p><strong>The EXT_CDB extension</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>CDB-specific constructs like points, zones, lights, light maps, and extended texture types.</p>
+<p>CDB-specific constructs such as points, zones, lights, light maps, and extended texture types.</p>
 </li>
 </ul>
 </div>
@@ -2543,7 +2545,7 @@ In past cases, separate index files were used to reference multiple glTF files f
 <div class="ulist">
 <ul>
 <li>
-<p>Coordinate reference system - shared interest with One World Terrain and possibly wider glTF ecosystem</p>
+<p>Coordinate Reference System - shared interest with One World Terrain and possibly wider glTF ecosystem</p>
 </li>
 <li>
 <p>Switch nodes - shared interest with One World Terrain moving models format</p>
@@ -2586,10 +2588,10 @@ In past cases, separate index files were used to reference multiple glTF files f
 <div class="sect4">
 <h5 id="_adoption"><a class="anchor" href="#_adoption"></a>Adoption</h5>
 <div class="paragraph">
-<p>The initial approach was to create a monolithic CDB glTF extension so that editors and viewers would only need to support a single extension to load CDB glTF models. However the group found that there was a significant amount of overlap between CDB and OWT requirements and shifted towards a more granular approach to avoid multiple redundant extensions being developed. Generally glTF extensions that have seen wider adoption are both simple and useful to a wide variety of vendors. Suggested next steps are to collaborate more closely with OWT stakeholders and reach out to the wider glTF community for review, followed by practical experimentation in runtime engines. After OGC finalization the extensions may be formalized as either ratified Khronos extensions (KHR prefix) or, more likely, Multi-Vendor extensions (EXT prefix), and be listed in the <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions">glTF Extension Registry</a>.</p>
+<p>The initial approach was to create a monolithic CDB glTF extension so that editors and viewers would only need to support a single extension to load CDB glTF models. However, the group determined that there was a significant amount of overlap between CDB and OWT requirements and shifted towards a more granular approach to avoid multiple redundant extensions being developed. Generally glTF extensions that have seen wider adoption are both simple and useful to a wide variety of vendors. Suggested next steps are to collaborate more closely with OWT stakeholders and reach out to the wider glTF community for review. This review would be followed by practical experimentation in runtime engines. After OGC review and agreement, the extensions may be formalized as either ratified Khronos extensions (KHR prefix) or, more likely, Multi-Vendor extensions (EXT prefix), and be listed in the <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions">glTF Extension Registry</a>.</p>
 </div>
 <div class="paragraph">
-<p>Another key topic for adoption is editor support. glTF has seen increasing adoption in 3D modelling software like Blender, 3DS Max, and Maya but extensions are often lost during the import/export process. Workarounds have been proposed such as storing extension information outside of the glTF (see <a href="https://github.com/AnalyticalGraphicsInc/gmdf">The glTF Metadata File (GMDF) for Systems Tool Kit (STK)</a>). Some capabilities like per-face feature assignment are not possible in standard modelling packages and would require plugins. The most likely path of adoption is native support for the extensions in simulation editors and plugins for more general purpose 3D modeling software.</p>
+<p>Another key topic for adoption is editor support. glTF has seen increasing adoption in 3D modelling software like Blender, 3DS Max, and Maya but extensions are often lost during the import/export process. Workarounds have been proposed such as storing extension information outside of the glTF container (see <a href="https://github.com/AnalyticalGraphicsInc/gmdf">The glTF Metadata File (GMDF) for Systems Tool Kit (STK)</a>). Some capabilities like per-face feature assignment are not possible in standard modelling packages and would require plugins. The most likely path of adoption is native support for the extensions in simulation editors and plugins for more general purpose 3D modeling software.</p>
 </div>
 </div>
 </div>
@@ -2597,7 +2599,7 @@ In past cases, separate index files were used to reference multiple glTF files f
 <h4 id="_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension"><a class="anchor" href="#_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension"></a>11.2. TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension</h4>
 <div class="imageblock text-center">
 <div class="content">
-<img src="images/Tank-model_3Dview.jpg" alt="Tank model 3Dview" width="900">
+<img src="images/Tank-model_3Dview.jpg" alt="Tank model 3Dview" width="800">
 </div>
 </div>
 <div class="imageblock">
@@ -2611,13 +2613,15 @@ In past cases, separate index files were used to reference multiple glTF files f
 </div>
 </div>
 <div class="paragraph">
-<p>Above are some images of a tank 3D model in both format. This model was selected as benchmark as it contains a number OpenFlight specific constructs leveraged in the CDB. Converting this model will exercise many of the proposed glTF extensions.</p>
+<p>Above are some images of a tank 3D model in both formats. This model was selected as benchmark as it contains a number OpenFlight specific constructs leveraged in the CDB standard. Converting this model will exercise {<strong>exercized?</strong>) many of the proposed glTF extensions.</p>
 </div>
 <div class="sect4">
 <h5 id="_ofgltf_size_comparison_metrics"><a class="anchor" href="#_ofgltf_size_comparison_metrics"></a>OF/gltf size comparison metrics:</h5>
 <div class="paragraph">
-<p><strong>Small CDB size comparisons (898 GS models - without textures)</strong>
-Comparing the size of the 300_GSModelGeometry and 303_GSModelDescriptor folders from the source CDB to the 999_ModelGeometry folder in the converted CDB:</p>
+<p><strong>Small CDB size comparisons (898 GS models - without textures)</strong></p>
+</div>
+<div class="paragraph">
+<p>Comparing the size of the 300_GSModelGeometry and 303_GSModelDescriptor folders from the source CDB to the 999_ModelGeometry folder in the converted CDB {<strong>models?</strong>}:</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 30%;">
 <colgroup>
@@ -2671,44 +2675,53 @@ Comparing the size of the 300_GSModelGeometry and 303_GSModelDescriptor folders 
 </tbody>
 </table>
 <div class="paragraph">
-<p>In the CDB test case the Ascii glTF is slightly smaller than Openflight, and the binary glb is almost twice as small.
-In the test case with a single large model both the binary and ascii glTF provide a large improvement, but the binary file is actually slightly larger than the ascii gltf. The reason for this is not entirely clear, but it seems to be an outlier based on other tests.</p>
+<p>In the CDB test case, the Ascii glTF file is slightly smaller than the Openflight file and the binary glb is almost twice as small.
+In the test case with a single large model, both the binary and ascii glTF provide a significant improvement in space savings. However, in this case the binary file is actually slightly larger than the ascii glTF. The reason for this is not entirely clear, but it seems to be an outlier based on teh results of the other tests.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_task_4_define_a_new_structure_to_store_3d_models"><a class="anchor" href="#_task_4_define_a_new_structure_to_store_3d_models"></a>11.3. TASK 4 - Define a new structure to store 3D models</h4>
 <div class="paragraph">
-<p>The storing of 3D models can be either in files and folders or inside a Geopackage. Where the prototype stopped short of packing the resulting glTF files, a number of elements need to be considered when this gets investigated. Those are:</p>
+<p>Storing the 3D models in a CDB datastore can be either in files and folders or inside a GeoPackage. Where the prototype stopped short of packing {<strong>Packing where</strong>} the resulting glTF files, a number of elements need to be considered when this gets {<strong>When what gets?</strong>} investigated. Those are:</p>
 </div>
 <div class="paragraph">
-<p><strong>File based approach</strong>
-. Use zip - One challenge of CDB 1.X is the large number of files. Where many small files are not optimal on I/O, putting all datasets into one large file would lead to large amount of data needing to be scanned to extract what is needed. A ZIP is a good format to allow quick access to the content index in order to decode only the required data. As such, it would be recommended to group each model data into a zip (all LODs, textures etc&#8230;&#8203;) while keeping the xml (index file) seperate. A quick access to the index file would allow to identfiy what is required to be loaded into each ZIP. This way, a client server could work with a scheme similar to teh OGC getCapabilities to query the available data prior to accessing the actual payload.</p>
+<p><strong>File based approach</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Use zip: One challenge of using the CDB 1.X stadnrd is the large number of files that are created. Where many small files are not optimal on I/O, putting all datasets into one large file would lead to a large volume of data needing to be scanned to extract what is needed {<strong>NOTE: This was investigated in the OGC Testbed 16 GeoPackage activity. Some interesting recommendations</strong>}. A ZIP is a good format to allow quick access to the content index in order to decode only the required data. As such, a recommendation is to group each model data into a zip (all LODs, textures etc&#8230;&#8203;) while keeping the xml (index file) separate. A quick access to the index file would allow identifying what is required to be loaded into each ZIP. This way, a client server could work with a scheme similar to the OGC getCapabilities to query the available data prior to accessing the actual payload.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p><strong>GeoPackage based approach</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>&lt;TBD&gt;</strong></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_task_5_define_an_index_file_for_all_3d_model_components"><a class="anchor" href="#_task_5_define_an_index_file_for_all_3d_model_components"></a>11.4. TASK 5 - Define an index file for all 3D model components</h4>
 <div class="paragraph">
-<p>The grouping of all components of a 3D model together imposes the presence of an indexing file, listing all those components. The list of components proposed include: Feature attribution (GGDM), reference to source model used, model exterior, Model interior, Collision volume and nav mesh. Splitting those constructs into separate component follows the current logic of CDB splitting the dataset in order to quickly access only required data without having to load larger component that include all only to reject most of it. It also server the purpose of rapid update by allowing the change of one element without the other (update nav mesh, or interior without changing the complete model).</p>
+<p>The grouping of all components of a 3D model together requires an index file that indexes and references all those components. The list of components proposed include: Feature attribution (GGDM), reference to source model used, model exterior, Model interior, Collision volume, and nav mesh. Splitting those constructs into separate component follows the current logic in the CDB standard of splitting the dataset in order to quickly access only required data without having to load larger component(s) that include all {<strong>All what?</strong>} only to reject most of the content. This approach also serves the purpose of rapid update by allowing changing one element without the other (update nav mesh, or interior without changing the complete model) needing to be updated.</p>
 </div>
 <div class="paragraph">
-<p>Some consideration should be made to ensure all existing GSModelDescriptor information is migrated into this file (texture mapping info being one).</p>
+<p>Some consideration should be made to ensure all existing GSModelDescriptor information is migrated into this file {<strong>The index file?</strong>} (texture mapping info being one).</p>
 </div>
 <div class="paragraph">
-<p><strong>duplication of information</strong>
-There has a request to also store the model georeferencing inside this file. The challenge with this is the duplication of information as, CDB positions models based on the point feature. Changing the georeferencing in this file would not lead to a change in the model position. CDB typically avoid duplication of information as it creates confusion. In this same idea, one would argue that the model attribution (GGDB) should not be there either as it also a duplication.</p>
+<p><strong>Duplication of information</strong>
+There was a request to also store the model georeferencing inside this file {<strong>The index file?</strong>}. The challenge with this is the duplication of information such as CDB positions models based on the point feature. Changing the georeferencing in this file would not lead to a change in the model position. The CDB standard typically avoids duplication of information as duplication creates confusion. In this same idea, one could argue that the model attribution (GGDB) should not be there either as this would also be duplication.</p>
 </div>
 <div class="paragraph">
 <p>This file content and structure requires a review and alignment with the rest of the CDB metadata.</p>
 </div>
 <div class="paragraph">
-<p><strong>task:</strong> convert sample to object model and produce associated schema.
-.<strong>Sample XML model indexing file</strong></p>
+<p><strong>task:</strong> convert sample {<strong>sample what?</strong>} to object model and produce associated schema.</p>
 </div>
 <div class="listingblock">
+<div class="title"><strong>Sample XML model indexing file</strong></div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="comment">&lt;!-- &quot;Model&quot; node includes encoding statement. Should this info be pushed down,
@@ -2727,7 +2740,7 @@ There has a request to also store the model georeferencing inside this file. The
                 <span class="tag">&lt;/GGDM&gt;</span>
         <span class="tag">&lt;/Identification&gt;</span>
 
-    <span class="comment">&lt;!-- model_complete_source - do we allow uses to store this in CDB? Where? Any format?
+    <span class="comment">&lt;!-- model_complete_source - Do we allow uses/users to store this in CDB? Where? Any format?
          This model would typically include all LODs and possibly constructs not supported
          by CDB. This would likely also require the storing of the source textures. As such,
          a zip is likely a better container. Still, inclusion of this will increase CDB size
@@ -2786,7 +2799,7 @@ There has a request to also store the model georeferencing inside this file. The
 </div>
 </div>
 <div class="sect2">
-<h3 id="_investigation_2_merging_all_geometry_in_a_tile"><a class="anchor" href="#_investigation_2_merging_all_geometry_in_a_tile"></a>11.5. Investigation 2 - Merging all geometry in a tile</h3>
+<h3 id="_investigation_2_merging_all_geometry_in_a_tile_i_am_assuming_this_section_will_get_more_information_and_an_edit"><a class="anchor" href="#_investigation_2_merging_all_geometry_in_a_tile_i_am_assuming_this_section_will_get_more_information_and_an_edit"></a>11.5. Investigation 2 - Merging all geometry in a tile {<strong>I am assuming this section will get more information - and an edit</strong>}</h3>
 <div class="paragraph">
 <p>This investigation was not done by the 3D group but the tiling group did&#8230;&#8203;.
 This type of solution has significant impact on the CDB data model:
@@ -3536,7 +3549,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-15 15:50:03 UTC
+Last updated 2020-10-15 17:09:27 UTC
 </div>
 </div>
 <style>
