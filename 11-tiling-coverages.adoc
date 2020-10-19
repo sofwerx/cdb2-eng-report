@@ -86,7 +86,11 @@ The coverage tiles would be stored using GeoPackage containers.  The GeoPackage 
 
 === Proposed CDB X Coverage Grouping
 
+There are two proposed ways to group data within a series of GeoPackage containers.  Within these choices is a tradeoff between the format simplicity of working with a single container, and access latency due to larger file and table sizes.
 
+1. For edge users and smaller areas, we would recommend that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user.
+1. For Modeling and Simulation uses, as well as data repository cases, we recommend that a series of GeoPackage containers be used to store CDB X coverage layers.  This involves storing a region of the world at a set of zoom levels, or levels of detail, within a single GeoPackage, with a specified file and directory naming scheme.  This approach would allow for faster access to data at specified areas and zoom levels.  It would also lend itself to concurrent access and editing for data repository maintainers.
+** We propose that a configurable grouping value be used to specify how many zoom levels or levels of detail are put into a single GeoPackage.  This would be a tradeoff between the number of GeoPackages created and the file and table sizes within each GeoPackage.
 
 === Backwards Compatibility with OGC CDB 1.x
 
