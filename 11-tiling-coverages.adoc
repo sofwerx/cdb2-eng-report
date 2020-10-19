@@ -52,17 +52,11 @@ image::images/tiling_logical_model.jpg[width=800,align="center"]
 
 === Proposed CDB X Tiling Structure
 
-The proposed tiling scheme would be based on the GNOSISGlobalGrid (`reference?`), where the entire world is tiled in a 2x4 grid with each tile 90 degrees on a side.  This is zoom level 0 (or tile matrix identifier "0").  Each successive zoom level increases by one, until the level can accomdate the highest resolution data that is to be stored within the CDB X.  With each successive zoom level, each tile is split into four new tiles, except for any tile that would touch either the north or south pole is not split in longitude.  This has several key improvements over OGC CDB 1.0:
+The proposed tiling scheme would be based on the GNOSISGlobalGrid (`reference?`), where the entire world is tiled in a 2x4 grid with each tile 90 degrees on a side.  This is zoom level 0 (or tile matrix identifier "0").  Each successive zoom level increases by one, until the level can accomdate the highest resolution data that is to be stored within the CDB X.  With each successive zoom level, each tile is split into four new tiles, except for any tile that would touch either the north or south pole is not split in longitude.
 
-* OGC CDB 1.x has 41,220 top level tiles, requiring possibly opening huge numbers of files to show the Earth at world scales.  The proposed CDB X tiling would use 8 tiles to show the coarsest level of detail of a coverage.
-* The concept of "zones" in OGC CDB 1.x are still present in the tiling scheme, but algorithmically derived rather than at fixed latitudes.  New zones are introduced at higher levels of detail, keeping the tiles near the poles closer to an ideal square shape than in OGC CDB 1.x
-* The ratio of the longitude size of tiles is always a 2:1 ratio, where OGC CDB 1.x has several ratios that must be supported, like 3:2 and 4:3
-
-The drawbacks to changing the tiling scheme include:
-
-* The new tiling scheme is incompatible with OGC CDB 1.x, and would require merging and splitting and changing the resolution of current CDB tiles (such as imagery)
-* Some applications might have more trouble with tiles that are not based on integer latitude and longitude boundaries, or on a variable number of "zones" where the longitude size of the tile can change near the poles.
-* Tile naming (numbering) would be different, starting from the top left corner of a tile matrix vs starting from the bottom left corner of the OGC CDB 1.x set of tiles.
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Proposed Tiling Scheme for CDB X.
+image::images/image2020-7-8_10-39-39.png[width=515,align="center"]
 
 Using  GPKG Tiled Gridded Coverage standard. Discussed "materials" and their requirements as coverages. Suggest a change request to allow 8, 16 bit and 32 TIFF (integer or float). (Not only for materials, but also heights (aka elevation))
 
@@ -77,6 +71,21 @@ Current GPKG TMS draft: https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/maste
 - Reference same TMS from multiple layers
 
 Sample GeoPackage using TMS / GNOSISGlobalGrid for both elevation & vector data tiles: https://portal.ogc.org/files/?artifact_id=92565
+
+=== Tiling Changes From OGC CDB 1.x
+
+Benefits from changing to the proposed tiling scheme:
+
+* OGC CDB 1.x has 41,220 top level tiles, requiring possibly opening huge numbers of files to show the Earth at world scales.  The proposed CDB X tiling would use 8 tiles to show the coarsest level of detail of a coverage.
+* The concept of "zones" in OGC CDB 1.x are still present in the tiling scheme, but algorithmically derived rather than at fixed latitudes.  New zones are introduced at higher levels of detail, keeping the tiles near the poles closer to an ideal square shape than in OGC CDB 1.x
+* The ratio of the longitude size of tiles is always a 2:1 (or the inverse 1:2) ratio, where OGC CDB 1.x has several ratios that must be supported, such as 2:1, 3:2 and 4:3
+
+Drawbacks from changing to the proposed tiling scheme include the following.  These issues might require some level of incompatibility or rework for existing CDB applications.
+
+* The new tiling scheme is incompatible with OGC CDB 1.x, as there is no alignment between the tile areas and the LOD or zoom levels.  To convert data between these two tiling schemes would require merging and splitting of raster data tiles, while changing their resolution, and would require reprocessing all the coverage data (like imagery).
+* Some CDB applications might have more trouble with tiles that are not based on integer latitude and longitude boundaries.
+* Some CDB applications might have an issue with a format where there are not a fixed number of "zones" (using the OGC CDB 1.x term) or different grid cell sizes used.  This is because the GNOSIS grid incroduces a new "zone" closer to the poles at each successive zoom level to help preserve a grid cell that is closer to an ideal square real world size.
+* Tile naming (numbering) would be different, starting from the top left corner of a tile matrix vs starting from the bottom left corner of the OGC CDB 1.x set of tiles.
 
 === Additional CDB X Recommendations
 
@@ -100,7 +109,7 @@ The following graph compares the CDB 1.x zones with the Gnosis grid and shows ho
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .CDB 1.x to GNOSIS Comparison - Ratio.
-image::images/cdb-gnosis-ratio.png[width=600,align="center"]
+image::images/image2020-9-4_10-41-0.png[width=600,align="center"]
 
 
 === CDB X Tiling/GeoPackage Experiment #1 (Ecere)
