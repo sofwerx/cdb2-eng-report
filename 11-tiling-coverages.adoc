@@ -58,21 +58,7 @@ The proposed tiling scheme would be based on the GNOSISGlobalGrid (`reference?`)
 .Proposed Tiling Scheme for CDB X.
 image::images/image2020-7-8_10-39-39.png[width=515,align="center"]
 
-Using  GPKG Tiled Gridded Coverage standard. Discussed "materials" and their requirements as coverages. Suggest a change request to allow 8, 16 bit and 32 TIFF (integer or float). (Not only for materials, but also heights (aka elevation))
-
-For any CDB or data layer, pick one of: CDB 1.x grid or GNOSISGlobalGrid (better equal area approximation for polar regions, constant tile size even at overview LODs)
-
-Current GPKG TMS draft: https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions[GPKG TMS Extension (Draft)]
-
-- TileMatrixSet compatibility
-
-(topLeftCorner, Variable width)
-
-- Reference same TMS from multiple layers
-
-Sample GeoPackage using TMS / GNOSISGlobalGrid for both elevation & vector data tiles: https://portal.ogc.org/files/?artifact_id=92565
-
-=== Tiling Changes From OGC CDB 1.x
+==== Tiling Changes From OGC CDB 1.x
 
 Benefits from changing to the proposed tiling scheme:
 
@@ -85,7 +71,25 @@ Drawbacks from changing to the proposed tiling scheme include the following.  Th
 * The new tiling scheme is incompatible with OGC CDB 1.x, as there is no alignment between the tile areas and the LOD or zoom levels.  To convert data between these two tiling schemes would require merging and splitting of raster data tiles, while changing their resolution, and would require reprocessing all the coverage data (like imagery).
 * Some CDB applications might have more trouble with tiles that are not based on integer latitude and longitude boundaries.
 * Some CDB applications might have an issue with a format where there are not a fixed number of "zones" (using the OGC CDB 1.x term) or different grid cell sizes used.  This is because the GNOSIS grid incroduces a new "zone" closer to the poles at each successive zoom level to help preserve a grid cell that is closer to an ideal square real world size.
-* Tile naming (numbering) would be different, starting from the top left corner of a tile matrix vs starting from the bottom left corner of the OGC CDB 1.x set of tiles.
+* Tile Matrix Set naming (numbering) is different that OGC CDB 1.x, with the numbering starting from the top left corner of a set of tiles in CDB X vs starting from the bottom left corner of a set of tiles in OGC CDB 1.x.
+
+=== Proposed CDB X Data Container
+
+The coverage tiles would be stored using GeoPackage containers.  The GeoPackage Tiled Gridded Coverage extention would be ideal for storing tiled coverage data, but it has some drawbacks that would need to be addressed.  Current limitations include:
+
+* Only single channel data is allowed in the coverage extension.  Many CDB coverages use more than one channel (Imagery, Raster Materials, etc).  The alternative would be to store CDB X coverage data using different GeoPackage concepts, such as tiles for imagery, coverages for elevation, and related tables for raster material data.
+** Current change request:  http://ogc.standardstracker.org/show_request.cgi?id=662
+* GeoTiff data only supports using 32-bit floating point data.  In OGC CDB 1.x, GeoTiffs are used to store 8 bit unsigned and 8, 16, or 32 bit signed binary data as well.  And the proposed OGC CDB 1.2 will also adopt the use of binary 1-bit data elements as well.
+** Current change request:  http://ogc.standardstracker.org/show_request.cgi?id=661
+* The enginering tests created in this effort made use of a proposed Tile Matrix Set extension that has not been adopted as an OGC GeoPackage extension.
+** Current GPKG TMS draft: https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions[GPKG TMS Extension (Draft)]
+
+For any CDB or data layer, pick one of: CDB 1.x grid or GNOSISGlobalGrid (better equal area approximation for polar regions, constant tile size even at overview LODs)
+
+
+- Reference same TMS from multiple layers
+
+Sample GeoPackage using TMS / GNOSISGlobalGrid for both elevation & vector data tiles: https://portal.ogc.org/files/?artifact_id=92565
 
 === Additional CDB X Recommendations
 
