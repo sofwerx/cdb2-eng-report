@@ -565,31 +565,38 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers">14.2. Design Objectives for CDB X Tiling and LoDs and Layers</a></li>
 <li><a href="#_proposed_tiling_logical_model_for_cdb_x">14.3. Proposed Tiling Logical Model for CDB X</a></li>
-<li><a href="#_proposed_cdb_x_tiling_structure">14.4. Proposed CDB X Tiling Structure</a></li>
-<li><a href="#_additional_cdb_x_recommendations">14.5. Additional CDB X Recommendations</a>
+<li><a href="#_proposed_cdb_x_tiling_structure">14.4. Proposed CDB X Tiling Structure</a>
 <ul class="sectlevel3">
-<li><a href="#_elevation_minmax">14.5.1. Elevation min/max</a></li>
-<li><a href="#_image_compression_jpeg">14.5.2. Image Compression - JPEG</a></li>
-<li><a href="#_materials">14.5.3. Materials</a></li>
+<li><a href="#_tiling_changes_from_ogc_cdb_1_x">14.4.1. Tiling Changes From OGC CDB 1.x</a></li>
 </ul>
 </li>
-<li><a href="#_findings_from_experiments">14.6. Findings from experiments</a></li>
-<li><a href="#_cdb_x_tilinggeopackage_experiment_1_ecere">14.7. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</a>
+<li><a href="#_proposed_cdb_x_data_container">14.5. Proposed CDB X Data Container</a></li>
+<li><a href="#_proposed_cdb_x_coverage_grouping">14.6. Proposed CDB X Coverage Grouping</a></li>
+<li><a href="#_backwards_compatibility_with_ogc_cdb_1_x">14.7. Backwards Compatibility with OGC CDB 1.x</a></li>
+<li><a href="#_additional_cdb_x_recommendations">14.8. Additional CDB X Recommendations</a>
 <ul class="sectlevel3">
-<li><a href="#_data_and_geopackage_structure">14.7.1. Data and GeoPackage Structure</a></li>
-<li><a href="#_ogc_api_access_demo">14.7.2. OGC API access demo</a></li>
-<li><a href="#_visualization">14.7.3. Visualization</a></li>
-<li><a href="#_live_cesium_js_3d_tiles_demonstation">14.7.4. Live Cesium JS / 3D Tiles demonstation</a></li>
-<li><a href="#_next_steps_this_section_will_change_as_new_content_is_provided">14.7.5. Next steps (this section will change as new content is provided)</a></li>
+<li><a href="#_elevation_minmax">14.8.1. Elevation min/max</a></li>
+<li><a href="#_image_compression_jpeg">14.8.2. Image Compression - JPEG</a></li>
+<li><a href="#_materials">14.8.3. Materials</a></li>
 </ul>
 </li>
-<li><a href="#_flightsafety_geopackage_tiling_experiments">14.8. FlightSafety GeoPackage Tiling Experiments</a>
+<li><a href="#_findings_from_experiments">14.9. Findings from experiments</a></li>
+<li><a href="#_cdb_x_tilinggeopackage_experiment_1_ecere">14.10. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</a>
 <ul class="sectlevel3">
-<li><a href="#_flightsafety_experiment_1">14.8.1. FlightSafety Experiment 1</a></li>
-<li><a href="#_flightsafety_experiment_2">14.8.2. FlightSafety Experiment 2</a></li>
-<li><a href="#_observations_from_experiments_1_and_2">14.8.3. Observations from Experiments 1 and 2</a></li>
-<li><a href="#_flightsafety_experiments_3_and_4">14.8.4. FlightSafety Experiments 3 and 4</a></li>
-<li><a href="#_observations_for_experiments_3_and_4">14.8.5. Observations for Experiments 3 and 4</a></li>
+<li><a href="#_data_and_geopackage_structure">14.10.1. Data and GeoPackage Structure</a></li>
+<li><a href="#_ogc_api_access_demo">14.10.2. OGC API access demo</a></li>
+<li><a href="#_visualization">14.10.3. Visualization</a></li>
+<li><a href="#_live_cesium_js_3d_tiles_demonstation">14.10.4. Live Cesium JS / 3D Tiles demonstation</a></li>
+<li><a href="#_next_steps_this_section_will_change_as_new_content_is_provided">14.10.5. Next steps (this section will change as new content is provided)</a></li>
+</ul>
+</li>
+<li><a href="#_flightsafety_geopackage_tiling_experiments">14.11. FlightSafety GeoPackage Tiling Experiments</a>
+<ul class="sectlevel3">
+<li><a href="#_flightsafety_experiment_1">14.11.1. FlightSafety Experiment 1</a></li>
+<li><a href="#_flightsafety_experiment_2">14.11.2. FlightSafety Experiment 2</a></li>
+<li><a href="#_observations_from_experiments_1_and_2">14.11.3. Observations from Experiments 1 and 2</a></li>
+<li><a href="#_flightsafety_experiments_3_and_4">14.11.4. FlightSafety Experiments 3 and 4</a></li>
+<li><a href="#_observations_for_experiments_3_and_4">14.11.5. Observations for Experiments 3 and 4</a></li>
 </ul>
 </li>
 </ul>
@@ -3003,13 +3010,13 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="sect3">
 <h4 id="_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"><a class="anchor" href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"></a>14.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</h4>
 <div class="paragraph">
-<p>This OGC Abstract Specification consists of two Parts: A General Tiling Conceptual Model and, based on the Conceptual Model, a Logical Model for the Tessellation (Tiling) of 2D Euclidean Space. Tiling  of  2D  Euclidean  space  is  the  most  commonly  known  approach  to  partitioning  space  in traditional  geospatial  technology.  However,  there  are  also  common  elements  and/or  semantics  for any approach to partitioning space in any dimension. The logical model in this document defines a set  common  required  elements  and  then  follows  with  more  specific  requirements  for  the  two dimensional case.</p>
+<p>This OGC Abstract Specification consists of two Parts: A General Tiling Conceptual Model and, based on the Conceptual Model, a Logical Model for the Tessellation (Tiling) of 2D Euclidean Space. Tiling  of  2D  Euclidean  space  is  the  most  commonly  known  approach  to  partitioning  space  in traditional  geospatial  technology.  However, there are also common elements and/or semantics for any approach to partitioning space in any dimension. The logical model in this document defines a set  common  required  elements  and  then  follows  with  more  specific  requirements  for  the  two dimensional case.</p>
 </div>
 <div class="paragraph">
-<p>Part  1  of  the  Abstract  Specification  describes  a  general  tiling  conceptual  model.  The  conceptual model  is  applicable  to  any  dimension.  The  conceptual  model  makes  no  assumptions  regarding content,  use  cases,  implementation  scenarios,  or  how  the  space  is  to  be  tessellated  (tiled).  The conceptual model is abstract and cannot be implemented as is.</p>
+<p>Part  1  of  the  Abstract  Specification  describes  a  general  tiling  conceptual  model.  The conceptual model is applicable to any dimension.  The  conceptual model makes no assumptions regarding content, use cases, implementation scenarios, or how the space is to be tessellated (tiled).  The conceptual model is abstract and cannot be implemented as is.</p>
 </div>
 <div class="paragraph">
-<p>Part  2  of  the Tiling  Abstract  Specification  defines  a  detailed  logical  model  for  the  tessellation  of  2D Euclidean  Space.  One  or  more  logical  models  are  required  to  provide  the  requirements  and structure  necessary  for  implementation.  Therefore,  in  addition  to  the  conceptual  model,  this Abstract Specification also specifies a core logical model for the 2D planar (Euclidean) use case.</p>
+<p>Part  2  of  the Tiling  Abstract  Specification  defines  a  detailed  logical  model  for  the  tessellation  of  2D Euclidean  Space.  One  or  more  logical  models  are  required  to  provide  the  requirements  and structure  necessary  for  implementation.  Therefore, in  addition to the conceptual model, this Abstract Specification also specifies a core logical model for the 2D planar (Euclidean) use case.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3030,41 +3037,41 @@ While the same metadata elements are recommended for both global and local geosp
 <p>OGC GeoPackage structured containers are a primary storage format for derived vector data layers, coverages, and other data types as identified (<code>TBD</code>). The two OGC Standards of relevance are <a href="https://portal.opengeospatial.org/files/12-128r15">OGC GeoPackage version 1.1</a> and <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">OGC GeoPackage Extension for Tiled Gridded Coverage Data</a>.</p>
 </li>
 <li>
-<p>Have metadata for whole dataset listing how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)</p>
+<p>Use metadata for whole datasets that describe how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)</p>
+</li>
+<li>
+<p>Provide for fewer top level tiles than in OGC CDB 1.x</p>
 </li>
 <li>
 <p>Store imagery in GeoPackage according to the tiling scheme specified below (<code>need anchor</code>)</p>
 </li>
 <li>
-<p>Store coverage data in GeoPackage according to the tiling scheme specified below (<code>need anchor</code>). Suggested coverage types based on current CDB standard and user specified requirements: (Spherical body surface): Elevation models, imagery, multi-spectral, raster (such as classified satellite imagery). Should be extensible to support other types.</p>
+<p>Store coverage data in GeoPackage according to the tiling scheme specified below (<code>need anchor</code>). Suggested coverage types based on current CDB standard and user specified requirements: (Ellipsoidal body surface): Elevation models, visual and non-visual (multi-spectral) imagery, terrain light maps (emissive at night), and raster materials (for non-visual sensors). Should be extensible to support other types.</p>
 </li>
 <li>
 <p>Coordinate Reference System is WGS 84 with epoch encoding (same as current CDB Standard except for epoch).</p>
 </li>
 <li>
-<p>Need to keep the  various encodings that CDB 1.x already has:</p>
+<p>Need to keep the various encodings that CDB 1.x already has:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Integer Elevation</p>
+<p>Elevation compression encodings (use of scaled integers vs floating point for smaller data sizes)</p>
 </li>
 <li>
-<p>8-bit Raster Material Mixtures</p>
+<p>Elevation grids that are adjustable (better terrain fidelity at lower LODs/zoom levels)</p>
 </li>
 <li>
-<p>Imagery Compression:</p>
+<p>Raster Material encodings using multiple coverage layers</p>
+</li>
+<li>
+<p>Imagery Compression (Imagery is typically the largest layer in CDB by disk storage)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p>Must enable a "relatively" easy migration path from the CDB 1.1/1.2 tiling/LoD structure into the CDB X structure.</p>
-</li>
-<li>
-<p>CDB X must support integer compressed heights (elevations)</p>
-</li>
-<li>
-<p>CDB X must support GeoTIFF as an encoding for images.</p>
 </li>
 </ul>
 </div>
@@ -3084,78 +3091,181 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="sect2">
 <h3 id="_proposed_cdb_x_tiling_structure"><a class="anchor" href="#_proposed_cdb_x_tiling_structure"></a>14.4. Proposed CDB X Tiling Structure</h3>
 <div class="paragraph">
-<p>This section describes the proposed tiling structure and LoD (levels?) structure in CDB X. (<code>Probably need small section on consistenccy with version 1.x?</code>)</p>
+<p>The proposed tiling scheme would be based on the GNOSISGlobalGrid (<code>reference?</code>), where the entire world is tiled in a 2x4 grid with each tile 90 degrees on a side.  This is zoom level 0 (or tile matrix identifier "0").  Each successive zoom level increases by one, until the level can accommodate the highest resolution data that is to be stored within the CDB X.  With each successive zoom level, each tile is split into four new tiles, except for any tile that would touch either the North or South Pole is not split in longitude.</p>
+</div>
+<div id="img_logical-model" class="imageblock text-center">
+<div class="content">
+<img src="images/image2020-7-8_10-39-39.png" alt="image2020 7 8 10 39 39" width="515">
+</div>
+<div class="title">Figure Mtd_Ph3 - 16. Proposed Tiling Scheme for CDB X.</div>
+</div>
+<div class="sect3">
+<h4 id="_tiling_changes_from_ogc_cdb_1_x"><a class="anchor" href="#_tiling_changes_from_ogc_cdb_1_x"></a>14.4.1. Tiling Changes From OGC CDB 1.x</h4>
+<div class="paragraph">
+<p>Benefits from changing to the proposed tiling scheme:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>OGC CDB 1.x has 41,220 top level tiles, which requires opening huge numbers of files to show the Earth at world scales.  The proposed CDB X tiling would use 8 tiles to cover the Earth at the coarsest level of detail.</p>
+</li>
+<li>
+<p>The concept of "zones" in OGC CDB 1.x are still present in the tiling scheme, but algorithmically derived rather than at fixed latitudes.  New zones are introduced at higher levels of detail, keeping the tiles near the poles closer to an ideal square shape than in OGC CDB 1.x</p>
+</li>
+<li>
+<p>The ratio of the longitude size of tiles is always a 2:1 (or the inverse 1:2) ratio, where OGC CDB 1.x has several ratios that must be supported, such as 2:1, 3:2 and 4:3</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Using  GPKG Tiled Gridded Coverage standard. Discussed "materials" and their requirements as coverages. Suggest a change request to allow 8, 16 bit and 32 TIFF (integer or float). (Not only for materials, but also heights (aka elevation))</p>
+<p>Drawbacks from changing to the proposed tiling scheme include the following.  These issues might require some level of incompatibility or rework for existing CDB applications.</p>
 </div>
-<div class="paragraph">
-<p>For any CDB or data layer, pick one of: CDB 1.x grid or GNOSISGlobalGrid (better equal area approximation for polar regions, constant tile size even at overview LODs)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The new tiling scheme is incompatible with OGC CDB 1.x, as there is no alignment between the tile areas and the LOD or zoom levels.  To convert data between these two tiling schemes would require merging and splitting of raster data tiles, while changing their resolution, and would require reprocessing all the coverage data (like imagery).</p>
+</li>
+<li>
+<p>Some CDB applications might have more trouble with tiles that are not based on integer latitude and longitude boundaries.</p>
+</li>
+<li>
+<p>Some CDB applications might have an issue with a format where there are not a fixed number of "zones" (using the OGC CDB 1.x term) or different grid cell sizes used.  This is because the GNOSIS grid introduces a new "zone" closer to the poles at each successive zoom level to help preserve a grid cell that is closer to an ideal square real world size.</p>
+</li>
+<li>
+<p>Tile Matrix Set naming (numbering) is different that OGC CDB 1.x, with the numbering starting from the top left corner of a set of tiles in CDB X vs starting from the bottom left corner of a set of tiles in OGC CDB 1.x.</p>
+</li>
+</ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proposed_cdb_x_data_container"><a class="anchor" href="#_proposed_cdb_x_data_container"></a>14.5. Proposed CDB X Data Container</h3>
 <div class="paragraph">
+<p>The coverage tiles would be stored using GeoPackage containers.  The GeoPackage Tiled Gridded Coverage extension would be ideal for storing tiled coverage data, but it has some drawbacks that would need to be addressed.  Current limitations include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Only single channel data is allowed in the coverage extension.  Many CDB coverages use more than one channel (Imagery, Raster Materials, etc.).  The alternative would be to store CDB X coverage data using different GeoPackage concepts, such as tiles for imagery, coverages for elevation, and related tables for raster material data.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Current change request:  <a href="http://ogc.standardstracker.org/show_request.cgi?id=662" class="bare">http://ogc.standardstracker.org/show_request.cgi?id=662</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>GeoTiff data only supports using 32-bit floating point data.  In OGC CDB 1.x, GeoTiff files are used to store 8 bit unsigned and 8, 16, or 32 bit signed binary data as well.  And the proposed OGC CDB 1.2 will also adopt the use of binary 1-bit data elements as well.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Current change request:  <a href="http://ogc.standardstracker.org/show_request.cgi?id=661" class="bare">http://ogc.standardstracker.org/show_request.cgi?id=661</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The engineering tests created in this effort made use of a proposed Tile Matrix Set extension that has not been adopted as an OGC GeoPackage extension.</p>
+<div class="ulist">
+<ul>
+<li>
 <p>Current GPKG TMS draft: <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions">GPKG TMS Extension (Draft)</a></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>TileMatrixSet compatibility</p>
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proposed_cdb_x_coverage_grouping"><a class="anchor" href="#_proposed_cdb_x_coverage_grouping"></a>14.6. Proposed CDB X Coverage Grouping</h3>
 <div class="paragraph">
-<p>(topLeftCorner, Variable width)</p>
+<p>There are two proposed ways to group data within a series of GeoPackage containers.  Within these choices is a tradeoff between the format simplicity of working with a single container, and access latency due to larger file and table sizes.</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For edge users and smaller areas, we would recommend that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user.</p>
+</li>
+<li>
+<p>For Modeling and Simulation uses, as well as data repository cases, we recommend that a series of GeoPackage containers be used to store CDB X coverage layers.  This involves storing a region of the world at a set of zoom levels, or levels of detail, within a single GeoPackage, with a specified file and directory naming scheme.  This approach would allow for faster access to data at specified areas and zoom levels.  It would also lend itself to concurrent access and editing for data repository maintainers.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Reference same TMS from multiple layers</p>
+<p>We propose that a configurable grouping value be used to specify how many zoom levels or levels of detail are put into a single GeoPackage.  This would be a tradeoff between the number of GeoPackages created and the file and table sizes within each GeoPackage.</p>
+</li>
+<li>
+<p>An initial grouping of 6 levels of coverage data in a single GeoPackage seems to be a reasonable number to use, but has not been extensively tested with.</p>
+</li>
+<li>
+<p>The proposed naming of each GeoPackage file is based on the layer name and the coarsest, lowest level tile included within the grouping inside the GeoPackage.  That tile&#8217;s level, row (from the top) and column within the tile matrix set make up the filename, along with the level of the finest or highest level tile that can be placed into this GeoPackage.  For example:  <strong>Coverages_L4_R16_C12_L6.gpkg</strong></p>
+</li>
+<li>
+<p>The proposed directory naming creates a directory tree to limits the number of GeoPackage files that could exist within a single directory.  Each GeoPackage will exist within a set of directory names that represents each coarser or lower zoom level GeoPackage that encompases the smaller higher resolution area.  For example:  The file, <strong>Coverages_L4_R16_C12_L6.gpkg</strong>, will exist in the directory named <strong>Coverages\L0_R1_C0\L1_R2_C1</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The file and directory naming needs to be easy to compute algorithmically or exist within a catalog, without having to search a data repository to discover arbitrarily named files.</p>
 </li>
 </ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_backwards_compatibility_with_ogc_cdb_1_x"><a class="anchor" href="#_backwards_compatibility_with_ogc_cdb_1_x"></a>14.7. Backwards Compatibility with OGC CDB 1.x</h3>
+<div class="paragraph">
+<p>It is possible to keep the new GeoPackage container and level of detail groupings, and use the older OGC CDB 1.x tiling scheme with the creation of a Tile Matrix Set that is compatible with the existing CDB tile schema.  So the use of GeoPackage containers and coverage grouping could be used in a future version of CDB 1.x, although the new tiling scheme would not be backwards compatible.  At this time, we do not recommend supporting more than one tiling scheme, as this choice is foundational to how data layers are processed and stored.</p>
 </div>
 <div class="paragraph">
 <p>Sample GeoPackage using TMS / GNOSISGlobalGrid for both elevation &amp; vector data tiles: <a href="https://portal.ogc.org/files/?artifact_id=92565" class="bare">https://portal.ogc.org/files/?artifact_id=92565</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_additional_cdb_x_recommendations"><a class="anchor" href="#_additional_cdb_x_recommendations"></a>14.5. Additional CDB X Recommendations</h3>
+<h3 id="_additional_cdb_x_recommendations"><a class="anchor" href="#_additional_cdb_x_recommendations"></a>14.8. Additional CDB X Recommendations</h3>
 <div class="paragraph">
 <p>The following are recommendations and suggested additional discussion topics. These recommendations and discussion topics resulted from the Tiling sub-groups discussion on an enhanced tiling model for CDB X and the potential impacts on the various data types (layers) in the current CDB standard and existing CDB data stores.</p>
 </div>
 <div class="sect3">
-<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>14.5.1. Elevation min/max</h4>
+<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>14.8.1. Elevation min/max</h4>
 <div class="paragraph">
 <p>CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded coverage contained in a tile to the tile metadata. Note: The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>14.5.2. Image Compression - JPEG</h4>
+<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>14.8.2. Image Compression - JPEG</h4>
 <div class="paragraph">
 <p>Recommendation: That loss-less image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: <a href="https://flif.info/">FLIF - Free Lossless Image Format</a>.NOTE: JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_materials"><a class="anchor" href="#_materials"></a>14.5.3. Materials</h4>
+<h4 id="_materials"><a class="anchor" href="#_materials"></a>14.8.3. Materials</h4>
 <div class="paragraph">
 <p>Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with reflectance in wavelengths other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_findings_from_experiments"><a class="anchor" href="#_findings_from_experiments"></a>14.6. Findings from experiments</h3>
+<h3 id="_findings_from_experiments"><a class="anchor" href="#_findings_from_experiments"></a>14.9. Findings from experiments</h3>
 <div class="paragraph">
 <p>The following graph compares the CDB 1.x zones with the Gnosis grid and shows how the GNOSIS algorithm helps to keep the typical tile closer to a “square” than CDB’s zones.</p>
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/cdb-gnosis-ratio.png" alt="cdb gnosis ratio" width="600">
+<img src="images/image2020-9-4_10-41-0.png" alt="image2020 9 4 10 41 0" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 16. CDB 1.x to GNOSIS Comparison - Ratio.</div>
+<div class="title">Figure Mtd_Ph3 - 17. CDB 1.x to GNOSIS Comparison - Ratio.</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cdb_x_tilinggeopackage_experiment_1_ecere"><a class="anchor" href="#_cdb_x_tilinggeopackage_experiment_1_ecere"></a>14.7. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</h3>
+<h3 id="_cdb_x_tilinggeopackage_experiment_1_ecere"><a class="anchor" href="#_cdb_x_tilinggeopackage_experiment_1_ecere"></a>14.10. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</h3>
 <div class="sect3">
-<h4 id="_data_and_geopackage_structure"><a class="anchor" href="#_data_and_geopackage_structure"></a>14.7.1. Data and GeoPackage Structure</h4>
+<h4 id="_data_and_geopackage_structure"><a class="anchor" href="#_data_and_geopackage_structure"></a>14.10.1. Data and GeoPackage Structure</h4>
 <div class="paragraph">
 <p>A 1.4 GB GeoPackage of the Camp Pendleton sample CDB from Presagis (originally used in OGC Testbed 13), along with an accompanying <code>cdb.json</code> can be found at:</p>
 </div>
@@ -3210,7 +3320,7 @@ Ecere is planning to add the 3D models in the next experiments&#8201;&#8212;&#82
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ogc_api_access_demo"><a class="anchor" href="#_ogc_api_access_demo"></a>14.7.2. OGC API access demo</h4>
+<h4 id="_ogc_api_access_demo"><a class="anchor" href="#_ogc_api_access_demo"></a>14.10.2. OGC API access demo</h4>
 <div class="paragraph">
 <p>At this address: <a href="https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg" class="bare">https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg</a></p>
 </div>
@@ -3220,7 +3330,7 @@ To some extent, this demonstrates that even though the data is tiled, this layou
 </div>
 </div>
 <div class="sect3">
-<h4 id="_visualization"><a class="anchor" href="#_visualization"></a>14.7.3. Visualization</h4>
+<h4 id="_visualization"><a class="anchor" href="#_visualization"></a>14.10.3. Visualization</h4>
 <div class="paragraph">
 <p>Ecere software can currently visualize the CDB X/GeoPackage elevation and imagery directly in the Ecere 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).</p>
 </div>
@@ -3228,11 +3338,11 @@ To some extent, this demonstrates that even though the data is tiled, this layou
 <div class="content">
 <img src="images/ecere-cdbx-1.png" alt="ecere cdbx 1" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 17. Ecere Camp Pendleton GeoPackage in CDB X.</div>
+<div class="title">Figure Mtd_Ph3 - 18. Ecere Camp Pendleton GeoPackage in CDB X.</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_live_cesium_js_3d_tiles_demonstation"><a class="anchor" href="#_live_cesium_js_3d_tiles_demonstation"></a>14.7.4. Live Cesium JS / 3D Tiles demonstation</h4>
+<h4 id="_live_cesium_js_3d_tiles_demonstation"><a class="anchor" href="#_live_cesium_js_3d_tiles_demonstation"></a>14.10.4. Live Cesium JS / 3D Tiles demonstation</h4>
 <div class="paragraph">
 <p>Navigate to <a href="https://sandcastle.cesium.com/" class="bare">https://sandcastle.cesium.com/</a> and copy/paste the following four (4) lines of Java Script code:</p>
 </div>
@@ -3255,7 +3365,7 @@ To some extent, this demonstrates that even though the data is tiled, this layou
 </div>
 </div>
 <div class="sect3">
-<h4 id="_next_steps_this_section_will_change_as_new_content_is_provided"><a class="anchor" href="#_next_steps_this_section_will_change_as_new_content_is_provided"></a>14.7.5. Next steps (this section will change as new content is provided)</h4>
+<h4 id="_next_steps_this_section_will_change_as_new_content_is_provided"><a class="anchor" href="#_next_steps_this_section_will_change_as_new_content_is_provided"></a>14.10.5. Next steps (this section will change as new content is provided)</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3285,7 +3395,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flightsafety_geopackage_tiling_experiments"><a class="anchor" href="#_flightsafety_geopackage_tiling_experiments"></a>14.8. FlightSafety GeoPackage Tiling Experiments</h3>
+<h3 id="_flightsafety_geopackage_tiling_experiments"><a class="anchor" href="#_flightsafety_geopackage_tiling_experiments"></a>14.11. FlightSafety GeoPackage Tiling Experiments</h3>
 <div class="paragraph">
 <p><strong>Setup</strong>: The data used for these experiments are primarily freely available, and include the following
 * Blue Marble (NASA) that was georeferenced using GDAL - <a href="https://visibleearth.nasa.gov/collection/1484/blue-marble" class="bare">https://visibleearth.nasa.gov/collection/1484/blue-marble</a>
@@ -3311,7 +3421,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_flightsafety_experiment_1"><a class="anchor" href="#_flightsafety_experiment_1"></a>14.8.1. FlightSafety Experiment 1</h4>
+<h4 id="_flightsafety_experiment_1"><a class="anchor" href="#_flightsafety_experiment_1"></a>14.11.1. FlightSafety Experiment 1</h4>
 <div class="sect4">
 <h5 id="_purpose_of_experiment"><a class="anchor" href="#_purpose_of_experiment"></a>Purpose of Experiment</h5>
 <div class="paragraph">
@@ -3348,7 +3458,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 </div>
 <div class="sect3">
-<h4 id="_flightsafety_experiment_2"><a class="anchor" href="#_flightsafety_experiment_2"></a>14.8.2. FlightSafety Experiment 2</h4>
+<h4 id="_flightsafety_experiment_2"><a class="anchor" href="#_flightsafety_experiment_2"></a>14.11.2. FlightSafety Experiment 2</h4>
 <div class="sect4">
 <h5 id="_purpose_of_experiment_2"><a class="anchor" href="#_purpose_of_experiment_2"></a>Purpose of Experiment</h5>
 <div class="paragraph">
@@ -3369,7 +3479,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 </div>
 <div class="sect3">
-<h4 id="_observations_from_experiments_1_and_2"><a class="anchor" href="#_observations_from_experiments_1_and_2"></a>14.8.3. Observations from Experiments 1 and 2</h4>
+<h4 id="_observations_from_experiments_1_and_2"><a class="anchor" href="#_observations_from_experiments_1_and_2"></a>14.11.3. Observations from Experiments 1 and 2</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3385,7 +3495,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 </div>
 <div class="sect3">
-<h4 id="_flightsafety_experiments_3_and_4"><a class="anchor" href="#_flightsafety_experiments_3_and_4"></a>14.8.4. FlightSafety Experiments 3 and 4</h4>
+<h4 id="_flightsafety_experiments_3_and_4"><a class="anchor" href="#_flightsafety_experiments_3_and_4"></a>14.11.4. FlightSafety Experiments 3 and 4</h4>
 <div class="sect4">
 <h5 id="_purpose_of_experiment_3"><a class="anchor" href="#_purpose_of_experiment_3"></a>Purpose of Experiment</h5>
 <div class="paragraph">
@@ -3417,19 +3527,19 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 <div class="content">
 <img src="images/topTilesNew.JPG" alt="topTilesNew" width="400">
 </div>
-<div class="title">Figure Mtd_Ph3 - 18. Top GeoPackage Level.</div>
+<div class="title">Figure Mtd_Ph3 - 19. Top GeoPackage Level.</div>
 </div>
 <div id="img_level0New" class="imageblock text-center">
 <div class="content">
 <img src="images/level0New.JPG" alt="level0New" width="400">
 </div>
-<div class="title">Figure Mtd_Ph3 - 19. Mid-level directory structure.</div>
+<div class="title">Figure Mtd_Ph3 - 20. Mid-level directory structure.</div>
 </div>
 <div id="img_level4New" class="imageblock text-center">
 <div class="content">
 <img src="images/level4New.JPG" alt="level4New" width="400">
 </div>
-<div class="title">Figure Mtd_Ph3 - 20. Leaf directory structure.</div>
+<div class="title">Figure Mtd_Ph3 - 21. Leaf directory structure.</div>
 </div>
 </div>
 <div class="sect4">
@@ -3452,7 +3562,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 </div>
 <div class="sect3">
-<h4 id="_observations_for_experiments_3_and_4"><a class="anchor" href="#_observations_for_experiments_3_and_4"></a>14.8.5. Observations for Experiments 3 and 4</h4>
+<h4 id="_observations_for_experiments_3_and_4"><a class="anchor" href="#_observations_for_experiments_3_and_4"></a>14.11.5. Observations for Experiments 3 and 4</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3483,7 +3593,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 <div class="content">
 <img src="images/fs-gpkg-performance.png" alt="fs gpkg performance" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 21. Performance.</div>
+<div class="title">Figure Mtd_Ph3 - 22. Performance.</div>
 </div>
 </div>
 </div>
@@ -3549,7 +3659,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-15 18:12:26 UTC
+Last updated 2020-10-20 03:21:19 UTC
 </div>
 </div>
 <style>
