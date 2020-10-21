@@ -91,22 +91,22 @@ Typically, local metadata files will be stored with the physical data. For GTMod
 
 
 
-= Phase 3 Consensus, Day 3
+==== Phase 3 Consensus, Day 3
 
 [#img_Metadata-sub-team-consensus,reftext='{figure-caption} {counter:figure-num}']
 .Day 3 Consensus and formation of the Metadata / Integration sub-team.
 image::images/Metadata sub-team consensus.png[width=250,align="center"]
 
-= Phase 3, Day 4
+==== Phase 3, Day 4
 
 [#img_Metadata-Day-4-Whiteboard,reftext='{figure-caption} {counter:figure-num}']
 .Metadata Day 4 Whiteboard.
 image::images/Metadata Ph3 Day 4.png[width=1000,align="center"]
 
-= Phase 3, Day 5
+==== Phase 3, Day 5
 
 [#img_Attribution-Day-4-Whiteboard,reftext='{figure-caption} {counter:figure-num}']
 .Metadata Day 5 Whiteboard.
 image::images/Metadata Ph3 Day 5.png[width=1000,align="center"]
 
-= Plan for Experimentation in subsequent phases
+==== Plan for Experimentation in subsequent phases
