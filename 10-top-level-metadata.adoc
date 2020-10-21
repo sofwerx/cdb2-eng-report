@@ -7,7 +7,7 @@
 
 This section discusses metadata in CDB X
 
-= Summary of history of CDB X metadata discussions.
+=== Summary of history of CDB X metadata discussions.
 
 The earlier 'industry' versions, and OGC CDB 1.x versions of CDB contain a 'metadata' directory.  Despite the directory name, this is a collection of .XSD (XML Schema Definition) and associated .XML (eXtensible Markup Language) files that are essentially controlled vocabularies for elements of the CDB standard.
 
@@ -32,6 +32,7 @@ image::images/Metadata in CDB V1dot2.png[width=750,align="center"]
 For ease of reference, sections 5.1.10 thru 5.1.12 from Volume 1 of OGC CDB V1.2 are repeated here:
 
 [[GeospatialMetadataGuidance]]
+
 ==== Geospatial Metadata – Guidance
 
 These are optional metadata files. This file is not included with the CDB distribution schema package.
