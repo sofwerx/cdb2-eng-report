@@ -522,26 +522,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_openflight">10.5.1. OpenFlight</a></li>
 <li><a href="#_gl_transmission_format_gltf_2_0">10.5.2. GL Transmission Format (glTF) 2.0</a></li>
+<li><a href="#_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension">10.5.3. TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension</a></li>
+<li><a href="#_task_4_define_a_new_structure_to_store_3d_models">10.5.4. TASK 4 - Define a new structure to store 3D models</a></li>
+<li><a href="#_task_5_define_an_index_file_for_all_3d_model_components">10.5.5. TASK 5 - Define an index file for all 3D model components</a></li>
 </ul>
 </li>
-<li><a href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature">10.6. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</a></li>
-<li><a href="#_investigation_1_make_cdb_3d_models_easier_to_maintain_andor_modify">10.7. Investigation 1 - Make CDB 3D models easier to maintain and/or modify</a>
-<ul class="sectlevel3">
-<li><a href="#_task_1_cdb_openflight_and_gltf_feature_analysis">10.7.1. TASK 1 - CDB OpenFlight and glTF Feature Analysis</a></li>
+<li><a href="#_investigation_2_merging_all_geometry_in_a_tile_i_am_assuming_this_section_will_get_more_information_and_an_edit">10.6. Investigation 2 - Merging all geometry in a tile {<strong>I am assuming this section will get more information - and an edit</strong>}</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#_supporting_more_than_cdb_1_x">11. Supporting more than CDB 1.X:</a>
-<ul class="sectlevel3">
-<li><a href="#_task_2_developing_gltf_cdb_extensions">11.1. TASK 2 - Developing glTF CDB extensions</a></li>
-<li><a href="#_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension">11.2. TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension</a></li>
-<li><a href="#_task_4_define_a_new_structure_to_store_3d_models">11.3. TASK 4 - Define a new structure to store 3D models</a></li>
-<li><a href="#_task_5_define_an_index_file_for_all_3d_model_components">11.4. TASK 5 - Define an index file for all 3D model components</a></li>
-<li><a href="#_investigation_2_merging_all_geometry_in_a_tile_i_am_assuming_this_section_will_get_more_information_and_an_edit">11.5. Investigation 2 - Merging all geometry in a tile {<strong>I am assuming this section will get more information - and an edit</strong>}</a></li>
-</ul>
-</li>
-<li><a href="#metadata">12. CDB X Metadata and Integration</a></li>
+<li><a href="#metadata">11. CDB X Metadata and Integration</a></li>
 </ul>
 </li>
 <li><a href="#_summary_of_history_of_cdb_x_metadata_discussions">Summary of history of CDB X metadata discussions.</a>
@@ -554,49 +543,49 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_phase_3_day_5_2">Phase 3, Day 5</a></li>
 <li><a href="#_plan_for_experimentation_in_subsequent_phases_2">Plan for Experimentation in subsequent phases</a>
 <ul class="sectlevel1">
-<li><a href="#tiling">13. Tiling and Tiled Coverages</a></li>
-<li><a href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage">14. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</a>
+<li><a href="#tiling">12. Tiling and Tiled Coverages</a></li>
+<li><a href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage">13. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</a>
 <ul class="sectlevel2">
-<li><a href="#_general_2">14.1. General</a>
+<li><a href="#_general_2">13.1. General</a>
 <ul class="sectlevel3">
-<li><a href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space">14.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</a></li>
-<li><a href="#_ogc_two_dimensional_tile_matrix_set_standard">14.1.2. OGC Two Dimensional Tile Matrix Set Standard</a></li>
+<li><a href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space">13.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</a></li>
+<li><a href="#_ogc_two_dimensional_tile_matrix_set_standard">13.1.2. OGC Two Dimensional Tile Matrix Set Standard</a></li>
 </ul>
 </li>
-<li><a href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers">14.2. Design Objectives for CDB X Tiling and LoDs and Layers</a></li>
-<li><a href="#_proposed_tiling_logical_model_for_cdb_x">14.3. Proposed Tiling Logical Model for CDB X</a></li>
-<li><a href="#_proposed_cdb_x_tiling_structure">14.4. Proposed CDB X Tiling Structure</a>
+<li><a href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers">13.2. Design Objectives for CDB X Tiling and LoDs and Layers</a></li>
+<li><a href="#_proposed_tiling_logical_model_for_cdb_x">13.3. Proposed Tiling Logical Model for CDB X</a></li>
+<li><a href="#_proposed_cdb_x_tiling_structure">13.4. Proposed CDB X Tiling Structure</a>
 <ul class="sectlevel3">
-<li><a href="#_tiling_changes_from_ogc_cdb_1_x">14.4.1. Tiling Changes From OGC CDB 1.x</a></li>
+<li><a href="#_tiling_changes_from_ogc_cdb_1_x">13.4.1. Tiling Changes From OGC CDB 1.x</a></li>
 </ul>
 </li>
-<li><a href="#_proposed_cdb_x_data_container">14.5. Proposed CDB X Data Container</a></li>
-<li><a href="#_proposed_cdb_x_coverage_grouping">14.6. Proposed CDB X Coverage Grouping</a></li>
-<li><a href="#_backwards_compatibility_with_ogc_cdb_1_x">14.7. Backwards Compatibility with OGC CDB 1.x</a></li>
-<li><a href="#_additional_cdb_x_recommendations">14.8. Additional CDB X Recommendations</a>
+<li><a href="#_proposed_cdb_x_data_container">13.5. Proposed CDB X Data Container</a></li>
+<li><a href="#_proposed_cdb_x_coverage_grouping">13.6. Proposed CDB X Coverage Grouping</a></li>
+<li><a href="#_backwards_compatibility_with_ogc_cdb_1_x">13.7. Backwards Compatibility with OGC CDB 1.x</a></li>
+<li><a href="#_additional_cdb_x_recommendations">13.8. Additional CDB X Recommendations</a>
 <ul class="sectlevel3">
-<li><a href="#_elevation_minmax">14.8.1. Elevation min/max</a></li>
-<li><a href="#_image_compression_jpeg">14.8.2. Image Compression - JPEG</a></li>
-<li><a href="#_materials">14.8.3. Materials</a></li>
+<li><a href="#_elevation_minmax">13.8.1. Elevation min/max</a></li>
+<li><a href="#_image_compression_jpeg">13.8.2. Image Compression - JPEG</a></li>
+<li><a href="#_materials">13.8.3. Materials</a></li>
 </ul>
 </li>
-<li><a href="#_findings_from_experiments">14.9. Findings from experiments</a></li>
-<li><a href="#_cdb_x_tilinggeopackage_experiment_1_ecere">14.10. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</a>
+<li><a href="#_findings_from_experiments">13.9. Findings from experiments</a></li>
+<li><a href="#_cdb_x_tilinggeopackage_experiment_1_ecere">13.10. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</a>
 <ul class="sectlevel3">
-<li><a href="#_data_and_geopackage_structure">14.10.1. Data and GeoPackage Structure</a></li>
-<li><a href="#_ogc_api_access_demo">14.10.2. OGC API access demo</a></li>
-<li><a href="#_visualization">14.10.3. Visualization</a></li>
-<li><a href="#_live_cesium_js_3d_tiles_demonstation">14.10.4. Live Cesium JS / 3D Tiles demonstation</a></li>
-<li><a href="#_next_steps_this_section_will_change_as_new_content_is_provided">14.10.5. Next steps (this section will change as new content is provided)</a></li>
+<li><a href="#_data_and_geopackage_structure">13.10.1. Data and GeoPackage Structure</a></li>
+<li><a href="#_ogc_api_access_demo">13.10.2. OGC API access demo</a></li>
+<li><a href="#_visualization">13.10.3. Visualization</a></li>
+<li><a href="#_live_cesium_js_3d_tiles_demonstation">13.10.4. Live Cesium JS / 3D Tiles demonstation</a></li>
+<li><a href="#_next_steps_this_section_will_change_as_new_content_is_provided">13.10.5. Next steps (this section will change as new content is provided)</a></li>
 </ul>
 </li>
-<li><a href="#_flightsafety_geopackage_tiling_experiments">14.11. FlightSafety GeoPackage Tiling Experiments</a>
+<li><a href="#_flightsafety_geopackage_tiling_experiments">13.11. FlightSafety GeoPackage Tiling Experiments</a>
 <ul class="sectlevel3">
-<li><a href="#_flightsafety_experiment_1">14.11.1. FlightSafety Experiment 1</a></li>
-<li><a href="#_flightsafety_experiment_2">14.11.2. FlightSafety Experiment 2</a></li>
-<li><a href="#_observations_from_experiments_1_and_2">14.11.3. Observations from Experiments 1 and 2</a></li>
-<li><a href="#_flightsafety_experiments_3_and_4">14.11.4. FlightSafety Experiments 3 and 4</a></li>
-<li><a href="#_observations_for_experiments_3_and_4">14.11.5. Observations for Experiments 3 and 4</a></li>
+<li><a href="#_flightsafety_experiment_1">13.11.1. FlightSafety Experiment 1</a></li>
+<li><a href="#_flightsafety_experiment_2">13.11.2. FlightSafety Experiment 2</a></li>
+<li><a href="#_observations_from_experiments_1_and_2">13.11.3. Observations from Experiments 1 and 2</a></li>
+<li><a href="#_flightsafety_experiments_3_and_4">13.11.4. FlightSafety Experiments 3 and 4</a></li>
+<li><a href="#_observations_for_experiments_3_and_4">13.11.5. Observations for Experiments 3 and 4</a></li>
 </ul>
 </li>
 </ul>
@@ -1688,10 +1677,10 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Models be stored in GeoPackage (Editors Note: <code>Is this a good idea? One could store the glTF in the CDB data store without using GeoPackage - just as OpenFlight today. Need to think about also perhaps having I3S, 3D Tiles, CityGML and other encodings.</code>)</p>
+<p>Models be stored as files or in GeoPackage</p>
 </li>
 <li>
-<p>Models preferred to be glTF (others allowed) (glb package?)</p>
+<p>Models preferred to be glTF (Later consider I3S, 3D Tiles, CityGML and other encodings)</p>
 </li>
 <li>
 <p>Textures shall be xxxx format (png, jp2)  Power of 2 enforced?</p>
@@ -1703,7 +1692,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <p>naming convention tbd - should have some metadata use - indexing? directory path? layer? featureID?</p>
 </li>
 <li>
-<p>LOD Structure? (3d tiles?  MS LOD extenxtion for glTF) (Editors note: <code>Shouldn&#8217;t the same LoD structure be used throughout CDB-X? Otherwise, things get confusing.</code>)</p>
+<p>LOD Structure? (MS LOD extention for glTF) (Editors note: <code>Shouldn&#8217;t the same LoD structure be used throughout CDB-X? Otherwise, things get confusing. - answer: Models LODs cout vertex, sig size etc&#8230;&#8203; and have their own LOD table which is not the same as tiled LODs</code>)</p>
 </li>
 <li>
 <p>Describe model placement</p>
@@ -1722,7 +1711,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 <p>Imagery</p>
 </li>
 <li>
-<p>Areal features. (Editor&#8217;s note: <code>We stopped using "aerial" in CDB 1.1 - changed to polygon.</code>)</p>
+<p>Polygon features. (previously aerial)</p>
 </li>
 <li>
 <p>linear features</p>
@@ -1912,12 +1901,17 @@ leveraging the extended materials, hot spots <span class="keyword">and</span> ot
 <p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform">KHR_texture_transform</a> is an extension that adds offset, rotation, and scale properties to textureInfo structures. These properties would typically be implemented as an affine transform on the UV coordinates.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/AGI_articulations">AGI_articulations</a> is an extension that adds articulations that define the names and ranges of allowable motions of nodes on a models. The extension includes articulation stages, pointing vectors, and attach points.</p>
+<p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/AGI_articulations">AGI_articulations</a> is an extension that adds articulations that define the names and ranges of allowable motions of nodes on a models. The extension includes articulation stages, pointing vectors, and attach points.
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</p>
 </div>
+<div class="paragraph">
+<p>=== Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</p>
 </div>
-<div class="sect2">
-<h3 id="_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"><a class="anchor" href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"></a>10.6. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</h3>
 <div class="paragraph">
 <p>Two profiles.</p>
 </div>
@@ -1982,9 +1976,9 @@ leveraging the extended materials, hot spots <span class="keyword">and</span> ot
 </div>
 <div class="title">Figure ATTPh3 - 8. Profles and Experiments for CBD-X 3D Models.</div>
 </div>
+<div class="paragraph">
+<p>=== Investigation 1 - Make CDB 3D models easier to maintain and/or modify</p>
 </div>
-<div class="sect2">
-<h3 id="_investigation_1_make_cdb_3d_models_easier_to_maintain_andor_modify"><a class="anchor" href="#_investigation_1_make_cdb_3d_models_easier_to_maintain_andor_modify"></a>10.7. Investigation 1 - Make CDB 3D models easier to maintain and/or modify</h3>
 <div class="paragraph">
 <p>One of the objective of the 3D model refactoring in CDB is to facilitate the editing {<strong>Update</strong>} process. In the CDB 1.X environment, 3D model encoding is hard because:
 . The OpenFlight format has fewer editing tools than in newer 3D formats {<strong>Give an example</strong>}. This situation led the 3D subgroup to investigate the glTF encoding for possible use in CDB-X.
@@ -2012,8 +2006,9 @@ leveraging the extended materials, hot spots <span class="keyword">and</span> ot
 <div class="paragraph">
 <p>The initial experimentation targeted Geospecific models inside the CDB structure. This was because they represent the greatest challenge. The GeoTypical models still need to be reviewed. However, the belief is that a sub-set of the GeoSpecific concepts can also be applied to GeoTypical models. The tasks describe below document the investigation along with the results:</p>
 </div>
-<div class="sect3">
-<h4 id="_task_1_cdb_openflight_and_gltf_feature_analysis"><a class="anchor" href="#_task_1_cdb_openflight_and_gltf_feature_analysis"></a>10.7.1. TASK 1 - CDB OpenFlight and glTF Feature Analysis</h4>
+<div class="paragraph">
+<p>==== TASK 1 - CDB OpenFlight and glTF Feature Analysis</p>
+</div>
 <div class="paragraph">
 <p>OGC CDB 1.X relies on a number of OpenFlight constructs that have no equivalent in glTF. One of the first task of the group was to list all OGC CDB 1.X requirements with regard to 3D model encodings and assess whether glTF has equivalent constructs.  The following provides details of the resultes of the analysis.</p>
 </div>
@@ -2448,13 +2443,9 @@ leveraging the extended materials, hot spots <span class="keyword">and</span> ot
 <div class="paragraph">
 <p>==</p>
 </div>
+<div class="paragraph">
+<p>== Supporting more than CDB 1.X:</p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_supporting_more_than_cdb_1_x"><a class="anchor" href="#_supporting_more_than_cdb_1_x"></a>11. Supporting more than CDB 1.X:</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>OpenFlight capabilities that could be leveraged:</p>
 </div>
@@ -2480,8 +2471,46 @@ leveraging the extended materials, hot spots <span class="keyword">and</span> ot
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="_task_2_developing_gltf_cdb_extensions"><a class="anchor" href="#_task_2_developing_gltf_cdb_extensions"></a>11.1. TASK 2 - Developing glTF CDB extensions</h4>
+<div class="paragraph">
+<p>==== TASK 2 - Developing glTF CDB extensions
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+</div>
+<div class="paragraph">
+<p><code>EXT_CDB</code> is a draft glTF extension that adds CDB simulation capabilities identified as missing from glTF. The capabilities include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Indicate that a glTF node is a certain type of CDB point: attachment point, anchor point, center of mass, DIS origin, or viewpoint</p>
+</li>
+<li>
+<p>Reference light points from glTF nodes</p>
+</li>
+<li>
+<p>Attach CDB zones to glTF nodes</p>
+</li>
+<li>
+<p>Assign switch nodes to a glTF node to represent damage states</p>
+</li>
+<li>
+<p>Store model attributes on a glTF node</p>
+</li>
+<li>
+<p>Extend materials with CDB texture types: detail texture, contaminants texture, and material map texture</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The full schema can be found <a href="https://github.com/sofwerx/cdb2-concept/blob/3Dmodels_prototype/3Dmodel_Prototype/glTF-CDB-extension-schema.zip">here</a> (TODO - need link to updated schema)</p>
+</div>
+<div class="paragraph">
+<p>The CDB glTF extension contains most of the required CDB-specific features, but there are some possible additions that could be made.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</p>
+</div>
 <div class="paragraph">
 <p><code>EXT_CDB</code> is a draft glTF extension that adds required CDB simulation capabilities identified as missing from glTF. The new (and prototype) capabilities include:</p>
 </div>
@@ -2528,11 +2557,44 @@ With the current extension, the solution would be to group polygons with the sam
 </div>
 <div class="paragraph">
 <p><strong>External References</strong>
-This is one of the larger challenges encountered during our investigations. In the past there was discussion about including an external reference extension in glTF but it was decided not to include it {<strong>Who made this decision?</strong>}.
-In past cases, separate index files were used to reference multiple glTF files from a common source. This is sufficient for some cases but does not help for the use case of sharing geometry between multiple models. For example sharing common roof clutter objects between different buildings</p>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+This is one of the larger challenges encountered during our investigations. There has been discussion in the past about including an external reference extension in glTF but it was decided not to include it.
+In past cases, separate index files were used to reference multiple glTF files from a common source. This is sufficient for some cases, but does not help for the use case of sharing geometry between multiple models. For example sharing common roof clutter objects between different buildings.</p>
 </div>
 <div class="sect4">
 <h5 id="_extensions_roadmap"><a class="anchor" href="#_extensions_roadmap"></a>Extensions Roadmap</h5>
+<div class="paragraph">
+<p>One of the challenges was deciding which CDB capabilities belong in <code>EXT_CDB</code> and which belong in standalone extensions, judged by their utility to the wider glTF ecosystem. The group also investigated whether it was possible to leverage existing glTF extensions. Finally, the group determined that some capabilities should go in the model indexing file rather than in the glTF. Our recommendations are below:</p>
+</div>
+<div class="paragraph">
+<p><strong>EXT_CDB</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CDB-specific constructs like points, zones, lights, light maps, and extended texture types.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Possible standalone extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Coordinate reference system - shared interest with One World Terrain and possibly wider glTF ecosystem</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>This is one of the larger challenges encountered during our investigations. In the past there was discussion about including an external reference extension in glTF but it was decided not to include it {<strong>Who made this decision?</strong>}.
+In past cases, separate index files were used to reference multiple glTF files from a common source. This is sufficient for some cases but does not help for the use case of sharing geometry between multiple models. For example sharing common roof clutter objects between different buildings</p>
+</div>
+<div class="paragraph">
+<p>===== Extensions Roadmap</p>
+</div>
 <div class="paragraph">
 <p>One of the challenges was deciding which CDB capabilities belong in <code>EXT_CDB</code> and which belong in standalone extensions. This is especially true when judged by an extension&#8217;s utility to the wider glTF ecosystem. The 3D subgroup also investigated whether leveraging existing glTF extensions is possible. Finally, the 3D subgroup determined that some capabilities should go in the model indexing file rather than in the glTF. Our recommendations are below:</p>
 </div>
@@ -2552,7 +2614,8 @@ In past cases, separate index files were used to reference multiple glTF files f
 <div class="ulist">
 <ul>
 <li>
-<p>Coordinate Reference System - shared interest with One World Terrain and possibly wider glTF ecosystem</p>
+<p>Coordinate Reference System - shared interest with One World Terrain and possibly wider glTF ecosystem
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</p>
 </li>
 <li>
 <p>Switch nodes - shared interest with One World Terrain moving models format</p>
@@ -2591,19 +2654,29 @@ In past cases, separate index files were used to reference multiple glTF files f
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>===== Adoption</p>
 </div>
-<div class="sect4">
-<h5 id="_adoption"><a class="anchor" href="#_adoption"></a>Adoption</h5>
+<div class="paragraph">
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+The initial approach was to create a monolithic CDB glTF extension so that editors and viewers would only need to support a single extension to load CDB glTF models. However the group found that there was a significant amount of overlap between CDB and OWT requirements and shifted towards a more granular approach to avoid multiple redundant extensions being developed. Generally glTF extensions that have seen wider adoption are both simple and useful to a wide variety of vendors. Suggested next steps are to collaborate more closely with OWT stakeholders and reach out to the wider glTF community for review, followed by practical experimentation in runtime engines. After OGC finalization the extensions may be formalized as either ratified Khronos extensions (KHR prefix) or, more likely, Multi-Vendor extensions (EXT prefix), and be listed in the <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions">glTF Extension Registry</a>.</p>
+</div>
+<div class="paragraph">
+<p>Another key topic for adoption is editor support. glTF has seen increasing adoption in 3D modelling software like Blender, 3DS Max, and Maya but extensions are often lost during the import/export process. Workarounds have been proposed such as storing extension information outside of the glTF (see <a href="https://github.com/AnalyticalGraphicsInc/gmdf">The glTF Metadata File (GMDF) for Systems Tool Kit (STK)</a>). Some capabilities like per-face feature assignment are not possible in standard modelling packages and would require plugins. The most likely path of adoption is native support for the extensions in simulation editors and plugins for more general purpose 3D modeling software.</p>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>The initial approach was to create a monolithic CDB glTF extension so that editors and viewers would only need to support a single extension to load CDB glTF models. However, the group determined that there was a significant amount of overlap between CDB and OWT requirements and shifted towards a more granular approach to avoid multiple redundant extensions being developed. Generally glTF extensions that have seen wider adoption are both simple and useful to a wide variety of vendors. Suggested next steps are to collaborate more closely with OWT stakeholders and reach out to the wider glTF community for review. This review would be followed by practical experimentation in runtime engines. After OGC review and agreement, the extensions may be formalized as either ratified Khronos extensions (KHR prefix) or, more likely, Multi-Vendor extensions (EXT prefix), and be listed in the <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions">glTF Extension Registry</a>.</p>
 </div>
 <div class="paragraph">
-<p>Another key topic for adoption is editor support. glTF has seen increasing adoption in 3D modelling software like Blender, 3DS Max, and Maya but extensions are often lost during the import/export process. Workarounds have been proposed such as storing extension information outside of the glTF container (see <a href="https://github.com/AnalyticalGraphicsInc/gmdf">The glTF Metadata File (GMDF) for Systems Tool Kit (STK)</a>). Some capabilities like per-face feature assignment are not possible in standard modelling packages and would require plugins. The most likely path of adoption is native support for the extensions in simulation editors and plugins for more general purpose 3D modeling software.</p>
+<p>Another key topic for adoption is editor support. glTF has seen increasing adoption in 3D modelling software like Blender, 3DS Max, and Maya but extensions are often lost during the import/export process. Workarounds have been proposed such as storing extension information outside of the glTF container (see <a href="https://github.com/AnalyticalGraphicsInc/gmdf">The glTF Metadata File (GMDF) for Systems Tool Kit (STK)</a>). Some capabilities like per-face feature assignment are not possible in standard modelling packages and would require plugins. The most likely path of adoption is native support for the extensions in simulation editors and plugins for more general purpose 3D modeling software.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension"><a class="anchor" href="#_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension"></a>11.2. TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension</h4>
+<h4 id="_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension"><a class="anchor" href="#_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension"></a>10.5.3. TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension</h4>
 <div class="imageblock text-center">
 <div class="content">
 <img src="images/Tank-model_3Dview.jpg" alt="Tank model 3Dview" width="800">
@@ -2688,7 +2761,7 @@ In the test case with a single large model, both the binary and ascii glTF provi
 </div>
 </div>
 <div class="sect3">
-<h4 id="_task_4_define_a_new_structure_to_store_3d_models"><a class="anchor" href="#_task_4_define_a_new_structure_to_store_3d_models"></a>11.3. TASK 4 - Define a new structure to store 3D models</h4>
+<h4 id="_task_4_define_a_new_structure_to_store_3d_models"><a class="anchor" href="#_task_4_define_a_new_structure_to_store_3d_models"></a>10.5.4. TASK 4 - Define a new structure to store 3D models</h4>
 <div class="paragraph">
 <p>Storing the 3D models in a CDB datastore can be either in files and folders or inside a GeoPackage. Where the prototype stopped short of packing {<strong>Packing where</strong>} the resulting glTF files, a number of elements need to be considered when this gets {<strong>When what gets?</strong>} investigated. Those are:</p>
 </div>
@@ -2710,7 +2783,7 @@ In the test case with a single large model, both the binary and ascii glTF provi
 </div>
 </div>
 <div class="sect3">
-<h4 id="_task_5_define_an_index_file_for_all_3d_model_components"><a class="anchor" href="#_task_5_define_an_index_file_for_all_3d_model_components"></a>11.4. TASK 5 - Define an index file for all 3D model components</h4>
+<h4 id="_task_5_define_an_index_file_for_all_3d_model_components"><a class="anchor" href="#_task_5_define_an_index_file_for_all_3d_model_components"></a>10.5.5. TASK 5 - Define an index file for all 3D model components</h4>
 <div class="paragraph">
 <p>The grouping of all components of a 3D model together requires an index file that indexes and references all those components. The list of components proposed include: Feature attribution (GGDM), reference to source model used, model exterior, Model interior, Collision volume, and nav mesh. Splitting those constructs into separate component follows the current logic in the CDB standard of splitting the dataset in order to quickly access only required data without having to load larger component(s) that include all {<strong>All what?</strong>} only to reject most of the content. This approach also serves the purpose of rapid update by allowing changing one element without the other (update nav mesh, or interior without changing the complete model) needing to be updated.</p>
 </div>
@@ -2805,11 +2878,24 @@ There was a request to also store the model georeferencing inside this file {<st
 </div>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_investigation_2_merging_all_geometry_in_a_tile_i_am_assuming_this_section_will_get_more_information_and_an_edit"><a class="anchor" href="#_investigation_2_merging_all_geometry_in_a_tile_i_am_assuming_this_section_will_get_more_information_and_an_edit"></a>11.5. Investigation 2 - Merging all geometry in a tile {<strong>I am assuming this section will get more information - and an edit</strong>}</h3>
+<h3 id="_investigation_2_merging_all_geometry_in_a_tile_i_am_assuming_this_section_will_get_more_information_and_an_edit"><a class="anchor" href="#_investigation_2_merging_all_geometry_in_a_tile_i_am_assuming_this_section_will_get_more_information_and_an_edit"></a>10.6. Investigation 2 - Merging all geometry in a tile {<strong>I am assuming this section will get more information - and an edit</strong>}</h3>
 <div class="paragraph">
-<p>This investigation was not done by the 3D group but the tiling group did&#8230;&#8203;.
-This type of solution has significant impact on the CDB data model:
+<p>This investigation was not done by the 3D group but the tiling group did experiement. A few different ways to encode are possible, each with their own implications.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A mesh of the terrain geometry, esentially converting the CDB elevation and imagery datasets into one dataset. Where a quick implementation is possible one must consider all sub-datasets combinaisons (bathymetry for elevation and all imagery variants) and their implications in teh CDB data model.</p>
+</li>
+<li>
+<p>A mesh of only 3D models (not terrain) per tile. This has the benefit of improving rendering efficency as one tile. Some of the challenges to consider here are the ability to clamp individual models to terrain elevation while preserving the geometry grouping benefits. Also, the attribution on a per model basis currently contained in the vector would need to either move inside the mesh (to identify mesh segment per feature) or have a wait for the vector to reference part of the tile mesh.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Generally, this type of solution has significant impact on the CDB data model:
 . The mesh solution merges many CDB datasets into one. The elevation and 3D features along with the imagery are now all merged into one dataset.
 . The attribution to objects on the terrain is currently done in the vector, with a reference to the geometry. In a mesh case, the linkage will likely need to be revered and have the geometry link to the attribution.</p>
 </div>
@@ -2817,7 +2903,7 @@ This type of solution has significant impact on the CDB data model:
 </div>
 </div>
 <div class="sect1">
-<h2 id="metadata"><a class="anchor" href="#metadata"></a>12. CDB X Metadata and Integration</h2>
+<h2 id="metadata"><a class="anchor" href="#metadata"></a>11. CDB X Metadata and Integration</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section discusses metadata in CDB X</p>
@@ -2981,19 +3067,19 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <h1 id="_plan_for_experimentation_in_subsequent_phases_2" class="sect0"><a class="anchor" href="#_plan_for_experimentation_in_subsequent_phases_2"></a>Plan for Experimentation in subsequent phases</h1>
 <div class="sect1">
-<h2 id="tiling"><a class="anchor" href="#tiling"></a>13. Tiling and Tiled Coverages</h2>
+<h2 id="tiling"><a class="anchor" href="#tiling"></a>12. Tiling and Tiled Coverages</h2>
 <div class="sectionbody">
 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"><a class="anchor" href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"></a>14. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</h2>
+<h2 id="_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"><a class="anchor" href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"></a>13. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This clause provides discussion of tiled data and GeoPackage requirements and the results of the prototyping activities.</p>
 </div>
 <div class="sect2">
-<h3 id="_general_2"><a class="anchor" href="#_general_2"></a>14.1. General</h3>
+<h3 id="_general_2"><a class="anchor" href="#_general_2"></a>13.1. General</h3>
 <div class="paragraph">
 <p>Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the:</p>
 </div>
@@ -3008,7 +3094,7 @@ While the same metadata elements are recommended for both global and local geosp
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"><a class="anchor" href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"></a>14.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</h4>
+<h4 id="_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"><a class="anchor" href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"></a>13.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</h4>
 <div class="paragraph">
 <p>This OGC Abstract Specification consists of two Parts: A General Tiling Conceptual Model and, based on the Conceptual Model, a Logical Model for the Tessellation (Tiling) of 2D Euclidean Space. Tiling  of  2D  Euclidean  space  is  the  most  commonly  known  approach  to  partitioning  space  in traditional  geospatial  technology.  However, there are also common elements and/or semantics for any approach to partitioning space in any dimension. The logical model in this document defines a set  common  required  elements  and  then  follows  with  more  specific  requirements  for  the  two dimensional case.</p>
 </div>
@@ -3020,14 +3106,14 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ogc_two_dimensional_tile_matrix_set_standard"><a class="anchor" href="#_ogc_two_dimensional_tile_matrix_set_standard"></a>14.1.2. OGC Two Dimensional Tile Matrix Set Standard</h4>
+<h4 id="_ogc_two_dimensional_tile_matrix_set_standard"><a class="anchor" href="#_ogc_two_dimensional_tile_matrix_set_standard"></a>13.1.2. OGC Two Dimensional Tile Matrix Set Standard</h4>
 <div class="paragraph">
 <p>The OGC Tile Matrix Set standard defines the rules and requirements for a tile matrix set as a way to index space based on a set of regular grids defining a domain (tile matrix) for a limited list of scales in a Coordinate Reference System (CRS) as defined in [OGC 08-015r2] Abstract Specification Topic 2: Spatial Referencing by Coordinates. Each tile matrix is divided into regular tiles. In a tile matrix set, a tile can be univocally identified by a tile column a tile row and a tile matrix identifier. This document presents a data structure defining the properties of the tile matrix set in both UML diagrams and in tabular form. This document also presents a data structure to define a subset of a tile matrix set called tile matrix set limits. XML and JSON encodings are suggested both for tile matrix sets and tile matrix set limits. Finally, the document offers practical examples of tile matrix sets both for common global projections and for specific regions.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_design_objectives_for_cdb_x_tiling_and_lods_and_layers"><a class="anchor" href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers"></a>14.2. Design Objectives for CDB X Tiling and LoDs and Layers</h3>
+<h3 id="_design_objectives_for_cdb_x_tiling_and_lods_and_layers"><a class="anchor" href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers"></a>13.2. Design Objectives for CDB X Tiling and LoDs and Layers</h3>
 <div class="paragraph">
 <p>The following are the key design principals for a CDB X tiling, levels of detail, and layering.</p>
 </div>
@@ -3077,7 +3163,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_tiling_logical_model_for_cdb_x"><a class="anchor" href="#_proposed_tiling_logical_model_for_cdb_x"></a>14.3. Proposed Tiling Logical Model for CDB X</h3>
+<h3 id="_proposed_tiling_logical_model_for_cdb_x"><a class="anchor" href="#_proposed_tiling_logical_model_for_cdb_x"></a>13.3. Proposed Tiling Logical Model for CDB X</h3>
 <div class="paragraph">
 <p>The following figure, based on the Tiling Abstract Specification Logical Model and the CDB 1.x Conceptual Model, shows the properties by class (concept) and the relationships between the classes.</p>
 </div>
@@ -3089,7 +3175,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_cdb_x_tiling_structure"><a class="anchor" href="#_proposed_cdb_x_tiling_structure"></a>14.4. Proposed CDB X Tiling Structure</h3>
+<h3 id="_proposed_cdb_x_tiling_structure"><a class="anchor" href="#_proposed_cdb_x_tiling_structure"></a>13.4. Proposed CDB X Tiling Structure</h3>
 <div class="paragraph">
 <p>The proposed tiling scheme would be based on the GNOSISGlobalGrid (<code>reference?</code>), where the entire world is tiled in a 2x4 grid with each tile 90 degrees on a side.  This is zoom level 0 (or tile matrix identifier "0").  Each successive zoom level increases by one, until the level can accommodate the highest resolution data that is to be stored within the CDB X.  With each successive zoom level, each tile is split into four new tiles, except for any tile that would touch either the North or South Pole is not split in longitude.</p>
 </div>
@@ -3100,7 +3186,7 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="title">Figure Mtd_Ph3 - 16. Proposed Tiling Scheme for CDB X.</div>
 </div>
 <div class="sect3">
-<h4 id="_tiling_changes_from_ogc_cdb_1_x"><a class="anchor" href="#_tiling_changes_from_ogc_cdb_1_x"></a>14.4.1. Tiling Changes From OGC CDB 1.x</h4>
+<h4 id="_tiling_changes_from_ogc_cdb_1_x"><a class="anchor" href="#_tiling_changes_from_ogc_cdb_1_x"></a>13.4.1. Tiling Changes From OGC CDB 1.x</h4>
 <div class="paragraph">
 <p>Benefits from changing to the proposed tiling scheme:</p>
 </div>
@@ -3139,7 +3225,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_cdb_x_data_container"><a class="anchor" href="#_proposed_cdb_x_data_container"></a>14.5. Proposed CDB X Data Container</h3>
+<h3 id="_proposed_cdb_x_data_container"><a class="anchor" href="#_proposed_cdb_x_data_container"></a>13.5. Proposed CDB X Data Container</h3>
 <div class="paragraph">
 <p>The coverage tiles would be stored using GeoPackage containers.  The GeoPackage Tiled Gridded Coverage extension would be ideal for storing tiled coverage data, but it has some drawbacks that would need to be addressed.  Current limitations include:</p>
 </div>
@@ -3179,7 +3265,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_cdb_x_coverage_grouping"><a class="anchor" href="#_proposed_cdb_x_coverage_grouping"></a>14.6. Proposed CDB X Coverage Grouping</h3>
+<h3 id="_proposed_cdb_x_coverage_grouping"><a class="anchor" href="#_proposed_cdb_x_coverage_grouping"></a>13.6. Proposed CDB X Coverage Grouping</h3>
 <div class="paragraph">
 <p>There are two proposed ways to group data within a series of GeoPackage containers.  Within these choices is a tradeoff between the format simplicity of working with a single container, and access latency due to larger file and table sizes.</p>
 </div>
@@ -3218,7 +3304,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_backwards_compatibility_with_ogc_cdb_1_x"><a class="anchor" href="#_backwards_compatibility_with_ogc_cdb_1_x"></a>14.7. Backwards Compatibility with OGC CDB 1.x</h3>
+<h3 id="_backwards_compatibility_with_ogc_cdb_1_x"><a class="anchor" href="#_backwards_compatibility_with_ogc_cdb_1_x"></a>13.7. Backwards Compatibility with OGC CDB 1.x</h3>
 <div class="paragraph">
 <p>It is possible to keep the new GeoPackage container and level of detail groupings, and use the older OGC CDB 1.x tiling scheme with the creation of a Tile Matrix Set that is compatible with the existing CDB tile schema.  So the use of GeoPackage containers and coverage grouping could be used in a future version of CDB 1.x, although the new tiling scheme would not be backwards compatible.  At this time, we do not recommend supporting more than one tiling scheme, as this choice is foundational to how data layers are processed and stored.</p>
 </div>
@@ -3227,31 +3313,31 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_additional_cdb_x_recommendations"><a class="anchor" href="#_additional_cdb_x_recommendations"></a>14.8. Additional CDB X Recommendations</h3>
+<h3 id="_additional_cdb_x_recommendations"><a class="anchor" href="#_additional_cdb_x_recommendations"></a>13.8. Additional CDB X Recommendations</h3>
 <div class="paragraph">
 <p>The following are recommendations and suggested additional discussion topics. These recommendations and discussion topics resulted from the Tiling sub-groups discussion on an enhanced tiling model for CDB X and the potential impacts on the various data types (layers) in the current CDB standard and existing CDB data stores.</p>
 </div>
 <div class="sect3">
-<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>14.8.1. Elevation min/max</h4>
+<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>13.8.1. Elevation min/max</h4>
 <div class="paragraph">
 <p>CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded coverage contained in a tile to the tile metadata. Note: The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>14.8.2. Image Compression - JPEG</h4>
+<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>13.8.2. Image Compression - JPEG</h4>
 <div class="paragraph">
 <p>Recommendation: That loss-less image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: <a href="https://flif.info/">FLIF - Free Lossless Image Format</a>.NOTE: JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_materials"><a class="anchor" href="#_materials"></a>14.8.3. Materials</h4>
+<h4 id="_materials"><a class="anchor" href="#_materials"></a>13.8.3. Materials</h4>
 <div class="paragraph">
 <p>Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with reflectance in wavelengths other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_findings_from_experiments"><a class="anchor" href="#_findings_from_experiments"></a>14.9. Findings from experiments</h3>
+<h3 id="_findings_from_experiments"><a class="anchor" href="#_findings_from_experiments"></a>13.9. Findings from experiments</h3>
 <div class="paragraph">
 <p>The following graph compares the CDB 1.x zones with the Gnosis grid and shows how the GNOSIS algorithm helps to keep the typical tile closer to a “square” than CDB’s zones.</p>
 </div>
@@ -3263,9 +3349,9 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cdb_x_tilinggeopackage_experiment_1_ecere"><a class="anchor" href="#_cdb_x_tilinggeopackage_experiment_1_ecere"></a>14.10. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</h3>
+<h3 id="_cdb_x_tilinggeopackage_experiment_1_ecere"><a class="anchor" href="#_cdb_x_tilinggeopackage_experiment_1_ecere"></a>13.10. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</h3>
 <div class="sect3">
-<h4 id="_data_and_geopackage_structure"><a class="anchor" href="#_data_and_geopackage_structure"></a>14.10.1. Data and GeoPackage Structure</h4>
+<h4 id="_data_and_geopackage_structure"><a class="anchor" href="#_data_and_geopackage_structure"></a>13.10.1. Data and GeoPackage Structure</h4>
 <div class="paragraph">
 <p>A 1.4 GB GeoPackage of the Camp Pendleton sample CDB from Presagis (originally used in OGC Testbed 13), along with an accompanying <code>cdb.json</code> can be found at:</p>
 </div>
@@ -3320,7 +3406,7 @@ Ecere is planning to add the 3D models in the next experiments&#8201;&#8212;&#82
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ogc_api_access_demo"><a class="anchor" href="#_ogc_api_access_demo"></a>14.10.2. OGC API access demo</h4>
+<h4 id="_ogc_api_access_demo"><a class="anchor" href="#_ogc_api_access_demo"></a>13.10.2. OGC API access demo</h4>
 <div class="paragraph">
 <p>At this address: <a href="https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg" class="bare">https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg</a></p>
 </div>
@@ -3330,7 +3416,7 @@ To some extent, this demonstrates that even though the data is tiled, this layou
 </div>
 </div>
 <div class="sect3">
-<h4 id="_visualization"><a class="anchor" href="#_visualization"></a>14.10.3. Visualization</h4>
+<h4 id="_visualization"><a class="anchor" href="#_visualization"></a>13.10.3. Visualization</h4>
 <div class="paragraph">
 <p>Ecere software can currently visualize the CDB X/GeoPackage elevation and imagery directly in the Ecere 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).</p>
 </div>
@@ -3342,7 +3428,7 @@ To some extent, this demonstrates that even though the data is tiled, this layou
 </div>
 </div>
 <div class="sect3">
-<h4 id="_live_cesium_js_3d_tiles_demonstation"><a class="anchor" href="#_live_cesium_js_3d_tiles_demonstation"></a>14.10.4. Live Cesium JS / 3D Tiles demonstation</h4>
+<h4 id="_live_cesium_js_3d_tiles_demonstation"><a class="anchor" href="#_live_cesium_js_3d_tiles_demonstation"></a>13.10.4. Live Cesium JS / 3D Tiles demonstation</h4>
 <div class="paragraph">
 <p>Navigate to <a href="https://sandcastle.cesium.com/" class="bare">https://sandcastle.cesium.com/</a> and copy/paste the following four (4) lines of Java Script code:</p>
 </div>
@@ -3365,7 +3451,7 @@ To some extent, this demonstrates that even though the data is tiled, this layou
 </div>
 </div>
 <div class="sect3">
-<h4 id="_next_steps_this_section_will_change_as_new_content_is_provided"><a class="anchor" href="#_next_steps_this_section_will_change_as_new_content_is_provided"></a>14.10.5. Next steps (this section will change as new content is provided)</h4>
+<h4 id="_next_steps_this_section_will_change_as_new_content_is_provided"><a class="anchor" href="#_next_steps_this_section_will_change_as_new_content_is_provided"></a>13.10.5. Next steps (this section will change as new content is provided)</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3395,7 +3481,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flightsafety_geopackage_tiling_experiments"><a class="anchor" href="#_flightsafety_geopackage_tiling_experiments"></a>14.11. FlightSafety GeoPackage Tiling Experiments</h3>
+<h3 id="_flightsafety_geopackage_tiling_experiments"><a class="anchor" href="#_flightsafety_geopackage_tiling_experiments"></a>13.11. FlightSafety GeoPackage Tiling Experiments</h3>
 <div class="paragraph">
 <p><strong>Setup</strong>: The data used for these experiments are primarily freely available, and include the following
 * Blue Marble (NASA) that was georeferenced using GDAL - <a href="https://visibleearth.nasa.gov/collection/1484/blue-marble" class="bare">https://visibleearth.nasa.gov/collection/1484/blue-marble</a>
@@ -3421,7 +3507,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_flightsafety_experiment_1"><a class="anchor" href="#_flightsafety_experiment_1"></a>14.11.1. FlightSafety Experiment 1</h4>
+<h4 id="_flightsafety_experiment_1"><a class="anchor" href="#_flightsafety_experiment_1"></a>13.11.1. FlightSafety Experiment 1</h4>
 <div class="sect4">
 <h5 id="_purpose_of_experiment"><a class="anchor" href="#_purpose_of_experiment"></a>Purpose of Experiment</h5>
 <div class="paragraph">
@@ -3458,7 +3544,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 </div>
 <div class="sect3">
-<h4 id="_flightsafety_experiment_2"><a class="anchor" href="#_flightsafety_experiment_2"></a>14.11.2. FlightSafety Experiment 2</h4>
+<h4 id="_flightsafety_experiment_2"><a class="anchor" href="#_flightsafety_experiment_2"></a>13.11.2. FlightSafety Experiment 2</h4>
 <div class="sect4">
 <h5 id="_purpose_of_experiment_2"><a class="anchor" href="#_purpose_of_experiment_2"></a>Purpose of Experiment</h5>
 <div class="paragraph">
@@ -3479,7 +3565,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 </div>
 <div class="sect3">
-<h4 id="_observations_from_experiments_1_and_2"><a class="anchor" href="#_observations_from_experiments_1_and_2"></a>14.11.3. Observations from Experiments 1 and 2</h4>
+<h4 id="_observations_from_experiments_1_and_2"><a class="anchor" href="#_observations_from_experiments_1_and_2"></a>13.11.3. Observations from Experiments 1 and 2</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3495,7 +3581,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 </div>
 <div class="sect3">
-<h4 id="_flightsafety_experiments_3_and_4"><a class="anchor" href="#_flightsafety_experiments_3_and_4"></a>14.11.4. FlightSafety Experiments 3 and 4</h4>
+<h4 id="_flightsafety_experiments_3_and_4"><a class="anchor" href="#_flightsafety_experiments_3_and_4"></a>13.11.4. FlightSafety Experiments 3 and 4</h4>
 <div class="sect4">
 <h5 id="_purpose_of_experiment_3"><a class="anchor" href="#_purpose_of_experiment_3"></a>Purpose of Experiment</h5>
 <div class="paragraph">
@@ -3562,7 +3648,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 </div>
 <div class="sect3">
-<h4 id="_observations_for_experiments_3_and_4"><a class="anchor" href="#_observations_for_experiments_3_and_4"></a>14.11.5. Observations for Experiments 3 and 4</h4>
+<h4 id="_observations_for_experiments_3_and_4"><a class="anchor" href="#_observations_for_experiments_3_and_4"></a>13.11.5. Observations for Experiments 3 and 4</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3659,7 +3745,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-20 17:47:04 UTC
+Last updated 2020-10-21 14:43:21 UTC
 </div>
 </div>
 <style>
