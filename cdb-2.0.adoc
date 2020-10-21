@@ -77,7 +77,7 @@
 // *****************************************************************************
 // Editors please do not alter the administrative front matter below.
 // *****************************************************************************
-:category: OGC Public Engineering Report
+:category: Engineering Report from SOCOM/SOFWERX sponsored initiative; formatted like an OGC Public Engineering Report
 :publicationDate: YYYY-MM-DD
 :approvalDate: YYYY-MM-DD
 :referenceURLID: ID
