@@ -52,7 +52,16 @@ image::images/tiling_logical_model.jpg[width=800,align="center"]
 
 === Proposed CDB X Tiling Structure
 
-The proposed tiling scheme would be based on the GNOSISGlobalGrid (`reference?`), where the entire world is tiled in a 2x4 grid with each tile 90 degrees on a side.  This is zoom level 0 (or tile matrix identifier "0").  Each successive zoom level increases by one, until the level can accommodate the highest resolution data that is to be stored within the CDB X.  With each successive zoom level, each tile is split into four new tiles, except for any tile that would touch either the North or South Pole is not split in longitude.
+The proposed tiling scheme would be based on the GNOSISGlobalGrid, where the tiling starts with a 2x4 grid of tiles with each tile 90 degrees on a side that covers the whole Earth.  This is zoom level 0 (or tile matrix identifier "0").  Each experiment used a tile size of 256x256, although that could be experimented with.  At each successive zoom level, each lower level tile is split into four new tiles at the next zoom level, except for any tile that touches either the North or South Pole is not split in the longitude direction.  This subdivision can continue until the zoom level is high enough to accommodate the highest resolution data that is to be stored within the CDB X.
+
+
+References for the GNOSISGlobalGrid tiling scheme:
+* The 2D TMS JSON description: http://schemas.opengis.net/tms/1.0/json/examples/GNOSISGlobalGrid.json
+* Testbed 13 - Vector Tiles ER: http://docs.opengeospatial.org/per/17-041.html#_global_gnosis_tiling_scheme_adapted_to_polar_regions
+* OGC Standard Tracker - Global WGS84 tiling scheme adapted to polar regions (quad tree except for always having 4 tiles at the poles): http://ogc.standardstracker.org/show_request.cgi?id=520
+* OGC Ideas Repository - Global tiling grid approximating equal-area while maintaining a simple latitude/longitude aligned rectangular tile layout (not quite a DGGS) https://github.com/opengeospatial/ideas/issues/59
+* Vector Tiles Pilot - Phase 2 Summary ER: https://docs.ogc.org/per/19-088r2.html
+
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Proposed Tiling Scheme for CDB X.
