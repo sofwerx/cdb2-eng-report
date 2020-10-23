@@ -56,6 +56,7 @@ The proposed tiling scheme would be based on the GNOSISGlobalGrid, where the til
 
 
 References for the GNOSISGlobalGrid tiling scheme:
+
 * The 2D TMS JSON description: http://schemas.opengis.net/tms/1.0/json/examples/GNOSISGlobalGrid.json
 * Testbed 13 - Vector Tiles ER: http://docs.opengeospatial.org/per/17-041.html#_global_gnosis_tiling_scheme_adapted_to_polar_regions
 * OGC Standard Tracker - Global WGS84 tiling scheme adapted to polar regions (quad tree except for always having 4 tiles at the poles): http://ogc.standardstracker.org/show_request.cgi?id=520
