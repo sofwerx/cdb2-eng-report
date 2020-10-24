@@ -1,0 +1,17 @@
+== References for Attribute Experiments
+
+DIGEST FACC 2.1
+
+NCV 2.0 Vocabulary
+
+NAS X-3 Entity Catalog
+
+NAS X-3 Platform Specific Model Codes
+
+GGDM 3.0 Feature Catalog
+
+TDS 6.0, TDS 7.0, GGDM 3.0, and CDB 1.0 Cross-walk
+
+Building Interior Standard Crosswalk
+
+IFC 4.3 Notes
