@@ -2,11 +2,21 @@
 
 DIGEST FACC 2.1 - https://www.dgiwg.org/DIGEST
 
+DGIWG DIGEST Disposition (Sunset Mandate) - http://portal.dgiwg.org/files/7827
+
+NSG DIGEST Disposition (Sunset Mandate) - https://gwg.nga.mil/documents/asfe/DGIWG_FACC.htm
+
+CDB 1.x Feature Data Dictionary - https://external.ogc.org/twiki_public/pub/CDBswg/WebHome/CDB_FDD.xlsx
+
 NCV 2.0 Vocabulary - https://nsgreg.nga.mil/voc/registers.jsp?register=NCV
 
 NAS X-3 Entity Catalog - https://nsgreg.nga.mil/doc/view?i=5042
 
 GGDM 3.0 Feature Catalog - https://ggdm.erdc.dren.mil/pages/contents/v3.0.html
+
+ISO 18025:2014 Environment Data Coding Standard (EDCS) - https://standards.sedris.org/18025/
+
+ISO 19109:20005 Geographic Information: Rules for Application Schema - https://www.iso.org/obp/ui/#iso:std:iso:19109:ed-2:v1:en
 
 SE Core vs. GGDM Analysis - link:++SE Core to GGDM Gaps.xlsx++[Excel Worksheet]
 
@@ -14,4 +24,4 @@ TDS 6.0, TDS 7.0, GGDM 3.0, and CDB 1.0 Cross-walk - link:GGDM_to_CDB_Crosswalk_
 
 Building Interior Standard Crosswalk - link:++Interior Assessment and Correlation.xlsx++[Excel Worksheet]
 
-IFC 4.3 Notes - link:++Assessment of IFC 4.docx++[Microsoft Word Document]
+Geometric Progress IFC 4.3 Notes - link:++Assessment of IFC 4.docx++[Microsoft Word Document]
