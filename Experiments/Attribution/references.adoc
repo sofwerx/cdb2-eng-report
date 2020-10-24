@@ -1,17 +1,17 @@
 == References for Attribute Experiments
 
-DIGEST FACC 2.1
+DIGEST FACC 2.1 - https://www.dgiwg.org/DIGEST
 
-NCV 2.0 Vocabulary
+NCV 2.0 Vocabulary - https://nsgreg.nga.mil/voc/registers.jsp?register=NCV
 
-NAS X-3 Entity Catalog
+NAS X-3 Entity Catalog - https://nsgreg.nga.mil/doc/view?i=5042
 
-NAS X-3 Platform Specific Model Codes
+GGDM 3.0 Feature Catalog - https://ggdm.erdc.dren.mil/pages/contents/v3.0.html
 
-GGDM 3.0 Feature Catalog
+SE Core vs. GGDM Analysis - link:++SE Core to GGDM Gaps.xlsx++[Excel Worksheet]
 
-TDS 6.0, TDS 7.0, GGDM 3.0, and CDB 1.0 Cross-walk
+TDS 6.0, TDS 7.0, GGDM 3.0, and CDB 1.0 Cross-walk - link:GGDM_to_CDB_Crosswalk_20200713.xlsx[Excel Worksheet]
 
-Building Interior Standard Crosswalk
+Building Interior Standard Crosswalk - link:++Interior Assessment and Correlation.xlsx++[Excel Worksheet]
 
-IFC 4.3 Notes
+IFC 4.3 Notes - link:++Assessment of IFC 4.docx++[Microsoft Word Document]
