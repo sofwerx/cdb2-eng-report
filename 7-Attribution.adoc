@@ -313,6 +313,7 @@ One major topic across all geographic information standards right now is metadat
 The reality is that, as the NAS development proves, the historical distinction between metadata and attribution is largely artificial and unnecessary. Structurally, metadata is attribution and attribution is metadata; the only difference is which entity types provide for which attributes and how they are related. For provenance metadata, typically many features share the same provenance metadata since they were generated from the same data sources using the same authorship and workflows - the provenance itself can be represented as a single entity with attributes and other reference entities such as workflow steps, with all features with the same provenance referencing the same provenance entity. 
 
 The NAS and GGDM provide for the following entity metadata types, for example:
+
 * ZI001 Source - representing a single data source
 * ZI002 Restriction Information - description of a unique set of commercial and classification restrictions controlling data
 * ZI004 Data Process Step - describes an individual workflow step of an overall production process
@@ -340,13 +341,91 @@ One final question to investigate later on geometry is whether there is any bene
 
 ==== Entity Dictionary Storage Design
 
+As part of the code prototype experiment, we started experimenting with a SQLite table design for representing the entirety of the proposed CDB X logical data model and code to read and write it. We did not complete this implementation, but based on our partial efforts found no reason to believe there was an substantial technical barrier to doing so. We also observed that by laying out the metamodel in UML, it would be possible to create equivalent XML and JSON schemas - perhaps through tools like ShapeChange - to offer multiple possible encodings of the CDB X metadata.
 
+Based on cross-referencing the GGDM, NAS, and NCV with CDB-specific requirements, we notionally identified the following tables as important. This structure is intended to be experimental rather than prescriptive - we believe this should be an area of further research for CDB X. It may also be appropriate to conduct experiments on using an SQLite data dictionary vs. XML or JSON data dictionaries to see if the impact on clients is noticeable.
+
+* Entities - core vocabulary of entity types
+** ID  - primary key
+** Label - NCV label
+** Code - FACC code
+** Definition - full definition
+** Generalization - base Entity type
+** Type - Entity, Geometry, Category, Dataset
+* Quantities - core vocabulary of measurement physical quantity types
+** ID  - primary key
+** Label - NAS label
+** Definition - full definition
+* Measurements - core vocabulary of specific measurement units
+** ID  - primary key
+** Label - NAS label
+** Quantity - foreign key referencing which quantity this measurement measures
+** Prefix - prefix when used (typically empty, example could be $ for currency)
+** Suffix - suffix when used (i.e. m for metre, may be empty if suffixes not used)
+** Multiplier - multiplication factor to go from this unit to base quantity unit
+** Divisor - divisor to divide by to go from this unit to base quantity unit (keep exact precision when this is how conversion is defined)
+** Offset - offset to addto go from this unit to base quantity unit (typically 0 except for temperature)
+** Derivation - mathematical expression to describe how derived measurement is composed of products of powers of base units
+* Datatypes - core definitions of attribute value types and base constraints, de-duplicate attribute value definitions
+** ID  - primary key
+** Label - name of datatype
+** Primitive - underlying primitive Boolean, Integer, Real, Text
+** Minimum - minimum value (integer and real variants)
+** Maximum - maximum value (integer and real variants)
+** Precision - preferred decimal precision for real attributes
+** Closure - whether minimum and/or maximum are included in valid range
+** Mode - Scalar (0) or Interval (1)
+** Measurement - the default measurement unit if applicable (also used for min/max)
+** Cardinality - maximum cardinality of values (1 is scalar, more than 1 allows multiple values)
+** Length - maximum length of text values
+** Pattern - regular expression pattern that text value must match
+** Enumerated - if true, then controlled vocabulary (enumeration values if integer or codelists if text) applies from Codelists table
+* Attribute - core definition of attribute vocabulary (independently entity types)
+** ID  - primary key
+** Label - NCV label
+** Code - FACC code
+** Definition - full definition
+** Datatype - the default datatype for this attribute (optional)
+** Quantity - the physical quantity this attribute measures, if applicable
+* Codelists - definitions of enumerated value vocabulary
+** ID - primary key
+** Datatype - foreign key to parent datatype
+** Filter - foreign key to EntityAttribute if this codelist should only apply to a particular entity and attribute binding
+** Index - integer value if applicable (enumerations)
+** Code - text value if applicable (codelists)
+** Definition - full definition
+* EntityRepresentations - table to bind entities to particular geometry representations
+** ID - primary key of binding
+** Entity - foreign key to entity type
+** Geometry - foreign key to geometry entity type
+** Container - foreign key to category or dataset entity type
+** Label - override for entity label when used in this context
+** Code - override for entity code when used in this context
+* EntityAttributes - table to bind attributes to particular entities with datatypes
+** ID - primary key of binding
+** Entity - foreign key to entity-representation definition the attribute applies to
+** Attribute - foreign key to attribute definition
+** Datatype - foreign key to datatype specifying attribute value type and constraints
+** Label - override for attribute label when used in this context
+** Code - override for attribute code when used in this context
+* Relationships - core set of relationship type definitions
+** ID - primary key
+** Label - name of relationship type
+** Directed - boolean true if directed, false if bidirectional
+* EntityRelationships - table to constraint how entities can relate to each other
+** ID - primary key of binding
+** Source - foreign key to source entity type
+** Mediator - foreign key to mediator entity type, if applicable
+** Target - foreign key to target entity type
+** Cardinality - maximum number of target entities that a source feature may relate to
+** Definition - detailed definition of the purpose of the relationship
 
 ==== Data Dictionary Versioning, Changes, and Extensions
 
 One challenge with maintaining long-running data repositories is that data model standards evolve over time; the vast distance between FACC 2.1 and NAS X-3 is a great illustration of that. For CDB X, we believe that capturing the exact version of data model used and, ideally, the lineage and authority of each definition will be useful to clients for managing their data over periods of years and decades.
 
 We identified the following concepts relevant to data dictionary configuration management (which also overlap with metadata standards):
+
 * Agent - an organization, standards body, or individual that performed or approved some action
 * Standard - representation of a complete specific version of a data dictionary definition
 ** Author - the authority that originally created a particular definition
@@ -357,6 +436,7 @@ We identified the following concepts relevant to data dictionary configuration m
 ** Publication Date - the date on which the particular version of a titled compilation was published
 
 The available lineage of any particular feature dictionary - including the current CDB 1.x Feature Dictionary - would consist of a set of Standards referencing a set of Agents that authored and published them. Individual definitions would then be tracked through a sequence of Actions describing what was done with the definition, each Action referencing the Standard in which it occurred:
+
 * Action - a particular change related to a definition
 ** Author - the agent that created that particular action (may be different from overall standard author)
 ** Publisher - the agent that approved that particular action for inclusion (may be different from overall standard publisher)
