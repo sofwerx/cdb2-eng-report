@@ -46,7 +46,15 @@ The US Army Geospatial Center codified the https://nsgreg.nga.mil/doc/view?i=302
 
 Concurrently, NSG has published an official https://nsgreg.nga.mil/doc/view?i=3031[NAS 8.0] update - the current officially mandated standard - and follow-up quarterly updates to address errata, add extensions, and reformulate documentation. The most recent update at the time of writing is the https://nsgreg.nga.mil/doc/view?i=5042[NAS X-3] published on June 30, 2020. These updates introduced substantive changes to move away from legacy representations, separated out the traditional FACC 5-letter feature codes and 3-letter attribute codes into a separate "Platform Specific Model" document, separated out view assignments to a separate document, and added definitions for OGC GML concepts. However, the core of NAS today is still recognizably derived from its distant FACC ancestor and still has substantial overlap with it.
 
-A full diagram of the lineage of various geographic information standards is presented here as developed by Geometric Progress LLC for the STE One World Terrain Data Model Working Group. <TODO>
+A full diagram of the lineage of various geographic information standards is presented here as developed by Geometric Progress LLC for the STE One World Terrain Data Model Working Group.
+
+==== Data Model Lineage - DIGEST FACC Branch
+
+image::Experiments/Attribution/DataModelLineage.png[Data Model Lineage Chart - DIGEST FACC Branch]
+
+==== Data Model Lineage - ISO 18025 Branch
+
+image::Experiments/Attribution/DataModelLineage2.png[Data Model Lineage Chart - ISO 18025 Branch]
 
 Directly relevant to this experiment is the adoption of NAS compliance as a design goal and the selection of GGDM 3.0 as the starting point to meet that goal for the US Army Synthetic Training Environment (STE) One World Terrain (OWT) data model in October 2019. The STE Cross-Function Team saw substantial benefits to moving toward NAS by using GGDM after verifying that the GGDM link:++Experiments/Attribution/SE Core to GGDM Gaps.xlsx++[met over 90% of current requirements for the existing SE Core use cases] for the Army behaviors that were currently met by the existing SE Core Environment Data Model based on https://standards.sedris.org/18025[ISO 18025], although substantial gaps for future use cases were identified that were relevant to this experiment. NAS compliance and GGDM interoperability will align the STE simulation and training semantics with existing use cases for geospatial intelligence and operational use, directly relevant to the Army's goal of "train as you fight." However, unlike the Army Geospatial Center use case for Shapefiles and GeoPackage SQLite tables for point, linear, and polygon features, the OWT use case primarily intends to deploy GGDM attribution attached to 3D content such as triangle mesh models at the mesh level, the vertex level, the triangle level, and applied to model surfaces via raster coverage texturing. The OWT 3D model approach is also relevant to notional glTF mesh layers and geotypical and geospecific models explored in other sections of this Engineering Report. There are similar efforts in NGA - notably the FG3D effort - that are also working toward the integration of 3D content with semantic standards.
 
