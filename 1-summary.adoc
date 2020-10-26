@@ -5,7 +5,7 @@ CDB X - Meeting the requirements for tactical GEOINT that can be used across war
 
 == Executive Summary
 
-Since 2018 the CDB community has discussed and considered what CDB version 2.0 might might provide in terms of capabilities. These discussion also touched on architecture and related logical models. Many of these CDB 2.0 discussion have occured as part of the OGC standards work. More recently, other organizations such as SOCOM and NGA, have vigorously engaged in these discussions. However, progress has been relatively slow. 
+Since 2018 the CDB community has discussed and considered what CDB version 2.0 might might provide in terms of capabilities. These discussion also touched on architecture and related logical models. Many of these CDB 2.0 discussion have occured as part of the OGC standards work. More recently, other organizations such as SOCOM and NGA, have vigorously engaged in these discussions. However, progress has been relatively slow.
 
 Therefore, in order to accelerate the development of CDB 2.0, in May 2020 SOFWERX announced the https://events.sofwerx.org/3dgeots/[3D Geospatial Series Tech Sprint II – OGC CDB 2.0]. In support of SOF Future Concepts, this effort hopes to accelerate evolution of the OGC CDB standard to meet the needs of planning, rehearsal, and Mission Command systems providing decision support to Special Operations Forces and enabling SOF tactical and operational advantage.
 
@@ -26,6 +26,44 @@ Phase 5: 05 October 2020 to 30 October 2020 Final Report: Participants will writ
 The following are the recommendations for changes, enhancements, and design principals for not just CDB 2.0 but also CDB version 1.3. The version 1.3 chnages are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path the version 2.0
 
 ==== Attribution
+
+[updated Summary Attribution recommendations from updated 7-attributions.adoc code merge from Greg's branch into Master 201026_1500]
+
+* Adopt NAS-compliant logical entity-attribute model for CDB X with extensions for CDB use cases
+** Store all aspsects of feature and attribute dictionary in single SQLite file for portability and runtime performance
+** Use GGDM 3.0 as the initial starting point for definitions to populate CDB X data dictionary
+** Match up remaining CDB non-GGDM feature types and subcodes with latest NAS definitions where possible, matching subcodes to attributes where relevant and adding missing enumerant values where necessary (with associated NCV vocabulary)
+** Augment NAS definitions with other open standards and new development
+*** Match up missing maritime definitions to DGIM followed by IHO S-100 where possible, define NCV vocabulary for such integrated definitions
+*** Match up missing aeronautics definitions to DGIM followed by AIXM where possible, define NCV vocabulary for such integrated definitions
+*** Coordinate with OGC, NGA, and STE OWT to develop replacement building interior data model incorporating IFC/BIM, CityGML, IMDF, and other open standards
+*** Coordinate with OGC, NGA, STE OWT, and civilian environment agencies to develop detailed data model for vegetation
+*** Create data model and vocabulary for material and light point definitions and capture into existing material and lightpoint libraries
+*** Define NCV vocabulary and NAS-compatible entity and attribute types for CDB feature types and subcodes totally missing in all other standards
+** Remove CDB feature subcodes entirely; migrate to existing and new feature and attribute types instead in NAS-compliant structure
+** Define entity types for CDB datasets and define "aggregation" relationships from feature types to containing datasets
+** Capture feature-level, dataset-level, and database metadata as NAS-compliant attribution meeting the NSG Metadata Foundation (NMF) and ISO 19115
+** Define functional role domains and create mechanism to organize attribution by domain for tailoring to runtime devices
+* Delegate entity and attribute physical encoding choices to vector and 3D model containers instead of specifying globally
+** Deprecate extended attributes entirely, to be removed in CDB X
+** Delegate containerization of entity types (one per table, multiple in same table specified by F_CODE attribute, etc.) to vector and model containers
+** Delegate decision whether to use class or instance attributes to individual vector and model containers rather than global data dictionary
+** Delegate decision of whether to use FACC-like codes, NAS labels, or natural language names for entity types, attributes, and values to vector and model containers
+** Delegate decision of whether to flatten complex feature relationships and attributes used GGDM attribute prefixing to vector and model containers
+** Delegate decision of whether to flatten multi-valued and range-valued attributes using GGDM attribute prefixing to vector and model containers
+** Specify minimum and maximum cardinality of multi-valued attributes in feature and attribute dictionary, allow containers to use a lower maximum if using GGDM attribute prefixing encoding
+* Define backward-compatible extensions in CDB 1.3 to add constructs necessary to move toward NAS-compliant attribution
+** Capture proposed NAS-complaint replacement feature dictionary in existing CDB metadata XML with necessary extensions
+** Only use feature subcode 000 in replacement dictionary and deprecate use of feature subcodes to be removed in CDB X
+** Add mechanism to mark numeric attributes as interval ranges (existing non-upgraded clients should see still attribute as single-valued and read mean value from associated unsuffixed attribute, use suffixed attributes for deviation and closure for upgraded clients to read)
+** Add minumum and maximum cardinality elements for attribute definitions to specify mininum and maximum element count for multi-valued attributes (existing non-upgraded clients should just see attribute as scalar base value and will only read the first value from associated content, will see ordinal-suffixed attributes as separate attributes)
+** Add list of valid attributes to datasets in CDB 1.x metadata XML files to match existing human-readable specification
+** Add list of valid enumerants for each attribute in CDB 1.x CDB_Attributes.xml file to match existing human-readable specification
+** Add list of valid attributes for each entity type as extension to CDB 1.x Feature_Data_Dictionary.xml to implement NAS-compliant per-entity attributes
+** Update CDB 1.x CDB_Attributes.xml to allow specifying text pattern constraints through <Pattern> element and text codelists for text attributes via <Codelist> element
+** Update CDB 1.x Feature_Data_Dictionary.xml for each feature to specify its generalization (base) entity type via <Generalization> element
+** Update CDB 1.x Feature_Data_Dictionary.xml to add <Aggregation> element to define additional associated category for an entity type, or parent category for a category
+** Existing category and subcategory XML structure will add implicit definitions and aggeregation links for the category/subcategory items as used by CDB 1.0 for model storage
 
 `Recommendation 1 Extended Attributes - Version 1.3` The subgroup discussion on this topic is titled: https://github.com/sofwerx/cdb2-concept/issues/25[Should Extended Attributes be preserved at the logical data model level?] The suggestion is that the CDB SWG discuss this issue and possible solution as a possible change for CDB version 1.3. Some additional testing may be required to determine if this capability can be added to version 1.3 or not.
 
