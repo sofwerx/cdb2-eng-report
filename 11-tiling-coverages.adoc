@@ -1,10 +1,12 @@
 [[tiling]]
-==  Tiling and Tiled Coverages
+== Tiling and packaging of data layers
 
+This chapter covers the evaluation of a specific global tiling scheme for CDB X, the configurable grouping of Levels of Detail to balance file size vs
+file count, an approach to packaging one or more data layers in GeoPackages (including coverage, vector and 3D data), current and proposed GeoPackage
+extensions for storing this data, as well as the results of related prototyping activities.
 
-== CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage
-
-This clause provides discussion of tiled data and GeoPackage requirements and the results of the prototyping activities.
+Although the tiling sub-group was initially assigned specifically to explore tiled coverage data, some experiments went beyond this and also applied the
+same tiling approach to vector data and 3D models and used existing or new extensions to store this tiled data in GeoPackages.
 
 === General
 
@@ -25,9 +27,9 @@ Part  2  of  the Tiling  Abstract  Specification  defines  a  detailed  logical 
 
 The OGC Tile Matrix Set standard defines the rules and requirements for a tile matrix set as a way to index space based on a set of regular grids defining a domain (tile matrix) for a limited list of scales in a Coordinate Reference System (CRS) as defined in [OGC 08-015r2] Abstract Specification Topic 2: Spatial Referencing by Coordinates. Each tile matrix is divided into regular tiles. In a tile matrix set, a tile can be univocally identified by a tile column a tile row and a tile matrix identifier. This document presents a data structure defining the properties of the tile matrix set in both UML diagrams and in tabular form. This document also presents a data structure to define a subset of a tile matrix set called tile matrix set limits. XML and JSON encodings are suggested both for tile matrix sets and tile matrix set limits. Finally, the document offers practical examples of tile matrix sets both for common global projections and for specific regions.
 
-=== Design Objectives for CDB X Tiling and LoDs and Layers
+=== Design Objectives for CDB X Tiling, LoDs and Layers
 
-The following are the key design principals for a CDB X tiling, levels of detail, and layering.
+The following are the key design principles for a CDB X tiling, levels of detail, and layering.
 
 * OGC GeoPackage structured containers are a primary storage format for derived vector data layers, coverages, and other data types as identified (`TBD`). The two OGC Standards of relevance are https://portal.opengeospatial.org/files/12-128r15[OGC GeoPackage version 1.1] and http://docs.opengeospatial.org/is/17-066r1/17-066r1.html[OGC GeoPackage Extension for Tiled Gridded Coverage Data].
 * Use metadata for whole datasets that describe how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)
@@ -50,13 +52,13 @@ The following figure, based on the Tiling Abstract Specification Logical Model a
 .Logical Model for partitioning based on tiles in CDB X.
 image::images/tiling_logical_model.jpg[width=800,align="center"]
 
-=== Proposed CDB X Tiling Structure
+=== Proposed CDB X Tiling Scheme
 
 The proposed tiling scheme would be based on the GNOSISGlobalGrid, where the tiling starts with a 2x4 grid of tiles with each tile 90 degrees on a side that covers the whole Earth.  This is zoom level 0 (or tile matrix identifier "0").  Each experiment used a tile size of 256x256, although that could be experimented with.  At each successive zoom level, each lower level tile is split into four new tiles at the next zoom level, except for any tile that touches either the North or South Pole is not split in the longitude direction.  This subdivision can continue until the zoom level is high enough to accommodate the highest resolution data that is to be stored within the CDB X.
 
-
 References for the GNOSISGlobalGrid tiling scheme:
 
+* The 2D TMS Standard Annex H.2: http://docs.opengeospatial.org/is/17-083r2/17-083r2.html#106
 * The 2D TMS JSON description: http://schemas.opengis.net/tms/1.0/json/examples/GNOSISGlobalGrid.json
 * Testbed 13 - Vector Tiles ER: http://docs.opengeospatial.org/per/17-041.html#_global_gnosis_tiling_scheme_adapted_to_polar_regions
 * OGC Standard Tracker - Global WGS84 tiling scheme adapted to polar regions (quad tree except for always having 4 tiles at the poles): http://ogc.standardstracker.org/show_request.cgi?id=520
@@ -67,6 +69,14 @@ References for the GNOSISGlobalGrid tiling scheme:
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Proposed Tiling Scheme for CDB X.
 image::images/image2020-7-8_10-39-39.png[width=515,align="center"]
+
+=== Findings from experiments
+
+The following graph compares the CDB 1.x zones with the Gnosis grid and shows how the GNOSIS algorithm helps to keep the typical tile closer to a “square” than CDB’s zones.
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.CDB 1.x to GNOSIS Comparison - Ratio.
+image::images/image2020-9-4_10-41-0.png[width=600,align="center"]
 
 ==== Tiling Changes From OGC CDB 1.x
 
@@ -85,16 +95,11 @@ Drawbacks from changing to the proposed tiling scheme include the following.  Th
 
 === Proposed CDB X Data Container
 
-The coverage tiles would be stored using GeoPackage containers.  The GeoPackage Tiled Gridded Coverage extension would be ideal for storing tiled coverage data, but it has some drawbacks that would need to be addressed.  Current limitations include:
+The coverage, vector and 3D models data would be stored using GeoPackage containers.
+Imagery and coverage data would always be tiled, while vector data could optionally be stored tiled using extensions for tiled vector data being standardized,
+and 3D models could either be stored in a single table referenced by placement points, or as batched 3D models tiles.
 
-* Only single channel data is allowed in the coverage extension.  Many CDB coverages use more than one channel (Imagery, Raster Materials, etc.).  The alternative would be to store CDB X coverage data using different GeoPackage concepts, such as tiles for imagery, coverages for elevation, and related tables for raster material data.
-** Current change request:  http://ogc.standardstracker.org/show_request.cgi?id=662
-* GeoTiff data only supports using 32-bit floating point data.  In OGC CDB 1.x, GeoTiff files are used to store 8 bit unsigned and 8, 16, or 32 bit signed binary data as well.  And the proposed OGC CDB 1.2 will also adopt the use of binary 1-bit data elements as well.
-** Current change request:  http://ogc.standardstracker.org/show_request.cgi?id=661
-* The engineering tests created in this effort made use of a proposed Tile Matrix Set extension that has not been adopted as an OGC GeoPackage extension.
-** Current GPKG TMS draft: https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions[GPKG TMS Extension (Draft)]
-
-=== Proposed CDB X Coverage Grouping
+=== Proposed Levels of Detail Grouping
 
 There are two proposed ways to group data within a series of GeoPackage containers.  Within these choices is a tradeoff between the format simplicity of working with a single container, and access latency due to larger file and table sizes.
 
@@ -112,34 +117,40 @@ The current OGC CDB tiling scheme can be described as a Tile Matrix Set (TMS) th
 
 Note:  we do not recommend supporting more than one tiling scheme in a version of CDB, as this choice is foundational to how data layers are processed and stored and accessed.
 
-A sample GeoPackage using TMS / GNOSISGlobalGrid for both elevation & vector data tiles can be found at: https://portal.ogc.org/files/?artifact_id=92565
+=== Tiled Coverage Data
 
-=== Additional CDB X Recommendations
+The GeoPackage Tiled Gridded Coverage extension would be ideal for storing tiled coverage data, but it has some drawbacks that would need to be addressed.  Current limitations include:
+
+* Only single channel data is allowed in the coverage extension.  Many CDB coverages use more than one channel (Imagery, Raster Materials, etc.).  The alternative would be to store CDB X coverage data using different GeoPackage concepts, such as tiles for imagery, coverages for elevation, and related tables for raster material data.
+** Current change request:  http://ogc.standardstracker.org/show_request.cgi?id=662
+* GeoTiff data only supports using 32-bit floating point data.  In OGC CDB 1.x, GeoTiff files are used to store 8 bit unsigned and 8, 16, or 32 bit signed binary data as well.  And the proposed OGC CDB 1.2 will also adopt the use of binary 1-bit data elements as well.
+** Current change request:  http://ogc.standardstracker.org/show_request.cgi?id=661
+* The engineering tests created in this effort made use of a proposed Tile Matrix Set extension that has not been adopted as an OGC GeoPackage extension.
+** Current GPKG TMS draft: https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions[GPKG TMS Extension (Draft)]
+
+A sample GeoPackage using TMS / GNOSISGlobalGrid for both elevation & vector data tiles can be found at: https://portal.ogc.org/files/?artifact_id=92565
 
 The following are recommendations and suggested additional discussion topics. These recommendations and discussion topics resulted from the Tiling sub-groups discussion on an enhanced tiling model for CDB X and the potential impacts on the various data types (layers) in the current CDB standard and existing CDB data stores.
 
 ==== Elevation min/max
 
-CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded elevation coverage contained in a tile to the tile metadata. Note: The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.  
+CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded elevation coverage contained in a tile to the tile metadata. Note: The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.
 
 ==== Image Compression - JPEG
 
-Recommendation: That loss-less and lossy image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: https://flif.info/[FLIF - Free Lossless Image Format], although this format looks to be relatively slow as well. NOTE: JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases. 
+Recommendation: That loss-less and lossy image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: https://flif.info/[FLIF - Free Lossless Image Format], although this format looks to be relatively slow as well. NOTE: JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases.
 
 ==== Materials
 
 Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with the physical substance of a feature that can then be used to simulate the emmisive or reflective properties of a feature in wavelengths of the electromagnetic spectrum other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR or Radar. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.
 
-=== Findings from experiments
+=== Tiled Vector Data
 
-The following graph compares the CDB 1.x zones with the Gnosis grid and shows how the GNOSIS algorithm helps to keep the typical tile closer to a “square” than CDB’s zones.
+=== 3D Models placed using point geometry
 
-[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
-.CDB 1.x to GNOSIS Comparison - Ratio.
-image::images/image2020-9-4_10-41-0.png[width=600,align="center"]
+=== Batched 3D Models tiles
 
-
-=== CDB X Tiling/GeoPackage Experiment #1 (Ecere)
+=== Ecere GeoPackage Tiling Experiments
 
 ==== Data and GeoPackage Structure
 
@@ -228,11 +239,11 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 ==== FlightSafety Experiment 1
 
 ===== Purpose of Experiment
-This experiment was designed to: 
+This experiment was designed to:
 
-- Show how the top levels of the tiling scheme work, 
-- Show the LOD groupings within multiple GeoPackage files, and 
-- Show the proposed directory and file naming.  
+- Show how the top levels of the tiling scheme work,
+- Show the LOD groupings within multiple GeoPackage files, and
+- Show the proposed directory and file naming.
 
 There were eight top level tiles (2 rows and 4 columns) and all GeoPackages that refine one of these tiles are under that tile's directory structure.
 
