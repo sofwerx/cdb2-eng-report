@@ -3,21 +3,6 @@
 // Editors: For background information, please visit the OGC ER process page at
 // "https://portal.opengeospatial.org/files/?artifact_id=73351".
 //
-// General ER Editorial Guidance can be found at
-// http://external.opengis.org/twiki_public/ERGuidance/WebHome.
-//
-// In general, please adhere to the following guidelines
-// (and ensure that all contributing authors follow them also):
-//
-// - Leave no empty sections.
-// - Author the document (including spelling) in idiomatic U.S. English.
-// - Start each section with a paragraph (not a figure, table, or list).
-// - Spell out each acronym on first use (with the acronym in parentheses).
-// - Avoid domain-specific buzzwords.
-// - Write in 3rd person voice; avoid using "we".
-// - Ensure correct Grammar and use direct language.
-// - Use a colon (:) to introduce bulleted lists.
-// - Avoid pronouns with ambiguous antecedents (the problem with "it").
 //
 // Please also ensure that all Figures have numbers and captions.
 // Here's an example to follow:
@@ -49,7 +34,7 @@
 // https://portal.opengeospatial.org/?m=public&subtab=request&tab=1.
 // *****************************************************************************
 
-:docReference: <Something - could be OGC XX-XXX>
+:docReference: <Something>
 
 // *****************************************************************************
 // Date posted to OGC Portal>Pending Documents, with format: yyyy-mm-dd.
@@ -62,12 +47,6 @@
 // *****************************************************************************
 
 :editor: David Graham, Carl Reed
-
-// *****************************************************************************
-// Proposed working group for review (e.g. Architecture DWG, WCS SWG)
-// *****************************************************************************
-
-:workingGroup: SWG/DWG for Review: CDB Standards Working Group
 
 // *****************************************************************************
 // End of Editor's front-matter elements.
@@ -110,7 +89,7 @@ Submission Date: {submissionDate}
 
 Reference number of this document: {docReference}
 
-Reference URL for this document: http://www.opengis.net/doc/PER/{initiative_short_name}-{referenceURLID}
+// Reference URL for this document: http://www.opengis.net/doc/PER/{initiative_short_name}-{referenceURLID}
 
 Category: {category}
 
