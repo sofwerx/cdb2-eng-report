@@ -4,6 +4,8 @@
 
 === Overview of the CDB-X Attribution Work
 
+NOTE: This content of this section was authored by Greg Peele, leader of the Attributes Subgroup of the CDB-X activity. FOr purposes of this section, the Attribute Subgroul is hereafter referenced simply as the `subgroup`.
+
 === Background, History, and the Path Forward
 
 One of the strengths of CDB as an interoperability standard, beyond the underlying geospatial representation standards it deploys, is the adoption of a controlled semantic vocabulary for feature types, attributes, and values. This approach - variously called a data model, a feature dictionary, or an entity catalog - is a necessary component of semantic interoperability between simulations. The feature attribution model goes beyond specifying the physical geometry, spatial referencing, and file formats used to represent the CDB data store to ensure simulations have a consistent and correlated deep understanding of the content semantics - to ensure a road is always a road, a lake is distinct from a river, width and height always has a consistent meaning, and so on. This semantic interoperability is necessary to ensure proper operation of simulation behaviors both for supporting human players and artificial intelligence agents.
