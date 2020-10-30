@@ -29,6 +29,8 @@ The following are the recommendations for changes, enhancements, and design prin
 
 [updated Summary Attribution recommendations from updated 7-attributions.adoc code merge from Greg's branch into Master 201026_1500]
 
+The subgroup recommends extending the current CDB XML metadata to add the NAS metamodel capabilities that are currently not supported. The CDB core conceptual model should not mandate any particular data dictionary or content, but rather provide the conceptual and logical metamodel for describing any ISO 19109 compliant application schema to the maximum extent practical. There should be no technical reason why one could not develop an extension profile for CDB for any particular data dictionary that complies with ISO 19109.
+
 * Adopt NAS-compliant logical entity-attribute model for CDB X with extensions for CDB use cases
 ** Store all aspsects of feature and attribute dictionary in single SQLite file for portability and runtime performance
 ** Use GGDM 3.0 as the initial starting point for definitions to populate CDB X data dictionary
