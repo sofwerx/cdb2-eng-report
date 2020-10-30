@@ -220,7 +220,8 @@ The CDB glTF extension contains most of the required CDB-specific features, but 
 * Storing model attributes on a glTF node.
 * Extending materials with CDB texture types: Detail texture, contaminants texture, and material map texture.
 
-The full schema can be found https://github.com/sofwerx/cdb2-concept/blob/3Dmodels_prototype/3Dmodel_Prototype/glTF-CDB-extension-schema.zip[here] (TODO - need link to updated schema)
+The full schema can be found https://github.com/sofwerx/cdb2-eng-report/blob/master/Experiment_Documents/glTF-CDB-extension-schema.zip[here]
+
 
 The CDB glTF extension contains most of the required CDB-specific features. However there are some possible additions that could be made:
 
@@ -291,6 +292,11 @@ The initial approach was to create a monolithic CDB glTF extension so that edito
 
 Another key topic for adoption is editor support. glTF has seen increasing adoption in 3D modelling software like Blender, 3DS Max, and Maya but extensions are often lost during the import/export process. Workarounds have been proposed such as storing extension information outside of the glTF container (see https://github.com/AnalyticalGraphicsInc/gmdf[The glTF Metadata File (GMDF) for Systems Tool Kit (STK)]). Some capabilities like per-face feature assignment are not possible in standard modelling packages and would require plugins. The most likely path of adoption is native support for the extensions in simulation editors and plugins for more general purpose 3D modeling software.
 >>>>>>> master
+
+===== Sample model
+https://github.com/sofwerx/cdb2-eng-report/blob/master/Experiment_Documents/OpenFlight_to_glTF_testModel.zip[test Model - tank]
+https://portal.ogc.org/index.php?m=projects&a=view&project_id=466&tab=2&artifact_id=95313[OGC Portal CDB tile in glTF]
+
 
 ==== TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension
 
@@ -430,9 +436,6 @@ This file content and structure requires a review and alignment with the rest of
 	<navigation_mesh/>
 </Model>
 ----
-
-
-
 
 
 === Investigation 2 - Merging all geometry in a tile {*I am assuming this section will get more information - and an edit*}
