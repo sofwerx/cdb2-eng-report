@@ -308,8 +308,6 @@ The full compressed files had to be split into multiple pieces as a multi-part z
 ** https://portal.ogc.org/files/?artifact_id=95380
 ** https://portal.ogc.org/files/?artifact_id=95381
 
-The Experiment 4 compressed 7-zip file is located here:  https://drive.google.com/drive/folders/1ipgsWaQmy2GWfUwnKVffJwggm6rXKcRj?usp=sharing
-
 ==== Observations for Experiments 3 and 4
 
 * The file names and directory names are pretty hard to read and understand by looking at the files. However since the tiles are rarely on a "geocell" boundary, their might not be a good naming scheme.
