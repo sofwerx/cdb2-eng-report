@@ -154,11 +154,9 @@ Recommendation: CDB X needs to support material data to provide the same functio
 
 ==== CDB X Tiling/GeoPackage Experiment #1 (Ecere)
 
-A 1.4 GB GeoPackage of the Camp Pendleton sample CDB from Presagis (originally used in OGC Testbed 13), along with an accompanying `cdb.json` can be found at:
+In a first experiment, a GeoPackage of the Camp Pendleton sample CDB from Presagis (originally used in OGC Testbed 13), along with an accompanying `cdb.json` was produced.
 
-http://maps.ecere.com/CDBX/X1/
-
-In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using the GeoPackage metadata extension) to make this GeoPackage very portable.
+The camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using the GeoPackage metadata extension) to make this GeoPackage very portable.
 
 Inside the GeoPackage, all layers were tiled using the Ecere https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid[GNOSIS Global Grid]. This approach was implemented for the experiment using the proposed (and early draft) https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc[GeoPackage Two Dimensional Tile matrix Set (TMS) extension]. This extension was defined and initially tested in the https://www.ogc.org/projects/initiatives/vtp2[2019 OGC Vector Tiles Pilot Phase 2].
 
@@ -178,13 +176,6 @@ For the case of points referencing the 3D models (best suited for geo-typical), 
 
 For the geo-specific / one glTF for the whole tile, the glTF could potentially be stored in a tiles table instead, and the models constituting the payload (much like raster or vector tiles).
 
-==== OGC API access demo
-
-At this address: https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg
-
-You can directly access this CDB X Experiment #1 GeoPackage through our GNOSIS Map Server, including rendering maps, downloading coverages, accessing as tiles in different tiling schemes, accessing individual vector features, retrieving them as (re-merged) GeoJSON, visualizing them on GeoJSON.io and so on.
-To some extent, this demonstrates that even though the data is tiled, this layout actually supports a wide range of use cases.
-
 ==== Visualization
 
 Ecere software can currently visualize the CDB X/GeoPackage elevation and imagery directly in the Ecere 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).
@@ -195,18 +186,7 @@ image::images/ecere-cdbx-1.png[width=600,align="center"]
 
 ==== Live Cesium JS / 3D Tiles demonstation
 
-Navigate to https://sandcastle.cesium.com/ and copy/paste the following four (4) lines of Java Script code:
-
-```js
-var worldTerrain = Cesium.createWorldTerrain({requestWaterMask: true, requestVertexNormals: true, });
-var viewer = new Cesium.Viewer("cesiumContainer", { terrainProvider: worldTerrain });
-var scene = viewer.scene;
-var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({ url: "https://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings/3DTiles/tileset.json" }));
-```
-
-Then click "Run", and zoom in onto Camp Pendleton. Camp Pendleton is at the height of the southern part of the northernmost of the 2 islands just west of southern California. As the image is zoomed, 3D buildings should come into view.
-
-This tiled 3D distribution (for OGC API collection http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings) is currently being generated on the fly from the Ecere GNOSIS Data Store / E3D models. NOTE: No textures have been added yet.
+This tiled 3D distribution (for OGC API collection http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings) is currently being generated on the fly from the Ecere GNOSIS Data Store / E3D models.
 
 Once the 3D models are added to the CDBX GeoPackage, it should be possible to stream as 3D Tiles <CESIUM??> straight from the CDBX/GeoPackage as well, rather than the original CampPendleton CDB repository.
 
@@ -225,7 +205,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 
 A series of GeoPackages of the San Diego CDB, plus a full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble, along with an accompanying `cdb.json` can be found at:
 
-http://maps.ecere.com/CDBX/X2/SanDiegoLayers/ (11.3 GB)
+https://portal.ogc.org/index.php?m=projects&a=view&project_id=466&tab=2&artifact_id=95320 (11.2 GB compressed)
 
 The version currently online separates layers independently, each having their own settings for LOD grouping.
 For examples vector layers are each in a single GeoPackage ("groupLOD" : 0), while imagery is grouped by 7 LODs and elevation by 6 LODs.
@@ -233,9 +213,7 @@ This is to demonstrate that a particular publisher could easily decide how best 
 
 A separate set of GeoPackages has also been produced where all layers for a particular LOD/tile have been organized together within the same GeoPackage. The cdb.json and the file listing for this is found at:
 
-http://maps.ecere.com/CDBX/X2/SanDiegoOnePackage/
-
-Please contact me if you are interested in this version, or if you have space available where we could host a 9.3 GB .7z file for this.
+https://portal.ogc.org/index.php?m=projects&a=view&project_id=466&tab=2&artifact_id=95365
 
 Both of these contain the points referencing the models (buildings and trees), but not the models / textures themselves. That will be covered in our next experiment. The San Diego 3D models are however available as 3D Tiles or binary glTF from our OGC API end-point at http://maps.ecere.com/ogcapi/collections/SanDiegoCDB:Buildings/ and http://maps.ecere.com/ogcapi/collections/SanDiegoCDB:Trees/ .
 
@@ -431,63 +409,105 @@ The tables registered with this extension are:
 
 ====== As separate layers
 
-https://maps.ecere.com/CDBX/X2/SanDiegoLayers/cdb.json[Top-level _cdb.json_ index]
+https://portal.ogc.org/files/?artifact_id=95345[Top-level _cdb.json_ index]
 
-https://maps.ecere.com/CDBX/X2/SanDiegoLayers/Elevation/[Elevation]
+https://portal.ogc.org/files/?artifact_id=95352[Elevation (using 16-bit integer PNG encoding)]
+
+https://portal.ogc.org/files/?artifact_id=95328[Elevation (using 16-bit integer Paeth/LZMA GMT encoding)]
+
+ftp://cdb-x-2020@ftp.ogc.org/Ecere/ElevationTIF.7z[Elevation (using 32-bit float GeoTIFF encoding)]
 
 Imagery:
 
-https://maps.ecere.com/CDBX/X2/SanDiegoLayers/BlueMarble/[Full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble]
+ftp://cdb-x-2020@ftp.ogc.org/Ecere/BlueMarble.7z[Full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble]
 
-https://maps.ecere.com/CDBX/X2/SanDiegoLayers/ImageryL7/[Medium resolution imagery]
+ftp://cdb-x-2020@ftp.ogc.org/Ecere/ImageryMedium.7z[Medium resolution imagery]
 
-https://maps.ecere.com/CDBX/X2/SanDiegoLayers/ImageryL9/[High resolution imagery]
+ftp://cdb-x-2020@ftp.ogc.org/Ecere/ImageryHigh.7z[High resolution imagery]
 
 Vector data (tiled, using Mapbox Vector Tiles):
 
-https://maps.ecere.com/CDBX/X2/SanDiegoLayers/ImageryL9/[Hydrography]
+https://portal.ogc.org/files/?artifact_id=95348[Hydrography]
 
-https://maps.ecere.com/CDBX/X2/SanDiegoLayers/Roads.gpkg[Roads]
+https://portal.ogc.org/files/?artifact_id=95350[Roads]
+
+https://portal.ogc.org/files/?artifact_id=95346[Airport Lights]
 
 Vector data (tiled, using GNOSIS Map Tiles):
 
-[Hydrography]()
+https://portal.ogc.org/files/?artifact_id=95329[Airport Lights]
 
-[Roads]()
+https://portal.ogc.org/files/?artifact_id=95330[Hydrography]
+
+https://portal.ogc.org/files/?artifact_id=95331[Roads]
 
 3D Models (reference points):
 
-https://maps.ecere.com/CDBX/X2/SanDiegoLayers/Buildings.gpkg[Buildings]
+https://portal.ogc.org/files/?artifact_id=95351[Buildings]
 
-https://maps.ecere.com/CDBX/X2/SanDiegoLayers/Trees.gpkg[Trees]
+https://portal.ogc.org/files/?artifact_id=95349[Trees]
 
-[Coronado Bridge]()
+https://portal.ogc.org/files/?artifact_id=95347[Coronado Bridge]
 
 More compact GNOSIS Map Tiles / E3D versions of the referenced 3D models:
 
-[Buildings (GNOSIS Map Tiles / E3D)]()
+https://portal.ogc.org/files/?artifact_id=95340[Buildings (GNOSIS Map Tiles / E3D)]
 
-[Trees (GNOSIS Map Tiles / E3D)]()
+https://portal.ogc.org/files/?artifact_id=95339[Trees (GNOSIS Map Tiles / E3D)]
 
-[Coronado Bridge (GNOSIS Map Tiles / E3D)]()
+https://portal.ogc.org/files/?artifact_id=95338[Coronado Bridge (GNOSIS Map Tiles / E3D)]
+
+Different grouping of LODs (glTF):
+
+https://portal.ogc.org/files/?artifact_id=95344[Buildings grouped by 4 LODs]
+
+https://portal.ogc.org/files/?artifact_id=95343[Buildings grouped by 5 LODs]
+
+https://portal.ogc.org/files/?artifact_id=95342[Buildings grouped by 7 LODs]
+
+NOTE: Except for the directory / filename naming, the 7 LODs buildings are equivalent to 6 LODs since there are only 6 LODs of buildings in the dataset.
+
+https://portal.ogc.org/files/?artifact_id=95341[Trees grouped by 6 LODs]
+
+NOTE: Except for the directory / filename naming, the 6 LODs trees are equivalent to any other LOD groupings, since there is only 1 LOD of trees in the dataset.
 
 Batched 3D Models tiles (glTF):
 
-[Buildings (glTF / batched 3D models tiles)]()
+https://portal.ogc.org/files/?artifact_id=95337[Buildings (glTF / batched 3D models tiles)]
 
-[Trees (glTF / batched 3D models tiles)]()
+https://portal.ogc.org/files/?artifact_id=95335[Trees (glTF / batched 3D models tiles)]
 
-[Coronado Bridge (glTF / batched 3D models tiles)]()
+https://portal.ogc.org/files/?artifact_id=95336[Coronado Bridge (glTF / batched 3D models tiles)]
+
+Batched 3D Models tiles (E3D):
+
+https://portal.ogc.org/files/?artifact_id=95334[Buildings (E3D / batched 3D models tiles)]
+
+https://portal.ogc.org/files/?artifact_id=95333[Trees (E3D / batched 3D models tiles)]
+
+https://portal.ogc.org/files/?artifact_id=95332[Coronado Bridge (E3D / batched 3D models tiles)]
+
+====== Data layers packaged together (tiles grouped in multiple GeoPackages)
+
+This series of GeoPackage containing the whole San Diego CDB data (not including Blue Marble):
+
+https://portal.ogc.org/files/?artifact_id=95366[_cdb.json_ index]
+
+ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.7z[One package using an LOD grouping of 5]
+
+Partial dataset (subset of the overall extent):
+
+https://portal.ogc.org/files/?artifact_id=95370[Partial dataset using an LOD grouping of 5]
 
 ====== Single GeoPackage
 
-This one GeoPackage containing the whole San Diego CDB data (excluding Blue Marble and batched 3D models):
+This one GeoPackage containing the whole San Diego CDB data (not including Blue Marble):
 
-[Complete San Diego CDB X - _cdb.json_ index]()
+https://portal.ogc.org/files/?artifact_id=95378[Complete San Diego CDB X - _cdb.json_ index]
 
-[Complete San Diego CDB X - GeoPackage]()
+ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.gpkg.7z[Complete San Diego CDB X - GeoPackage]
 
-_(Links to be added/updated after data set up on hosting space provided by OGC)_
+ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.gpkg[Complete San Diego CDB X - GeoPackage using GNOSIS Map Tiles and E3D Models]
 
 ===== OGC API access demo
 
