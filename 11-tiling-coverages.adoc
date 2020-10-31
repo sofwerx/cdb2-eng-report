@@ -240,7 +240,7 @@ There were eight top level tiles (2 rows and 4 columns) and all GeoPackages that
 This experiment uses the NASA Blue Marble imagery to approximate world-wide imagery at a high level.  This provides seven levels of detail of data (L0 to L6).  Normally, the GeoPackage files should be larger for efficient use. However to demonstrate the LOD groupings, only four LODs were grouped together.  So that tools can view the imagery more easily, the imagery is stored as JPEGs.  Originally the thought was to create Jpeg2000 files but checking the results in a tool such as "DB Browser for SQLite" was harder.  The content volume for the data used this experiment was around 300 MB.
 
 ===== Data Location
-Compressed 7-zip file at:  https://drive.google.com/drive/folders/1zfdBnAHpf9McLTbaJotdKGR_tXQad4dy?usp=sharing
+Compressed 7-zip file with test data can be found at:  https://portal.ogc.org/files/?artifact_id=95358
 
 ==== FlightSafety Experiment 2
 
@@ -252,7 +252,10 @@ This experiment was designed to further test the limits of the LOD grouping and 
 The same processing was used as in  Experiment 1 but with an LOD grouping of 6. During the sub-groups planning for this experiment, the hyposthesis was that was an ideal balancing size and number of sub-directories ( (2^6)^2 = 4096 maximum directories within one folder.  The maximum LOD for this experiment was 16 (60cm).  To find the highest resolution data, look at file CDBX_highres\Imagery\L0_R0_C1\L5_R17_C37\L11_R1120_C2412\Imagery_L11_L16_R1120_C2412.gpkg.  The data size for this experiment was almost 1.5 GB.
 
 ===== Data Location
-Compressed 7-zip file at:  https://drive.google.com/drive/folders/1zKuu0oQy3K5oKestuPIvL-BRiSPn9oaO?usp=sharing
+The full compressed file had to be split into two pieces as a multi-part zip file, to enable saving on the OGC portal.
+
+* https://portal.ogc.org/files/?artifact_id=95361
+* https://portal.ogc.org/files/?artifact_id=95371
 
 ==== Observations from Experiments 1 and 2
 
@@ -294,8 +297,16 @@ This experiment uses the NASA Blue Marble imagery as world-wide imagery and USGS
 For Experiment 3, the imagery and elevation layers were built into different GeoPackages and different directory structures.  For Experiment 4, the imagery and elevation were combined into a single set of GeoPackages and directories while keeping the LOD grouping.
 
 ===== Data Location
+The full compressed files had to be split into multiple pieces as a multi-part zip file, to enable saving on the OGC portal.
 
-The Experiment 3 compressed 7-zip file is located here:  https://drive.google.com/drive/folders/1XpljPt_TrqqxsgcWaxLhi9C1qLE0nI32?usp=sharing
+* Experiment 3 compressed zip files containing both data layers as separate GeoPackage layers in the CDB X tiling output:
+** https://portal.ogc.org/files/?artifact_id=95374
+** https://portal.ogc.org/files/?artifact_id=95375
+** https://portal.ogc.org/files/?artifact_id=95376
+* Experiment 4 compressed zip files containing both data layers in a merged GeoPackage layer in the CDB X tiling output
+** https://portal.ogc.org/files/?artifact_id=95379
+** https://portal.ogc.org/files/?artifact_id=95380
+** https://portal.ogc.org/files/?artifact_id=95381
 
 The Experiment 4 compressed 7-zip file is located here:  https://drive.google.com/drive/folders/1ipgsWaQmy2GWfUwnKVffJwggm6rXKcRj?usp=sharing
 
