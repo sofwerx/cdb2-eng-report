@@ -477,9 +477,9 @@ different 3D models data layers, however the reference from the 3D models was no
 
 https://portal.ogc.org/files/?artifact_id=95378[Complete San Diego CDB X - _cdb.json_ index]
 
-ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.gpkg.7z[Complete San Diego CDB X - GeoPackage] (12.8 GiB, 9.8 GiB compressed)
+*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.gpkg.7z[Complete San Diego CDB X - GeoPackage] (12.8 GiB, 9.8 GiB compressed)
 
-ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.gpkg[Complete San Diego CDB X - GeoPackage using GNOSIS Map Tiles and E3D Models] (10.3 GiB uncompressed)
+*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.gpkg[Complete San Diego CDB X - GeoPackage using GNOSIS Map Tiles and E3D Models] (10.3 GiB uncompressed)
 
 ===== Data layers packaged together (tiles grouped in multiple GeoPackages)
 
@@ -488,7 +488,7 @@ In this approach, the textures are stored in a separate folder to avoid repeatin
 
 https://portal.ogc.org/files/?artifact_id=95366[_cdb.json_ index]
 
-ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.7z[One package using an LOD grouping of 5] (14.6 GiB, 9.9 GiB compressed)
+*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.7z[One package using an LOD grouping of 5] (14.6 GiB, 9.9 GiB compressed)
 
 https://portal.ogc.org/files/?artifact_id=95370[Partial dataset (subset of the overall extent) using an LOD grouping of 5] (1.4 GiB, 217.5 MiB compressed)
 
@@ -509,7 +509,7 @@ https://portal.ogc.org/files/?artifact_id=95352[Elevation (using 16-bit integer 
 
 https://portal.ogc.org/files/?artifact_id=95328[Elevation (using 16-bit integer Paeth/LZMA GMT encoding)] (370.8 MiB, 365.2 MiB compressed)
 
-ftp://cdb-x-2020@ftp.ogc.org/Ecere/ElevationTIF.7z[Elevation (using 32-bit float GeoTIFF encoding)] (1.4 GiB, 1.3 GiB compressed)
+*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/ElevationTIF.7z[Elevation (using 32-bit float GeoTIFF encoding)] (1.4 GiB, 1.3 GiB compressed)
 
 ====== Imagery
 
@@ -517,88 +517,90 @@ ftp://cdb-x-2020@ftp.ogc.org/Ecere/ElevationTIF.7z[Elevation (using 32-bit float
 
 NOTE: The imagery in these GeoPackages is lossy. Recommendation: allow the use of JPEG-2000 and/or additional lossless formats more compact than PNG in GeoPackages.
 
-ftp://cdb-x-2020@ftp.ogc.org/Ecere/BlueMarble.7z[Full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble]
+*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/BlueMarble.7z[Full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble] (1.6 GiB, 1.4 GiB compressed)
 
-ftp://cdb-x-2020@ftp.ogc.org/Ecere/ImageryMedium.7z[Medium resolution imagery]
+*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/ImageryMedium.7z[Medium resolution imagery] (4.9 GiB, 4.7 GiB compressed)
 
-ftp://cdb-x-2020@ftp.ogc.org/Ecere/ImageryHigh.7z[High resolution imagery]
+*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/ImageryHigh.7z[High resolution imagery] (4.5 GiB, 4.3 GiB compressed)
 
 ====== Vector data
 
 *_Tiled and encoded as Mapbox Vector Tiles:_*
 
-https://portal.ogc.org/files/?artifact_id=95348[Hydrography]
+https://portal.ogc.org/files/?artifact_id=95348[Hydrography] (424 KiB)
 
-https://portal.ogc.org/files/?artifact_id=95350[Roads]
+https://portal.ogc.org/files/?artifact_id=95350[Roads] (69.1 MiB, 17.6 MiB compressed)
 
-https://portal.ogc.org/files/?artifact_id=95346[Airport Lights]
+https://portal.ogc.org/files/?artifact_id=95346[Airport Lights] (144 KiB)
 
 *_Tiled and encoded as GNOSIS Map Tiles:_*
 
 NOTE: The latest specifications for the GNOSIS Map Tiles encoding is available in the http://docs.opengeospatial.org/per/18-025.html#GMTSpecs[Annex B] of the _CityGML and Augmented Reality_ Engineering Report.
 
-https://portal.ogc.org/files/?artifact_id=95329[Airport Lights]
+https://portal.ogc.org/files/?artifact_id=95330[Hydrography] (248 KiB)
 
-https://portal.ogc.org/files/?artifact_id=95330[Hydrography]
+https://portal.ogc.org/files/?artifact_id=95331[Roads] (38 MiB, 23.4 MiB compressed)
 
-https://portal.ogc.org/files/?artifact_id=95331[Roads]
+https://portal.ogc.org/files/?artifact_id=95329[Airport Lights] (148 KiB)
 
 ====== 3D Models
 
 *_Single GeoPackages using Mapbox Vector Tiles for reference points, and models encoded as binary glTF:_*
 
-https://portal.ogc.org/files/?artifact_id=95351[Buildings]
+https://portal.ogc.org/files/?artifact_id=95351[Buildings] (2.9 GiB, 321.3 MiB compressed)
 
-https://portal.ogc.org/files/?artifact_id=95349[Trees]
+https://portal.ogc.org/files/?artifact_id=95349[Trees] (2 MiB)
 
-https://portal.ogc.org/files/?artifact_id=95347[Coronado Bridge]
+https://portal.ogc.org/files/?artifact_id=95347[Coronado Bridge] (272 KiB)
 
 *_Single GeoPackages using GNOSIS Map Tiles for reference points, and models encoded as E3D:_*
 
-NOTE: The latest specifications for the _GNOSIS Map Tiles_ and _E3D_ 3D Model encodings are available in the http://docs.opengeospatial.org/per/18-025.html#GMTSpecs[_CityGML and Augmented Reality_ Engineering Report],
-(http://docs.opengeospatial.org/per/18-025.html#E3DSpecs[Appendix A] and docs.opengeospatial.org/per/18-025.html#GMTSpecs[Appendix B], respectively).
+NOTE: The latest specifications for the _E3D_ 3D Model encoding and _GNOSIS Map Tiles_ encodings are available in the http://docs.opengeospatial.org/per/18-025.html[_CityGML and Augmented Reality_ Engineering Report],
+(http://docs.opengeospatial.org/per/18-025.html#E3DSpecs[Appendix A] and http://docs.opengeospatial.org/per/18-025.html#GMTSpecs[Appendix B], respectively).
 
 NOTE: The unconmpressed GeoPackages are more compact because the E3D models feature internal LZMA compression.
 
-https://portal.ogc.org/files/?artifact_id=95340[Buildings (GNOSIS Map Tiles / E3D)]
+https://portal.ogc.org/files/?artifact_id=95340[Buildings (GNOSIS Map Tiles / E3D)] (560.8 MiB, 332.8 MiB compressed)
 
-https://portal.ogc.org/files/?artifact_id=95339[Trees (GNOSIS Map Tiles / E3D)]
+https://portal.ogc.org/files/?artifact_id=95339[Trees (GNOSIS Map Tiles / E3D)] (1.8 MiB)
 
-https://portal.ogc.org/files/?artifact_id=95338[Coronado Bridge (GNOSIS Map Tiles / E3D)]
+https://portal.ogc.org/files/?artifact_id=95338[Coronado Bridge (GNOSIS Map Tiles / E3D)] (196 KiB)
 
 *_Multiple GeoPackages using various LOD grouping, Mapbox Vector Tiles for reference points, and models encoded as binary glTF:_*
 
-https://portal.ogc.org/files/?artifact_id=95344[Buildings grouped by 4 LODs]
+https://portal.ogc.org/files/?artifact_id=95344[Buildings grouped by 4 LODs] (4.1 GiB, 446.6 MiB compressed)
 
-https://portal.ogc.org/files/?artifact_id=95343[Buildings grouped by 5 LODs]
+https://portal.ogc.org/files/?artifact_id=95343[Buildings grouped by 5 LODs] (3.7 GiB, 409.2 MiB compressed)
 
-https://portal.ogc.org/files/?artifact_id=95342[Buildings grouped by 7 LODs]
+NOTE: The larger size for grouping by 4 and 5 LODs is mainly a result of lower resolution models being duplicated in higher level grouping GeoPackages.
+
+https://portal.ogc.org/files/?artifact_id=95342[Buildings grouped by 7 LODs] (2.9 GiB, 321.3 MiB compressed)
 
 NOTE: Except for the directory / filename naming, the 7 LODs buildings are equivalent to 6 LODs since there are only 6 LODs of buildings in the dataset.
 
-https://portal.ogc.org/files/?artifact_id=95341[Trees grouped by 6 LODs]
+https://portal.ogc.org/files/?artifact_id=95341[Trees grouped by 6 LODs] (2.9 MiB, 1.2 MiB compressed)
 
 NOTE: Except for the directory / filename naming, the 6 LODs trees are equivalent to any other LOD groupings, since there is only 1 LOD of trees in the dataset.
 
 *_Single GeoPackages batching 3D models for each tile as binary glTF:_*
 
-NOTE: The model is encoded in the `tile_data` field of the tiles table. This approach is best suited for geo-specific models, and can be used directly as the glTF payload of a `.b3dm` 3D Tile.
+NOTE: The model is encoded in the `tile_data` field of the tiles table. This approach is best suited for geo-specific models, and can be used directly as the glTF payload of a `.b3dm` 3D Tile (with proper transformation matrix in JSON tileset).
 
-https://portal.ogc.org/files/?artifact_id=95337[Buildings (glTF / batched 3D models tiles)]
+https://portal.ogc.org/files/?artifact_id=95337[Buildings (glTF / batched 3D models tiles)] (3.9 GiB, 512.4 MiB compressed)
 
-https://portal.ogc.org/files/?artifact_id=95335[Trees (glTF / batched 3D models tiles)]
+https://portal.ogc.org/files/?artifact_id=95335[Trees (glTF / batched 3D models tiles)] (91 MiB, 2.3 MiB compressed)
 
-https://portal.ogc.org/files/?artifact_id=95336[Coronado Bridge (glTF / batched 3D models tiles)]
+https://portal.ogc.org/files/?artifact_id=95336[Coronado Bridge (glTF / batched 3D models tiles)] (576 KiB)
 
-*_Single GeoPackages batching 3D models for each tile as E3D._*
+*_Single GeoPackages batching 3D models for each tile as E3D:_*
 
 NOTE: The model is encoded in the `tile_data` field of the tiles table. This approach is best suited for geo-specific models. The unconmpressed GeoPackages are more compact because the E3D models feature internal LZMA compression.
 
-https://portal.ogc.org/files/?artifact_id=95334[Buildings (E3D / batched 3D models tiles)]
+https://portal.ogc.org/files/?artifact_id=95334[Buildings (E3D / batched 3D models tiles)] (417.3 MiB, 339.8 MiB compressed)
 
-https://portal.ogc.org/files/?artifact_id=95333[Trees (E3D / batched 3D models tiles)]
+https://portal.ogc.org/files/?artifact_id=95333[Trees (E3D / batched 3D models tiles)] (3.3 MiB)
 
-https://portal.ogc.org/files/?artifact_id=95332[Coronado Bridge (E3D / batched 3D models tiles)]
+https://portal.ogc.org/files/?artifact_id=95332[Coronado Bridge (E3D / batched 3D models tiles)] (256 KiB)
 
 ==== OGC API access demo
 
@@ -669,7 +671,7 @@ image::http://ecere.com/tmp/SanDiegoCesium.png[width=800,align="center"]
 .CesiumJS Client accessing San Diego CDB data as 3D Tiles from Ecere’s GNOSIS Map Server (Petco Park)
 image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/CesiumSanDiego3.jpg[width=800,align="center"]
 
-The following JavaScript code, which can simply be copied to the https://sandcastle.cesium.com/[Cesium Sand Castle], can be used to visualize the data as 3D Tiles. It sets up the buildings, trees as well as the Coronado Bridge, together with the Cesium world terrain. This now includes textures, and issues. One limitation is that the generated tileset is still missing multiple level of details, therefore visualizing a large area will be quite slow.
+The following JavaScript code, which can simply be copied to the https://sandcastle.cesium.com/[Cesium Sand Castle], can be used to visualize the data as 3D Tiles, including textures. It sets up the buildings, trees as well as the Coronado Bridge, together with the Cesium world terrain. One limitation is that the generated tileset is still missing multiple level of details, therefore visualizing a large area will be quite slow.
 
 ```js
 var worldTerrain = Cesium.createWorldTerrain({ requestWaterMask: true, requestVertexNormals: true });
