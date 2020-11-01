@@ -80,7 +80,7 @@ The following graph compares the CDB 1.x zones with the Gnosis grid and shows ho
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .CDB 1.x to GNOSIS Comparison - Ratio.
-image::images/image2020-9-4_10-41-0.png[width=600,align="center"]
+image::images/image2020-9-4_10-41-0.png[width=800,align="center"]
 
 ==== Tiling Changes From OGC CDB 1.x
 
