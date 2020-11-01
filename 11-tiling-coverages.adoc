@@ -696,7 +696,8 @@ This 3D Tiles distribution is currently being generated from the GNOSIS Data Sto
 
 === FlightSafety GeoPackage Tiling Experiments
 
-*Setup*: The data used for these experiments are primarily freely available, and include the following
+*Setup*: The data used for these experiments are primarily freely available, and include the following:
+
 * Blue Marble (NASA) that was georeferenced using GDAL - https://visibleearth.nasa.gov/collection/1484/blue-marble
 * The high resolution inset is from USGS downloads of Central Park in New York City
 
