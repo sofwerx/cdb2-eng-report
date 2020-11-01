@@ -95,7 +95,7 @@ Drawbacks from changing to the proposed tiling scheme include the following.  Th
 * The new tiling scheme is incompatible with OGC CDB 1.x, as there is no alignment between the tile areas and the LOD or zoom levels.  To convert data between these two tiling schemes would require merging and splitting of raster data tiles, while changing their resolution, and would require reprocessing all the coverage data (like imagery).
 * Some CDB applications might have more trouble with tiles that are not based on integer latitude and longitude boundaries.
 * Some CDB applications might have an issue with a format where there are not a fixed number of "zones" (using the OGC CDB 1.x term) or different grid cell sizes used.  This is because the GNOSIS grid introduces a new "zone" closer to the poles at each successive zoom level to help preserve a grid cell that is closer to an ideal square real world size.
-* Tile Matrix Set naming (numbering) is different that OGC CDB 1.x, with the numbering starting from the top left corner of a set of tiles in CDB X vs starting from the bottom left corner of a set of tiles in OGC CDB 1.x.
+* Tile Matrix Set naming (numbering) is different from OGC CDB 1.x, with the numbering starting from the top left corner of a set of tiles in CDB X vs starting from the bottom left corner of a set of tiles in OGC CDB 1.x.
 
 === Proposed CDB X Data Container
 
