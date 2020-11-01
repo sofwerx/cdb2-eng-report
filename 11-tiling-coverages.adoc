@@ -251,7 +251,9 @@ Recommendation: Consider also defining this description of the packages and LOD 
 
 === Backwards Compatibility with OGC CDB 1.x
 
-The current OGC CDB tiling scheme can be described as a Tile Matrix Set (TMS) that encodes the CDB fixed zones and the larger tile dimensions.  Using this TMS, a profile or extension of OGC CDB 1.x could be created that would support the same GeoPackage containers and level of detail groupings, while conforming to the OGC CDB 1.x conceptual model.  Using this approach could bring in some concepts of CDB X into OGC CDB 1.x and make the transition easier to a future version of OGC CDB.
+The current OGC CDB tiling scheme can be described as a Tile Matrix Set (TMS) that encodes the CDB fixed zones and the larger tile dimensions,
+as seen in this https://maps.ecere.com/ogcapi/tileMatrixSets/CDBGlobalGrid[example description] (https://maps.ecere.com/ogcapi/tileMatrixSets/CDBGlobalGrid?f=json[JSON encoding]).
+Using this TMS, a profile or extension of OGC CDB 1.x could be created that would support the same GeoPackage containers and level of detail groupings, while conforming to the OGC CDB 1.x conceptual model.  Using this approach could bring in some concepts of CDB X into OGC CDB 1.x and make the transition easier to a future version of OGC CDB.
 
 NOTE: We do not recommend supporting more than one tiling scheme in a version of CDB, as this choice is foundational to how data layers are processed and stored and accessed.
 
