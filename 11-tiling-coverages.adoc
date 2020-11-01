@@ -578,11 +578,11 @@ NOTE: The larger size for grouping by 4 and 5 LODs is mainly a result of lower r
 
 https://portal.ogc.org/files/?artifact_id=95342[Buildings grouped by 7 LODs] (2.9 GiB, 321.3 MiB compressed)
 
-NOTE: Except for the directory / filename naming, the 7 LODs buildings are equivalent to 6 LODs since there are only 6 LODs of buildings in the dataset.
+NOTE: Except for the directory / file naming, the 7 LODs buildings are equivalent to 6 LODs since there are only 6 LODs of buildings in the dataset.
 
 https://portal.ogc.org/files/?artifact_id=95341[Trees grouped by 6 LODs] (2.9 MiB, 1.2 MiB compressed)
 
-NOTE: Except for the directory / filename naming, the 6 LODs trees are equivalent to any other LOD groupings, since there is only 1 LOD of trees in the dataset.
+NOTE: Except for the directory / file naming, the 6 LODs trees are equivalent to any other LOD groupings, since there is only 1 LOD of trees in the dataset.
 
 *_Single GeoPackages batching 3D models for each tile as binary glTF:_*
 
