@@ -126,7 +126,7 @@ Recommendation: Define this capability for splitting GeoPackages based on a spec
 
 === Proposed `cdb.json` index of packages and data layers
 
-The Tiling group developed a simple schema was for describing the data layers provided by a CDB X, which CDB component selector they correspond to, and how
+The Tiling group developed a simple schema for describing the data layers provided by a CDB X, which CDB component selector they correspond to, and how
 they are packaged in one ore more _packages_, which can themselves either be stored in a single GeoPackage (zero or _null_ LOD grouping), or separated in
 multiple GeoPackage based on tiles grouped in multiple LODs (non-zero LOD grouping). This index allows the flexibility to use the best suited configuration
 for a given dataset or use case, yet it is very simple for a client to parse and access the data in a deterministic manner using any of these configurations.
