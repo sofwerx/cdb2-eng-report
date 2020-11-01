@@ -88,7 +88,7 @@ Benefits from changing to the proposed tiling scheme:
 
 * OGC CDB 1.x has 41,220 top level tiles, which requires opening huge numbers of files to show the Earth at world scales.  The proposed CDB X tiling would use 8 tiles to cover the Earth at the coarsest level of detail.
 * The concept of "zones" in OGC CDB 1.x are still present in the tiling scheme, but algorithmically derived rather than at fixed latitudes.  New zones are introduced at higher levels of detail, keeping the tiles near the poles closer to an ideal square shape than in OGC CDB 1.x
-* The ratio of the longitude size of tiles is always a 2:1 (or the inverse 1:2) ratio, where OGC CDB 1.x has several ratios that must be supported, such as 2:1, 3:2 and 4:3
+* The ratio of the longitude size of tiles is always 1:1, 2:1, or the inverse 1:2, where OGC CDB 1.x has several ratios that must be supported, such as 2:1, 3:2 and 4:3
 
 Drawbacks from changing to the proposed tiling scheme include the following.  These issues would require some level of rework for existing CDB applications to be compatible with the new tiling scheme.
 
