@@ -457,7 +457,7 @@ In the other approach, 3D models are batched per tile and stored in the `tile_da
 to the center of the tile in which it is stored, assuming a coordinate system whose axes are aligned with East, North and Up.
 This approach is more similar to the one used for 3D Tiles and One World Terrain.
 
-These were first described as separate experiments on the https://github.com/sofwerx/cdb2-concept/wiki[CDB X concept wiki], but here the combined final results of producing a prototype
+These were originally described as separate experiments on the https://github.com/sofwerx/cdb2-concept/wiki[CDB X concept wiki], but here the combined final results of producing a prototype
 CDB X for the full San Diego CDB are presented. These results cover tiling the imagery, elevation, vector data and 3D models for the full San Diego CDB.
 
 [#img_gpkgexport,reftext='{figure-caption} {counter:figure-num}']
