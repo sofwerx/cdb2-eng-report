@@ -513,7 +513,7 @@ https://portal.ogc.org/files/?artifact_id=95328[Elevation (using 16-bit integer 
 
 ====== Imagery
 
-*_Encoded as JPG_*
+*_Encoded as JPG_:*
 
 NOTE: The imagery in these GeoPackages is lossy. Recommendation: allow the use of JPEG-2000 and/or additional lossless formats more compact than PNG in GeoPackages.
 
