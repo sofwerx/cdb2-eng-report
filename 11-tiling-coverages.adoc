@@ -346,7 +346,7 @@ The tables registered with this extension are:
 
 In this approach, best suited for geo-typical models, a single table per GeoPackage (`gpkgext_3d_models`) is used to define one model per row, in a blob within the `model` field.
 A `format` field allows to specify the format. Both glTF and E3D have been used in the experiments.
-The `name` field allows to specify a name for the model, andt the `lod` field can optionally be used to distinguish between multiple level of details for the model, or left NULL if only a single version exists. The combination of `name`, `lod` and `format` must must be unique.
+The `name` field allows to specify a name for the model, andt the `lod` field can optionally be used to distinguish between multiple level of details for the model, or left NULL if only a single version exists. The combination of `name`, `lod` and `format` must be unique.
 
 The `model::id` field of the attributes table for the 3D models referencing points (which would also contain the point geometry in a non-tiled approach) references the `id` (primary key) of the `gpkgext_3d_models` table.
 The attributes table may also contain additional fields for scaling and orienting the models:
