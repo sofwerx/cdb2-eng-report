@@ -164,7 +164,7 @@ This will be a single file named `SampleCDBX.gpkg`.
 ```
 
 *Example 2*: two data layers (with a maximum LOD of 16 and 18) packaged as a single package, grouped in GeoPackages covering tiles across 5 LODs.
-The one package will be organized in a folder named `SampleCDBX`, and the GeoPackages files be grouped by 5 counting down from the maximum LOD 18,
+The one package will be organized in a folder named `SampleCDBX`, and the GeoPackages files will be grouped by 5 counting down from the maximum LOD 18,
 e.g. `SampleCDBX/L0_R0_C0/L4_R10_C11/L9_R324_C356/SampleCDBX_L14_R10376_C11415_L18.gpkg`.
 ```json
 {
@@ -193,9 +193,9 @@ e.g. `SampleCDBX/L0_R0_C0/L4_R10_C11/L9_R324_C356/SampleCDBX_L14_R10376_C11415_L
 
 *Example 3*: three data layers (with a maximum LOD of 16, 18 and 13) packaged as three separate packages.
 Elevation is grouped in GeoPackages covering tiles across 6 LODs, Imagery is grouped in tiles across 7 LODs while Buildings are stored grouped in a single GeoPackage.
-The Elevation package will be organized in a folder named `Elevation`, and the GeoPackages files be grouped by 5 counting down from the maximum LOD 16,
+The Elevation package will be organized in a folder named `Elevation`, and the GeoPackages files will be grouped by 5 counting down from the maximum LOD 16,
 e.g. `Elevation/L0_R0_C0/L5_R20_C22/Elevation_L11_R1302_C1427_L16.gpkg`.
-The Imagery package will be organized in a folder named `Imagery`, and the GeoPackages files be grouped by 7 counting down from the maximum LOD 18,
+The Imagery package will be organized in a folder named `Imagery`, and the GeoPackages files will be grouped by 7 counting down from the maximum LOD 18,
 e.g. `Imagery/L0_R0_C0/L5_R20_C22/Imagery_L12_R2605_C2855_L18.gpkg`.
 The Buildings will be stored in a single file named `Buildings.gpkg`.
 
@@ -263,7 +263,7 @@ The engineering tests created in this effort made use of a proposed Tile Matrix 
 https://www.ogc.org/projects/initiatives/vtp2[2019 OGC Vector Tiles Pilot Phase 2], which enables support for the
 https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid[GNOSIS Global Grid].
 This extension has not yet been adopted as an official OGC GeoPackage extension, but is on the GeoPackage Standard Working Group roadmap.
-The current draft is available from here: https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions/14-tile-matrix-set.adoc[GeoPackage Two Dimensional Tile matrix Set (TMS) extension (Draft)]
+The current draft is available from here: https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions/14-tile-matrix-set.adoc[GeoPackage Two Dimensional Tile matrix Set (TMS) extension (Draft)].
 
 NOTE: Even though most current software do not yet support the GeoPackage TMS extension, the level 0 data
 (e.g. for the BlueMarble imagery sample GeoPackages) will still work e.g. in QGIS, as the GNOSIS Global Grid does not use variable widths at level 0.
@@ -277,7 +277,7 @@ Current limitations include:
 ** Current change request:  http://ogc.standardstracker.org/show_request.cgi?id=662
 * GeoTiff data only supports using 32-bit floating point data.  In OGC CDB 1.x, GeoTiff files are used to store 8 bit unsigned and 8, 16, or 32 bit signed binary data as well.  And the proposed OGC CDB 1.2 will also adopt the use of binary 1-bit data elements as well.
 ** Current change request:  http://ogc.standardstracker.org/show_request.cgi?id=661
-* An https://github.com/opengeospatial/geopackage/issues/551[issue] was filed asking for better clarify about whether 16-bit PNG encoding is signed or unsigned
+* An https://github.com/opengeospatial/geopackage/issues/551[issue] was filed asking for better clarity about whether 16-bit PNG encoding is signed or unsigned
 
 Multiple sample GeoPackages using TMS / GNOSISGlobalGrid are described and linked below in the results of the experiments.
 
