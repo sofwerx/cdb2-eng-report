@@ -9,11 +9,13 @@ This chapter covers:
 - Current and proposed GeoPackage extensions for storing this data, and 
 - As well as the results of related prototyping activities.
 
-The tiling sub-group was initially assigned specifically to explore tiled coverage data However, based on initial work some experiments evolved went beyond the initial teting scope. The additional experimentation also applied the same tiling approach to vector data and 3D models and used existing or new extensions to store this tiled data in GeoPackages.
+The tiling sub-group was initially assigned specifically to explore tiled coverage data However, based on initial work, some experiments evolved beyond the initial testing scope. The additional experimentation applied the same tiling approach to vector data and 3D models and used existing or new extensions to store this tiled data in GeoPackages. 
 
 === OGC Standards Relevant to Tiling and Packaging
 
-Based on the discussions and results of the experimentation, the Tiling Subgroup participants believe the following:
+A key particpant decision was what container technology would be used for the majority of the experiments in which tiled structures are required. For the purposes of experimentation coupled with a community and sponsor reqwuirements, OGC GeoPackage structured containers were determined to be the primary storage format for derived vector data layers, coverages, and other data types as identified (`TBD`). The two OGC GeoPackage Standards of relevance are https://portal.opengeospatial.org/files/12-128r15[OGC GeoPackage version 1.1] and http://docs.opengeospatial.org/is/17-066r1/17-066r1.html[OGC GeoPackage Extension for Tiled Gridded Coverage Data].
+
+Further, based on the discussions and results of the experimentation, the Tiling Subgroup participants believe the following recommendation.
 
 `Recommendation:` Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the:
 
@@ -36,13 +38,12 @@ The OGC Tile Matrix Set standard defines the rules and requirements for a tile m
 
 === Design Objectives for CDB X Tiling, LoDs and Layers
 
-The following are the key design principles for a CDB X tiling, levels of detail, and layering. These design principals were discussed and documented during Phase 1 discussions as well as during the experimentation.
+The following are the design principles for a CDB X tiling, levels of detail, and layering. These design principals were discussed and documented during Phase 1 discussions as well as during the experimentation. Again, for the purposes of expediting experimentation, GeoPackage was the choice for a standard container.
 
-* OGC GeoPackage structured containers are a primary storage format for derived vector data layers, coverages, and other data types as identified (`TBD`). The two OGC Standards of relevance are https://portal.opengeospatial.org/files/12-128r15[OGC GeoPackage version 1.1] and http://docs.opengeospatial.org/is/17-066r1/17-066r1.html[OGC GeoPackage Extension for Tiled Gridded Coverage Data].
-* Use metadata for whole datasets that describe how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)
+* Use metadata for whole datasets that describe how data layers are regrouped (LOD grouping and data layer grouping)
 * Provide for fewer top level tiles than in OGC CDB 1.x
-* Store imagery in GeoPackage according to the tiling scheme specified below (`need anchor`)
-* Store coverage data in GeoPackage according to the tiling scheme specified below (`need anchor`). Suggested coverage types based on current CDB standard and user specified requirements: (Ellipsoidal body surface): Elevation models, visual and non-visual (multi-spectral) imagery, terrain light maps (emissive at night), and raster materials (for non-visual sensors). Should be extensible to support other types.
+* Store imagery in a container according to the tiling scheme specified <<TilingScheme,below>>.
+* Store coverage data in the container according to the tiling scheme specified below (`need anchor`). Suggested coverage types based on current CDB standard and user specified requirements: (Ellipsoidal body surface): Elevation models, visual and non-visual (multi-spectral) imagery, terrain light maps (emissive at night), and raster materials (for non-visual sensors). Should be extensible to support other types.
 * Coordinate Reference System is WGS 84 with epoch encoding (same as current CDB Standard except for epoch).
 * Need to keep the various encodings that CDB 1.x already has:
 ** Elevation compression encodings (use of scaled integers vs floating point for smaller data sizes)
@@ -58,6 +59,8 @@ The following figure, based on the Tiling Abstract Specification Logical Model a
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Logical Model for partitioning based on tiles in CDB X.
 image::images/tiling_logical_model.jpg[width=800,align="center"]
+
+[[TilingScheme]]
 
 === Proposed CDB X Tiling Scheme
 
