@@ -602,7 +602,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_design_objectives_for_cdb_x_tiling_lods_and_layers">13.2. Design Objectives for CDB X Tiling, LoDs and Layers</a></li>
 <li><a href="#_proposed_tiling_logical_model_for_cdb_x">13.3. Proposed Tiling Logical Model for CDB X</a></li>
-<li><a href="#_proposed_cdb_x_tiling_scheme">13.4. Proposed CDB X Tiling Scheme</a></li>
+<li><a href="#TilingScheme">13.4. Proposed CDB X Tiling Scheme</a></li>
 <li><a href="#_findings_from_experiments">13.5. Findings from experiments</a>
 <ul class="sectlevel3">
 <li><a href="#_tiling_changes_from_ogc_cdb_1_x">13.5.1. Tiling Changes From OGC CDB 1.x</a></li>
@@ -4394,12 +4394,15 @@ While the same metadata elements are recommended for both global and local geosp
 </ul>
 </div>
 <div class="paragraph">
-<p>The tiling sub-group was initially assigned specifically to explore tiled coverage data However, based on initial work some experiments evolved went beyond the initial teting scope. The additional experimentation also applied the same tiling approach to vector data and 3D models and used existing or new extensions to store this tiled data in GeoPackages.</p>
+<p>The tiling sub-group was initially assigned specifically to explore tiled coverage data However, based on initial work, some experiments evolved beyond the initial testing scope. The additional experimentation applied the same tiling approach to vector data and 3D models and used existing or new extensions to store this tiled data in GeoPackages.</p>
 </div>
 <div class="sect2">
 <h3 id="_ogc_standards_relevant_to_tiling_and_packaging"><a class="anchor" href="#_ogc_standards_relevant_to_tiling_and_packaging"></a>13.1. OGC Standards Relevant to Tiling and Packaging</h3>
 <div class="paragraph">
-<p>Based on the discussions and results of the experimentation, the Tiling Subgroup participants believe the following:</p>
+<p>A key particpant decision was what container technology would be used for the majority of the experiments in which tiled structures are required. For the purposes of experimentation coupled with a community and sponsor reqwuirements, OGC GeoPackage structured containers were determined to be the primary storage format for derived vector data layers, coverages, and other data types as identified (<code>TBD</code>). The two OGC GeoPackage Standards of relevance are <a href="https://portal.opengeospatial.org/files/12-128r15">OGC GeoPackage version 1.1</a> and <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">OGC GeoPackage Extension for Tiled Gridded Coverage Data</a>.</p>
+</div>
+<div class="paragraph">
+<p>Further, based on the discussions and results of the experimentation, the Tiling Subgroup participants believe the following recommendation.</p>
 </div>
 <div class="paragraph">
 <p><code>Recommendation:</code> Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the:</p>
@@ -4439,24 +4442,21 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="sect2">
 <h3 id="_design_objectives_for_cdb_x_tiling_lods_and_layers"><a class="anchor" href="#_design_objectives_for_cdb_x_tiling_lods_and_layers"></a>13.2. Design Objectives for CDB X Tiling, LoDs and Layers</h3>
 <div class="paragraph">
-<p>The following are the key design principles for a CDB X tiling, levels of detail, and layering. These design principals were discussed and documented during Phase 1 discussions as well as during the experimentation.</p>
+<p>The following are the design principles for a CDB X tiling, levels of detail, and layering. These design principals were discussed and documented during Phase 1 discussions as well as during the experimentation. Again, for the purposes of expediting experimentation, GeoPackage was the choice for a standard container.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>OGC GeoPackage structured containers are a primary storage format for derived vector data layers, coverages, and other data types as identified (<code>TBD</code>). The two OGC Standards of relevance are <a href="https://portal.opengeospatial.org/files/12-128r15">OGC GeoPackage version 1.1</a> and <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">OGC GeoPackage Extension for Tiled Gridded Coverage Data</a>.</p>
-</li>
-<li>
-<p>Use metadata for whole datasets that describe how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)</p>
+<p>Use metadata for whole datasets that describe how data layers are regrouped (LOD grouping and data layer grouping)</p>
 </li>
 <li>
 <p>Provide for fewer top level tiles than in OGC CDB 1.x</p>
 </li>
 <li>
-<p>Store imagery in GeoPackage according to the tiling scheme specified below (<code>need anchor</code>)</p>
+<p>Store imagery in a container according to the tiling scheme specified <a href="#TilingScheme">below</a>.</p>
 </li>
 <li>
-<p>Store coverage data in GeoPackage according to the tiling scheme specified below (<code>need anchor</code>). Suggested coverage types based on current CDB standard and user specified requirements: (Ellipsoidal body surface): Elevation models, visual and non-visual (multi-spectral) imagery, terrain light maps (emissive at night), and raster materials (for non-visual sensors). Should be extensible to support other types.</p>
+<p>Store coverage data in the container according to the tiling scheme specified below (<code>need anchor</code>). Suggested coverage types based on current CDB standard and user specified requirements: (Ellipsoidal body surface): Elevation models, visual and non-visual (multi-spectral) imagery, terrain light maps (emissive at night), and raster materials (for non-visual sensors). Should be extensible to support other types.</p>
 </li>
 <li>
 <p>Coordinate Reference System is WGS 84 with epoch encoding (same as current CDB Standard except for epoch).</p>
@@ -4499,7 +4499,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_cdb_x_tiling_scheme"><a class="anchor" href="#_proposed_cdb_x_tiling_scheme"></a>13.4. Proposed CDB X Tiling Scheme</h3>
+<h3 id="TilingScheme"><a class="anchor" href="#TilingScheme"></a>13.4. Proposed CDB X Tiling Scheme</h3>
 <div id="img_gggtms-model" class="imageblock text-center">
 <div class="content">
 <img src="images/cdbxTMS.png" alt="cdbxTMS" width="800">
@@ -5933,7 +5933,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-02 22:14:23 UTC
+Last updated 2020-11-02 23:23:10 UTC
 </div>
 </div>
 <style>
