@@ -1,5 +1,5 @@
 == Subject
-This Engineering Report documents a CDB Experimental (CDB X) Conceptual Model as well as the results of CDB X rapid prototyping activites conducted during the 3D Geospatial Series Tech Sprint II - OGC CDB 2.0. This activity was performed in support of Special Operations Forces (SOF) Future Concepts. This effort hopes to accelerate evolution of the OGC CDB standard to meet the needs of planning, rehearsal, and Mission Command systems providing decision support to Special Operations Forces and enabling SOF tactical and operational advantage. OGC industry standards enable interoperability of geospatial data across systems and applications that SOF Operators and analysts use across warfighting functions.
+This Engineering Report (ER) documents the results and recommendations of the rapid prototyping activites conducted during the 3D Geospatial Series Tech Sprint II - OGC CDB 2.0 (aka CDB X). This activity was performed in support of Special Operations Forces (SOF) Future Concepts. This effort hopes to accelerate evolution of the OGC CDB standard to meet the needs of planning, rehearsal, and Mission Command systems providing decision support to Special Operations Forces and enabling SOF tactical and operational advantage. OGC industry standards enable interoperability of geospatial data across systems and applications that SOF Operators and analysts use across warfighting functions. 
 
 CDB X - Meeting the requirements for tactical GEOINT that can be used across warfighting functions.
 
@@ -7,7 +7,7 @@ CDB X - Meeting the requirements for tactical GEOINT that can be used across war
 
 Since 2018 the CDB community has discussed and considered what CDB version 2.0 might might provide in terms of capabilities. These discussion also touched on architecture and related logical models. Many of these CDB 2.0 discussion have occured as part of the OGC standards work. More recently, other organizations such as SOCOM and NGA, have vigorously engaged in these discussions. However, progress has been relatively slow.
 
-Therefore, in order to accelerate the development of CDB 2.0, in May 2020 SOFWERX announced the https://events.sofwerx.org/3dgeots/[3D Geospatial Series Tech Sprint II – OGC CDB 2.0]. In support of SOF Future Concepts, this effort hopes to accelerate evolution of the OGC CDB standard to meet the needs of planning, rehearsal, and Mission Command systems providing decision support to Special Operations Forces and enabling SOF tactical and operational advantage.
+Therefore, in order to accelerate the development of CDB 2.0, in May 2020 SOFWERX announced the https://events.sofwerx.org/3dgeots/[3D Geospatial Series Tech Sprint II – OGC CDB 2.0]. In support of SOF Future Concepts, this effort hopes to accelerate evolution of the OGC CDB standard to meet the needs of planning, rehearsal, and Mission Command systems providing decision support to Special Operations Forces and enabling SOF tactical and operational advantage. 
 
 The CBD Tech Sprint was comprised of five (5) key work phases:
 
@@ -17,9 +17,19 @@ Phase 2: 06 July 2020 to 31 July 2020 Virtual Tech Sprint: Participants, and/or 
 
 Phase 3: 03 August 2020 to 28 August 2020 Engineering Report (ER): Participants will complete the project Engineering Report detailing the conceptual model and results of the technical integration experiments.
 
-Phase 4: 07 September 2020 to 25 September 2020 Proposed Draft Specification: Participants will create a proposed draft specification for “CDB 2.0” based on work in the previous phases, to be submitted to the appropriate working groups within OGC, Khronos, and/or SISO.
+Phase 4: 07 September 2020 to 25 September 2020 Proposed Draft Specification: Participants will create a proposed draft specification for “CDB 2.0” based on work in the previous phases, to be submitted to the appropriate working groups within OGC, Khronos, and/or SISO. [NOTE: Once the experimentation activities started, the particpants in concert with SOFWERX and SOCOM determined that writing a draft specification was beyond the scope. Instead, the experiments and protyping was to provide key recommendations to be communicated in this ER and submitted to the OGC CDB Standards Working group (SWG) to provide the foundation for the actual standards development work.
 
-Phase 5: 05 October 2020 to 30 October 2020 Final Report: Participants will write a final report summarizing activities to date, recommendations for the OGC SWG and other standards bodies to consider, and contributions of each participant.
+Phase 5: 05 October 2020 to 5 November 2020 Final Report: Participants will write a final report summarizing activities to date, recommendations for the OGC SWG and other standards bodies to consider, and contributions of each participant.
+
+In order to accomplish the target deliverables of this activity, the particpants, based on their expertize, were alloocated to five focus groups:
+
+. 3D
+. Attribution
+. Coverages/Tiling
+. Tiling and GeoPackage
+. Metadata
+
+These teams focused on specific experiments and prototyping tasks to test key design concepts for inclusion in CDB-X. The results are documented in this ER.
 
 === Recommendations
 
