@@ -4447,10 +4447,10 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="ulist">
 <ul>
 <li>
-<p>Use metadata for whole datasets that describe how data layers are regrouped (LOD grouping and data layer grouping)</p>
+<p>Use metadata for whole datasets that describe how data layers are regrouped (LOD grouping and data layer grouping).</p>
 </li>
 <li>
-<p>Provide for fewer top level tiles than in OGC CDB 1.x</p>
+<p>Provide for fewer top level tiles than in OGC CDB 1.x.</p>
 </li>
 <li>
 <p>Store imagery in a container according to the tiling scheme specified <a href="#TilingScheme">below</a>.</p>
@@ -4466,16 +4466,16 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="ulist">
 <ul>
 <li>
-<p>Elevation compression encodings (use of scaled integers vs floating point for smaller data sizes)</p>
+<p>Elevation compression encodings (use of scaled integers vs floating point for smaller data sizes).</p>
 </li>
 <li>
 <p>Elevation grids that are adjustable (better terrain fidelity at lower LODs/zoom levels)</p>
 </li>
 <li>
-<p>Raster Material encodings using multiple coverage layers</p>
+<p>Raster Material encodings using multiple coverage layers.</p>
 </li>
 <li>
-<p>Imagery Compression (Imagery is typically the largest layer in CDB by disk storage)</p>
+<p>Imagery Compression (Imagery is typically the largest layer in CDB by disk storage).</p>
 </li>
 </ul>
 </div>
@@ -4507,7 +4507,7 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="title">Figure Mtd_Ph3 - 16. Level 2 of the GNOSIS Global Grid proposed for CDB X.</div>
 </div>
 <div class="paragraph">
-<p>The proposed tiling scheme would be based on the GNOSISGlobalGrid, where the tiling starts with a 2x4 grid of tiles with each tile 90 degrees on a side that covers the whole Earth.  This is zoom level 0 (or tile matrix identifier "0").  Each experiment used a tile size of 256x256, although that could be experimented with.  At each successive zoom level, each lower level tile is split into four new tiles at the next zoom level, except for any tile that touches either the North or South Pole is not split in the longitude direction.  This subdivision can continue until the zoom level is high enough to accommodate the highest resolution data that is to be stored within the CDB X.</p>
+<p>The proposed tiling scheme would be based on the GNOSISGlobalGrid, where the tiling starts with a 2x4 grid of tiles with each tile 90 degrees on a side that covers the whole Earth.  This is zoom level 0 (or tile matrix identifier "0").  Each experiment used a tile size of 256x256 {<strong>Does this need to be described more?</strong>}, although that could be experimented with.  At each successive zoom level, each lower level tile is split into four new tiles at the next zoom level The exception that any tile that touches either the North or South Pole is not split in the longitude direction.  This subdivision can continue until the zoom level is high enough to accommodate the highest resolution data that is to be stored within the CDB X.</p>
 </div>
 <div class="paragraph">
 <p>References for the GNOSISGlobalGrid tiling scheme:</p>
@@ -4515,22 +4515,22 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="ulist">
 <ul>
 <li>
-<p>The 2D TMS Standard Annex H.2: <a href="http://docs.opengeospatial.org/is/17-083r2/17-083r2.html#106" class="bare">http://docs.opengeospatial.org/is/17-083r2/17-083r2.html#106</a></p>
+<p>The <a href="http://docs.opengeospatial.org/is/17-083r2/17-083r2.html#106">2D TMS Standard Annex H.2</a></p>
 </li>
 <li>
-<p>The 2D TMS JSON description: <a href="http://schemas.opengis.net/tms/1.0/json/examples/GNOSISGlobalGrid.json" class="bare">http://schemas.opengis.net/tms/1.0/json/examples/GNOSISGlobalGrid.json</a></p>
+<p>The <a href="http://schemas.opengis.net/tms/1.0/json/examples/GNOSISGlobalGrid.json">2D TMS JSON description</a></p>
 </li>
 <li>
-<p>Testbed 13 - Vector Tiles ER: <a href="http://docs.opengeospatial.org/per/17-041.html#_global_gnosis_tiling_scheme_adapted_to_polar_regions" class="bare">http://docs.opengeospatial.org/per/17-041.html#_global_gnosis_tiling_scheme_adapted_to_polar_regions</a></p>
+<p><a href="http://docs.opengeospatial.org/per/17-041.html#_global_gnosis_tiling_scheme_adapted_to_polar_regions">Testbed 13 - Vector Tiles Engineering Report</a></p>
 </li>
 <li>
-<p>OGC Standard Tracker - Global WGS84 tiling scheme adapted to polar regions (quad tree except for always having 4 tiles at the poles): <a href="http://ogc.standardstracker.org/show_request.cgi?id=520" class="bare">http://ogc.standardstracker.org/show_request.cgi?id=520</a></p>
+<p>OGC Standard Tracker - <a href="http://ogc.standardstracker.org/show_request.cgi?id=520">Global WGS84 tiling scheme</a> adapted to polar regions (quad tree except for always having 4 tiles at the poles)</p>
 </li>
 <li>
-<p>OGC Ideas Repository - Global tiling grid approximating equal-area while maintaining a simple latitude/longitude aligned rectangular tile layout (not quite a DGGS) <a href="https://github.com/opengeospatial/ideas/issues/59" class="bare">https://github.com/opengeospatial/ideas/issues/59</a></p>
+<p>OGC Ideas Repository - <a href="https://github.com/opengeospatial/ideas/issues/59">Global tiling grid approximating equal-area</a> while maintaining a simple latitude/longitude aligned rectangular tile layout (not quite a DGGS).</p>
 </li>
 <li>
-<p>Vector Tiles Pilot - Phase 2 Summary ER: <a href="https://docs.ogc.org/per/19-088r2.html" class="bare">https://docs.ogc.org/per/19-088r2.html</a></p>
+<p><a href="https://docs.ogc.org/per/19-088r2.html">Vector Tiles Pilot - Phase 2 Summary Engineering Report</a></p>
 </li>
 </ul>
 </div>
@@ -4560,7 +4560,7 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="ulist">
 <ul>
 <li>
-<p>OGC CDB 1.x has 41,220 top level tiles, which requires opening huge numbers of files to visualize the Earth at global scales.  The proposed CDB X tiling would use 8 tiles to cover the Earth at the coarsest level of detail.</p>
+<p>OGC CDB 1.x has 41,220 top level tiles. This requires opening huge numbers of files to visualize the Earth at global scales.  The proposed CDB X tiling would use 8 tiles to cover the Earth at the coarsest level of detail.</p>
 </li>
 <li>
 <p>The concept of "zones" in OGC CDB 1.x are still present in the tiling scheme, but algorithmically derived rather than at fixed latitudes.  New zones are introduced at higher levels of detail, keeping the tiles near the poles closer to an ideal square shape than in OGC CDB 1.x</p>
@@ -4571,7 +4571,7 @@ While the same metadata elements are recommended for both global and local geosp
 </ul>
 </div>
 <div class="paragraph">
-<p>Drawbacks from changing to the proposed tiling scheme include the following.  NOTE: These issues would require some level of rework for existing CDB applications to be compatible with the new tiling scheme.</p>
+<p>Drawbacks to changing from the CDB 1.x approach to the proposed tiling scheme include the following.  NOTE: These issues would require some level of rework for existing CDB applications to be compatible with the new tiling scheme.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4585,7 +4585,7 @@ While the same metadata elements are recommended for both global and local geosp
 <p>Some CDB applications might have an issue with a format where there are not a fixed number of "zones" (using the OGC CDB 1.x term) or different grid cell sizes used.  This is because the GNOSIS grid introduces a new "zone" closer to the poles at each successive zoom level to help preserve a grid cell that is closer to an ideal square real world size.</p>
 </li>
 <li>
-<p>Tile Matrix Set naming (numbering) is different from OGC CDB 1.x, with the numbering starting from the top left corner of a set of tiles in CDB X vs starting from the bottom left corner of a set of tiles in OGC CDB 1.x.</p>
+<p>Tile Matrix Set naming (numbering) is different from OGC CDB 1.x, with the numbering starting from the top left corner of a set of tiles in CDB X versus starting from the bottom left corner of a set of tiles in OGC CDB 1.x.</p>
 </li>
 </ul>
 </div>
@@ -4607,23 +4607,23 @@ Imagery and coverage data would always be tiled. Vector data could optionally be
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>For edge users and smaller areas, the Subgroup particpants <code>recommend</code> that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user.</p>
+<p>For edge {<strong>Clarify what is meant by 'edge'.</strong>} users and smaller areas, the Subgroup particpants <code>recommend</code> that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be result from an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user.</p>
 </li>
 <li>
-<p>For Modeling and Simulation uses, as well as data repository cases, the Subgroup participants <code>recommend</code> that a series of GeoPackage containers be used to store CDB X coverage layers.  This involves storing a region of the world at a set of zoom levels, or levels of detail, within a single GeoPackage, with a specified file and directory naming scheme.  This approach would allow for faster access to data at specified areas and zoom levels.  It would also lend itself to concurrent access and editing for data repository maintainers.</p>
+<p>For Modeling and Simulation uses, as well as data repository cases, the Subgroup participants <code>recommend</code> that a series of GeoPackage containers be used to store CDB X coverage layers.  This involves storing a region of the world at a set of zoom levels, or levels of detail, within a single GeoPackage, with a specified file and directory naming scheme.  This approach would allow for faster access to data at specified areas and zoom levels.  This approach would also lend itself to concurrent access and editing for data repository maintainers.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>The particpants propose that a configurable grouping value be used to specify how many zoom levels or levels of detail are put into a single GeoPackage.  This would be a tradeoff between the number of GeoPackages created and the file and table sizes within each GeoPackage.</p>
 </li>
 <li>
-<p>Multiple grouping numbers were experimented with. 5 was found to be a good number for packaging together all data layers of the San Diego CDB. This grouping number might need to be adjusted for different types of data layers, or different data sets as well.</p>
+<p>Multiple grouping numbers were experimented with. Five (5) was found to be a good number for packaging together all data layers of the San Diego CDB {<strong>DO we need some words in the intro on the data used in the experiments?</strong>}. This grouping number might need to be adjusted for different types of data layers, or different data sets as well.</p>
 </li>
 <li>
 <p>The proposed naming of each GeoPackage file is based on the layer name and the coarsest, lowest level tile included within the grouping inside the GeoPackage.  That tile&#8217;s level, row (from the top) and column within the tile matrix set make up the filename, along with the level of the finest or highest level tile that can be placed into this GeoPackage.  For example:  <strong>Coverages_L4_R16_C12_L6.gpkg</strong></p>
 </li>
 <li>
-<p>The proposed directory naming creates a directory tree to limits the number of GeoPackage files that could exist within a single directory.  Each GeoPackage will exist within a set of directory names that represents each coarser or lower zoom level GeoPackage that encompases the smaller higher resolution area.  For example:  The file, <strong>Coverages_L4_R16_C12_L6.gpkg</strong>, will exist in the directory named <strong>Coverages\L0_R1_C0\L1_R2_C1</strong></p>
+<p>The proposed directory naming creates a directory tree that limits the number of GeoPackage files that could exist within a single directory.  Each GeoPackage would exist within a set of directory names that represents each coarser or lower zoom level GeoPackage that encompases the smaller higher resolution area.  For example:  The file, <strong>Coverages_L4_R16_C12_L6.gpkg</strong>, would exist in the directory named <strong>Coverages\L0_R1_C0\L1_R2_C1</strong></p>
 <div class="ulist">
 <ul>
 <li>
@@ -4638,39 +4638,38 @@ Imagery and coverage data would always be tiled. Vector data could optionally be
 </ol>
 </div>
 <div class="paragraph">
-<p>To facilitate extraction from a large (or even worldwide) dataset, easily merging these extracted sub-datasets, as well as the ability
-to augment these base datasets with additional more detailed insets, without requiring to repackage the entire dataset, the following solutions are proposed:</p>
+<p>To facilitate extraction from a large (or even worldwide) dataset and easily merge these extracted sub-datasets as well as the ability
+to augment these base datasets with additional more detailed insets, without repackaging the entire dataset, the following solutions are proposed:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The publisher of a large repository of data could pre-establish fixed maximum LODs for specific data layers (e.g. imagery, elevation, 3D Models)</p>
+<p>The publisher of a large repository of data could pre-establish fixed maximum LODs for specific data layers (e.g. imagery, elevation, 3D Models).</p>
 </li>
 <li>
-<p>When inset data is added to a dataset, these could go beyond the regular maximum LOD specified for the 'packaging',
-thus these inset tiles are always grouped together with the tiles of the regular maximum LOD.</p>
+<p>When inset data is added to a dataset, these could go beyond the regular maximum LOD specified for the 'packaging'. As such these inset tiles are always grouped together with the tiles of the regular maximum LOD.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Recommendation: Define this capability for splitting GeoPackages based on a specific tiling scheme outside of the CDB X standard so that it can be used by itself.</p>
+<p><code>Recommendation</code>: Define this capability for splitting GeoPackages based on a specific tiling scheme outside of the CDB X standard so that it {<strong>What does it refer to?</strong>} can be used by itself.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_proposed_cdb_json_index_of_packages_and_data_layers"><a class="anchor" href="#_proposed_cdb_json_index_of_packages_and_data_layers"></a>13.8. Proposed <code>cdb.json</code> index of packages and data layers</h3>
 <div class="paragraph">
-<p>The Tiling group developed a simple schema for describing the data layers provided by a CDB X, which CDB component selector they correspond to, and how
-they are packaged in one ore more <em>packages</em>, which can themselves either be stored in a single GeoPackage (zero or <em>null</em> LOD grouping), or separated in
+<p>The Tiling Subgroup developed a simple schema for describing the data layers provided in a CDB X datastore, which CDB component selector they correspond to, and how
+they are packaged in one or more <em>packages</em>. These <em>packages</em> can themselves either be stored in a single GeoPackage (zero or <em>null</em> LOD grouping), or separated in
 multiple GeoPackage based on tiles grouped in multiple LODs (non-zero LOD grouping). This index allows the flexibility to use the best suited configuration
-for a given dataset or use case, yet it is very simple for a client to parse and access the data in a deterministic manner using any of these configurations.
-When using a single GeoPackage is used, potentially this <code>cdb.json</code> could be included inside as metadata (using the GeoPackage metadata extension) to make
+for a given dataset or use case At the same time it is very simple for a client to parse and access the data in a deterministic manner using any of these configurations.
+When a single GeoPackage is used, potentially this <code>cdb.json</code> could be included inside as metadata (using the GeoPackage metadata extension) to make
 this GeoPackage a single file, very portable compliant CDB X.
 The following <code>cdb.json</code> index files demonstrate the three main configuration possibilities.
 Additional examples are also provided along with the experiments results.</p>
 </div>
 <div class="paragraph">
-<p><strong>Example 1</strong>: two data layers (with a maximum LOD of 16 and 18) packaged as a single GeoPackage ("groupLOD" : 0&#8201;&#8212;&#8201;all LODs grouped together).
-This will be a single file named <code>SampleCDBX.gpkg</code>.</p>
+<p><strong>Example 1</strong>: Two data layers (with a maximum LOD of 16 and 18) packaged as a single GeoPackage ("groupLOD" : 0&#8201;&#8212;&#8201;all LODs grouped together).
+This would be a single file named <code>SampleCDBX.gpkg</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4699,8 +4698,8 @@ This will be a single file named <code>SampleCDBX.gpkg</code>.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Example 2</strong>: two data layers (with a maximum LOD of 16 and 18) packaged as a single package, grouped in GeoPackages covering tiles across 5 LODs.
-The one package will be organized in a folder named <code>SampleCDBX</code>, and the GeoPackages files will be grouped by 5 counting down from the maximum LOD 18,
+<p><strong>Example 2</strong>: Two data layers (with a maximum LOD of 16 and 18) packaged as a single package, grouped in GeoPackages covering tiles across 5 LODs.
+The one package would be organized in a folder named <code>SampleCDBX</code>, and the GeoPackages files will be grouped by 5 counting down from the maximum LOD 18,
 e.g. <code>SampleCDBX/L0_R0_C0/L4_R10_C11/L9_R324_C356/SampleCDBX_L14_R10376_C11415_L18.gpkg</code>.</p>
 </div>
 <div class="listingblock">
@@ -4730,13 +4729,13 @@ e.g. <code>SampleCDBX/L0_R0_C0/L4_R10_C11/L9_R324_C356/SampleCDBX_L14_R10376_C11
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Example 3</strong>: three data layers (with a maximum LOD of 16, 18 and 13) packaged as three separate packages.
+<p><strong>Example 3</strong>: Three data layers (with a maximum LOD of 16, 18 and 13) packaged as three separate packages.
 Elevation is grouped in GeoPackages covering tiles across 6 LODs, Imagery is grouped in tiles across 7 LODs while Buildings are stored grouped in a single GeoPackage.
-The Elevation package will be organized in a folder named <code>Elevation</code>, and the GeoPackages files will be grouped by 5 counting down from the maximum LOD 16,
+The Elevation package would be organized in a folder named <code>Elevation</code>, and the GeoPackages files would be grouped by 5 counting down from the maximum LOD 16,
 e.g. <code>Elevation/L0_R0_C0/L5_R20_C22/Elevation_L11_R1302_C1427_L16.gpkg</code>.
-The Imagery package will be organized in a folder named <code>Imagery</code>, and the GeoPackages files will be grouped by 7 counting down from the maximum LOD 18,
+The Imagery package would be organized in a folder named <code>Imagery</code>, and the GeoPackages files would be grouped by 7 counting down from the maximum LOD 18,
 e.g. <code>Imagery/L0_R0_C0/L5_R20_C22/Imagery_L12_R2605_C2855_L18.gpkg</code>.
-The Buildings will be stored in a single file named <code>Buildings.gpkg</code>.</p>
+The Buildings would be stored in a single file named <code>Buildings.gpkg</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4788,15 +4787,17 @@ The Buildings will be stored in a single file named <code>Buildings.gpkg</code>.
 </div>
 </div>
 <div class="paragraph">
-<p>Recommendation: Consider also defining this description of the packages and LOD grouping outside of the CDB X standard so that it can be used elsewhere as well.</p>
+<p><code>Recommendation</code>: Consider also defining this description of the packages and LOD grouping outside of the CDB X standard so that description can be used elsewhere as well.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_backwards_compatibility_with_ogc_cdb_1_x"><a class="anchor" href="#_backwards_compatibility_with_ogc_cdb_1_x"></a>13.9. Backwards Compatibility with OGC CDB 1.x</h3>
 <div class="paragraph">
 <p>The current OGC CDB tiling scheme can be described as a Tile Matrix Set (TMS) that encodes the CDB fixed zones and the larger tile dimensions,
-as seen in this <a href="https://maps.ecere.com/ogcapi/tileMatrixSets/CDBGlobalGrid">example description</a> (<a href="https://maps.ecere.com/ogcapi/tileMatrixSets/CDBGlobalGrid?f=json">JSON encoding</a>).
-Using this TMS, a profile or extension of OGC CDB 1.x could be created that would support the same GeoPackage containers and level of detail groupings, while conforming to the OGC CDB 1.x conceptual model.  Using this approach could bring in some concepts of CDB X into OGC CDB 1.x and make the transition easier to a future version of OGC CDB.</p>
+as seen in this <a href="https://maps.ecere.com/ogcapi/tileMatrixSets/CDBGlobalGrid">example description</a> (<a href="https://maps.ecere.com/ogcapi/tileMatrixSets/CDBGlobalGrid?f=json">JSON encoding</a>).</p>
+</div>
+<div class="paragraph">
+<p>Using this TMS, a profile or extension of OGC CDB 1.x could be created that would support the same GeoPackage containers and level of detail groupings, while conforming to the OGC CDB 1.x conceptual model.  Using this approach could bring in some concepts of CDB X into OGC CDB 1.x and make the transition easier to a future version of OGC CDB.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4814,10 +4815,10 @@ We do not recommend supporting more than one tiling scheme in a version of CDB, 
 <div class="sect2">
 <h3 id="_geopackage_tile_matrix_set_extension"><a class="anchor" href="#_geopackage_tile_matrix_set_extension"></a>13.10. GeoPackage Tile Matrix Set extension</h3>
 <div class="paragraph">
-<p>The engineering tests created in this effort made use of a proposed Tile Matrix Set extension defined and initially tested in the
+<p>The experiments completed in this effort made use of a proposed GeoPackage Tile Matrix Set extension defined and initially tested in the
 <a href="https://www.ogc.org/projects/initiatives/vtp2">2019 OGC Vector Tiles Pilot Phase 2</a>, which enables support for the
 <a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid">GNOSIS Global Grid</a>.
-This extension has not yet been adopted as an official OGC GeoPackage extension, but is on the GeoPackage Standard Working Group roadmap.
+This extension has not yet been adopted as an official OGC GeoPackage extension, but is on the GeoPackage Standard Working Group (SWG) roadmap.
 The current draft is available from here: <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions/14-tile-matrix-set.adoc">GeoPackage Two Dimensional Tile matrix Set (TMS) extension (Draft)</a>.</p>
 </div>
 <div class="admonitionblock note">
@@ -4837,8 +4838,10 @@ Even though most current software do not yet support the GeoPackage TMS extensio
 <div class="sect2">
 <h3 id="_tiled_coverage_data"><a class="anchor" href="#_tiled_coverage_data"></a>13.11. Tiled Coverage Data</h3>
 <div class="paragraph">
-<p>The <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">GeoPackage Tiled Gridded Coverage extension</a> would be ideal for storing tiled coverage data, but it has some drawbacks that would need to be addressed.
-Current limitations include:</p>
+<p>The <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">GeoPackage Tiled Gridded Coverage extension</a> would be ideal for storing tiled coverage data, but it has some drawbacks that would need to be addressed.</p>
+</div>
+<div class="paragraph">
+<p>Current limitations include:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -5933,7 +5936,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-02 23:23:10 UTC
+Last updated 2020-11-02 23:41:34 UTC
 </div>
 </div>
 <style>
