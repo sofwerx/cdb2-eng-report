@@ -592,49 +592,60 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#tiling">13. Tiling and Tiled Coverages</a></li>
-<li><a href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage">14. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</a>
+<li><a href="#tiling">13. Tiling and packaging of data layers</a>
 <ul class="sectlevel2">
-<li><a href="#_general_2">14.1. General</a>
+<li><a href="#_general_2">13.1. General</a>
 <ul class="sectlevel3">
-<li><a href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space">14.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</a></li>
-<li><a href="#_ogc_two_dimensional_tile_matrix_set_standard">14.1.2. OGC Two Dimensional Tile Matrix Set Standard</a></li>
+<li><a href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space">13.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</a></li>
+<li><a href="#_ogc_two_dimensional_tile_matrix_set_standard">13.1.2. OGC Two Dimensional Tile Matrix Set Standard</a></li>
 </ul>
 </li>
-<li><a href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers">14.2. Design Objectives for CDB X Tiling and LoDs and Layers</a></li>
-<li><a href="#_proposed_tiling_logical_model_for_cdb_x">14.3. Proposed Tiling Logical Model for CDB X</a></li>
-<li><a href="#_proposed_cdb_x_tiling_structure">14.4. Proposed CDB X Tiling Structure</a>
+<li><a href="#_design_objectives_for_cdb_x_tiling_lods_and_layers">13.2. Design Objectives for CDB X Tiling, LoDs and Layers</a></li>
+<li><a href="#_proposed_tiling_logical_model_for_cdb_x">13.3. Proposed Tiling Logical Model for CDB X</a></li>
+<li><a href="#_proposed_cdb_x_tiling_scheme">13.4. Proposed CDB X Tiling Scheme</a></li>
+<li><a href="#_findings_from_experiments">13.5. Findings from experiments</a>
 <ul class="sectlevel3">
-<li><a href="#_tiling_changes_from_ogc_cdb_1_x">14.4.1. Tiling Changes From OGC CDB 1.x</a></li>
+<li><a href="#_tiling_changes_from_ogc_cdb_1_x">13.5.1. Tiling Changes From OGC CDB 1.x</a></li>
 </ul>
 </li>
-<li><a href="#_proposed_cdb_x_data_container">14.5. Proposed CDB X Data Container</a></li>
-<li><a href="#_proposed_cdb_x_coverage_grouping">14.6. Proposed CDB X Coverage Grouping</a></li>
-<li><a href="#_backwards_compatibility_with_ogc_cdb_1_x">14.7. Backwards Compatibility with OGC CDB 1.x</a></li>
-<li><a href="#_additional_cdb_x_recommendations">14.8. Additional CDB X Recommendations</a>
+<li><a href="#_proposed_cdb_x_data_container">13.6. Proposed CDB X Data Container</a></li>
+<li><a href="#_proposed_levels_of_detail_grouping">13.7. Proposed Levels of Detail Grouping</a></li>
+<li><a href="#_proposed_cdb_json_index_of_packages_and_data_layers">13.8. Proposed <code>cdb.json</code> index of packages and data layers</a></li>
+<li><a href="#_backwards_compatibility_with_ogc_cdb_1_x">13.9. Backwards Compatibility with OGC CDB 1.x</a></li>
+<li><a href="#_geopackage_tile_matrix_set_extension">13.10. GeoPackage Tile Matrix Set extension</a></li>
+<li><a href="#_tiled_coverage_data">13.11. Tiled Coverage Data</a>
 <ul class="sectlevel3">
-<li><a href="#_elevation_minmax">14.8.1. Elevation min/max</a></li>
-<li><a href="#_image_compression_jpeg">14.8.2. Image Compression - JPEG</a></li>
-<li><a href="#_materials">14.8.3. Materials</a></li>
+<li><a href="#_elevation_minmax">13.11.1. Elevation min/max</a></li>
+<li><a href="#_image_compression_jpeg">13.11.2. Image Compression - JPEG</a></li>
+<li><a href="#_materials">13.11.3. Materials</a></li>
 </ul>
 </li>
-<li><a href="#_findings_from_experiments">14.9. Findings from experiments</a></li>
-<li><a href="#_cdb_x_tilinggeopackage_experiment_1_ecere">14.10. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</a>
+<li><a href="#_tiled_vector_data">13.12. Tiled Vector Data</a></li>
+<li><a href="#_tiled_3d_models">13.13. Tiled 3D Models</a>
 <ul class="sectlevel3">
-<li><a href="#_data_and_geopackage_structure">14.10.1. Data and GeoPackage Structure</a></li>
-<li><a href="#_ogc_api_access_demo">14.10.2. OGC API access demo</a></li>
-<li><a href="#_visualization">14.10.3. Visualization</a></li>
-<li><a href="#_live_cesium_js_3d_tiles_demonstation">14.10.4. Live Cesium JS / 3D Tiles demonstation</a></li>
-<li><a href="#_next_steps_this_section_will_change_as_new_content_is_provided">14.10.5. Next steps (this section will change as new content is provided)</a></li>
+<li><a href="#_3d_models_extension">13.13.1. 3D Models Extension</a></li>
+<li><a href="#_a_referenced_3d_models_with_placement_information">13.13.2. A) Referenced 3D models with placement information</a></li>
+<li><a href="#_b_batched_3d_models_tiles">13.13.3. B) Batched 3D Models tiles</a></li>
+<li><a href="#_textures_table">13.13.4. Textures table</a></li>
 </ul>
 </li>
-<li><a href="#_flightsafety_geopackage_tiling_experiments">14.11. FlightSafety GeoPackage Tiling Experiments</a>
+<li><a href="#_ecere_geopackage_tiling_experiments">13.14. Ecere GeoPackage Tiling Experiments</a>
 <ul class="sectlevel3">
-<li><a href="#_flightsafety_experiment_1">14.11.1. FlightSafety Experiment 1</a></li>
-<li><a href="#_flightsafety_experiment_2">14.11.2. FlightSafety Experiment 2</a></li>
-<li><a href="#_observations_from_experiments_1_and_2">14.11.3. Observations from Experiments 1 and 2</a></li>
-<li><a href="#_flightsafety_experiments_3_and_4">14.11.4. FlightSafety Experiments 3 and 4</a></li>
-<li><a href="#_observations_for_experiments_3_and_4">14.11.5. Observations for Experiments 3 and 4</a></li>
+<li><a href="#_overview">13.14.1. Overview</a></li>
+<li><a href="#_data_results">13.14.2. Data results</a></li>
+<li><a href="#_ogc_api_access_demo">13.14.3. OGC API access demo</a></li>
+<li><a href="#_visualization">13.14.4. Visualization</a></li>
+<li><a href="#_cesium_js_3d_tiles_demo">13.14.5. Cesium JS / 3D Tiles demo</a></li>
+<li><a href="#_future_work">13.14.6. Future work</a></li>
+</ul>
+</li>
+<li><a href="#_flightsafety_geopackage_tiling_experiments">13.15. FlightSafety GeoPackage Tiling Experiments</a>
+<ul class="sectlevel3">
+<li><a href="#_flightsafety_experiment_1">13.15.1. FlightSafety Experiment 1</a></li>
+<li><a href="#_flightsafety_experiment_2">13.15.2. FlightSafety Experiment 2</a></li>
+<li><a href="#_observations_from_experiments_1_and_2">13.15.3. Observations from Experiments 1 and 2</a></li>
+<li><a href="#_flightsafety_experiments_3_and_4">13.15.4. FlightSafety Experiments 3 and 4</a></li>
+<li><a href="#_observations_for_experiments_3_and_4">13.15.5. Observations for Experiments 3 and 4</a></li>
 </ul>
 </li>
 </ul>
@@ -947,7 +958,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Brian Ford</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FlightSAfety</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FlightSafety</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Contributor</p></td>
 </tr>
 <tr>
@@ -1361,7 +1372,7 @@ A web resource, or simply resource, is any identifiable thing, whether digital, 
 <p>Section 10 top-level-metadata</p>
 </div>
 <div class="paragraph">
-<p>Section 11 Tiling coverages in CDB X</p>
+<p>Section 11 Tiling and packaging of data layers</p>
 </div>
 </div>
 </div>
@@ -4321,19 +4332,19 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect1">
-<h2 id="tiling"><a class="anchor" href="#tiling"></a>13. Tiling and Tiled Coverages</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"><a class="anchor" href="#_cdb_x_tiling_design_principals_requirements_tiled_data_conceptual_model_and_geopackage"></a>14. CDB X Tiling Design Principals, Requirements, Tiled Data Conceptual Model and GeoPackage</h2>
+<h2 id="tiling"><a class="anchor" href="#tiling"></a>13. Tiling and packaging of data layers</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This clause provides discussion of tiled data and GeoPackage requirements and the results of the prototyping activities.</p>
+<p>This chapter covers the evaluation of a specific global tiling scheme for CDB X, the configurable grouping of Levels of Detail to balance file size vs
+file count, an approach to packaging one or more data layers in GeoPackages (including coverage, vector and 3D data), current and proposed GeoPackage
+extensions for storing this data, as well as the results of related prototyping activities.</p>
+</div>
+<div class="paragraph">
+<p>Although the tiling sub-group was initially assigned specifically to explore tiled coverage data, some experiments went beyond this and also applied the
+same tiling approach to vector data and 3D models and used existing or new extensions to store this tiled data in GeoPackages.</p>
 </div>
 <div class="sect2">
-<h3 id="_general_2"><a class="anchor" href="#_general_2"></a>14.1. General</h3>
+<h3 id="_general_2"><a class="anchor" href="#_general_2"></a>13.1. General</h3>
 <div class="paragraph">
 <p>Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the:</p>
 </div>
@@ -4348,7 +4359,7 @@ While the same metadata elements are recommended for both global and local geosp
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"><a class="anchor" href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"></a>14.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</h4>
+<h4 id="_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"><a class="anchor" href="#_ogc_core_tiling_conceptual_and_logical_models_for_2d_euclidean_space"></a>13.1.1. OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space</h4>
 <div class="paragraph">
 <p>This OGC Abstract Specification consists of two Parts: A General Tiling Conceptual Model and, based on the Conceptual Model, a Logical Model for the Tessellation (Tiling) of 2D Euclidean Space. Tiling  of  2D  Euclidean  space  is  the  most  commonly  known  approach  to  partitioning  space  in traditional  geospatial  technology.  However, there are also common elements and/or semantics for any approach to partitioning space in any dimension. The logical model in this document defines a set  common  required  elements  and  then  follows  with  more  specific  requirements  for  the  two dimensional case.</p>
 </div>
@@ -4360,16 +4371,16 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ogc_two_dimensional_tile_matrix_set_standard"><a class="anchor" href="#_ogc_two_dimensional_tile_matrix_set_standard"></a>14.1.2. OGC Two Dimensional Tile Matrix Set Standard</h4>
+<h4 id="_ogc_two_dimensional_tile_matrix_set_standard"><a class="anchor" href="#_ogc_two_dimensional_tile_matrix_set_standard"></a>13.1.2. OGC Two Dimensional Tile Matrix Set Standard</h4>
 <div class="paragraph">
 <p>The OGC Tile Matrix Set standard defines the rules and requirements for a tile matrix set as a way to index space based on a set of regular grids defining a domain (tile matrix) for a limited list of scales in a Coordinate Reference System (CRS) as defined in [OGC 08-015r2] Abstract Specification Topic 2: Spatial Referencing by Coordinates. Each tile matrix is divided into regular tiles. In a tile matrix set, a tile can be univocally identified by a tile column a tile row and a tile matrix identifier. This document presents a data structure defining the properties of the tile matrix set in both UML diagrams and in tabular form. This document also presents a data structure to define a subset of a tile matrix set called tile matrix set limits. XML and JSON encodings are suggested both for tile matrix sets and tile matrix set limits. Finally, the document offers practical examples of tile matrix sets both for common global projections and for specific regions.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_design_objectives_for_cdb_x_tiling_and_lods_and_layers"><a class="anchor" href="#_design_objectives_for_cdb_x_tiling_and_lods_and_layers"></a>14.2. Design Objectives for CDB X Tiling and LoDs and Layers</h3>
+<h3 id="_design_objectives_for_cdb_x_tiling_lods_and_layers"><a class="anchor" href="#_design_objectives_for_cdb_x_tiling_lods_and_layers"></a>13.2. Design Objectives for CDB X Tiling, LoDs and Layers</h3>
 <div class="paragraph">
-<p>The following are the key design principals for a CDB X tiling, levels of detail, and layering.</p>
+<p>The following are the key design principles for a CDB X tiling, levels of detail, and layering.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4417,7 +4428,7 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_tiling_logical_model_for_cdb_x"><a class="anchor" href="#_proposed_tiling_logical_model_for_cdb_x"></a>14.3. Proposed Tiling Logical Model for CDB X</h3>
+<h3 id="_proposed_tiling_logical_model_for_cdb_x"><a class="anchor" href="#_proposed_tiling_logical_model_for_cdb_x"></a>13.3. Proposed Tiling Logical Model for CDB X</h3>
 <div class="paragraph">
 <p>The following figure, based on the Tiling Abstract Specification Logical Model and the CDB 1.x Conceptual Model, shows the properties by class (concept) and the relationships between the classes.</p>
 </div>
@@ -4429,18 +4440,61 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_cdb_x_tiling_structure"><a class="anchor" href="#_proposed_cdb_x_tiling_structure"></a>14.4. Proposed CDB X Tiling Structure</h3>
+<h3 id="_proposed_cdb_x_tiling_scheme"><a class="anchor" href="#_proposed_cdb_x_tiling_scheme"></a>13.4. Proposed CDB X Tiling Scheme</h3>
+<div id="img_gggtms-model" class="imageblock text-center">
+<div class="content">
+<img src="images/cdbxTMS.png" alt="cdbxTMS" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 16. Level 2 of the GNOSIS Global Grid proposed for CDB X.</div>
+</div>
 <div class="paragraph">
-<p>The proposed tiling scheme would be based on the GNOSISGlobalGrid (<code>reference?</code>), where the entire world is tiled in a 2x4 grid with each tile 90 degrees on a side.  This is zoom level 0 (or tile matrix identifier "0").  Each successive zoom level increases by one, until the level can accommodate the highest resolution data that is to be stored within the CDB X.  With each successive zoom level, each tile is split into four new tiles, except for any tile that would touch either the North or South Pole is not split in longitude.</p>
+<p>The proposed tiling scheme would be based on the GNOSISGlobalGrid, where the tiling starts with a 2x4 grid of tiles with each tile 90 degrees on a side that covers the whole Earth.  This is zoom level 0 (or tile matrix identifier "0").  Each experiment used a tile size of 256x256, although that could be experimented with.  At each successive zoom level, each lower level tile is split into four new tiles at the next zoom level, except for any tile that touches either the North or South Pole is not split in the longitude direction.  This subdivision can continue until the zoom level is high enough to accommodate the highest resolution data that is to be stored within the CDB X.</p>
+</div>
+<div class="paragraph">
+<p>References for the GNOSISGlobalGrid tiling scheme:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The 2D TMS Standard Annex H.2: <a href="http://docs.opengeospatial.org/is/17-083r2/17-083r2.html#106" class="bare">http://docs.opengeospatial.org/is/17-083r2/17-083r2.html#106</a></p>
+</li>
+<li>
+<p>The 2D TMS JSON description: <a href="http://schemas.opengis.net/tms/1.0/json/examples/GNOSISGlobalGrid.json" class="bare">http://schemas.opengis.net/tms/1.0/json/examples/GNOSISGlobalGrid.json</a></p>
+</li>
+<li>
+<p>Testbed 13 - Vector Tiles ER: <a href="http://docs.opengeospatial.org/per/17-041.html#_global_gnosis_tiling_scheme_adapted_to_polar_regions" class="bare">http://docs.opengeospatial.org/per/17-041.html#_global_gnosis_tiling_scheme_adapted_to_polar_regions</a></p>
+</li>
+<li>
+<p>OGC Standard Tracker - Global WGS84 tiling scheme adapted to polar regions (quad tree except for always having 4 tiles at the poles): <a href="http://ogc.standardstracker.org/show_request.cgi?id=520" class="bare">http://ogc.standardstracker.org/show_request.cgi?id=520</a></p>
+</li>
+<li>
+<p>OGC Ideas Repository - Global tiling grid approximating equal-area while maintaining a simple latitude/longitude aligned rectangular tile layout (not quite a DGGS) <a href="https://github.com/opengeospatial/ideas/issues/59" class="bare">https://github.com/opengeospatial/ideas/issues/59</a></p>
+</li>
+<li>
+<p>Vector Tiles Pilot - Phase 2 Summary ER: <a href="https://docs.ogc.org/per/19-088r2.html" class="bare">https://docs.ogc.org/per/19-088r2.html</a></p>
+</li>
+</ul>
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
 <img src="images/image2020-7-8_10-39-39.png" alt="image2020 7 8 10 39 39" width="515">
 </div>
-<div class="title">Figure Mtd_Ph3 - 16. Proposed Tiling Scheme for CDB X.</div>
+<div class="title">Figure Mtd_Ph3 - 17. Proposed Tiling Scheme for CDB X.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_findings_from_experiments"><a class="anchor" href="#_findings_from_experiments"></a>13.5. Findings from experiments</h3>
+<div class="paragraph">
+<p>The following graph compares the CDB 1.x zones with the Gnosis grid and shows how the GNOSIS algorithm helps to keep the typical tile closer to a “square” than CDB’s zones.</p>
+</div>
+<div id="img_logical-model" class="imageblock text-center">
+<div class="content">
+<img src="images/image2020-9-4_10-41-0.png" alt="image2020 9 4 10 41 0" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 18. CDB 1.x to GNOSIS Comparison - Ratio.</div>
 </div>
 <div class="sect3">
-<h4 id="_tiling_changes_from_ogc_cdb_1_x"><a class="anchor" href="#_tiling_changes_from_ogc_cdb_1_x"></a>14.4.1. Tiling Changes From OGC CDB 1.x</h4>
+<h4 id="_tiling_changes_from_ogc_cdb_1_x"><a class="anchor" href="#_tiling_changes_from_ogc_cdb_1_x"></a>13.5.1. Tiling Changes From OGC CDB 1.x</h4>
 <div class="paragraph">
 <p>Benefits from changing to the proposed tiling scheme:</p>
 </div>
@@ -4453,12 +4507,12 @@ While the same metadata elements are recommended for both global and local geosp
 <p>The concept of "zones" in OGC CDB 1.x are still present in the tiling scheme, but algorithmically derived rather than at fixed latitudes.  New zones are introduced at higher levels of detail, keeping the tiles near the poles closer to an ideal square shape than in OGC CDB 1.x</p>
 </li>
 <li>
-<p>The ratio of the longitude size of tiles is always a 2:1 (or the inverse 1:2) ratio, where OGC CDB 1.x has several ratios that must be supported, such as 2:1, 3:2 and 4:3</p>
+<p>The ratio of the longitude size of tiles is always 1:1, 2:1, or the inverse 1:2, where OGC CDB 1.x has several ratios that must be supported, such as 2:1, 3:2 and 4:3</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Drawbacks from changing to the proposed tiling scheme include the following.  These issues might require some level of incompatibility or rework for existing CDB applications.</p>
+<p>Drawbacks from changing to the proposed tiling scheme include the following.  These issues would require some level of rework for existing CDB applications to be compatible with the new tiling scheme.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4472,16 +4526,260 @@ While the same metadata elements are recommended for both global and local geosp
 <p>Some CDB applications might have an issue with a format where there are not a fixed number of "zones" (using the OGC CDB 1.x term) or different grid cell sizes used.  This is because the GNOSIS grid introduces a new "zone" closer to the poles at each successive zoom level to help preserve a grid cell that is closer to an ideal square real world size.</p>
 </li>
 <li>
-<p>Tile Matrix Set naming (numbering) is different that OGC CDB 1.x, with the numbering starting from the top left corner of a set of tiles in CDB X vs starting from the bottom left corner of a set of tiles in OGC CDB 1.x.</p>
+<p>Tile Matrix Set naming (numbering) is different from OGC CDB 1.x, with the numbering starting from the top left corner of a set of tiles in CDB X vs starting from the bottom left corner of a set of tiles in OGC CDB 1.x.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proposed_cdb_x_data_container"><a class="anchor" href="#_proposed_cdb_x_data_container"></a>14.5. Proposed CDB X Data Container</h3>
+<h3 id="_proposed_cdb_x_data_container"><a class="anchor" href="#_proposed_cdb_x_data_container"></a>13.6. Proposed CDB X Data Container</h3>
 <div class="paragraph">
-<p>The coverage tiles would be stored using GeoPackage containers.  The GeoPackage Tiled Gridded Coverage extension would be ideal for storing tiled coverage data, but it has some drawbacks that would need to be addressed.  Current limitations include:</p>
+<p>The coverage, vector and 3D models data would be stored using GeoPackage containers.
+Imagery and coverage data would always be tiled, while vector data could optionally be stored tiled using extensions for tiled vector data being standardized,
+and 3D models could either be stored in a single table referenced by placement points, or as batched 3D models tiles.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proposed_levels_of_detail_grouping"><a class="anchor" href="#_proposed_levels_of_detail_grouping"></a>13.7. Proposed Levels of Detail Grouping</h3>
+<div class="paragraph">
+<p>There are two proposed ways to group data within a series of GeoPackage containers.  Within these choices is a tradeoff between the format simplicity of working with a single container, and access latency due to larger file and table sizes.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For edge users and smaller areas, we would recommend that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user.</p>
+</li>
+<li>
+<p>For Modeling and Simulation uses, as well as data repository cases, we recommend that a series of GeoPackage containers be used to store CDB X coverage layers.  This involves storing a region of the world at a set of zoom levels, or levels of detail, within a single GeoPackage, with a specified file and directory naming scheme.  This approach would allow for faster access to data at specified areas and zoom levels.  It would also lend itself to concurrent access and editing for data repository maintainers.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>We propose that a configurable grouping value be used to specify how many zoom levels or levels of detail are put into a single GeoPackage.  This would be a tradeoff between the number of GeoPackages created and the file and table sizes within each GeoPackage.</p>
+</li>
+<li>
+<p>Multiple grouping numbers were experimented with. 5 was found to be a good number for packaging together all data layers of the San Diego CDB. This grouping number might need to be adjusted for different types of data layers, or different data sets as well.</p>
+</li>
+<li>
+<p>The proposed naming of each GeoPackage file is based on the layer name and the coarsest, lowest level tile included within the grouping inside the GeoPackage.  That tile&#8217;s level, row (from the top) and column within the tile matrix set make up the filename, along with the level of the finest or highest level tile that can be placed into this GeoPackage.  For example:  <strong>Coverages_L4_R16_C12_L6.gpkg</strong></p>
+</li>
+<li>
+<p>The proposed directory naming creates a directory tree to limits the number of GeoPackage files that could exist within a single directory.  Each GeoPackage will exist within a set of directory names that represents each coarser or lower zoom level GeoPackage that encompases the smaller higher resolution area.  For example:  The file, <strong>Coverages_L4_R16_C12_L6.gpkg</strong>, will exist in the directory named <strong>Coverages\L0_R1_C0\L1_R2_C1</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The file and directory naming needs to be easy to compute algorithmically or exist within a catalog, without having to search a data repository to discover arbitrarily named files.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To facilitate extraction from a large (or even worldwide) dataset, easily merging these extracted sub-datasets, as well as the ability
+to augment these base datasets with additional more detailed insets, without requiring to repackage the entire dataset, the following solutions are proposed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The publisher of a large repository of data could pre-establish fixed maximum LODs for specific data layers (e.g. imagery, elevation, 3D Models)</p>
+</li>
+<li>
+<p>When inset data is added to a dataset, these could go beyond the regular maximum LOD specified for the 'packaging',
+thus these inset tiles are always grouped together with the tiles of the regular maximum LOD.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Recommendation: Define this capability for splitting GeoPackages based on a specific tiling scheme outside of the CDB X standard so that it can be used by itself.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proposed_cdb_json_index_of_packages_and_data_layers"><a class="anchor" href="#_proposed_cdb_json_index_of_packages_and_data_layers"></a>13.8. Proposed <code>cdb.json</code> index of packages and data layers</h3>
+<div class="paragraph">
+<p>The Tiling group developed a simple schema for describing the data layers provided by a CDB X, which CDB component selector they correspond to, and how
+they are packaged in one ore more <em>packages</em>, which can themselves either be stored in a single GeoPackage (zero or <em>null</em> LOD grouping), or separated in
+multiple GeoPackage based on tiles grouped in multiple LODs (non-zero LOD grouping). This index allows the flexibility to use the best suited configuration
+for a given dataset or use case, yet it is very simple for a client to parse and access the data in a deterministic manner using any of these configurations.
+When using a single GeoPackage is used, potentially this <code>cdb.json</code> could be included inside as metadata (using the GeoPackage metadata extension) to make
+this GeoPackage a single file, very portable compliant CDB X.
+The following <code>cdb.json</code> index files demonstrate the three main configuration possibilities.
+Additional examples are also provided along with the experiments results.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example 1</strong>: two data layers (with a maximum LOD of 16 and 18) packaged as a single GeoPackage ("groupLOD" : 0&#8201;&#8212;&#8201;all LODs grouped together).
+This will be a single file named <code>SampleCDBX.gpkg</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">packages</span><span class="delimiter">&quot;</span></span> : [
+      {
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">SampleCDBX</span><span class="delimiter">&quot;</span></span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">tms</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">GNOSISGlobalGrid</span><span class="delimiter">&quot;</span></span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">groupLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">0</span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">maxLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">18</span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">layers</span><span class="delimiter">&quot;</span></span> : [
+            {
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Elevation</span><span class="delimiter">&quot;</span></span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">cs1</span><span class="delimiter">&quot;</span></span> : <span class="integer">1</span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">maxLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">16</span>
+            },
+            {
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Imagery</span><span class="delimiter">&quot;</span></span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">cs1</span><span class="delimiter">&quot;</span></span> : <span class="integer">4</span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">maxLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">18</span>
+            },
+         ]
+      }
+   ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 2</strong>: two data layers (with a maximum LOD of 16 and 18) packaged as a single package, grouped in GeoPackages covering tiles across 5 LODs.
+The one package will be organized in a folder named <code>SampleCDBX</code>, and the GeoPackages files will be grouped by 5 counting down from the maximum LOD 18,
+e.g. <code>SampleCDBX/L0_R0_C0/L4_R10_C11/L9_R324_C356/SampleCDBX_L14_R10376_C11415_L18.gpkg</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">packages</span><span class="delimiter">&quot;</span></span> : [
+      {
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">SampleCDBX</span><span class="delimiter">&quot;</span></span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">tms</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">GNOSISGlobalGrid</span><span class="delimiter">&quot;</span></span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">groupLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">5</span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">maxLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">18</span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">layers</span><span class="delimiter">&quot;</span></span> : [
+            {
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Elevation</span><span class="delimiter">&quot;</span></span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">cs1</span><span class="delimiter">&quot;</span></span> : <span class="integer">1</span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">maxLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">16</span>
+            },
+            {
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Imagery</span><span class="delimiter">&quot;</span></span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">cs1</span><span class="delimiter">&quot;</span></span> : <span class="integer">4</span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">maxLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">18</span>
+            }
+         ]
+      }
+   ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 3</strong>: three data layers (with a maximum LOD of 16, 18 and 13) packaged as three separate packages.
+Elevation is grouped in GeoPackages covering tiles across 6 LODs, Imagery is grouped in tiles across 7 LODs while Buildings are stored grouped in a single GeoPackage.
+The Elevation package will be organized in a folder named <code>Elevation</code>, and the GeoPackages files will be grouped by 5 counting down from the maximum LOD 16,
+e.g. <code>Elevation/L0_R0_C0/L5_R20_C22/Elevation_L11_R1302_C1427_L16.gpkg</code>.
+The Imagery package will be organized in a folder named <code>Imagery</code>, and the GeoPackages files will be grouped by 7 counting down from the maximum LOD 18,
+e.g. <code>Imagery/L0_R0_C0/L5_R20_C22/Imagery_L12_R2605_C2855_L18.gpkg</code>.
+The Buildings will be stored in a single file named <code>Buildings.gpkg</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">packages</span><span class="delimiter">&quot;</span></span> : [
+      {
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Elevation</span><span class="delimiter">&quot;</span></span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">tms</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">GNOSISGlobalGrid</span><span class="delimiter">&quot;</span></span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">groupLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">6</span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">maxLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">16</span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">layers</span><span class="delimiter">&quot;</span></span> : [
+            {
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Elevation</span><span class="delimiter">&quot;</span></span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">cs1</span><span class="delimiter">&quot;</span></span> : <span class="integer">1</span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">maxLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">16</span>
+            }
+         ]
+      },
+      {
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Imagery</span><span class="delimiter">&quot;</span></span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">tms</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">GNOSISGlobalGrid</span><span class="delimiter">&quot;</span></span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">groupLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">7</span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">maxLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">18</span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">layers</span><span class="delimiter">&quot;</span></span> : [
+            {
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Imagery</span><span class="delimiter">&quot;</span></span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">cs1</span><span class="delimiter">&quot;</span></span> : <span class="integer">4</span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">maxLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">18</span>
+            }
+         ]
+      },
+      {
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Buildings</span><span class="delimiter">&quot;</span></span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">tms</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">GNOSISGlobalGrid</span><span class="delimiter">&quot;</span></span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">groupLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">0</span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">maxLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">13</span>,
+         <span class="key"><span class="delimiter">&quot;</span><span class="content">layers</span><span class="delimiter">&quot;</span></span> : [
+            {
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Buildings</span><span class="delimiter">&quot;</span></span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">cs1</span><span class="delimiter">&quot;</span></span> : <span class="integer">100</span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">cs2</span><span class="delimiter">&quot;</span></span> : <span class="integer">1</span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">subComponent</span><span class="delimiter">&quot;</span></span> : <span class="integer">1</span>,
+               <span class="key"><span class="delimiter">&quot;</span><span class="content">maxLOD</span><span class="delimiter">&quot;</span></span> : <span class="integer">13</span>
+            }
+         ]
+      }
+   ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Recommendation: Consider also defining this description of the packages and LOD grouping outside of the CDB X standard so that it can be used elsewhere as well.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_backwards_compatibility_with_ogc_cdb_1_x"><a class="anchor" href="#_backwards_compatibility_with_ogc_cdb_1_x"></a>13.9. Backwards Compatibility with OGC CDB 1.x</h3>
+<div class="paragraph">
+<p>The current OGC CDB tiling scheme can be described as a Tile Matrix Set (TMS) that encodes the CDB fixed zones and the larger tile dimensions,
+as seen in this <a href="https://maps.ecere.com/ogcapi/tileMatrixSets/CDBGlobalGrid">example description</a> (<a href="https://maps.ecere.com/ogcapi/tileMatrixSets/CDBGlobalGrid?f=json">JSON encoding</a>).
+Using this TMS, a profile or extension of OGC CDB 1.x could be created that would support the same GeoPackage containers and level of detail groupings, while conforming to the OGC CDB 1.x conceptual model.  Using this approach could bring in some concepts of CDB X into OGC CDB 1.x and make the transition easier to a future version of OGC CDB.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+We do not recommend supporting more than one tiling scheme in a version of CDB, as this choice is foundational to how data layers are processed and stored and accessed.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_geopackage_tile_matrix_set_extension"><a class="anchor" href="#_geopackage_tile_matrix_set_extension"></a>13.10. GeoPackage Tile Matrix Set extension</h3>
+<div class="paragraph">
+<p>The engineering tests created in this effort made use of a proposed Tile Matrix Set extension defined and initially tested in the
+<a href="https://www.ogc.org/projects/initiatives/vtp2">2019 OGC Vector Tiles Pilot Phase 2</a>, which enables support for the
+<a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid">GNOSIS Global Grid</a>.
+This extension has not yet been adopted as an official OGC GeoPackage extension, but is on the GeoPackage Standard Working Group roadmap.
+The current draft is available from here: <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions/14-tile-matrix-set.adoc">GeoPackage Two Dimensional Tile matrix Set (TMS) extension (Draft)</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Even though most current software do not yet support the GeoPackage TMS extension, the level 0 data
+(e.g. for the BlueMarble imagery sample GeoPackages) will still work e.g. in QGIS, as the GNOSIS Global Grid does not use variable widths at level 0.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tiled_coverage_data"><a class="anchor" href="#_tiled_coverage_data"></a>13.11. Tiled Coverage Data</h3>
+<div class="paragraph">
+<p>The <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">GeoPackage Tiled Gridded Coverage extension</a> would be ideal for storing tiled coverage data, but it has some drawbacks that would need to be addressed.
+Current limitations include:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4506,139 +4804,20 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </li>
 <li>
-<p>The engineering tests created in this effort made use of a proposed Tile Matrix Set extension that has not been adopted as an OGC GeoPackage extension.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Current GPKG TMS draft: <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/tree/master/extensions">GPKG TMS Extension (Draft)</a></p>
+<p>An <a href="https://github.com/opengeospatial/geopackage/issues/551">issue</a> was filed asking for better clarity about whether 16-bit PNG encoding is signed or unsigned</p>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_proposed_cdb_x_coverage_grouping"><a class="anchor" href="#_proposed_cdb_x_coverage_grouping"></a>14.6. Proposed CDB X Coverage Grouping</h3>
-<div class="paragraph">
-<p>There are two proposed ways to group data within a series of GeoPackage containers.  Within these choices is a tradeoff between the format simplicity of working with a single container, and access latency due to larger file and table sizes.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>For edge users and smaller areas, we would recommend that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user.</p>
-</li>
-<li>
-<p>For Modeling and Simulation uses, as well as data repository cases, we recommend that a series of GeoPackage containers be used to store CDB X coverage layers.  This involves storing a region of the world at a set of zoom levels, or levels of detail, within a single GeoPackage, with a specified file and directory naming scheme.  This approach would allow for faster access to data at specified areas and zoom levels.  It would also lend itself to concurrent access and editing for data repository maintainers.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>We propose that a configurable grouping value be used to specify how many zoom levels or levels of detail are put into a single GeoPackage.  This would be a tradeoff between the number of GeoPackages created and the file and table sizes within each GeoPackage.</p>
-</li>
-<li>
-<p>An initial grouping of 6 levels of coverage data in a single GeoPackage seems to be a reasonable number to use, but has not been extensively tested with.</p>
-</li>
-<li>
-<p>The proposed naming of each GeoPackage file is based on the layer name and the coarsest, lowest level tile included within the grouping inside the GeoPackage.  That tile&#8217;s level, row (from the top) and column within the tile matrix set make up the filename, along with the level of the finest or highest level tile that can be placed into this GeoPackage.  For example:  <strong>Coverages_L4_R16_C12_L6.gpkg</strong></p>
-</li>
-<li>
-<p>The proposed directory naming creates a directory tree to limits the number of GeoPackage files that could exist within a single directory.  Each GeoPackage will exist within a set of directory names that represents each coarser or lower zoom level GeoPackage that encompases the smaller higher resolution area.  For example:  The file, <strong>Coverages_L4_R16_C12_L6.gpkg</strong>, will exist in the directory named <strong>Coverages\L0_R1_C0\L1_R2_C1</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>The file and directory naming needs to be easy to compute algorithmically or exist within a catalog, without having to search a data repository to discover arbitrarily named files.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_backwards_compatibility_with_ogc_cdb_1_x"><a class="anchor" href="#_backwards_compatibility_with_ogc_cdb_1_x"></a>14.7. Backwards Compatibility with OGC CDB 1.x</h3>
-<div class="paragraph">
-<p>It is possible to keep the new GeoPackage container and level of detail groupings, and use the older OGC CDB 1.x tiling scheme with the creation of a Tile Matrix Set that is compatible with the existing CDB tile schema.  So the use of GeoPackage containers and coverage grouping could be used in a future version of CDB 1.x, although the new tiling scheme would not be backwards compatible.  At this time, we do not recommend supporting more than one tiling scheme, as this choice is foundational to how data layers are processed and stored.</p>
 </div>
 <div class="paragraph">
-<p>Sample GeoPackage using TMS / GNOSISGlobalGrid for both elevation &amp; vector data tiles: <a href="https://portal.ogc.org/files/?artifact_id=92565" class="bare">https://portal.ogc.org/files/?artifact_id=92565</a></p>
+<p>Multiple sample GeoPackages using TMS / GNOSISGlobalGrid are described and linked below in the results of the experiments.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_additional_cdb_x_recommendations"><a class="anchor" href="#_additional_cdb_x_recommendations"></a>14.8. Additional CDB X Recommendations</h3>
 <div class="paragraph">
 <p>The following are recommendations and suggested additional discussion topics. These recommendations and discussion topics resulted from the Tiling sub-groups discussion on an enhanced tiling model for CDB X and the potential impacts on the various data types (layers) in the current CDB standard and existing CDB data stores.</p>
 </div>
 <div class="sect3">
-<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>14.8.1. Elevation min/max</h4>
+<h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>13.11.1. Elevation min/max</h4>
 <div class="paragraph">
-<p>CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded coverage contained in a tile to the tile metadata. Note: The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>14.8.2. Image Compression - JPEG</h4>
-<div class="paragraph">
-<p>Recommendation: That loss-less image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: <a href="https://flif.info/">FLIF - Free Lossless Image Format</a>.NOTE: JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_materials"><a class="anchor" href="#_materials"></a>14.8.3. Materials</h4>
-<div class="paragraph">
-<p>Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with reflectance in wavelengths other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_findings_from_experiments"><a class="anchor" href="#_findings_from_experiments"></a>14.9. Findings from experiments</h3>
-<div class="paragraph">
-<p>The following graph compares the CDB 1.x zones with the Gnosis grid and shows how the GNOSIS algorithm helps to keep the typical tile closer to a “square” than CDB’s zones.</p>
-</div>
-<div id="img_logical-model" class="imageblock text-center">
-<div class="content">
-<img src="images/image2020-9-4_10-41-0.png" alt="image2020 9 4 10 41 0" width="600">
-</div>
-<div class="title">Figure Mtd_Ph3 - 17. CDB 1.x to GNOSIS Comparison - Ratio.</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_cdb_x_tilinggeopackage_experiment_1_ecere"><a class="anchor" href="#_cdb_x_tilinggeopackage_experiment_1_ecere"></a>14.10. CDB X Tiling/GeoPackage Experiment #1 (Ecere)</h3>
-<div class="sect3">
-<h4 id="_data_and_geopackage_structure"><a class="anchor" href="#_data_and_geopackage_structure"></a>14.10.1. Data and GeoPackage Structure</h4>
-<div class="paragraph">
-<p>A 1.4 GB GeoPackage of the Camp Pendleton sample CDB from Presagis (originally used in OGC Testbed 13), along with an accompanying <code>cdb.json</code> can be found at:</p>
-</div>
-<div class="paragraph">
-<p><a href="http://maps.ecere.com/CDBX/X1/" class="bare">http://maps.ecere.com/CDBX/X1/</a></p>
-</div>
-<div class="paragraph">
-<p>In the first Excere experiment, the camp Pendleton data was stored in a single GeoPackage using the  "null grouping" mode, i.e. everything stored in a single GeoPackage. Potentially even the cdb.json could be included inside as metadata (using the GeoPackage metadata extension) to make this GeoPackage very portable.</p>
-</div>
-<div class="paragraph">
-<p>Inside the GeoPackage, all layers were tiled using the Ecere <a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid">GNOSIS Global Grid</a>. This approach was implemented for the experiment using the proposed (and early draft) <a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc">GeoPackage Two Dimensional Tile matrix Set (TMS) extension</a>. This extension was defined and initially tested in the <a href="https://www.ogc.org/projects/initiatives/vtp2">2019 OGC Vector Tiles Pilot Phase 2</a>.</p>
-</div>
-<div class="paragraph">
-<p>The content includes imagery data, stored as JPEGs, and terrain data stored as GeoTIFFs. This was accomplished using an imlpementation of the <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">OGC GeoPackage Tiled Gridded Coverage Extension</a>.</p>
-</div>
-<div class="paragraph">
-<p>The content also included the Natural and Environmental light features vector layers. For this experiment, this content was stored  using Mapbox Vector Tiles. This included points intended to reference 3D models such as "Man-made point features" and "Tree point features".</p>
-</div>
-<div class="paragraph">
-<p>The early draft GeoPackage Tiled Vector Data (vector tiles) extensions were used for this:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc">GeoPackage Tiled Vector Data Attributes Extension</a> This extension defines a relationship between features contained in a tiled layer and tiles containing those features.</p>
-</li>
-<li>
-<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc">GeoPackage Tiled Vector Data</a> The GeoPackage Tiled Vector Data extension defines the rules and requirements for encoding tiled feature data (aka "vector tiles") into a GeoPackage data store.</p>
-</li>
-<li>
-<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc">MapBox Vector Tiles extension</a> The GeoPackage Mapbox Vector Tiles extension defines the rules and requirements for encoding vector tiles in a GeoPackage data store as Mapbox Vector Tiles.</p>
-</li>
-</ol>
+<p>CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded elevation coverage contained in a tile to the tile metadata.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4647,102 +4826,755 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="title">Note</div>
 </td>
 <td class="content">
-Ecere is planning to add the 3D models in the next experiments&#8201;&#8212;&#8201;for geo-specific, both one glTF for a whole tile, as well as individual models to be referenced by the points.
+The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>13.11.2. Image Compression - JPEG</h4>
+<div class="paragraph">
+<p>Recommendation: That loss-less and lossy image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: <a href="https://flif.info/">FLIF - Free Lossless Image Format</a>, although this format looks to be relatively slow as well.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_materials"><a class="anchor" href="#_materials"></a>13.11.3. Materials</h4>
+<div class="paragraph">
+<p>Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with the physical substance of a feature that can then be used to simulate the emmisive or reflective properties of a feature in wavelengths of the electromagnetic spectrum other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR or Radar. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tiled_vector_data"><a class="anchor" href="#_tiled_vector_data"></a>13.12. Tiled Vector Data</h3>
+<div class="paragraph">
+<p>To tile vector data (including points referencing 3D models), draft GeoPackage extensions defined during the <em>OGC Vector Tiles pilots</em> were used:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc">GeoPackage Vector Tiles</a> The GeoPackage Tiled Vector Data extension defines the rules and requirements for encoding tiled feature data (aka "vector tiles") into a GeoPackage data store.</p>
+</li>
+<li>
+<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc">GeoPackage Vector Tiles Attributes Extension</a> This extension defines a relationship between features contained in a tiled layer and tiles containing those features.</p>
+</li>
+<li>
+<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc">MapBox Vector Tiles extension</a> The GeoPackage Mapbox Vector Tiles extension defines the rules and requirements for encoding vector tiles in a GeoPackage data store as Mapbox Vector Tiles.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>As an alternative to encoding tiled vector data as Mapbox Vector Tiles, some experiments used the
+<a href="http://docs.opengeospatial.org/per/18-025.html#GMTSpecs">GNOSIS Map Tiles</a> encoding, specified by Ecere in Testbed 13 and 14.</p>
+</div>
+<div class="paragraph">
+<p>Recommendation: Although the use of non-tiled vector data layers (e.g. storing the geometry as WKB in GeoPackage features tables) should also be supported
+by CDB, the use of tiled vector data extension should be allowed. In particular, tiling vector data is essential for dealing with features spanning
+a very large geospatial extent, such as coastlines (e.g. OpenStreetMap ways tagged with <a href="https://wiki.openstreetmap.org/wiki/Coastline"><code>natural=coastline</code></a>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Such large single features where tiling is essential was not used in experiments of the Vector data group, which focused on testing the performance
+of a large number of features stored indexed, but not tiled inside GeoPackages.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>For the case of points referencing the 3D models (best suited for geo-typical), those glTF files would be stored in a single 3D models table, as well as a textures table (if the models share rather than embed textures). The related table extension would be used to relate the features attributes.</p>
+<p>One thing that was noted is that even if the vector geometry is tiled and organized into multiple GeoPackages, it might be useful to support storing the data
+attributes separately only at the top-level (level 0) tiles, or in a single GeoPackage storing only data attributes, to avoid duplication of that information
+at each grouping level.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_tiled_3d_models"><a class="anchor" href="#_tiled_3d_models"></a>13.13. Tiled 3D Models</h3>
 <div class="paragraph">
-<p>For the geo-specific / one glTF for the whole tile, the glTF could potentially be stored in a tiles table instead, and the models constituting the payload (much like raster or vector tiles).</p>
+<p>Two approaches were experimented with to include 3D Models in GeoPackages, along with textures used by those models.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_ogc_api_access_demo"><a class="anchor" href="#_ogc_api_access_demo"></a>14.10.2. OGC API access demo</h4>
-<div class="paragraph">
-<p>At this address: <a href="https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg" class="bare">https://maps.ecere.com/ogcapi/collections/CDBX:X1:CampPendletonX1.gpkg</a></p>
-</div>
-<div class="paragraph">
-<p>You can directly access this CDB X Experiment #1 GeoPackage through our GNOSIS Map Server, including rendering maps, downloading coverages, accessing as tiles in different tiling schemes, accessing individual vector features, retrieving them as (re-merged) GeoJSON, visualizing them on GeoJSON.io and so on.
-To some extent, this demonstrates that even though the data is tiled, this layout actually supports a wide range of use cases.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_visualization"><a class="anchor" href="#_visualization"></a>14.10.3. Visualization</h4>
-<div class="paragraph">
-<p>Ecere software can currently visualize the CDB X/GeoPackage elevation and imagery directly in the Ecere 3D visualization tool (albeit with a few glitches at the moment at terrain tile edges).</p>
-</div>
-<div id="img_logical-model" class="imageblock text-center">
-<div class="content">
-<img src="images/ecere-cdbx-1.png" alt="ecere cdbx 1" width="600">
-</div>
-<div class="title">Figure Mtd_Ph3 - 18. Ecere Camp Pendleton GeoPackage in CDB X.</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_live_cesium_js_3d_tiles_demonstation"><a class="anchor" href="#_live_cesium_js_3d_tiles_demonstation"></a>14.10.4. Live Cesium JS / 3D Tiles demonstation</h4>
-<div class="paragraph">
-<p>Navigate to <a href="https://sandcastle.cesium.com/" class="bare">https://sandcastle.cesium.com/</a> and copy/paste the following four (4) lines of Java Script code:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="js"><span class="keyword">var</span> worldTerrain = Cesium.createWorldTerrain({<span class="key">requestWaterMask</span>: <span class="predefined-constant">true</span>, <span class="key">requestVertexNormals</span>: <span class="predefined-constant">true</span>, });
-<span class="keyword">var</span> viewer = <span class="keyword">new</span> Cesium.Viewer(<span class="string"><span class="delimiter">&quot;</span><span class="content">cesiumContainer</span><span class="delimiter">&quot;</span></span>, { <span class="key">terrainProvider</span>: worldTerrain });
-<span class="keyword">var</span> scene = viewer.scene;
-<span class="keyword">var</span> tileset = scene.primitives.add(<span class="keyword">new</span> Cesium.Cesium3DTileset({ <span class="key">url</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings/3DTiles/tileset.json</span><span class="delimiter">&quot;</span></span> }));</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Then click "Run", and zoom in onto Camp Pendleton. Camp Pendleton is at the height of the southern part of the northernmost of the 2 islands just west of southern California. As the image is zoomed, 3D buildings should come into view.</p>
-</div>
-<div class="paragraph">
-<p>This tiled 3D distribution (for OGC API collection <a href="http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings" class="bare">http://maps.ecere.com/ogcapi/collections/CampPendletonCDB:Buildings</a>) is currently being generated on the fly from the Ecere GNOSIS Data Store / E3D models. NOTE: No textures have been added yet.</p>
-</div>
-<div class="paragraph">
-<p>Once the 3D models are added to the CDBX GeoPackage, it should be possible to stream as 3D Tiles &lt;CESIUM??&gt; straight from the CDBX/GeoPackage as well, rather than the original CampPendleton CDB repository.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_next_steps_this_section_will_change_as_new_content_is_provided"><a class="anchor" href="#_next_steps_this_section_will_change_as_new_content_is_provided"></a>14.10.5. Next steps (this section will change as new content is provided)</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Support for splitting in multiple GeoPackages with LoD grouping</p>
+<p>A) one where 3D models are individually stored in a single table, and referenced and placed by tiled vector data (points),</p>
 </li>
 <li>
-<p>A table for storing glTF models, for referenced 3D models (either only for geo-typical trees, or even the geo-specific buildings as well), and using Related tables extensions to relate the models table to other tables</p>
+<p>B) and another where batched 3D models are the content of the tiles.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Results of experiments for both variations are found below in the experiments description.</p>
+</div>
+<div class="sect3">
+<h4 id="_3d_models_extension"><a class="anchor" href="#_3d_models_extension"></a>13.13.1. 3D Models Extension</h4>
+<div class="paragraph">
+<p>As a draft GeoPackage extension for 3D models is being defined, rows are added to the <code>gpkgext_extensions</code> table to identify all tables set up for this extension.</p>
+</div>
+<div class="paragraph">
+<p>For all of these tables, the <code>extension_name</code> is configured to be <code>ecere_3d_models</code>, the definition to be <a href="http://github.com/ecere/gpkgext-3dmodels" class="bare">http://github.com/ecere/gpkgext-3dmodels</a>, and the <code>scope</code> to be <code>read-write</code>.</p>
+</div>
+<div class="paragraph">
+<p>The tables registered with this extension are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>gpkgext_3d_models</code> (only used for the reference points approach A)</p>
 </li>
 <li>
-<p>Single glTF models covering a whole tile for geo-specific models</p>
+<p>the individual tiles tables for batched 3D models (only used for approach B)</p>
 </li>
 <li>
-<p>Export similar GeoPackages for San Diego CDB</p>
+<p><code>gpkgext_textures</code> for shared textures</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_a_referenced_3d_models_with_placement_information"><a class="anchor" href="#_a_referenced_3d_models_with_placement_information"></a>13.13.2. A) Referenced 3D models with placement information</h4>
+<div class="paragraph">
+<p>In this approach, best suited for geo-typical models, a single table per GeoPackage (<code>gpkgext_3d_models</code>) is used to define one model per row, in a blob within the <code>model</code> field.
+A <code>format</code> field allows to specify the format. Both glTF and E3D have been used in the experiments.
+The <code>name</code> field allows to specify a name for the model, andt the <code>lod</code> field can optionally be used to distinguish between multiple level of details for the model, or left NULL if only a single version exists. The combination of <code>name</code>, <code>lod</code> and <code>format</code> must be unique.</p>
+</div>
+<div class="paragraph">
+<p>The <code>model::id</code> field of the attributes table for the 3D models referencing points (which would also contain the point geometry in a non-tiled approach) references the <code>id</code> (primary key) of the <code>gpkgext_3d_models</code> table.
+The attributes table may also contain additional fields for scaling and orienting the models:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>model::scale</code>; or <code>model::scaleX</code>, <code>model::scaleY</code> and <code>model::scaleZ</code> for non-uniform scaling</p>
 </li>
 <li>
-<p>Attribution per model within the single tile model. We support this directly in E3D, and I wonder whether glTF2 supports this.
-I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF is a Features Table which does precisely this, so I am not sure whether glTF 2 has this capability built in (i.e. allowing to use a .glb directly rather than a .b3dm).</p>
+<p><code>model::yaw</code>, <code>model::pitch</code> and <code>model::roll</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These attributes duplicate the CDB fields <code>AO1</code>, <code>SCALx</code>, <code>SCALy</code>, <code>SCALz</code> (and in a sense <code>MODL</code> as well), but are intended to be defined in a non-CDB specific manner within a generic 3D Models extension for GeoPackage.</p>
+</div>
+<div class="paragraph">
+<p>The following SQL is used to create the <code>gpkgext_3d_models</code> table:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="sql"><span class="class">CREATE</span> <span class="type">TABLE</span> gpkgext_3d_models (
+   id <span class="predefined-type">INTEGER</span> <span class="directive">PRIMARY</span> <span class="type">KEY</span> AUTOINCREMENT <span class="keyword">NOT</span> <span class="predefined-constant">NULL</span>,
+   name <span class="predefined-type">TEXT</span> <span class="keyword">NOT</span> <span class="predefined-constant">NULL</span>,
+   lod <span class="predefined-type">INTEGER</span>,
+   format <span class="predefined-type">TEXT</span> <span class="keyword">NOT</span> <span class="predefined-constant">NULL</span>,
+   model <span class="predefined-type">BLOB</span>,
+   <span class="type">CONSTRAINT</span> unique_models <span class="directive">UNIQUE</span>(name, lod, format));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example <code>gpkgext_3d_models</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>id  name               lod  format  model
+--  -----------------  ---  ------  -----
+1   coniferous_tree01       glb     glTF
+2   palm_tree01             glb     glTF</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sample SQL table creation for attributes table referencing the 3D models:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="sql"><span class="class">CREATE</span> <span class="type">TABLE</span> attributes_Trees (
+   id <span class="predefined-type">INTEGER</span> <span class="directive">PRIMARY</span> <span class="type">KEY</span> AUTOINCREMENT <span class="keyword">NOT</span> <span class="predefined-constant">NULL</span>,
+   AO1 REAL, CNAM <span class="predefined-type">TEXT</span>, RTAI <span class="predefined-type">INTEGER</span>,
+   SCALx REAL, SCALy REAL, SCALz REAL,
+   AHGT <span class="predefined-type">TEXT</span>, BBH REAL, BBL REAL, BBW REAL, BSR REAL,
+   CMIX <span class="predefined-type">INTEGER</span>, FACC <span class="predefined-type">TEXT</span>, FSC <span class="predefined-type">INTEGER</span>, HGT REAL,
+   MODL <span class="predefined-type">TEXT</span>,
+   <span class="string"><span class="delimiter">`</span><span class="content">model::id</span><span class="delimiter">`</span></span> <span class="predefined-type">INTEGER</span>,
+   <span class="string"><span class="delimiter">`</span><span class="content">model::yaw</span><span class="delimiter">`</span></span> REAL,
+   <span class="string"><span class="delimiter">`</span><span class="content">model::scale</span><span class="delimiter">`</span></span> REAL)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_b_batched_3d_models_tiles"><a class="anchor" href="#_b_batched_3d_models_tiles"></a>13.13.3. B) Batched 3D Models tiles</h4>
+<div class="paragraph">
+<p>In this approach, best suited for geo-specific models, a single model covers a whole tile, batching all 3D models from the data layer found within that tile, and is stored in a tiles table much like raster or vector tiles (as a glTF blob in the <code>tile_data</code> field).
+It is closer to the 3D Tiles / One World Terrain approach, and could potentially also combine both 3D Terrain and 3D Models (though ideally keeping them as distinct nodes within the model). Such an approach may facilitate transition between CDBX and OWT.</p>
+</div>
+<div class="paragraph">
+<p>Because GeoPackage does not define a generic mechanism to specify the encoding of <code>tile_data</code> (it has previously been suggested that this would be a good field to add to the <code>gpkg_contents</code> table), the encoding of the 3D model must be deducted from the content of the blob. Fortunately, both glTF and E3D feature a header signature which facilitates this. The <code>3d-models</code> type is introduced to specify in the <code>data_type</code> column of the <code>gpkg_contents</code> table.</p>
+</div>
+<div class="paragraph">
+<p>The translation origin of the model, as well as its orientation, is implied from the center of the tile (from the tile matrix / tile matrix set) for which it defined. The model is defined in the 3D cartesian space where (0, 0, 0) lies at that center, sitting directly on the WGS84 ellipsoid, and oriented so that by default it appears upright with its X axis pointing due East, its Z axis pointing North, and its Y axis pointing away from the center of the Earth. In other words, it would be equivalent to having a single point situated at the center of the tile in the referenced 3D points approach.</p>
+</div>
+<div class="paragraph">
+<p>The height of the individual features (e.g. buildings) within the batched models tile models has already been adjusted match the elevation model. However, each separate feature from CDB is encoded in the model as a separate node to facilitate re-adjusting it to new elevation.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_textures_table"><a class="anchor" href="#_textures_table"></a>13.13.4. Textures table</h4>
+<div class="paragraph">
+<p>The textures table has the following fields:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>id</code>: integer primary key</p>
 </li>
 <li>
-<p>Support for visualizing the dataset including 3D models in our GNOSIS Cartographer client (work required to support CDB consisting of multiple of GeoPackages as a single data source)</p>
+<p><code>name</code>: The filename used in the model to refer to the texture</p>
 </li>
 <li>
-<p>Support for GNOSIS Map Server streaming 3D models from CDB X/GeoPackage</p>
+<p><code>width</code>: width of the texture</p>
+</li>
+<li>
+<p><code>height</code>: height of the texture</p>
+</li>
+<li>
+<p><code>format</code>: e.g. "png"</p>
+</li>
+<li>
+<p><code>texture</code>: blob containing the texture data</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The combination of <code>name</code>, <code>width</code>, <code>height</code> and <code>format</code> must be unique.</p>
+</div>
+<div class="paragraph">
+<p>The following SQL statement is used to create the table:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="sql"><span class="class">CREATE</span> <span class="type">TABLE</span> gpkgext_textures (
+   id <span class="predefined-type">INTEGER</span> <span class="directive">PRIMARY</span> <span class="type">KEY</span> AUTOINCREMENT <span class="keyword">NOT</span> <span class="predefined-constant">NULL</span>,
+   name <span class="predefined-type">TEXT</span> <span class="keyword">NOT</span> <span class="predefined-constant">NULL</span>,
+   width <span class="predefined-type">INTEGER</span> <span class="keyword">NOT</span> <span class="predefined-constant">NULL</span>,
+   height <span class="predefined-type">INTEGER</span> <span class="keyword">NOT</span> <span class="predefined-constant">NULL</span>,
+   format <span class="predefined-type">TEXT</span> <span class="keyword">NOT</span> <span class="predefined-constant">NULL</span>,
+   texture <span class="predefined-type">BLOB</span>,
+   <span class="type">CONSTRAINT</span> unique_textures <span class="directive">UNIQUE</span>(name, width, height, format));</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>id  name   width  height  format  texture
+--  -----  -----  ------  ------  -------
+1   1.png  512    512     png     �PNG
+2   1.png  256    256     png     �PNG
+3   2.png  512    512     png     �PNG
+4   2.png  256    256     png     �PNG</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ecere_geopackage_tiling_experiments"><a class="anchor" href="#_ecere_geopackage_tiling_experiments"></a>13.14. Ecere GeoPackage Tiling Experiments</h3>
+<div class="sect3">
+<h4 id="_overview"><a class="anchor" href="#_overview"></a>13.14.1. Overview</h4>
+<div class="paragraph">
+<p>Ecere conducted multiple experiments during the sprint tiling and packaging data sourced from CDB 1.x content.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The first experiment&#8217;s objective was to share an example of how to store CDB data in a GeoPackage following the GNOSIS Global Grid, using the TileMatrixSet and
+vector tiles extensions, as well as describing this content using the proposed <code>cdb.json</code> schema. The Camp Pendleton sample CDB from Presagis was used
+for this experiment.</p>
+</li>
+<li>
+<p>The second experiment aimed to demonstrate how to distribute data covering a large area in multiple GeoPackages using a pre-determined LOD grouping setting.
+The bigger San Diego CDB dataset provided by CAE was used for this experiment as well as the next.</p>
+</li>
+<li>
+<p>The third experiment investigated storing 3D models inside the GeoPackages using two different approaches.
+One approach is very similar to the CDB 1.x data model where all 3D models are stored in a single table and referenced from points stored in tiled vector data.
+In the other approach, 3D models are batched per tile and stored in the <code>tile_data</code> blob of GeoPackage tiles table. The local origin of the 3D model corresponds
+to the center of the tile in which it is stored, assuming a coordinate system whose axes are aligned with East, North and Up.
+This approach is more similar to the one used for 3D Tiles and One World Terrain.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These were originally described as separate experiments on the <a href="https://github.com/sofwerx/cdb2-concept/wiki">CDB X concept wiki</a>, but here the combined final results of producing a prototype
+CDB X for the full San Diego CDB are presented. These results cover tiling the imagery, elevation, vector data and 3D models for the full San Diego CDB.</p>
+</div>
+<div id="img_gpkgexport" class="imageblock text-center">
+<div class="content">
+<img src="images/Ecere-GeoPackageCDBXExport.png" alt="Ecere GeoPackageCDBXExport" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 19. Ecere GeoPackage / CDB X Export dialog and options in Ecere’s GNOSIS Cartographer</div>
+</div>
+<div id="img_gpkgexport2" class="imageblock text-center">
+<div class="content">
+<img src="images/Ecere-GeoPackageCDBXExport2.png" alt="Ecere GeoPackageCDBXExport2" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 20. Ecere GeoPackage / CDB X Export dialog and options close up</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_data_results"><a class="anchor" href="#_data_results"></a>13.14.2. Data results</h4>
+<div class="sect4">
+<h5 id="_single_geopackage"><a class="anchor" href="#_single_geopackage"></a>Single GeoPackage</h5>
+<div class="paragraph">
+<p>This one GeoPackage contains the whole San Diego CDB data (not including Blue Marble):</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+In the texture table for this GeoPackage, the texture names are prefixed by an extra directory to differentiate the numbered textures used in the
+different 3D models data layers, however the reference from the 3D models was not yet updated to reflect this.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95378">Complete San Diego CDB X - <em>cdb.json</em> index</a></p>
+</div>
+<div class="paragraph">
+<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.gpkg.7z">Complete San Diego CDB X - GeoPackage</a> (12.8 GiB, 9.8 GiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.gpkg">Complete San Diego CDB X - GeoPackage using GNOSIS Map Tiles and E3D Models</a> (10.3 GiB uncompressed)</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_data_layers_packaged_together_tiles_grouped_in_multiple_geopackages"><a class="anchor" href="#_data_layers_packaged_together_tiles_grouped_in_multiple_geopackages"></a>Data layers packaged together (tiles grouped in multiple GeoPackages)</h5>
+<div class="paragraph">
+<p>This series of GeoPackages (also covering the whole San Diego CDB) groups tiles of 5 LODs for all data layers within the same GeoPackage.
+In this approach, the textures are stored in a separate folder to avoid repeating them in each separate GeoPackage.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95366"><em>cdb.json</em> index</a></p>
+</div>
+<div class="paragraph">
+<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.7z">One package using an LOD grouping of 5</a> (14.6 GiB, 9.9 GiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95370">Partial dataset (subset of the overall extent) using an LOD grouping of 5</a> (1.4 GiB, 217.5 MiB compressed)</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_as_separate_layers"><a class="anchor" href="#_as_separate_layers"></a>As separate layers</h5>
+<div class="paragraph">
+<p>A series of GeoPackages (11.2 GB compressed) of the San Diego CDB, plus a full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble,
+along with an accompanying <code>cdb.json</code> can be found at:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/index.php?m=projects&amp;a=view&amp;project_id=466&amp;tab=2&amp;artifact_id=95320">OGC portal folder</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95345">Top-level <em>cdb.json</em> index</a></p>
+</div>
+<div class="paragraph">
+<p>The individual layers, as well as alternate encodings of some of them and are listed below:</p>
+</div>
+<div class="sect5">
+<h6 id="_elevation"><a class="anchor" href="#_elevation"></a>Elevation</h6>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95352">Elevation (using 16-bit integer PNG encoding)</a> (483 MiB, 472 MiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95328">Elevation (using 16-bit integer Paeth/LZMA GMT encoding)</a> (370.8 MiB, 365.2 MiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/ElevationTIF.7z">Elevation (using 32-bit float GeoTIFF encoding)</a> (1.4 GiB, 1.3 GiB compressed)</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_imagery"><a class="anchor" href="#_imagery"></a>Imagery</h6>
+<div class="paragraph">
+<p><strong><em>Encoded as JPG</em>:</strong></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The imagery in these GeoPackages is lossy. Recommendation: allow the use of JPEG-2000 and/or additional lossless formats more compact than PNG in GeoPackages.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/BlueMarble.7z">Full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble</a> (1.6 GiB, 1.4 GiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/ImageryMedium.7z">Medium resolution imagery</a> (4.9 GiB, 4.7 GiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/ImageryHigh.7z">High resolution imagery</a> (4.5 GiB, 4.3 GiB compressed)</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_vector_data_2"><a class="anchor" href="#_vector_data_2"></a>Vector data</h6>
+<div class="paragraph">
+<p><strong><em>Tiled and encoded as Mapbox Vector Tiles:</em></strong></p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95348">Hydrography</a> (424 KiB)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95350">Roads</a> (69.1 MiB, 17.6 MiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95346">Airport Lights</a> (144 KiB)</p>
+</div>
+<div class="paragraph">
+<p><strong><em>Tiled and encoded as GNOSIS Map Tiles:</em></strong></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The latest specifications for the GNOSIS Map Tiles encoding is available in the <a href="http://docs.opengeospatial.org/per/18-025.html#GMTSpecs">Annex B</a> of the <em>CityGML and Augmented Reality</em> Engineering Report.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95330">Hydrography</a> (248 KiB)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95331">Roads</a> (38 MiB, 23.4 MiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95329">Airport Lights</a> (148 KiB)</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_3d_models_2"><a class="anchor" href="#_3d_models_2"></a>3D Models</h6>
+<div class="paragraph">
+<p><strong><em>Single GeoPackages using Mapbox Vector Tiles for reference points, and models encoded as binary glTF:</em></strong></p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95351">Buildings</a> (2.9 GiB, 321.3 MiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95349">Trees</a> (2 MiB)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95347">Coronado Bridge</a> (272 KiB)</p>
+</div>
+<div class="paragraph">
+<p><strong><em>Single GeoPackages using GNOSIS Map Tiles for reference points, and models encoded as E3D:</em></strong></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The latest specifications for the <em>E3D</em> 3D Model and <em>GNOSIS Map Tiles</em> encodings are available in the <a href="http://docs.opengeospatial.org/per/18-025.html"><em>CityGML and Augmented Reality</em> Engineering Report</a>,
+(<a href="http://docs.opengeospatial.org/per/18-025.html#E3DSpecs">Appendix A</a> and <a href="http://docs.opengeospatial.org/per/18-025.html#GMTSpecs">Appendix B</a>, respectively).
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The unconmpressed GeoPackages are more compact because the E3D models feature internal LZMA compression.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95340">Buildings (GNOSIS Map Tiles / E3D)</a> (560.8 MiB, 332.8 MiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95339">Trees (GNOSIS Map Tiles / E3D)</a> (1.8 MiB)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95338">Coronado Bridge (GNOSIS Map Tiles / E3D)</a> (196 KiB)</p>
+</div>
+<div class="paragraph">
+<p><strong><em>Multiple GeoPackages using various LOD grouping, Mapbox Vector Tiles for reference points, and models encoded as binary glTF:</em></strong></p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95344">Buildings grouped by 4 LODs</a> (4.1 GiB, 446.6 MiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95343">Buildings grouped by 5 LODs</a> (3.7 GiB, 409.2 MiB compressed)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The larger size for grouping by 4 and 5 LODs is mainly a result of lower resolution models being duplicated in higher level grouping GeoPackages.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95342">Buildings grouped by 7 LODs</a> (2.9 GiB, 321.3 MiB compressed)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Except for the directory / file naming, the 7 LODs buildings are equivalent to 6 LODs since there are only 6 LODs of buildings in the dataset.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95341">Trees grouped by 6 LODs</a> (2.9 MiB, 1.2 MiB compressed)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Except for the directory / file naming, the 6 LODs trees are equivalent to any other LOD groupings, since there is only 1 LOD of trees in the dataset.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong><em>Single GeoPackages batching 3D models for each tile as binary glTF:</em></strong></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The model is encoded in the <code>tile_data</code> field of the tiles table. This approach is best suited for geo-specific models, and can be used directly as the glTF payload of a <code>.b3dm</code> 3D Tile (with proper transformation matrix in JSON tileset).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95337">Buildings (glTF / batched 3D models tiles)</a> (3.9 GiB, 512.4 MiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95335">Trees (glTF / batched 3D models tiles)</a> (91 MiB, 2.3 MiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95336">Coronado Bridge (glTF / batched 3D models tiles)</a> (576 KiB)</p>
+</div>
+<div class="paragraph">
+<p><strong><em>Single GeoPackages batching 3D models for each tile as E3D:</em></strong></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The model is encoded in the <code>tile_data</code> field of the tiles table. This approach is best suited for geo-specific models. The unconmpressed GeoPackages are more compact because the E3D models feature internal LZMA compression.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95334">Buildings (E3D / batched 3D models tiles)</a> (417.3 MiB, 339.8 MiB compressed)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95333">Trees (E3D / batched 3D models tiles)</a> (3.3 MiB)</p>
+</div>
+<div class="paragraph">
+<p><a href="https://portal.ogc.org/files/?artifact_id=95332">Coronado Bridge (E3D / batched 3D models tiles)</a> (256 KiB)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ogc_api_access_demo"><a class="anchor" href="#_ogc_api_access_demo"></a>13.14.3. OGC API access demo</h4>
+<div class="paragraph">
+<p>At this address: <a href="https://maps.ecere.com/ogcapi/collections/SanDiegoCDB" class="bare">https://maps.ecere.com/ogcapi/collections/SanDiegoCDB</a></p>
+</div>
+<div class="paragraph">
+<p>the San Diego CDB data from the GNOSIS data store can be accessed directly through the GNOSIS Map Server, including rendering maps, downloading coverages,
+accessing as tiles in different tiling schemes, accessing individual vector features, retrieving them as (re-merged) GeoJSON, visualizing them on GeoJSON.io,
+accessing as 3D Tiles tilesets or individual tiles, also supporting retrieving batched 3D tiles as binary glTF.
+and so on. These delivery capabilities demonstrate that tiled data actually supports a wide range of use cases.
+More details about accessing this data via the OGC API can be found in the Engineering Report for the OGC Interactive Simulation and Gaming Sprint.</p>
+</div>
+<div class="paragraph">
+<p>At this address: <a href="https://maps.ecere.com/ogcapi/collections/SanDiegoLayers" class="bare">https://maps.ecere.com/ogcapi/collections/SanDiegoLayers</a></p>
+</div>
+<div class="paragraph">
+<p>the prototype CDB X split GeoPackages can be accessed directly .
+However at this point, the map server and visualization client do not present this as a unified data source, so instead the tiles structure and individual GeoPackages are individually accessible.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_visualization"><a class="anchor" href="#_visualization"></a>13.14.4. Visualization</h4>
+<div class="paragraph">
+<p>Ecere&#8217;s GNOSIS 3D visualization tools can currently visualize the individual CDB X/GeoPackage elevation and imagery directly.
+Like for the server however the split geopackages are not yet unified as a single data source.
+Accessing and visualizing the 3D models from the GeoPackage tables remains to be implemented.</p>
+</div>
+<div id="img_campPendleton" class="imageblock text-center">
+<div class="content">
+<img src="images/ecere-cdbx-1.png" alt="ecere cdbx 1" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 21. Visualizing Camp Pendleton CDB X/GeoPackage in Ecere&#8217;s GNOSIS Cartographer.</div>
+</div>
+<hr>
+<div class="paragraph">
+<p>The following screenshots are visualization of the intermediate GNOSIS data store used to generate the CDB X using the same tiling scheme.
+Part of this effort was accomplished during the <a href="https://www.ogc.org/projects/initiatives/isg-sprint">OGC Interoperable Simulation and Gaming Sprint</a>.
+A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also published.</p>
+</div>
+<div class="paragraph">
+<p>In addition to the San Diego CDB dataset, worldwide elevation data from <a href="http://viewfinderpanoramas.org/">Viewfinder Panoramas</a> by Jonathan de Ferranti and imagery from NASA Visible Earth’s <a href="https://earthobservatory.nasa.gov/features/BlueMarble">Blue Marble</a> are used outside of the extent covered by the San Diego dataset.</p>
+</div>
+<div id="img_sd1" class="imageblock text-center">
+<div class="content">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego1.jpg" alt="SanDiego1" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 22. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (cape)</div>
+</div>
+<div id="img_sd2" class="imageblock text-center">
+<div class="content">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego2.jpg" alt="SanDiego2" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 23. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (hotels and palm trees)</div>
+</div>
+<div id="img_sd4" class="imageblock text-center">
+<div class="content">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego4.jpg" alt="SanDiego4" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 24. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (skyscrapers)</div>
+</div>
+<div id="img_sd5" class="imageblock text-center">
+<div class="content">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego5.jpg" alt="SanDiego5" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 25. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (Coronado bridge)</div>
+</div>
+<div id="img_sd11" class="imageblock text-center">
+<div class="content">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego11.jpg" alt="SanDiego11" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 26. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (airstrip)</div>
+</div>
+<div id="img_sd15" class="imageblock text-center">
+<div class="content">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego15.jpg" alt="SanDiego15" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 27. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (high above, showing 3D globe)</div>
+</div>
+<div class="paragraph">
+<p>This last image features ESA Gaia’s Sky in colour (Gaia Data Processing and Analysis Consortium (DPAC); A. Moitinho / A. F. Silva / M. Barros / C. Barata, University of Lisbon, Portugal; H. Savietto, Fork Research, Portugal.) CC BY SA 3.0.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cesium_js_3d_tiles_demo"><a class="anchor" href="#_cesium_js_3d_tiles_demo"></a>13.14.5. Cesium JS / 3D Tiles demo</h4>
+<div id="img_sdCesium1" class="imageblock text-center">
+<div class="content">
+<img src="http://ecere.com/tmp/SanDiegoCesium.png" alt="SanDiegoCesium" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 28. San Diego CDB (before implementing support for textures in generated 3D Tiles)</div>
+</div>
+<div id="img_CesiumJS3DTiles" class="imageblock text-center">
+<div class="content">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/CesiumSanDiego3.jpg" alt="CesiumSanDiego3" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 29. CesiumJS Client accessing San Diego CDB data as 3D Tiles from Ecere’s GNOSIS Map Server (Petco Park)</div>
+</div>
+<div class="paragraph">
+<p>The following JavaScript code, which can simply be copied to the <a href="https://sandcastle.cesium.com/">Cesium Sand Castle</a>, can be used to visualize the data as 3D Tiles, including textures. It sets up the buildings, trees as well as the Coronado Bridge, together with the Cesium world terrain. One limitation is that the generated tileset is still missing multiple level of details, therefore visualizing a large area will be quite slow.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="js"><span class="keyword">var</span> worldTerrain = Cesium.createWorldTerrain({ <span class="key">requestWaterMask</span>: <span class="predefined-constant">true</span>, <span class="key">requestVertexNormals</span>: <span class="predefined-constant">true</span> });
+<span class="keyword">var</span> viewer = <span class="keyword">new</span> Cesium.Viewer(<span class="string"><span class="delimiter">&quot;</span><span class="content">cesiumContainer</span><span class="delimiter">&quot;</span></span>, { <span class="key">terrainProvider</span>: worldTerrain });
+<span class="keyword">var</span> scene = viewer.scene;
+<span class="keyword">var</span> trees = scene.primitives.add(<span class="keyword">new</span> Cesium.Cesium3DTileset(
+   { <span class="key">url</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://maps.ecere.com/ogcapi/collections/SanDiegoCDB:Trees/3DTiles/tileset.json</span><span class="delimiter">&quot;</span></span> }));
+<span class="keyword">var</span> bridge = scene.primitives.add(<span class="keyword">new</span> Cesium.Cesium3DTileset(
+   { <span class="key">url</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://maps.ecere.com/ogcapi/collections/SanDiegoCDB:CoronadoBridge/3DTiles/tileset.json</span><span class="delimiter">&quot;</span></span> }));
+<span class="keyword">var</span> buildings = scene.primitives.add(<span class="keyword">new</span> Cesium.Cesium3DTileset(
+   { <span class="key">url</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://maps.ecere.com/ogcapi/collections/SanDiegoCDB:Buildings/3DTiles/tileset.json</span><span class="delimiter">&quot;</span></span> }));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This 3D Tiles distribution is currently being generated from the GNOSIS Data Store / E3D models. Support to stream as 3D Tiles straight from CDBX GeoPackages should also be achievable.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_future_work"><a class="anchor" href="#_future_work"></a>13.14.6. Future work</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Support for visualizing 3D models directly from the CDB X/GeoPackages dataset in GNOSIS Cartographer client</p>
+</li>
+<li>
+<p>Support for GNOSIS Map Server streaming 3D models directly from CDB X/GeoPackage</p>
+</li>
+<li>
+<p>Support for unifying split GeoPackages making up the CDB X dataset as a single data source</p>
+</li>
+<li>
+<p>Attribution per model within the single tile model. This is supported directly in E3D for triangular face-level attribution (it was clarified that glTF2 does not supports this, and extensions were considering vertex rather than face attributions).</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flightsafety_geopackage_tiling_experiments"><a class="anchor" href="#_flightsafety_geopackage_tiling_experiments"></a>14.11. FlightSafety GeoPackage Tiling Experiments</h3>
+<h3 id="_flightsafety_geopackage_tiling_experiments"><a class="anchor" href="#_flightsafety_geopackage_tiling_experiments"></a>13.15. FlightSafety GeoPackage Tiling Experiments</h3>
 <div class="paragraph">
-<p><strong>Setup</strong>: The data used for these experiments are primarily freely available, and include the following
-* Blue Marble (NASA) that was georeferenced using GDAL - <a href="https://visibleearth.nasa.gov/collection/1484/blue-marble" class="bare">https://visibleearth.nasa.gov/collection/1484/blue-marble</a>
-* The high resolution inset is from USGS downloads of Central Park in New York City</p>
+<p><strong>Setup</strong>: The data used for these experiments are primarily freely available, and include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Blue Marble (NASA) that was georeferenced using GDAL - <a href="https://visibleearth.nasa.gov/collection/1484/blue-marble" class="bare">https://visibleearth.nasa.gov/collection/1484/blue-marble</a></p>
+</li>
+<li>
+<p>The high resolution inset is from USGS downloads of Central Park in New York City</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p><strong>Tiling Scheme</strong>: The tiling scheme uses the [GNOSIS Global Grid](<a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid" class="bare">https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid</a>) (using TMS extension&#8201;&#8212;&#8201;<a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc</a>).  We are using the same type of json file that Ecere is using in their experiment.</p>
+<p><strong>Tiling Scheme</strong>: The tiling scheme uses the <a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid">GNOSIS Global Grid</a> (using TMS extension&#8201;&#8212;&#8201;<a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc</a>).  We are using the same type of json file that Ecere is using in their experiment.</p>
 </div>
 <div class="paragraph">
 <p><strong>LOD Grouping</strong> The grouping is pre-set per experiment.  The groups are calculated from the highest LOD, back to coarser LODs.  For example, if there are 7 LODs (0-6) and a grouping of 4, then LODs 3 through 7 are in one GeoPackage, and LODs 0 through 2 are in another GeoPackage.</p>
@@ -4761,7 +5593,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_flightsafety_experiment_1"><a class="anchor" href="#_flightsafety_experiment_1"></a>14.11.1. FlightSafety Experiment 1</h4>
+<h4 id="_flightsafety_experiment_1"><a class="anchor" href="#_flightsafety_experiment_1"></a>13.15.1. FlightSafety Experiment 1</h4>
 <div class="sect4">
 <h5 id="_purpose_of_experiment"><a class="anchor" href="#_purpose_of_experiment"></a>Purpose of Experiment</h5>
 <div class="paragraph">
@@ -4793,12 +5625,12 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 <div class="sect4">
 <h5 id="_data_location"><a class="anchor" href="#_data_location"></a>Data Location</h5>
 <div class="paragraph">
-<p>Compressed 7-zip file at:  <a href="https://drive.google.com/drive/folders/1zfdBnAHpf9McLTbaJotdKGR_tXQad4dy?usp=sharing" class="bare">https://drive.google.com/drive/folders/1zfdBnAHpf9McLTbaJotdKGR_tXQad4dy?usp=sharing</a></p>
+<p>Compressed 7-zip file with test data can be found at:  <a href="https://portal.ogc.org/files/?artifact_id=95358" class="bare">https://portal.ogc.org/files/?artifact_id=95358</a></p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_flightsafety_experiment_2"><a class="anchor" href="#_flightsafety_experiment_2"></a>14.11.2. FlightSafety Experiment 2</h4>
+<h4 id="_flightsafety_experiment_2"><a class="anchor" href="#_flightsafety_experiment_2"></a>13.15.2. FlightSafety Experiment 2</h4>
 <div class="sect4">
 <h5 id="_purpose_of_experiment_2"><a class="anchor" href="#_purpose_of_experiment_2"></a>Purpose of Experiment</h5>
 <div class="paragraph">
@@ -4814,12 +5646,22 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 <div class="sect4">
 <h5 id="_data_location_2"><a class="anchor" href="#_data_location_2"></a>Data Location</h5>
 <div class="paragraph">
-<p>Compressed 7-zip file at:  <a href="https://drive.google.com/drive/folders/1zKuu0oQy3K5oKestuPIvL-BRiSPn9oaO?usp=sharing" class="bare">https://drive.google.com/drive/folders/1zKuu0oQy3K5oKestuPIvL-BRiSPn9oaO?usp=sharing</a></p>
+<p>The full compressed file had to be split into two pieces as a multi-part zip file, to enable saving on the OGC portal.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://portal.ogc.org/files/?artifact_id=95361" class="bare">https://portal.ogc.org/files/?artifact_id=95361</a></p>
+</li>
+<li>
+<p><a href="https://portal.ogc.org/files/?artifact_id=95371" class="bare">https://portal.ogc.org/files/?artifact_id=95371</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_observations_from_experiments_1_and_2"><a class="anchor" href="#_observations_from_experiments_1_and_2"></a>14.11.3. Observations from Experiments 1 and 2</h4>
+<h4 id="_observations_from_experiments_1_and_2"><a class="anchor" href="#_observations_from_experiments_1_and_2"></a>13.15.3. Observations from Experiments 1 and 2</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -4835,7 +5677,7 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 </div>
 </div>
 <div class="sect3">
-<h4 id="_flightsafety_experiments_3_and_4"><a class="anchor" href="#_flightsafety_experiments_3_and_4"></a>14.11.4. FlightSafety Experiments 3 and 4</h4>
+<h4 id="_flightsafety_experiments_3_and_4"><a class="anchor" href="#_flightsafety_experiments_3_and_4"></a>13.15.4. FlightSafety Experiments 3 and 4</h4>
 <div class="sect4">
 <h5 id="_purpose_of_experiment_3"><a class="anchor" href="#_purpose_of_experiment_3"></a>Purpose of Experiment</h5>
 <div class="paragraph">
@@ -4867,19 +5709,19 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 <div class="content">
 <img src="images/topTilesNew.JPG" alt="topTilesNew" width="400">
 </div>
-<div class="title">Figure Mtd_Ph3 - 19. Top GeoPackage Level.</div>
+<div class="title">Figure Mtd_Ph3 - 30. Top GeoPackage Level.</div>
 </div>
 <div id="img_level0New" class="imageblock text-center">
 <div class="content">
 <img src="images/level0New.JPG" alt="level0New" width="400">
 </div>
-<div class="title">Figure Mtd_Ph3 - 20. Mid-level directory structure.</div>
+<div class="title">Figure Mtd_Ph3 - 31. Mid-level directory structure.</div>
 </div>
 <div id="img_level4New" class="imageblock text-center">
 <div class="content">
 <img src="images/level4New.JPG" alt="level4New" width="400">
 </div>
-<div class="title">Figure Mtd_Ph3 - 21. Leaf directory structure.</div>
+<div class="title">Figure Mtd_Ph3 - 32. Leaf directory structure.</div>
 </div>
 </div>
 <div class="sect4">
@@ -4894,15 +5736,48 @@ I know the main thing that a batched 3D model 3D Tile adds in addition to a glTF
 <div class="sect4">
 <h5 id="_data_location_3"><a class="anchor" href="#_data_location_3"></a>Data Location</h5>
 <div class="paragraph">
-<p>The Experiment 3 compressed 7-zip file is loacted here:  <a href="https://drive.google.com/drive/folders/1XpljPt_TrqqxsgcWaxLhi9C1qLE0nI32?usp=sharing" class="bare">https://drive.google.com/drive/folders/1XpljPt_TrqqxsgcWaxLhi9C1qLE0nI32?usp=sharing</a></p>
+<p>The full compressed files had to be split into multiple pieces as a multi-part zip file, to enable saving on the OGC portal.</p>
 </div>
-<div class="paragraph">
-<p>The Experiment 4 compressed 7-zip file is located here:  <a href="https://drive.google.com/drive/folders/1ipgsWaQmy2GWfUwnKVffJwggm6rXKcRj?usp=sharing" class="bare">https://drive.google.com/drive/folders/1ipgsWaQmy2GWfUwnKVffJwggm6rXKcRj?usp=sharing</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Experiment 3 compressed zip files containing both data layers as separate GeoPackage layers in the CDB X tiling output:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://portal.ogc.org/files/?artifact_id=95374" class="bare">https://portal.ogc.org/files/?artifact_id=95374</a></p>
+</li>
+<li>
+<p><a href="https://portal.ogc.org/files/?artifact_id=95375" class="bare">https://portal.ogc.org/files/?artifact_id=95375</a></p>
+</li>
+<li>
+<p><a href="https://portal.ogc.org/files/?artifact_id=95376" class="bare">https://portal.ogc.org/files/?artifact_id=95376</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Experiment 4 compressed zip files containing both data layers in a merged GeoPackage layer in the CDB X tiling output</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://portal.ogc.org/files/?artifact_id=95379" class="bare">https://portal.ogc.org/files/?artifact_id=95379</a></p>
+</li>
+<li>
+<p><a href="https://portal.ogc.org/files/?artifact_id=95380" class="bare">https://portal.ogc.org/files/?artifact_id=95380</a></p>
+</li>
+<li>
+<p><a href="https://portal.ogc.org/files/?artifact_id=95381" class="bare">https://portal.ogc.org/files/?artifact_id=95381</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_observations_for_experiments_3_and_4"><a class="anchor" href="#_observations_for_experiments_3_and_4"></a>14.11.5. Observations for Experiments 3 and 4</h4>
+<h4 id="_observations_for_experiments_3_and_4"><a class="anchor" href="#_observations_for_experiments_3_and_4"></a>13.15.5. Observations for Experiments 3 and 4</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -4933,7 +5808,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 <div class="content">
 <img src="images/fs-gpkg-performance.png" alt="fs gpkg performance" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 22. Performance.</div>
+<div class="title">Figure Mtd_Ph3 - 33. Performance.</div>
 </div>
 </div>
 </div>
@@ -4999,7 +5874,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-30 23:25:18 UTC
+Last updated 2020-11-02 17:20:28 UTC
 </div>
 </div>
 <style>
