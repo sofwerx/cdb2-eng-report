@@ -1,19 +1,26 @@
 [[tiling]]
 == Tiling and packaging of data layers
 
-This chapter covers the evaluation of a specific global tiling scheme for CDB X, the configurable grouping of Levels of Detail to balance file size vs
-file count, an approach to packaging one or more data layers in GeoPackages (including coverage, vector and 3D data), current and proposed GeoPackage
-extensions for storing this data, as well as the results of related prototyping activities.
+This chapter covers:
 
-Although the tiling sub-group was initially assigned specifically to explore tiled coverage data, some experiments went beyond this and also applied the
-same tiling approach to vector data and 3D models and used existing or new extensions to store this tiled data in GeoPackages.
+- The evaluation of a specific global tiling scheme for CDB X, 
+- The configurable grouping of Levels of Detail to balance file size versus file count, 
+- An approach to packaging one or more data layers in GeoPackages (including coverage, vector and 3D data), 
+- Current and proposed GeoPackage extensions for storing this data, and 
+- As well as the results of related prototyping activities.
 
-=== General
+The tiling sub-group was initially assigned specifically to explore tiled coverage data However, based on initial work some experiments evolved went beyond the initial teting scope. The additional experimentation also applied the same tiling approach to vector data and 3D models and used existing or new extensions to store this tiled data in GeoPackages.
 
-Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the:
+=== OGC Standards Relevant to Tiling and Packaging
+
+Based on the discussions and results of the experimentation, the Tiling Subgroup participants believe the following:
+
+`Recommendation:` Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the:
 
 * https://portal.ogc.org/files/?artifact_id=92962&version=1[OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space] (19-014r3)
 * https://www.ogc.org/standards/tms[OGC Two Dimensional Tile Matrix Set Standard] (17-083r2)
+
+Additional information is now provided on these key OGC standards that are highly relevant to the development and approval of CDB 2.0.
 
 ==== OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space
 
@@ -29,7 +36,7 @@ The OGC Tile Matrix Set standard defines the rules and requirements for a tile m
 
 === Design Objectives for CDB X Tiling, LoDs and Layers
 
-The following are the key design principles for a CDB X tiling, levels of detail, and layering.
+The following are the key design principles for a CDB X tiling, levels of detail, and layering. These design principals were discussed and documented during Phase 1 discussions as well as during the experimentation.
 
 * OGC GeoPackage structured containers are a primary storage format for derived vector data layers, coverages, and other data types as identified (`TBD`). The two OGC Standards of relevance are https://portal.opengeospatial.org/files/12-128r15[OGC GeoPackage version 1.1] and http://docs.opengeospatial.org/is/17-066r1/17-066r1.html[OGC GeoPackage Extension for Tiled Gridded Coverage Data].
 * Use metadata for whole datasets that describe how data layers are regrouped in GeoPackages (LOD grouping and data layer grouping)
@@ -86,11 +93,11 @@ image::images/image2020-9-4_10-41-0.png[width=800,align="center"]
 
 Benefits from changing to the proposed tiling scheme:
 
-* OGC CDB 1.x has 41,220 top level tiles, which requires opening huge numbers of files to show the Earth at world scales.  The proposed CDB X tiling would use 8 tiles to cover the Earth at the coarsest level of detail.
+* OGC CDB 1.x has 41,220 top level tiles, which requires opening huge numbers of files to visualize the Earth at global scales.  The proposed CDB X tiling would use 8 tiles to cover the Earth at the coarsest level of detail.
 * The concept of "zones" in OGC CDB 1.x are still present in the tiling scheme, but algorithmically derived rather than at fixed latitudes.  New zones are introduced at higher levels of detail, keeping the tiles near the poles closer to an ideal square shape than in OGC CDB 1.x
-* The ratio of the longitude size of tiles is always 1:1, 2:1, or the inverse 1:2, where OGC CDB 1.x has several ratios that must be supported, such as 2:1, 3:2 and 4:3
+* The ratio of the longitude size of tiles is always 1:1, 2:1, or the inverse 1:2, where OGC CDB 1.x has several ratios that must be supported, such as 2:1, 3:2 and 4:3.
 
-Drawbacks from changing to the proposed tiling scheme include the following.  These issues would require some level of rework for existing CDB applications to be compatible with the new tiling scheme.
+Drawbacks from changing to the proposed tiling scheme include the following.  NOTE: These issues would require some level of rework for existing CDB applications to be compatible with the new tiling scheme.
 
 * The new tiling scheme is incompatible with OGC CDB 1.x, as there is no alignment between the tile areas and the LOD or zoom levels.  To convert data between these two tiling schemes would require merging and splitting of raster data tiles, while changing their resolution, and would require reprocessing all the coverage data (like imagery).
 * Some CDB applications might have more trouble with tiles that are not based on integer latitude and longitude boundaries.
@@ -99,17 +106,17 @@ Drawbacks from changing to the proposed tiling scheme include the following.  Th
 
 === Proposed CDB X Data Container
 
-The coverage, vector and 3D models data would be stored using GeoPackage containers.
-Imagery and coverage data would always be tiled, while vector data could optionally be stored tiled using extensions for tiled vector data being standardized,
-and 3D models could either be stored in a single table referenced by placement points, or as batched 3D models tiles.
+The coverage, vector and 3D models data could be stored using http://www.geopackage.org/spec/[GeoPackage] containers.
+Imagery and coverage data would always be tiled. Vector data could optionally be stored in tiles using extensions for tiled vector data being standardized in the OGC. 
+3D models could either be stored in a single table referenced by placement points, or as batched tiled 3D models.
 
 === Proposed Levels of Detail Grouping
 
 There are two proposed ways to group data within a series of GeoPackage containers.  Within these choices is a tradeoff between the format simplicity of working with a single container, and access latency due to larger file and table sizes.
 
-1. For edge users and smaller areas, we would recommend that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user.
-2. For Modeling and Simulation uses, as well as data repository cases, we recommend that a series of GeoPackage containers be used to store CDB X coverage layers.  This involves storing a region of the world at a set of zoom levels, or levels of detail, within a single GeoPackage, with a specified file and directory naming scheme.  This approach would allow for faster access to data at specified areas and zoom levels.  It would also lend itself to concurrent access and editing for data repository maintainers.
-** We propose that a configurable grouping value be used to specify how many zoom levels or levels of detail are put into a single GeoPackage.  This would be a tradeoff between the number of GeoPackages created and the file and table sizes within each GeoPackage.
+1. For edge users and smaller areas, the Subgroup particpants `recommend` that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user.
+2. For Modeling and Simulation uses, as well as data repository cases, the Subgroup participants `recommend` that a series of GeoPackage containers be used to store CDB X coverage layers.  This involves storing a region of the world at a set of zoom levels, or levels of detail, within a single GeoPackage, with a specified file and directory naming scheme.  This approach would allow for faster access to data at specified areas and zoom levels.  It would also lend itself to concurrent access and editing for data repository maintainers.
+** The particpants propose that a configurable grouping value be used to specify how many zoom levels or levels of detail are put into a single GeoPackage.  This would be a tradeoff between the number of GeoPackages created and the file and table sizes within each GeoPackage.
 ** Multiple grouping numbers were experimented with. 5 was found to be a good number for packaging together all data layers of the San Diego CDB. This grouping number might need to be adjusted for different types of data layers, or different data sets as well.
 ** The proposed naming of each GeoPackage file is based on the layer name and the coarsest, lowest level tile included within the grouping inside the GeoPackage.  That tile's level, row (from the top) and column within the tile matrix set make up the filename, along with the level of the finest or highest level tile that can be placed into this GeoPackage.  For example:  **Coverages_L4_R16_C12_L6.gpkg**
 ** The proposed directory naming creates a directory tree to limits the number of GeoPackage files that could exist within a single directory.  Each GeoPackage will exist within a set of directory names that represents each coarser or lower zoom level GeoPackage that encompases the smaller higher resolution area.  For example:  The file, **Coverages_L4_R16_C12_L6.gpkg**, will exist in the directory named **Coverages\L0_R1_C0\L1_R2_C1**
