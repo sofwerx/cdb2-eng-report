@@ -19,7 +19,7 @@ Phase 3: 03 August 2020 to 28 August 2020 Engineering Report (ER): Participants 
 
 Phase 4: 07 September 2020 to 25 September 2020 Proposed Draft Specification: Participants will create a proposed draft specification for “CDB 2.0” based on work in the previous phases, to be submitted to the appropriate working groups within OGC, Khronos, and/or SISO. 
 
-[NOTE: Once the experimentation activities started, the particpants in concert with SOFWERX and SOCOM determined that writing a draft specification was beyond the scope of this project. Instead, the focus increased on the experiments and protyping to provide key recommendations to be communicated in this ER and submitted to the OGC CDB Standards Working group (SWG) to provide the foundation for the actual standards development work.]
+NOTE: Once the experimentation activities started, the particpants in concert with SOFWERX and SOCOM determined that writing a draft specification was beyond the scope of this project. Instead, the focus increased on the experiments and protyping to provide key recommendations to be communicated in this ER and submitted to the OGC CDB Standards Working group (SWG) to provide the foundation for the actual standards development work.
 
 Phase 5: 05 October 2020 to 5 November 2020 Final Report: Participants will write a final report summarizing activities to date, recommendations for the OGC SWG and other standards bodies to consider, and contributions of each participant.
 
