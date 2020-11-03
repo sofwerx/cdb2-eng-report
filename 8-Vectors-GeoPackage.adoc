@@ -24,8 +24,13 @@ Four containers were prepared:
 4.	combined-features-conus.gpkg
 cdb-usa-bldg-ssiz.gpkg:
 This file contains 39,079,781 point features. Its size on disk is 5,249,290,240 bytes. The following is an image showing the attributes on features in the table.
- 
-Figure 1 – attribute table for US CDB building data
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Attribute table for US CDB building data.
+image::images/Vec_Gpkg_Figure01.jpg[width=800,align="center"]
+
+Figure 1 – Attribute table for US CDB building data
+
 These point features were created using the following process:
 a.	Building footprints for the United States area were extracted from OpenStreetMap sources.
 b.	An approximate ‘significant size’ for each building we calculated using the formula:
