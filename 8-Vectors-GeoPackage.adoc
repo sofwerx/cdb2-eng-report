@@ -69,7 +69,7 @@ image::images/Vec_Gpkg_Figure04.jpg[width=800,align="center"]
 
 Like the hydrographic features described above, this dataset does not contain a true network – topology was not analyzed and CDB junction IDs are not set.
 
-===== Output
+==== Output
 The final container, combined-features-conus.gpkg is simply a single container with each of the aforementioned layers copied into it.  Its size on disk is 18,164,895,744 bytes.
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
