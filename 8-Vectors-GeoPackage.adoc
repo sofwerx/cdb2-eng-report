@@ -100,7 +100,8 @@ In our test, reading the ShapeFiles took 0:01:29 (1.5 minutes). With no indexes 
 ** Timing step one is the elapsed time to apply the spatial filter.
 ** Timing step two is the elapsed time to return a feature count based on the combined spatial and (if any) attribute filters.
 ** Timing step three is the elapsed time to read the features from the layer into a Python list.
-* At the end of processing and timing each ‘tile’ defined by the collection of spatial filters, a corresponding ‘shape’ is created and written into the test record output file.  * The output attribution is as follows:
+* At the end of processing and timing each ‘tile’ defined by the collection of spatial filters, a corresponding ‘shape’ is created and written into the test record output file.
+* The output attribution is as follows:
 ** count:	the number of features returned after application of filters
 ** filter_t – 	time to complete the filtering operation(s) in seconds
 ** count_t:	time to complete the feature count operation in seconds
