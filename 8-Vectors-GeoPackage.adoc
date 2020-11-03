@@ -30,7 +30,7 @@ This file contains 39,079,781 point features. Its size on disk is 5,249,290,240 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Attribute table for US CDB building data.
 image::images/Vec_Gpkg_Figure01.jpg[width=800,align="center"]
-<br>
+<br/>
 
 These point features were created using the following process:
 a.	Building footprints for the United States area were extracted from OpenStreetMap sources.
