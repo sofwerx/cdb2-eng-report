@@ -12,13 +12,16 @@ The Subgroup also found that the design the schema is very important, including 
 === Objective
 The purpose of these experiments was to examine performance in searching for and interacting with CDB features stored in very large unitary GeoPackage containers.
 The design intent of the large datasets consisted of three main considerations:
+
 •	Be very large in terms of feature counts
 •	Be CDB-like in terms of feature attribution
 •	Be ‘representative’ of real-world feature density over a large area.
+
 The source data was prepared for the USA, including Alaska, Hawaii and Puerto Rico. Testing, however, was limited to only CONUS.
 
 === Data Sources
 Four containers were prepared:
+
 .	cdb-usa-bldg-ssiz.gpkg
 .	osm-hydro-to-CDB.gpkg
 .	osm-roads-to-CDB.gpkg
