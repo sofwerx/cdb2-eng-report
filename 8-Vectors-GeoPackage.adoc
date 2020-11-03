@@ -31,6 +31,7 @@ This file contains 39,079,781 point features. Its size on disk is 5,249,290,240 
 .Attribute table for US CDB building data.
 image::images/Vec_Gpkg_Figure01.jpg[width=800,align="center"]
 
+
 These point features were created using the following process:
 a.	Building footprints for the United States area were extracted from OpenStreetMap sources.
 b.	An approximate ‘significant size’ for each building we calculated using the formula:
@@ -50,6 +51,7 @@ The first is Hydro_Network_Areal, with attributes shown below.  It contains 2,12
 .Hydro_Areal_Network CDB layer attribute table.
 image::images/Vec_Gpkg_Figure02.jpg[width=800,align="center"]
 
+
 While named a ‘network’ layer, no effort was made to conduct a topological analysis and assign junction IDs.  The CDB-like attribution is merely representative.  This layer was created by combining OSM hydrographic areals based on a very simple attribute filter, and then running the results through an 'OSM to CDB Attribute Translator’ with rules set to create very generic CDB attributions.
 
 The second layer is ‘Hydro_Network_Linear, with its attribution shown below.  It contains 4,252,603 features.
@@ -57,6 +59,7 @@ The second layer is ‘Hydro_Network_Linear, with its attribution shown below.  
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Hydro_Network_Linear CDB attribute table.
 image::images/Vec_Gpkg_Figure03.jpg[width=800,align="center"]
+
 
 Again, no effort was made to conduct a topological analysis and assign junction IDs.  The CDB-like attribution is merely representative.  This layer was created by combining OSM hydrographic linears based on a simple attribute filter, and then running the results through an 'OSM to CDB Attribute Translator’ with rules set to create very generic CDB attributions.
 
@@ -67,6 +70,7 @@ This file contains roads derived from worldwide OSM. It contains 90,425,963 feat
 .OSM roads layer attributes table.
 image::images/Vec_Gpkg_Figure04.jpg[width=800,align="center"]
 
+
 Like the hydrographic features described above, this dataset does not contain a true network – topology was not analyzed and CDB junction IDs are not set.
 
 ==== Output
@@ -75,6 +79,7 @@ The final container, combined-features-conus.gpkg is simply a single container w
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Layers of the final data container.
 image::images/Vec_Gpkg_Figure05.jpg[width=500,align="center"]
+
 
 The layer ‘Road_Network_Linear’ was clipped from the world-wide road coverage, to approximately the CONUS area, to cover the same extents as the other three layers.  
 
@@ -97,21 +102,22 @@ In our test, reading the ShapeFiles took 0:01:29 (1.5 minutes). With no indexes 
 ** Timing step three is the elapsed time to read the features from the layer into a Python list.
 * At the end of processing and timing each ‘tile’ defined by the collection of spatial filters, a corresponding ‘shape’ is created and written into the test record output file.  
 The output attribution is as follows:
-count:	the number of features returned after application of filters
-filter_t – 	time to complete the filtering operation(s) in seconds
-count_t:	time to complete the feature count operation in seconds
-read_t :	time to complete feature read operation in seconds.  This includes reading from the GeoPackage container and appending each feature to a Python list.
-Sequence: 	order that the tile was processed
-‘$geometry’: 	tile extents derived from spatial filter polygon
+** count:	the number of features returned after application of filters
+** filter_t – 	time to complete the filtering operation(s) in seconds
+** count_t:	time to complete the feature count operation in seconds
+** read_t :	time to complete feature read operation in seconds.  This includes reading from the GeoPackage container and appending each feature to a Python list.
+** Sequence: 	order that the tile was processed
+** ‘$geometry’: 	tile extents derived from spatial filter polygon
 Note: tiles that return zero features do not create a test output record.
 
 ==== Results
-===== Experiment 1:  Step size .25 degrees (CDB LOD2), significant size > 13.355 (LOD2 significant size) 
+==== Experiment 1:  Step size .25 degrees (CDB LOD2), significant size > 13.355 (LOD2 significant size) 
 Test results coverage is shown in the figure below.
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Test results coverage at LOD 2.
 image::images/Vec_Gpkg_Figure06.jpg[width=800,align="center"]
+
 
 This test simulates retrieving point features corresponding to CDB LOD2 and only models with the corresponding lowest significant size (as defined in the CDB 3.2, Table 3-1).  The conclusion that is drawn from this test, however, is that spatial filtering time is insignificant and appears to not be correlated to the number of features found. 
 The time it takes to count and read filtered features appears to be a direct correlation to number of features found.
@@ -122,25 +128,29 @@ The Experiment 1 attribute table results are shown in the figures below, each fi
 .Experiment 1 test results attribute table sorted by 'feature count'.
 image::images/Vec_Gpkg_Figure07.jpg[width=800,align="center"]
 
+
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 1 test results sorted by 'filter_t'.
 image::images/Vec_Gpkg_Figure08.jpg[width=800,align="center"]
 
+
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 1 test results sorted by 'count_t'.
 image::images/Vec_Gpkg_Figure09.jpg[width=800,align="center"]
+
  
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experimment 1 test results sorted by 'read_t'.
 image::images/Vec_Gpkg_Figure10.jpg[width=800,align="center"]
 
 
-===== Experiment 2: simulation of LOD4, hydro, road, and building layers, significant size (buildings) > 3.39718
+==== Experiment 2: simulation of LOD4, hydro, road, and building layers, significant size (buildings) > 3.39718
 Test results coverage is shown in the figure below.
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 2 LOD 4 test coverage results.
 image::images/Vec_Gpkg_Figure11.jpg[width=800,align="center"]
+
 
 This test uses the combined layers source file and simulates a CDB LOD4 data access pattern. Timing values are totals, accumulating as each layer is filtered, counted as features are read.
 Once again, filter timing appears to be insignificant and unrelated to the number of features filtered.  Data in the GT_Model layer has both a spatial and attribute (significant size) filter applies.
@@ -151,17 +161,21 @@ The Experiment 2 attribute table results are shown in the figures below, each fi
 .Experiment 2 LOD 4 test sorted by 'feature count'.
 image::images/Vec_Gpkg_Figure12.jpg[width=800,align="center"]
 
+
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 2 LOD 4 test sorted by 'filter_t'.
 image::images/Vec_Gpkg_Figure13.jpg[width=800,align="center"]
+
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 2 LOD 4 test sorted by 'count_t'.
 image::images/Vec_Gpkg_Figure14.jpg[width=800,align="center"]
 
+
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 2 LOD 4 test sorted by feature 'read_t'.
 image::images/Vec_Gpkg_Figure15.jpg[width=800,align="center"]
+
 
 === Conclusions and Recommendations
 1.	It appears practical to store large amounts of feature data in single GeoPackage containers and retrieve that data by applying spatial and attribution filters that correspond with typical CDB access patterns.
