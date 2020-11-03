@@ -6,7 +6,7 @@
 
 === Abstract
 To test potential approaches to storing CDB vector data in GeoPackage, the Vector Data in GeoPackage Subgroup, hereafter referred to as the Subgroup, performed several different experiments to determine the viability of storing very large volumes of vector data in a smaller number of large GeoPackage files rather than a very large number of small Shapefiles. Some of the experiments also set out to determine if there are upper limits in how much CDB content can be stored in a GeoPackage. 
-This document details the SUbgroup's approach and results of the experiments. The experiments demonstrated that GeoPackage/SQLite is capable of meeting the performance and size constraints for vector data in a CDB if properly defined {*CDB or GeoPackage?*}. The expiriments also demonstrated that from a performance standpoint doing a direct conversion of existing Shapefile content into GeoPackage(s) may not be feasible. To gain the most from using GeoPackage as a container for large vector datasets, some approaches to level of detail (LOD) and other CDB content should be reconsidered. This includes the way significant size is used in CDB.
+This document details the SUbgroup's approach and results of the experiments. The experiments demonstrated that GeoPackage/SQLite is capable of meeting the performance and size constraints for vector data in a CDB if properly defined {*CDB or GeoPackage?*}. The experiments also demonstrated that from a performance standpoint doing a direct conversion of existing Shapefile content into GeoPackage(s) may not be feasible. To gain the most from using GeoPackage as a container for large vector datasets, some approaches to level of detail (LOD) and other CDB content should be reconsidered. This includes the way significant size is used in CDB.
 The Subgroup also found that the design the schema is very important, including proper index design, when using GeoPackage. Shapefiles are very simple for developers to use since there is not a lot of flexibility when it comes to how to store data. Conversely, GeoPackage is very flexible. As such how a GeoPackage is structured and indexed can have a major impact on performance. If the exact schema and indexes for GeoPackage are properly defined as part of the CDB-X, users can expect very good performance, even for large datasets.
 
 NOTE: The OGC CDB Standards Working Group will use the work performed by the particpants in this Sprint but also further augmented by the OGC Testbed 16 GeoPackage experiments and findings related to proessing, storing, and querying extremely large vector datasets. 
@@ -74,54 +74,62 @@ image::images/Vec_Gpkg_Figure03.jpg[width=800,align="center"]
 Again, no effort was made to conduct a topological analysis and assign junction IDs.  The CDB-like attribution is merely representative.  This layer was created by combining OSM hydrographic linears based on a simple attribute filter, and then running the results through an 'OSM to CDB Attribute Translator’ with rules set to create very generic CDB attributions.
 
 ==== Data Source 3 - osm-roads-to-CDB.gpkg
-This file contains roads derived from worldwide OSM. It contains 90,425,963 features. Its size on disk is 29,832,347,648 bytes.
+
+This GeoPackage contains roads derived from worldwide OSM. The GeoPackage contains 90,425,963 features and requires 29,832,347,648 bytes of storage.
  
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .OSM roads layer attributes table.
 image::images/Vec_Gpkg_Figure04.jpg[width=800,align="center"]
 &nbsp;
 
-Like the hydrographic features described above, this dataset does not contain a true network – topology was not analyzed and CDB junction IDs are not set.
+Like the hydrographic features described above, this dataset does not contain a true network. Topology was not analyzed and CDB junction IDs are not set.
 
 ==== Output
-The final container, combined-features-conus.gpkg is simply a single container with each of the aforementioned layers copied into it.  Its size on disk is 18,164,895,744 bytes.
+
+The final GeoPackage container, combined-features-conus.gpkg, is simply a single container with each of the aforementioned layers copied into it.  This GeoPackage requires 18,164,895,744 bytes of storage.
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Layers of the final data container.
 image::images/Vec_Gpkg_Figure05.jpg[width=500,align="center"]
 &nbsp;
 
-The layer ‘Road_Network_Linear’ was clipped from the world-wide road coverage, to approximately the CONUS area, to cover the same extents as the other three layers.  
+The layer ‘Road_Network_Linear’ was clipped to approximately the CONUS area from the world-wide road coverage. This is so this GeoPackage covers the same extents as the other three layers.  
 
 === Performance Testing
 
 ==== Attribute Queries and Performance Summary
-The objective of this testing was to explore a combination of spatial and attribution filtering in a CDB-like environment.
-To illustrate the importance of properly designing the schema when migrating from a Shapefile to a GeoPackage-based CDB, we converted all the vector data in a CDB directly. We used an approach similar to "Design Approach 4" in the discussion paper entitled _OGC CDB, Leveraging GeoPackage Discussion Paper_ (https://portal.opengeospatial.org/files/?artifact_id=82553). The conversion grouped all vector features by dataset and geocell into a single GeoPackage file. Each vector feature was assigned a value for LOD, HREF, and UREF to correspond to the original Shapefile filename. A test was developed to randomly seek through the CDB and read features. The test script had a list of 8243 individual Shapefiles, but each file was opened and read in a randomized order. In the case of the Shapefile, each file was opened by filename, and all of the features were read. In subsequent tests with GeoPackage, the same content was read (using the list of Shapefile filenames), but instead of opening the Shapefile, the script performed a query based on the LOD, HREF, and UREF attributes.
-In our test, reading the ShapeFiles took 0:01:29 (1.5 minutes). With no indexes on the GeoPackage attributes, the queries took over one hour (1:01:47). Next, we created an index for the LOD, HREF, and UREF attributes and repeated the GeoPackage test. With the indexes, finding and reading the same features took 0:00:49, only half of the time it took to read the Shapefiles.
+
+The objective of the testing was to explore a combination of spatial and attribution filtering in a CDB-like environment.
+To illustrate the importance of properly designing the schema when migrating from a Shapefile to a GeoPackage-based CDB, all the vector data in a CDB was converted. An approach similar to "Design Approach 4" in the OGC Discussion Paper titled https://portal.opengeospatial.org/files/?artifact_id=82553[OGC CDB, Leveraging GeoPackage Discussion Paper] was used. The conversion grouped all vector features by dataset and geocell into a single GeoPackage. Each vector feature was assigned a value for LOD, HREF, and UREF to correspond to the original Shapefile filename. A test was developed to randomly seek and read features in the CDB GeoPackage. The test script had a list of 8243 individual Shapefiles, but each file was opened and read in a randomized order. In the case of the Shapefile, each file was opened by filename, and all of the features were read. In subsequent tests with GeoPackage, the same content was read (using the list of Shapefile filenames), but instead of opening the Shapefile, the script performed a query based on the LOD, HREF, and UREF attributes.
+
+In this test, reading the ShapeFiles took 0:01:29 (1.5 minutes). With no indexes on the GeoPackage attributes, the queries took over one hour (1:01:47). Next, an index for the LOD, HREF, and UREF attributes was created and the above GeoPackage test repeated. With the indexes, finding and reading the same features took 0:00:49. Thisis only half of the time it took to read the Shapefiles.
 
 ==== Methodology
+
 * The testing environment was a single Windows workstation, 16 CPU cores, 64 GB of system RAM, and very large SATA disk storage.  No ‘exotic’ (SSD, M2, etc.) storage devices were used.
 * Tests were created as Python scripts, leveraging the ‘osgeo’ Python module. Timing information was captured using Python’s ‘time’ module. Python 3.7.4 (64-bit) was used.
 * Each timing test was performed in the approximate CONUS extents of North 49 degrees latitude to South 24 degrees latitude, and from West 66 degrees longitude to West 125 degrees longitude.
-* Prior to running a test, a ‘step size’ is defined – typically corresponding to a CDB LOD tile size. A list of every spatial filter in the entire extent is created, then randomized.
-* Also, prior to a test, a ‘significant size’ filter is set. When the layer ‘GT_Model’ is encountered, this additional attribute filter is applied. The intent is to mimic LOD selection, in addition to the spatial filter.
-* There are three timing steps:
+* Prior to running a test, a ‘step size’ was defined – typically corresponding to a CDB LOD tile size. A list of every spatial filter in the entire extent was created, then randomized.
+* Also, prior to a test, a ‘significant size’ filter was set. When the layer ‘GT_Model’ is encountered, this additional attribute filter is applied. The intent is to mimic LOD selection, in addition to the spatial filter.
+* There were three timing steps:
 ** Timing step one is the elapsed time to apply the spatial filter.
 ** Timing step two is the elapsed time to return a feature count based on the combined spatial and (if any) attribute filters.
 ** Timing step three is the elapsed time to read the features from the layer into a Python list.
 * At the end of processing and timing each ‘tile’ defined by the collection of spatial filters, a corresponding ‘shape’ is created and written into the test record output file.
 * The output attribution is as follows:
-** count:	the number of features returned after application of filters
-** filter_t – 	time to complete the filtering operation(s) in seconds
-** count_t:	time to complete the feature count operation in seconds
+** count:	the number of features returned after application of filters.
+** filter_t – 	time to complete the filtering operation(s) in seconds.
+** count_t:	time to complete the feature count operation in seconds.
 ** read_t :	time to complete feature read operation in seconds.  This includes reading from the GeoPackage container and appending each feature to a Python list.
-** Sequence: 	order that the tile was processed
-** ‘$geometry’: 	tile extents derived from spatial filter polygon
+** Sequence: 	order that the tile was processed.
+** ‘$geometry’: 	tile extents derived from spatial filter polygon.
+
 Note: tiles that return zero features do not create a test output record.
 
 ==== Results
-==== Experiment 1:  Step size .25 degrees (CDB LOD2), significant size > 13.355 (LOD2 significant size) 
+
+===== Experiment 1:  Step size .25 degrees (CDB LOD2), significant size > 13.355 (LOD2 significant size) 
+
 Test results coverage is shown in the figure below.
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
@@ -129,8 +137,7 @@ Test results coverage is shown in the figure below.
 image::images/Vec_Gpkg_Figure06.jpg[width=800,align="center"]
 &nbsp;
 
-This test simulates retrieving point features corresponding to CDB LOD2 and only models with the corresponding lowest significant size (as defined in the CDB 3.2, Table 3-1).  The conclusion that is drawn from this test, however, is that spatial filtering time is insignificant and appears to not be correlated to the number of features found. 
-The time it takes to count and read filtered features appears to be a direct correlation to number of features found.
+This test simulates retrieving point features corresponding to CDB LOD2 and only models with the corresponding lowest significant size (as defined in the CDB 3.2, Table 3-1).  The conclusion that is drawn from this test, however, is that spatial filtering time is insignificant and appears to not be correlated to the number of features found.  The time taken to count and read filtered features appears to be a direct correlation to number of features found.
 
 The Experiment 1 attribute table results are shown in the figures below, each filtered on a different field.
 
@@ -154,7 +161,8 @@ image::images/Vec_Gpkg_Figure09.jpg[width=800,align="center"]
 image::images/Vec_Gpkg_Figure10.jpg[width=800,align="center"]
 &nbsp;
 
-==== Experiment 2: simulation of LOD4, hydro, road, and building layers, significant size (buildings) > 3.39718
+===== Experiment 2: Simulation of LOD4, hydro, road, and building layers, significant size (buildings) > 3.39718
+
 Test results coverage is shown in the figure below.
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
@@ -162,7 +170,7 @@ Test results coverage is shown in the figure below.
 image::images/Vec_Gpkg_Figure11.jpg[width=800,align="center"]
 &nbsp;
 
-This test uses the combined layers source file and simulates a CDB LOD4 data access pattern. Timing values are totals, accumulating as each layer is filtered, counted as features are read.
+This test used the combined layers source file and simulates a CDB LOD4 data access pattern. Timing values are totals, accumulating as each layer was filtered, counted as features were read.
 Once again, filter timing appears to be insignificant and unrelated to the number of features filtered.  Data in the GT_Model layer has both a spatial and attribute (significant size) filter applies.
 
 The Experiment 2 attribute table results are shown in the figures below, each filtered on a different field.
@@ -188,6 +196,7 @@ image::images/Vec_Gpkg_Figure15.jpg[width=800,align="center"]
 &nbsp;
 
 === Conclusions and Recommendations
-1.	It appears practical to store large amounts of feature data in single GeoPackage containers and retrieve that data by applying spatial and attribution filters that correspond with typical CDB access patterns.
-2.	Spatial filters easily mimic the existing CDB tiling scheme.
-3.	Storing ‘significant size’ on model instancing point features can significantly improve the model retrieval scheme, rather than storing models in the significant size related folder scheme.  Storing and evaluating significant size on instancing points can make visual content and performance tuning much more practical.
+
+. Storing large amounts of feature data in single GeoPackage containers and retrieving that data by applying spatial and attribution filters that correspond with typical CDB access patterns appears to be practical.
+.	Spatial filters easily mimic the existing CDB tiling scheme.
+.	Storing ‘significant size’ on model instancing point features can significantly improve the model retrieval scheme, rather than storing models in the significant size related folder scheme.  Storing and evaluating significant size on instancing points can make visual content and performance tuning much more practical.
