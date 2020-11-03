@@ -16,7 +16,8 @@ The design intent of the large datasets consisted of three main considerations.
 •	Be ‘representative’ of real-world feature density over a large area.
 The source data was prepared for the USA, including Alaska, Hawaii and Puerto Rico.  Testing, however, was limited to only CONUS.
 
-===Data Sources
+=== Data Sources
+
 Four containers were prepared: 
 1.	cdb-usa-bldg-ssiz.gpkg
 2.	osm-hydro-to-CDB.gpkg
@@ -44,20 +45,38 @@ osm-hydro-to-CDB.gpkg:
 This file contains two layers. Its size on disk is 5,043,081,216 bytes.
 The first is Hydro_Network_Areal, with attributes shown below.  It contains 2,126,072 features.
  
-Figure 2 – Hydro_Areal_Network CDB layer attribute table
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Areal_Network CDB layer attribute table.
+image::images/Vec_Gpkg_Figure02.jpg[width=800,align="center"]
+
+Figure 2 – 
+
 While named a ‘network’ layer, no effort was made to make a topological analysis and assign junction IDs.  The CDB-like attribution is merely representative.  This layer was created by combining OSM hydrographic areals based on a very simply attribute filter, and then running the results through ‘attributetranslator’ with rules set to create very generic CDB attributions.
 The second layer is ‘Hydro_Network_Linear, with its attribution shown below.  It contains 4,252,603 features.
  
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Network_Linear CDB attribute table.
+image::images/Vec_Gpkg_Figure03.jpg[width=800,align="center"]
+
 Figure 3 - Hydro_Network_Linear CDB attribute table
+
 Again, no effort was made to make a topological analysis and assign junction IDs.  The CDB-like attribution is merely representative.  This layer was created by combining OSM hydrographic linears based on a simply attribute filter, and then running the results through ‘attributetranslator’ with rules set to create very generic CDB attributions.
 osm-roads-to-CDB.gpkg
 This file contains roads derived from worldwide OSM. It contains 90,425,963 features. Its size on disk is 29,832,347,648 bytes.
  
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Network_Linear CDB attribute table.
+image::images/Vec_Gpkg_Figure04.jpg[width=800,align="center"]
+
 Figure 4 – OSM roads layer attributes table
 
 Like the hydrographic features described above, this dataset does not contain a true network – topology was not analyzed and CDB junction IDs are not set.
 
 The final container, combined-features-conus.gpkg is simply a single container with each of the afore mentioned layers copied into it.  Its size on disk is 18,164,895,744 bytes.
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Network_Linear CDB attribute table.
+image::images/Vec_Gpkg_Figure05.jpg[width=800,align="center"]
  
 Figure 5 – Layers of the final data container
 
@@ -88,47 +107,90 @@ Note: tiles that return zero features do not create a test output record.
 ==== Results
 Example 1:  step size .25 degrees (CDB LOD2), significant size > 13.355 (LOD2 significant size) 
 Test results coverage:
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Network_Linear CDB attribute table.
+image::images/Vec_Gpkg_Figure06.jpg[width=800,align="center"]
  
 Figure 6 – Test results coverage at LOD 2
+
 This test simulates retrieving point features corresponding to CDB LOD2 and only models with the corresponding lowest significant size (as defined in the CDB 3.2 Table 3-1).  The conclusion that is drawn from this test, however, is that spatial filtering time is insignificant and appears to not be correlated to the number of features found. 
 The time it takes to count and read filtered features appears to be a direct correlation to number of features found.
 
  
 Example #1 attribute table – sorted by feature count:
- 
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Network_Linear CDB attribute table.
+image::images/Vec_Gpkg_Figure07.jpg[width=800,align="center"]
+
 Figure 7 – test results attribute table sorted by feature count
+
 Example #1 attribute table – sorted by feature ‘filter_t’:
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Network_Linear CDB attribute table.
+image::images/Vec_Gpkg_Figure08.jpg[width=800,align="center"]
  
 Figure 8 – test results sorted by filter_t
 
 Example #1 attribute table – sorted by ‘count_t’:
- 
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Network_Linear CDB attribute table.
+image::images/Vec_Gpkg_Figure09.jpg[width=800,align="center"]
+
 Figure 9 – test results sorted by count_t
 
 Example #1 attribute table – sorted by ‘read_t’:
  
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Network_Linear CDB attribute table.
+image::images/Vec_Gpkg_Figure10.jpg[width=800,align="center"]
+
 Figure 10 – test results sorted by read_t
 
 Example #2: simulation of LOD4, hydro, road, and building layers.  Significant size (buildings) > 3.39718
 Test results coverage
- 
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Network_Linear CDB attribute table.
+image::images/Vec_Gpkg_Figure11.jpg[width=800,align="center"]
+
 Figure 11 – LOD 4 test coverage results
+
 This test uses the combined layers source file and simulates CDB LOD4 data access pattern.  Timing values are totals, accumulating as each layer is filtered, counted and features are read.
 Once again filter timing appears to be insignificant and unrelated to the number of features filtered.  Data in the GT_Model layer has both a spatial and attribute (significant size) filter applies.
- 
+
 Example #2 attribute table – sorted by feature count:
- 
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Network_Linear CDB attribute table.
+image::images/Vec_Gpkg_Figure12.jpg[width=800,align="center"]
+
 Figure 12 – LOD 4 test sorted by feature count
 
 Example #1 attribute table – sorted by feature ‘filter_t’:
- 
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Network_Linear CDB attribute table.
+image::images/Vec_Gpkg_Figure13.jpg[width=800,align="center"]
+
 Figure 13 – LOD 4 test sorted by filter_t
 
 Example #1 attribute table – sorted by feature ‘count_t’:
- 
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Network_Linear CDB attribute table.
+image::images/Vec_Gpkg_Figure14.jpg[width=800,align="center"]
+
 Figure 14 – LOD 4 test sorted by count_t
 
 Example #1 attribute table – sorted by feature ‘read_t’:
+
+[#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
+.Hydro_Network_Linear CDB attribute table.
+image::images/Vec_Gpkg_Figure15.jpg[width=800,align="center"]
  
 Figure 15 – LOD 4 test sorted by feature read_t
 
