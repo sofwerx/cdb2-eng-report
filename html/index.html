@@ -4838,7 +4838,7 @@ Even though most current software do not yet support the GeoPackage TMS extensio
 <div class="sect2">
 <h3 id="_tiled_coverage_data"><a class="anchor" href="#_tiled_coverage_data"></a>13.11. Tiled Coverage Data</h3>
 <div class="paragraph">
-<p>The <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">GeoPackage Tiled Gridded Coverage extension</a> would be ideal for storing tiled coverage data, but it has some drawbacks that would need to be addressed.</p>
+<p>The <a href="http://docs.opengeospatial.org/is/17-066r1/17-066r1.html">GeoPackage Tiled Gridded Coverage extension</a> would be ideal for storing tiled coverage data. However that Standard has drawbacks that need to be addressed.</p>
 </div>
 <div class="paragraph">
 <p>Current limitations include:</p>
@@ -4856,7 +4856,7 @@ Even though most current software do not yet support the GeoPackage TMS extensio
 </div>
 </li>
 <li>
-<p>GeoTiff data only supports using 32-bit floating point data.  In OGC CDB 1.x, GeoTiff files are used to store 8 bit unsigned and 8, 16, or 32 bit signed binary data as well.  And the proposed OGC CDB 1.2 will also adopt the use of binary 1-bit data elements as well.</p>
+<p>GeoTiff data only supports using 32-bit floating point data.  In OGC CDB 1.x, GeoTiff files are used to store 8 bit unsigned and 8, 16, or 32 bit signed binary data as well.  Therefore the proposed OGC CDB 1.2 will also adopt the use of binary 1-bit data elements as well.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -4879,7 +4879,7 @@ Even though most current software do not yet support the GeoPackage TMS extensio
 <div class="sect3">
 <h4 id="_elevation_minmax"><a class="anchor" href="#_elevation_minmax"></a>13.11.1. Elevation min/max</h4>
 <div class="paragraph">
-<p>CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded elevation coverage contained in a tile to the tile metadata.</p>
+<p>CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the <code>recommendation</code> is to move the minimum and maximum elevation values for the gridded elevation coverage contained in a tile to the tile metadata.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4897,7 +4897,7 @@ The MinElevation and MaxElevation components are part of the MinMaxElevation dat
 <div class="sect3">
 <h4 id="_image_compression_jpeg"><a class="anchor" href="#_image_compression_jpeg"></a>13.11.2. Image Compression - JPEG</h4>
 <div class="paragraph">
-<p>Recommendation: That loss-less and lossy image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: <a href="https://flif.info/">FLIF - Free Lossless Image Format</a>, although this format looks to be relatively slow as well.</p>
+<p><code>Recommendation</code>: That loss-less and lossy image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: <a href="https://flif.info/">FLIF - Free Lossless Image Format</a>, although this format looks to be relatively slow as well.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4915,7 +4915,7 @@ JPEG-2000 has very high compression, even in lossless mode, and there are multip
 <div class="sect3">
 <h4 id="_materials"><a class="anchor" href="#_materials"></a>13.11.3. Materials</h4>
 <div class="paragraph">
-<p>Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with the physical substance of a feature that can then be used to simulate the emmisive or reflective properties of a feature in wavelengths of the electromagnetic spectrum other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR or Radar. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.</p>
+<p><code>Recommendation</code>: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with the physical substance of a feature that can then be used to simulate the emmisive or reflective properties of a feature in wavelengths of the electromagnetic spectrum other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR or Radar. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.</p>
 </div>
 </div>
 </div>
@@ -4927,23 +4927,23 @@ JPEG-2000 has very high compression, even in lossless mode, and there are multip
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc">GeoPackage Vector Tiles</a> The GeoPackage Tiled Vector Data extension defines the rules and requirements for encoding tiled feature data (aka "vector tiles") into a GeoPackage data store.</p>
+<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc">GeoPackage Vector Tiles</a> The draft GeoPackage Tiled Vector Data extension defines the rules and requirements for encoding tiled feature data (aka "vector tiles") into a GeoPackage data store.</p>
 </li>
 <li>
-<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc">GeoPackage Vector Tiles Attributes Extension</a> This extension defines a relationship between features contained in a tiled layer and tiles containing those features.</p>
+<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc">GeoPackage Vector Tiles Attributes Extension</a> This draft extension defines a relationship between features contained in a tiled layer and tiles containing those features.</p>
 </li>
 <li>
-<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc">MapBox Vector Tiles extension</a> The GeoPackage Mapbox Vector Tiles extension defines the rules and requirements for encoding vector tiles in a GeoPackage data store as Mapbox Vector Tiles.</p>
+<p><a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc">MapBox Vector Tiles extension</a> The draft GeoPackage Mapbox Vector Tiles extension defines the rules and requirements for encoding vector tiles in a GeoPackage data store as Mapbox Vector Tiles.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p>As an alternative to encoding tiled vector data as Mapbox Vector Tiles, some experiments used the
-<a href="http://docs.opengeospatial.org/per/18-025.html#GMTSpecs">GNOSIS Map Tiles</a> encoding, specified by Ecere in Testbed 13 and 14.</p>
+<a href="http://docs.opengeospatial.org/per/18-025.html#GMTSpecs">GNOSIS Map Tiles</a> encoding, specified by Ecere in OGC Testbeds 13 and 14.</p>
 </div>
 <div class="paragraph">
-<p>Recommendation: Although the use of non-tiled vector data layers (e.g. storing the geometry as WKB in GeoPackage features tables) should also be supported
-by CDB, the use of tiled vector data extension should be allowed. In particular, tiling vector data is essential for dealing with features spanning
+<p><code>Recommendation</code>: Although the use of non-tiled vector data layers (e.g. storing the geometry as WKB in GeoPackage features tables) should also be specified
+in the CDB Standard, the use of tiled vector data extension should be allowed. In particular, tiling vector data is essential for dealing with features spanning
 a very large geospatial extent, such as coastlines (e.g. OpenStreetMap ways tagged with <a href="https://wiki.openstreetmap.org/wiki/Coastline"><code>natural=coastline</code></a>).</p>
 </div>
 <div class="admonitionblock note">
@@ -4953,14 +4953,14 @@ a very large geospatial extent, such as coastlines (e.g. OpenStreetMap ways tagg
 <div class="title">Note</div>
 </td>
 <td class="content">
-Such large single features where tiling is essential was not used in experiments of the Vector data group, which focused on testing the performance
-of a large number of features stored indexed, but not tiled inside GeoPackages.
+Tiling of large single features was not tested in experiments done by the Vector data group. That group focused on testing the performance
+of a large number of features stored using indexes but not tiled inside GeoPackages.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>One thing that was noted is that even if the vector geometry is tiled and organized into multiple GeoPackages, it might be useful to support storing the data
+<p>One observation is that even if the vector geometry is tiled and organized into multiple GeoPackages, it might be useful to support storing the data
 attributes separately only at the top-level (level 0) tiles, or in a single GeoPackage storing only data attributes, to avoid duplication of that information
 at each grouping level.</p>
 </div>
@@ -5936,7 +5936,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-02 23:41:34 UTC
+Last updated 2020-11-03 16:37:19 UTC
 </div>
 </div>
 <style>
