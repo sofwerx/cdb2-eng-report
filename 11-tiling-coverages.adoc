@@ -280,13 +280,13 @@ NOTE: Even though most current software do not yet support the GeoPackage TMS ex
 
 === Tiled Coverage Data
 
-The http://docs.opengeospatial.org/is/17-066r1/17-066r1.html[GeoPackage Tiled Gridded Coverage extension] would be ideal for storing tiled coverage data, but it has some drawbacks that would need to be addressed.
+The http://docs.opengeospatial.org/is/17-066r1/17-066r1.html[GeoPackage Tiled Gridded Coverage extension] would be ideal for storing tiled coverage data. However that Standard has drawbacks that need to be addressed.
 
 Current limitations include:
 
 * Only single channel data is allowed in the coverage extension.  Many CDB coverages use more than one channel (Imagery, Raster Materials, etc.).  The alternative would be to store CDB X coverage data using different GeoPackage concepts, such as tiles for imagery, coverages for elevation, and related tables for raster material data.
 ** Current change request:  http://ogc.standardstracker.org/show_request.cgi?id=662
-* GeoTiff data only supports using 32-bit floating point data.  In OGC CDB 1.x, GeoTiff files are used to store 8 bit unsigned and 8, 16, or 32 bit signed binary data as well.  And the proposed OGC CDB 1.2 will also adopt the use of binary 1-bit data elements as well.
+* GeoTiff data only supports using 32-bit floating point data.  In OGC CDB 1.x, GeoTiff files are used to store 8 bit unsigned and 8, 16, or 32 bit signed binary data as well.  Therefore the proposed OGC CDB 1.2 will also adopt the use of binary 1-bit data elements as well.
 ** Current change request:  http://ogc.standardstracker.org/show_request.cgi?id=661
 * An https://github.com/opengeospatial/geopackage/issues/551[issue] was filed asking for better clarity about whether 16-bit PNG encoding is signed or unsigned
 
@@ -296,39 +296,39 @@ The following are recommendations and suggested additional discussion topics. Th
 
 ==== Elevation min/max
 
-CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the recommendation is to move the minimum and maximum elevation values for the gridded elevation coverage contained in a tile to the tile metadata.
+CDB X needs to continue supporting the Min/Max Elevation component concept. In order to reduce the number of files and complexity, the `recommendation` is to move the minimum and maximum elevation values for the gridded elevation coverage contained in a tile to the tile metadata.
 
 NOTE: The MinElevation and MaxElevation components are part of the MinMaxElevation dataset whose purpose is to provide a CDB conformant data store with the necessary data and structure to achieve a high level of determinism in computing line-of-sight intersections with the terrain.  The values of each component are with respect to WGS-84 reference ellipsoid.
 
 ==== Image Compression - JPEG
 
-Recommendation: That loss-less and lossy image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: https://flif.info/[FLIF - Free Lossless Image Format], although this format looks to be relatively slow as well.
+`Recommendation`: That loss-less and lossy image compression solutions be explored for use in CDB X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. This could be accomplished by submitting a change request for the OGC GeoPackage standard that provides guidance and requirements for support of other image formats beyond PNG and JPG. The sub-group identified a potential candidate: https://flif.info/[FLIF - Free Lossless Image Format], although this format looks to be relatively slow as well.
 
 NOTE: JPEG-2000 has very high compression, even in lossless mode, and there are multiple open-source implementations. However, performance can be extremely slow and non-optimal for all use cases.
 
 ==== Materials
 
-Recommendation: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with the physical substance of a feature that can then be used to simulate the emmisive or reflective properties of a feature in wavelengths of the electromagnetic spectrum other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR or Radar. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.
+`Recommendation`: CDB X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the related tables extension. The subgroup did have some discussion on what "materials" means in the CDB 1.x context. Materials in current CDB have to do with the physical substance of a feature that can then be used to simulate the emmisive or reflective properties of a feature in wavelengths of the electromagnetic spectrum other than what the human eye senses. These are for non-visualization use cases or special visualization such as IR or Radar. The subgroup did also discuss for the possible need for CDB X to provide guidance on using Physically-Based Rendering (PBR) to support the visualization/rendering use case. glTF, I3S, and 3D Tiles all support PBR.
 
 === Tiled Vector Data
 
 To tile vector data (including points referencing 3D models), draft GeoPackage extensions defined during the _OGC Vector Tiles pilots_ were used:
 
-. https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc[GeoPackage Vector Tiles] The GeoPackage Tiled Vector Data extension defines the rules and requirements for encoding tiled feature data (aka "vector tiles") into a GeoPackage data store.
-. https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc[GeoPackage Vector Tiles Attributes Extension] This extension defines a relationship between features contained in a tiled layer and tiles containing those features.
-. https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc[MapBox Vector Tiles extension] The GeoPackage Mapbox Vector Tiles extension defines the rules and requirements for encoding vector tiles in a GeoPackage data store as Mapbox Vector Tiles.
+. https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/1-vte.adoc[GeoPackage Vector Tiles] The draft GeoPackage Tiled Vector Data extension defines the rules and requirements for encoding tiled feature data (aka "vector tiles") into a GeoPackage data store.
+. https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/4-vtae.adoc[GeoPackage Vector Tiles Attributes Extension] This draft extension defines a relationship between features contained in a tiled layer and tiles containing those features.
+. https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/2-mvte.adoc[MapBox Vector Tiles extension] The draft GeoPackage Mapbox Vector Tiles extension defines the rules and requirements for encoding vector tiles in a GeoPackage data store as Mapbox Vector Tiles.
 
 As an alternative to encoding tiled vector data as Mapbox Vector Tiles, some experiments used the
-http://docs.opengeospatial.org/per/18-025.html#GMTSpecs[GNOSIS Map Tiles] encoding, specified by Ecere in Testbed 13 and 14.
+http://docs.opengeospatial.org/per/18-025.html#GMTSpecs[GNOSIS Map Tiles] encoding, specified by Ecere in OGC Testbeds 13 and 14.
 
-Recommendation: Although the use of non-tiled vector data layers (e.g. storing the geometry as WKB in GeoPackage features tables) should also be supported
-by CDB, the use of tiled vector data extension should be allowed. In particular, tiling vector data is essential for dealing with features spanning
+`Recommendation`: Although the use of non-tiled vector data layers (e.g. storing the geometry as WKB in GeoPackage features tables) should also be specified
+in the CDB Standard, the use of tiled vector data extension should be allowed. In particular, tiling vector data is essential for dealing with features spanning
 a very large geospatial extent, such as coastlines (e.g. OpenStreetMap ways tagged with https://wiki.openstreetmap.org/wiki/Coastline[`natural=coastline`]).
 
-NOTE: Such large single features where tiling is essential was not used in experiments of the Vector data group, which focused on testing the performance
-of a large number of features stored indexed, but not tiled inside GeoPackages.
+NOTE: Tiling of large single features was not tested in experiments done by the Vector data group. That group focused on testing the performance
+of a large number of features stored using indexes but not tiled inside GeoPackages.
 
-One thing that was noted is that even if the vector geometry is tiled and organized into multiple GeoPackages, it might be useful to support storing the data
+One observation is that even if the vector geometry is tiled and organized into multiple GeoPackages, it might be useful to support storing the data
 attributes separately only at the top-level (level 0) tiles, or in a single GeoPackage storing only data attributes, to avoid duplication of that information
 at each grouping level.
 
