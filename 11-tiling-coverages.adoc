@@ -334,30 +334,30 @@ at each grouping level.
 
 === Tiled 3D Models
 
-Two approaches were experimented with to include 3D Models in GeoPackages, along with textures used by those models.
+Two approaches to include 3D Models in GeoPackages were tested. These tests included the textures used by those models.
 
-- A) one where 3D models are individually stored in a single table, and referenced and placed by tiled vector data (points),
-- B) and another where batched 3D models are the content of the tiles.
+- Approach A) One in which 3D models are individually stored in a single table and referenced and placed by information tiled vector data (points).
+- Approach B) The other in which batched 3D models are the content of the tiles.
 
-Results of experiments for both variations are found below in the experiments description.
+Results of experiments for both approaches are found below in the experiments description.
 
 ==== 3D Models Extension
 
-As a draft GeoPackage extension for 3D models is being defined, rows are added to the `gpkgext_extensions` table to identify all tables set up for this extension.
+As part of defining a draft GeoPackage extension for 3D models, rows were added to the `gpkgext_extensions` table to identify all tables set up for this proposed extension.
 
-For all of these tables, the `extension_name` is configured to be `ecere_3d_models`, the definition to be http://github.com/ecere/gpkgext-3dmodels, and the `scope` to be `read-write`.
+For all of these tables, the `extension_name` was configured to be `ecere_3d_models`. The definition was http://github.com/ecere/gpkgext-3dmodels, and the `scope` was `read-write`.
 
-The tables registered with this extension are:
+The tables registered with this extension were:
 
-- `gpkgext_3d_models` (only used for the reference points approach A)
-- the individual tiles tables for batched 3D models (only used for approach B)
-- `gpkgext_textures` for shared textures
+- `gpkgext_3d_models` (only used for the reference points Approach A).
+- The individual tiles tables for batched 3D models (only used for Approach B).
+- `gpkgext_textures` for shared textures.
 
 ==== A) Referenced 3D models with placement information
 
-In this approach, best suited for geo-typical models, a single table per GeoPackage (`gpkgext_3d_models`) is used to define one model per row, in a blob within the `model` field.
-A `format` field allows to specify the format. Both glTF and E3D have been used in the experiments.
-The `name` field allows to specify a name for the model, andt the `lod` field can optionally be used to distinguish between multiple level of details for the model, or left NULL if only a single version exists. The combination of `name`, `lod` and `format` must be unique.
+For Approach A, best suited for geo-typical models, a single table per GeoPackage (`gpkgext_3d_models`) was used to define one model per row. These were blobs within the `model` field.
+A `format` field was used to specify the format. Both glTF and E3D {*Need a short definition for context*} were used in the experiments.
+The `name` field enabled specifying a name for the model. The `lod` field can optionally be used to distinguish between multiple level of details for the model, or left NULL if only a single version exists. The combination of `name`, `lod` and `format` must be unique.
 
 The `model::id` field of the attributes table for the 3D models referencing points (which would also contain the point geometry in a non-tiled approach) references the `id` (primary key) of the `gpkgext_3d_models` table.
 The attributes table may also contain additional fields for scaling and orienting the models:
@@ -365,7 +365,7 @@ The attributes table may also contain additional fields for scaling and orientin
 - `model::scale`; or `model::scaleX`, `model::scaleY` and `model::scaleZ` for non-uniform scaling
 - `model::yaw`, `model::pitch` and `model::roll`
 
-These attributes duplicate the CDB fields `AO1`, `SCALx`, `SCALy`, `SCALz` (and in a sense `MODL` as well), but are intended to be defined in a non-CDB specific manner within a generic 3D Models extension for GeoPackage.
+These attributes duplicate the CDB fields `AO1`, `SCALx`, `SCALy`, `SCALz` (and in a sense `MODL` as well). However these values are intended to be defined in a non-CDB specific manner within a generic 3D Models extension for GeoPackage.
 
 The following SQL is used to create the `gpkgext_3d_models` table:
 
@@ -405,14 +405,14 @@ CREATE TABLE attributes_Trees (
 
 ==== B) Batched 3D Models tiles
 
-In this approach, best suited for geo-specific models, a single model covers a whole tile, batching all 3D models from the data layer found within that tile, and is stored in a tiles table much like raster or vector tiles (as a glTF blob in the `tile_data` field).
-It is closer to the 3D Tiles / One World Terrain approach, and could potentially also combine both 3D Terrain and 3D Models (though ideally keeping them as distinct nodes within the model). Such an approach may facilitate transition between CDBX and OWT.
+For Approach B, best suited for geo-specific models, a single model covers a whole tile, all 3D models from the data layer found within that tile are batched, and is {*What is?*} stored in a tiles table much like raster or vector tiles (as a glTF blob in the `tile_data` field).
+This is closer to the 3D Tiles / One World Terrain approach, and could potentially also combine both 3D Terrain and 3D Models (though ideally keeping them as distinct nodes within the model). Such an approach may facilitate transition between CDB-X and OWT.
 
-Because GeoPackage does not define a generic mechanism to specify the encoding of `tile_data` (it has previously been suggested that this would be a good field to add to the `gpkg_contents` table), the encoding of the 3D model must be deducted from the content of the blob. Fortunately, both glTF and E3D feature a header signature which facilitates this. The `3d-models` type is introduced to specify in the `data_type` column of the `gpkg_contents` table.
+Because GeoPackage does not define a generic mechanism for specifying the encoding of `tile_data` (this has previously been suggested that this would be a good field to add to the `gpkg_contents` table), the encoding of the 3D model must be deducted from the content of the blob. Fortunately, both glTF and E3D feature a header signature that facilitates this. The `3d-models` type was introduced for specifying the `data_type` column of the `gpkg_contents` table.
 
-The translation origin of the model, as well as its orientation, is implied from the center of the tile (from the tile matrix / tile matrix set) for which it defined. The model is defined in the 3D cartesian space where (0, 0, 0) lies at that center, sitting directly on the WGS84 ellipsoid, and oriented so that by default it appears upright with its X axis pointing due East, its Z axis pointing North, and its Y axis pointing away from the center of the Earth. In other words, it would be equivalent to having a single point situated at the center of the tile in the referenced 3D points approach.
+The translation origin of the model, as well as its orientation, is implied from the center of the tile (from the tile matrix / tile matrix set) for which it is defined. The model is defined in the 3D cartesian space where (0, 0, 0) lies at that center, sitting directly on the WGS84 ellipsoid {*This is strange wording. In 3D geo, isn't tis typically called "clamping" or "clamped"?}, and oriented so that by default the model appears upright with its X axis pointing due East, its Z axis pointing North, and its Y axis pointing away from the center of the Earth. In other words, this is equivalent to having a single point situated at the center of the tile in the referenced 3D points approach.
 
-The height of the individual features (e.g. buildings) within the batched models tile models has already been adjusted match the elevation model. However, each separate feature from CDB is encoded in the model as a separate node to facilitate re-adjusting it to new elevation.
+The height of the individual features, such as buildings, within the batched models tile models was adjusted to match the elevation model. However, each separate feature from CDB is encoded in the model as a separate node to facilitate re-adjusting it to new elevation.
 
 ==== Textures table
 
@@ -453,23 +453,19 @@ id  name   width  height  format  texture
 
 ==== Overview
 
-Ecere conducted multiple experiments during the sprint tiling and packaging data sourced from CDB 1.x content.
+Ecere conducted multiple experiments during the sprint using tiling and packaging data sourced from CDB 1.x content.
 
-- The first experiment's objective was to share an example of how to store CDB data in a GeoPackage following the GNOSIS Global Grid, using the TileMatrixSet and
-vector tiles extensions, as well as describing this content using the proposed `cdb.json` schema. The Camp Pendleton sample CDB from Presagis was used
-for this experiment.
+- Experiment 1: The objective of the first experiment was to share an example of how to store CDB data in a GeoPackage following the GNOSIS Global Grid. This Experiment used the draft GeoPackage TileMatrixSet and vector tiles extensions, as well as describing this content using the proposed `cdb.json` schema. A sample CDB datastore from Presagis for Camp Pendleton California was used for this experiment.
 
-- The second experiment aimed to demonstrate how to distribute data covering a large area in multiple GeoPackages using a pre-determined LOD grouping setting.
-The bigger San Diego CDB dataset provided by CAE was used for this experiment as well as the next.
+- Experiment 2: The objective of the second experiment focused on demonstrating how to distribute data covering a large area in multiple GeoPackages using a pre-determined LOD grouping setting. The larger San Diego CDB dataset provided by CAE was used for this Experiment as well as fpr Experiment 3.
 
-- The third experiment investigated storing 3D models inside the GeoPackages using two different approaches.
-One approach is very similar to the CDB 1.x data model where all 3D models are stored in a single table and referenced from points stored in tiled vector data.
-In the other approach, 3D models are batched per tile and stored in the `tile_data` blob of GeoPackage tiles table. The local origin of the 3D model corresponds
+- Experiment 3: The objective of the third experiment was investigating storing 3D models inside the GeoPackages using the two different approaches described above.
+Approach A is very similar to the CDB 1.x data model where all 3D models are stored in a single table and referenced from points stored in tiled vector data.
+In Approach B, 3D models are batched on a per tile basis and stored in the `tile_data` blob of GeoPackage tiles table. The local origin of the 3D model corresponds
 to the center of the tile in which it is stored, assuming a coordinate system whose axes are aligned with East, North and Up.
-This approach is more similar to the one used for 3D Tiles and One World Terrain.
+Approach B is more similar to the one used for 3D Tiles and One World Terrain.
 
-These were originally described as separate experiments on the https://github.com/sofwerx/cdb2-concept/wiki[CDB X concept wiki], but here the combined final results of producing a prototype
-CDB X for the full San Diego CDB are presented. These results cover tiling the imagery, elevation, vector data and 3D models for the full San Diego CDB.
+These were originally described as separate experiments on the https://github.com/sofwerx/cdb2-concept/wiki[CDB X concept wiki]. However, below the combined final results of producing a prototype CDB X for the full San Diego CDB are presented. These results cover tiling the imagery, elevation, vector data and 3D models for the full San Diego CDB.
 
 [#img_gpkgexport,reftext='{figure-caption} {counter:figure-num}']
 .Ecere GeoPackage / CDB X Export dialog and options in Ecere’s GNOSIS Cartographer
@@ -486,7 +482,7 @@ image::images/Ecere-GeoPackageCDBXExport2.png[width=800,align="center"]
 This one GeoPackage contains the whole San Diego CDB data (not including Blue Marble):
 
 NOTE: In the texture table for this GeoPackage, the texture names are prefixed by an extra directory to differentiate the numbered textures used in the
-different 3D models data layers, however the reference from the 3D models was not yet updated to reflect this.
+different 3D models data layers. However the reference from the 3D models was not yet updated to reflect this.
 
 https://portal.ogc.org/files/?artifact_id=95378[Complete San Diego CDB X - _cdb.json_ index]
 
@@ -497,7 +493,7 @@ https://portal.ogc.org/files/?artifact_id=95378[Complete San Diego CDB X - _cdb.
 ===== Data layers packaged together (tiles grouped in multiple GeoPackages)
 
 This series of GeoPackages (also covering the whole San Diego CDB) groups tiles of 5 LODs for all data layers within the same GeoPackage.
-In this approach, the textures are stored in a separate folder to avoid repeating them in each separate GeoPackage.
+In this approach, the textures were stored in a separate folder to avoid repeating them in each separate GeoPackage.
 
 https://portal.ogc.org/files/?artifact_id=95366[_cdb.json_ index]
 
@@ -507,8 +503,7 @@ https://portal.ogc.org/files/?artifact_id=95370[Partial dataset (subset of the o
 
 ===== As separate layers
 
-A series of GeoPackages (11.2 GB compressed) of the San Diego CDB, plus a full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble,
-along with an accompanying `cdb.json` can be found at:
+A series of GeoPackages (11.2 GB compressed) of the San Diego CDB, plus a full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble, along with an accompanying `cdb.json` can be found at:
 
 https://portal.ogc.org/index.php?m=projects&a=view&project_id=466&tab=2&artifact_id=95320[OGC portal folder]
 
@@ -528,7 +523,7 @@ https://portal.ogc.org/files/?artifact_id=95328[Elevation (using 16-bit integer 
 
 *_Encoded as JPG_:*
 
-NOTE: The imagery in these GeoPackages is lossy. Recommendation: allow the use of JPEG-2000 and/or additional lossless formats more compact than PNG in GeoPackages.
+NOTE: The imagery in these GeoPackages is lossy. `Recommendation`: Allow the use of JPEG-2000 and/or additional lossless formats more compact than PNG in GeoPackages.
 
 *FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/BlueMarble.7z[Full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble] (1.6 GiB, 1.4 GiB compressed)
 
@@ -548,7 +543,7 @@ https://portal.ogc.org/files/?artifact_id=95346[Airport Lights] (144 KiB)
 
 *_Tiled and encoded as GNOSIS Map Tiles:_*
 
-NOTE: The latest specifications for the GNOSIS Map Tiles encoding is available in the http://docs.opengeospatial.org/per/18-025.html#GMTSpecs[Annex B] of the _CityGML and Augmented Reality_ Engineering Report.
+NOTE: The latest specifications for the GNOSIS Map Tiles encoding is available in the http://docs.opengeospatial.org/per/18-025.html#GMTSpecs[Annex B] of the _CityGML and Augmented Reality_ Engineering Report {*Do we need a link?*}.
 
 https://portal.ogc.org/files/?artifact_id=95330[Hydrography] (248 KiB)
 
@@ -617,23 +612,21 @@ https://portal.ogc.org/files/?artifact_id=95332[Coronado Bridge (E3D / batched 3
 
 ==== OGC API access demo
 
-At this address: https://maps.ecere.com/ogcapi/collections/SanDiegoCDB
+The SanDiegoCDB data store can be found at this address: https://maps.ecere.com/ogcapi/collections/SanDiegoCDB
 
-the San Diego CDB data from the GNOSIS data store can be accessed directly through the GNOSIS Map Server, including rendering maps, downloading coverages,
+The San Diego CDB data from the GNOSIS data store can be accessed directly through the GNOSIS Map Server. This includes rendering maps, downloading coverages,
 accessing as tiles in different tiling schemes, accessing individual vector features, retrieving them as (re-merged) GeoJSON, visualizing them on GeoJSON.io,
-accessing as 3D Tiles tilesets or individual tiles, also supporting retrieving batched 3D tiles as binary glTF.
-and so on. These delivery capabilities demonstrate that tiled data actually supports a wide range of use cases.
-More details about accessing this data via the OGC API can be found in the Engineering Report for the OGC Interactive Simulation and Gaming Sprint.
+accessing as 3D Tiles tilesets or individual tiles, also supporting retrieving batched 3D tiles as binary glTF and so on. These delivery capabilities demonstrate that tiled data actually supports a wide range of use cases. More details about accessing this data via the OGC API {*Which OGC API? I am assuming features.*}  can be found in the OGC Interactive Simulation and Gaming Sprint Engineering Report{*Do we need a link?*} .
 
-At this address: https://maps.ecere.com/ogcapi/collections/SanDiegoLayers
+The prototype CDB X split GeoPackages can be accessed directlyt this https://maps.ecere.com/ogcapi/collections/SanDiegoLayers
+[address]: 
 
-the prototype CDB X split GeoPackages can be accessed directly .
-However at this point, the map server and visualization client do not present this as a unified data source, so instead the tiles structure and individual GeoPackages are individually accessible.
+However at this point, the map server and visualization client do not present this as a unified data source. As such, the tiles structure and individual GeoPackages are individually accessible instead.
 
 ==== Visualization
 
 Ecere's GNOSIS 3D visualization tools can currently visualize the individual CDB X/GeoPackage elevation and imagery directly.
-Like for the server however the split geopackages are not yet unified as a single data source.
+As for the server, however, the split GeoPackages are not yet unified as a single data source.
 Accessing and visualizing the 3D models from the GeoPackage tables remains to be implemented.
 
 [#img_campPendleton,reftext='{figure-caption} {counter:figure-num}']
@@ -684,7 +677,7 @@ image::http://ecere.com/tmp/SanDiegoCesium.png[width=800,align="center"]
 .CesiumJS Client accessing San Diego CDB data as 3D Tiles from Ecere’s GNOSIS Map Server (Petco Park)
 image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/CesiumSanDiego3.jpg[width=800,align="center"]
 
-The following JavaScript code, which can simply be copied to the https://sandcastle.cesium.com/[Cesium Sand Castle], can be used to visualize the data as 3D Tiles, including textures. It sets up the buildings, trees as well as the Coronado Bridge, together with the Cesium world terrain. One limitation is that the generated tileset is still missing multiple level of details, therefore visualizing a large area will be quite slow.
+The following JavaScript code, which can simply be copied to the https://sandcastle.cesium.com/[Cesium Sand Castle], can be used to visualize the data as 3D Tiles, including textures. The code sets up the buildings, trees as well as the Coronado Bridge, together with the Cesium world terrain. One limitation is that the generated tileset is still missing multiple level of details, therefore visualizing a large area will be quite slow.
 
 ```js
 var worldTerrain = Cesium.createWorldTerrain({ requestWaterMask: true, requestVertexNormals: true });
@@ -702,9 +695,9 @@ This 3D Tiles distribution is currently being generated from the GNOSIS Data Sto
 
 ==== Future work
 
-- Support for visualizing 3D models directly from the CDB X/GeoPackages dataset in GNOSIS Cartographer client
-- Support for GNOSIS Map Server streaming 3D models directly from CDB X/GeoPackage
-- Support for unifying split GeoPackages making up the CDB X dataset as a single data source
+- Support for visualizing 3D models directly from the CDB X/GeoPackages dataset in GNOSIS Cartographer client.
+- Support for GNOSIS Map Server streaming 3D models directly from CDB X/GeoPackage.
+- Support for unifying split GeoPackages making up the CDB X dataset as a single data source.
 - Attribution per model within the single tile model. This is supported directly in E3D for triangular face-level attribution (it was clarified that glTF2 does not supports this, and extensions were considering vertex rather than face attributions).
 
 === FlightSafety GeoPackage Tiling Experiments
@@ -714,11 +707,11 @@ This 3D Tiles distribution is currently being generated from the GNOSIS Data Sto
 * Blue Marble (NASA) that was georeferenced using GDAL - https://visibleearth.nasa.gov/collection/1484/blue-marble
 * The high resolution inset is from USGS downloads of Central Park in New York City
 
-*Tiling Scheme*: The tiling scheme uses the https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid[GNOSIS Global Grid] (using TMS extension -- https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc).  We are using the same type of json file that Ecere is using in their experiment.
+*Tiling Scheme*: The tiling scheme uses the https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid[GNOSIS Global Grid] (using TMS extension -- https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc).  FlightSafety usied the same type of json file {*Perhaps a bit moreinfo and a link back?*}  that Ecere used in their experiment.
 
-*LOD Grouping* The grouping is pre-set per experiment.  The groups are calculated from the highest LOD, back to coarser LODs.  For example, if there are 7 LODs (0-6) and a grouping of 4, then LODs 3 through 7 are in one GeoPackage, and LODs 0 through 2 are in another GeoPackage.
+*LOD Grouping* The grouping was pre-set per experiment.  The groups were calculated from the highest LOD, back to coarser LODs.  For example, if there are 7 LODs (0-6) and a grouping of 4, then LODs 3 through 7 are in one GeoPackage, and LODs 0 through 2 are in another GeoPackage.
 
-*Directory and Naming Scheme* Each top level tile is within a directory that encodes the LOD, the row (rows are counted from the top, so north to south), and the column (longitude west to east).  Fox example, "L0_R1_C2".  Each tile directory contains one GeoPackage file (for example "Imagery_L0_L2_R1_C2.gpkg") and all the tile directories that refine this area (such as "L3_R9_C22").  There were two intentions to this directory structure:
+*Directory and Naming Scheme* Each top level tile is within a directory that encodes the LOD, the row (rows are counted from the top, so north to south), and the column (longitude west to east).  For example, "L0_R1_C2".  Each tile directory contains one GeoPackage file (for example "Imagery_L0_L2_R1_C2.gpkg") and all the tile directories that refine this area (such as "L3_R9_C22").  There were two intentions to this directory structure:
 
 - Limit the number of files in a directory (to keep from running into OS limitations).
 - Make it a bit easier to export a portion of the world by hand from one CDB X to another.
@@ -735,7 +728,7 @@ This experiment was designed to:
 There were eight top level tiles (2 rows and 4 columns) and all GeoPackages that refine one of these tiles are under that tile's directory structure.
 
 ===== Processing
-This experiment uses the NASA Blue Marble imagery to approximate world-wide imagery at a high level.  This provides seven levels of detail of data (L0 to L6).  Normally, the GeoPackage files should be larger for efficient use. However to demonstrate the LOD groupings, only four LODs were grouped together.  So that tools can view the imagery more easily, the imagery is stored as JPEGs.  Originally the thought was to create Jpeg2000 files but checking the results in a tool such as "DB Browser for SQLite" was harder.  The content volume for the data used this experiment was around 300 MB.
+This experiment used the NASA Blue Marble imagery to approximate world-wide imagery at a high level.  This provides seven levels of detail of data (L0 to L6).  Normally, the GeoPackage files should be larger for efficient use. However to demonstrate the LOD groupings, only four LODs were grouped together.  So that tools can view the imagery more easily, the imagery is stored as JPEGs.  Originally the thought was to create Jpeg2000 files but checking the results in a tool such as "DB Browser for SQLite" was harder.  The content volume for the data used this experiment was around 300 MB.
 
 ===== Data Location
 Compressed 7-zip file with test data can be found at:  https://portal.ogc.org/files/?artifact_id=95358
@@ -811,6 +804,6 @@ The full compressed files had to be split into multiple pieces as a multi-part z
 * The file names and directory names are pretty hard to read and understand by looking at the files. However since the tiles are rarely on a "geocell" boundary, their might not be a good naming scheme.
 * Creating the LOD groupings based on the highest LOD of data makes it difficult to add data of a higher resolution later on.  This might also make it harder to create "Versions" of the data that have been updated.
 * There are a lot of directories created with this tiling and naming scheme.  In general, there is a 1-to-1 ratio of files to directories, and directories seem to be more work for an OS to create/modify/delete.
-* Official GeoPackage standards are pretty rigid for raster data.  Tiles support a very limited set of raster types (PNG or JPG), and the coverage extension supports only 16-bit PNG or 32-bit float GeoTiff.  Current OGC CDB 1.1 supports data types of 8-bit unsigned, 8/16/32 bit signed, and 32-bit floating point data types, with CDB 1.2 adding the capability to support Tiff bilevel images (1-bit).
+* Current official GeoPackage standards are pretty rigid for raster data.  Tiles support a very limited set of raster types (PNG or JPG), and the coverage extension supports only 16-bit PNG or 32-bit float GeoTiff.  Current OGC CDB 1.1 supports data types of 8-bit unsigned, 8/16/32 bit signed, and 32-bit floating point data types, with CDB 1.2 adding the capability to support Tiff bilevel images (1-bit).
 * Do we need the extra flexibility of putting different layers in different directory structures (and thus different GeoPackage files)?
 
