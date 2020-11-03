@@ -1,13 +1,13 @@
 [[vectorgpkg]]
 
-== CDB X Vector Data in GeoPackage
+== CDB X 
 
 === Performance of CDB Vector Data in Large GeoPackage Containers
 
 === Abstract
-To test potential approaches to storing CDB vector data in GeoPackage, we performed several different experiments to determine the viability of storing very large quantities of vector data in a smaller quantity of large GeoPackage files rather than a very large number of small Shapefiles. Some of our experiments also set out to determine if there are upper limits in how much CDB content can be stored in a GeoPackage. 
-This document details our approach and results. We found that GeoPackage is capable of meeting the performance and size constraints for vector data in a CDB if properly defined. We found that it is probably not feasible from a performance standpoint to do a direct conversion of existing Shapefile content to GeoPackage. To gain the most from GeoPackage, some approaches to level of detail (LOD) and other CDB content should be reconsidered, such as the way significant size is used in CDB.
-We also found that it is very important to design the schema, including proper index design, when using GeoPackage. Shapefiles are very simple for developers to use, as there is not a lot of flexibility when it comes to how to store data. Conversely, GeoPackage is very flexible, and how it is used can have a major impact on performance. If the exact schema and indexes for GeoPackage are properly defined as part of the CDB specification, users can expect very good performance, even for large datasets.
+To test potential approaches to storing CDB vector data in GeoPackage, the Vector Data in GeoPackage Subgroup, hereafter referred to as the Subgroup, performed several different experiments to determine the viability of storing very large volumes of vector data in a smaller number of large GeoPackage files rather than a very large number of small Shapefiles. Some of the experiments also set out to determine if there are upper limits in how much CDB content can be stored in a GeoPackage. 
+This document details the SUbgroup's approach and results of the experiments. The experiments demonstrated that GeoPackage/SQLite is capable of meeting the performance and size constraints for vector data in a CDB if properly defined {*CDB or GeoPackage?*}. The expierments also demonstrated that it is probably not feasible from a performance standpoint to do a direct conversion of existing Shapefile content to GeoPackage. To gain the most from using GeoPackage as a container for large vector datasets, some approaches to level of detail (LOD) and other CDB content should be reconsidered, such as the way significant size is used in CDB.
+The Subgroup also found that the design the schema is very important, including proper index design, when using GeoPackage. Shapefiles are very simple for developers to use, as there is not a lot of flexibility when it comes to how to store data. Conversely, GeoPackage is very flexible. As such and how a GeoPackage is structured and indexed can have a major impact on performance. If the exact schema and indexes for GeoPackage are properly defined as part of the CDB-X, users can expect very good performance, even for large datasets.
 
 === Objective
 The purpose of these experiments was to examine performance in searching for and interacting with CDB features stored in very large unitary GeoPackage containers.
@@ -18,11 +18,11 @@ The design intent of the large datasets consisted of three main considerations:
 The source data was prepared for the USA, including Alaska, Hawaii and Puerto Rico. Testing, however, was limited to only CONUS.
 
 === Data Sources
-Four containers were prepared: 
-1.	cdb-usa-bldg-ssiz.gpkg
-2.	osm-hydro-to-CDB.gpkg
-3.	osm-roads-to-CDB.gpkg
-4.	combined-features-conus.gpkg
+Four containers were prepared:
+.	cdb-usa-bldg-ssiz.gpkg
+.	osm-hydro-to-CDB.gpkg
+.	osm-roads-to-CDB.gpkg
+.	combined-features-conus.gpkg
 
 ==== Data Source 1 - cdb-usa-bldg-ssiz.gpkg:
 This file contains 39,079,781 point features. Its size on disk is 5,249,290,240 bytes. The following is an image showing the attributes on features in the attribute table.
