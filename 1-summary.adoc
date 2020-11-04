@@ -67,9 +67,9 @@ The following are the major recommendations from the Attribution Subgroup. Each 
 
 `Recommendation 3`: Adopt NAS-compliant logical entity-attribute model for CDB X with extensions for CDB use cases.
 
-* Delegate entity and attribute physical encoding choices to vector and 3D model containers instead of specifying globally.
+`Recommendation 4`: Delegate entity and attribute physical encoding choices to vector and 3D model containers instead of specifying globally.
 
-* Define backward-compatible extensions in CDB 1.3 to add constructs necessary to move toward NAS-compliant attribution
+`Recommendation 5`: Define backward-compatible extensions in CDB 1.3 to add constructs necessary to move toward NAS-compliant attribution
 
 The following are recommendatoins for possible inclusion in CDB version 1.3.
 
@@ -78,6 +78,14 @@ The following are recommendatoins for possible inclusion in CDB version 1.3.
 `Verison 1.3 Recommendation - Attribute default values` The subgroup discussion on this topic is titled: https://github.com/sofwerx/cdb2-concept/issues/32[Attribute Default Values #32]. The recommendation is that Defaults.xml can be used to define global attribute defaults as well as per-dataset defaults. Doing per-entity defaults would be a straight forward extension that could be proposed for CDB 1.3 as a transition path. The subgroup suggests that the CDB SWG discussion this for possible inclusion in version 1.3. A change request for this approach to specifying default values is also suggested.
 
 `Version 1.3 Recommendation - Attribute Terms` The subgroup discussion on this topic is titled: https://github.com/sofwerx/cdb2-concept/issues/31[Capture Attribute Terms (Enumerants) in Metadata #31]. Attributes describing qualitative values are present in CDB 1.2 and the list of valid values  for each attribute are documented in the human-readable specification with both the vocabulary term name and its integer numeric value (index). However, the machine-readable XML metadata does not contain any of this information and treats these attribute types as raw integers with only a minimum and maximum value constraint. It may make sense as a transition path to update CDB 1.3 to define additional XML elements in a backward compatible way to capture these definitions from the existing specification into the machine-readable XML metadata. The conceptual model in the CDB 1.2 specification does align with how GGDM treats such attributes, so there is no fundamental incompatibility, and the proposed CDB X dictionary design accounts for properly tracking the terms for qualitative attributes in a machine-readable way in SQLite.
+
+==== Coverages/Tiling Subgroup
+
+==== Metadata Subgroup
+
+==== Vectors in GeoPackage Subgroup
+
+
 
 ===	Document contributor contact points
 
