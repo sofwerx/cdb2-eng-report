@@ -2,7 +2,7 @@
 [[Recommendations]]
 = Annex A: Summary of Recommendations
 
-== Attrribution Subgroup
+== Attribution Subgroup
 
 The Attribution Subgroup recommends extending the current CDB XML metadata to add the NAS metamodel capabilities that are currently not supported. The CDB core conceptual model should not mandate any particular data dictionary or content, but rather provide the conceptual and logical metamodel for describing any ISO 19109 compliant application schema to the maximum extent practical. There should be no technical reason why one could not develop an extension profile for CDB for any particular data dictionary that complies with ISO 19109.
 
