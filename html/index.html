@@ -577,12 +577,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_openflight">10.5.1. OpenFlight</a></li>
 <li><a href="#_gl_transmission_format_gltf_2_0">10.5.2. GL Transmission Format (glTF) 2.0</a></li>
+<li><a href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature">10.5.3. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</a></li>
 </ul>
 </li>
-<li><a href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature">10.6. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</a></li>
-<li><a href="#_investigation_1_make_cdb_3d_models_easier_to_maintain_andor_modify">10.7. Investigation 1 - Make CDB 3D models easier to maintain and/or modify</a>
+<li><a href="#_investigation_1_make_cdb_3d_models_easier_to_maintain_andor_modify">10.6. Investigation 1 - Make CDB 3D models easier to maintain and/or modify</a>
 <ul class="sectlevel3">
-<li><a href="#_task_1_cdb_openflight_and_gltf_feature_analysis">10.7.1. TASK 1 - CDB OpenFlight and glTF Feature Analysis</a></li>
+<li><a href="#_task_1_cdb_openflight_and_gltf_feature_analysis">10.6.1. TASK 1 - CDB OpenFlight and glTF Feature Analysis</a></li>
 </ul>
 </li>
 </ul>
@@ -593,7 +593,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_task_3_prototype_a_openflight_to_gltf_converter_supporting_the_new_extension">11.2. TASK 3 - Prototype a OpenFlight to glTF converter supporting the new extension</a></li>
 <li><a href="#_task_4_define_a_new_structure_to_store_3d_models">11.3. TASK 4 - Define a new structure to store 3D models</a></li>
 <li><a href="#_task_5_define_an_index_file_for_all_3d_model_components">11.4. TASK 5 - Define an index file for all 3D model components</a></li>
-<li><a href="#_investigation_2_merging_all_geometry_in_a_tile_i_am_assuming_this_section_will_get_more_information_and_an_edit">11.5. Investigation 2 - Merging all geometry in a tile {<strong>I am assuming this section will get more information - and an edit</strong>}</a></li>
+<li><a href="#_investigation_2_merging_all_geometry_in_a_tile">11.5. Investigation 2 - Merging all geometry in a tile</a></li>
 </ul>
 </li>
 <li><a href="#metadata">12. CDB X Metadata and Integration</a>
@@ -3442,34 +3442,34 @@ Once again, filter timing appears to be insignificant and unrelated to the numbe
 <div class="sect2">
 <h3 id="Questions"><a class="anchor" href="#Questions"></a>10.1. Questions to be addressed</h3>
 <div class="paragraph">
-<p>Following are some of the questions that the 3D Modelling Subgroup initially identified as needing further discussion and possible experimentation. These formed the basis for the specific questions and approaches uses in the CDB-X 3D Prototyping and Experimentation.</p>
+<p>Following are some of the questions and suggestions for experimentation that the 3D Modelling Subgroup initially identified as needing further discussion and possible experimentation. These formed the basis for the specific questions and approaches uses in the CDB-X 3D Prototyping and Experimentation.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Models be stored in GeoPackage (Editors Note: <code>Is this a good idea? One could store the glTF in the CDB data store without using GeoPackage - just as OpenFlight today. Need to think about also perhaps having I3S, 3D Tiles, CityGML and other encodings.</code>)</p>
+<p>Models be stored as files such as OpenFlight or in GeoPackage.</p>
 </li>
 <li>
-<p>Models preferred to be glTF (others allowed) (glb package?)</p>
+<p>Models preferred to be glTF (Later consider I3S, 3D Tiles, CityGML and other encodings)</p>
 </li>
 <li>
-<p>Textures shall be xxxx format (png, jp2)  Power of 2 enforced?</p>
+<p>Textures shall be xxxx format (png, jp2)  Power of 2 enforced? {<strong>Not sure what this means</strong>}</p>
 </li>
 <li>
 <p>UV Map with model?</p>
 </li>
 <li>
-<p>naming convention tbd - should have some metadata use - indexing? directory path? layer? featureID?</p>
+<p>Naming convention tbd - should have some metadata use - indexing? directory path? layer? featureID?</p>
 </li>
 <li>
-<p>LOD Structure? (3d tiles?  MS LOD extenxtion for glTF) (Editors note: <code>Shouldn&#8217;t the same LoD structure be used throughout CDB-X? Otherwise, things get confusing.</code>)</p>
+<p>LoD Structure: MS LoD extention for glTF valid for CDB work? Model LoDs have vertex count, significant size etc&#8230;&#8203; and have their own LoD table which is not the same as tiled LoDs.</p>
 </li>
 <li>
-<p>Describe model placement</p>
+<p>Describe model placement.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>point features</p>
+<p>Point features</p>
 </li>
 <li>
 <p>Terrain Reconstruction</p>
@@ -3481,10 +3481,10 @@ Once again, filter timing appears to be insignificant and unrelated to the numbe
 <p>Imagery</p>
 </li>
 <li>
-<p>Areal features. (Editor&#8217;s note: <code>We stopped using "aerial" in CDB 1.1 - changed to polygon.</code>)</p>
+<p>Polygon features (Formerly aerial features in CDB 1.1 and earlier).</p>
 </li>
 <li>
-<p>linear features</p>
+<p>Linear features</p>
 </li>
 </ol>
 </div>
@@ -3674,9 +3674,8 @@ leveraging the extended materials, hot spots <span class="keyword">and</span> ot
 <p><a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/AGI_articulations">AGI_articulations</a> is an extension that adds articulations that define the names and ranges of allowable motions of nodes on a models. The extension includes articulation stages, pointing vectors, and attach points.</p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"><a class="anchor" href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"></a>10.6. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</h3>
+<div class="sect3">
+<h4 id="_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"><a class="anchor" href="#_original_prototyping_experiments_keeping_for_now_but_will_delete_when_this_section_is_more_mature"></a>10.5.3. Original Prototyping Experiments - Keeping for now but will delete when this section is more mature.</h4>
 <div class="paragraph">
 <p>Two profiles.</p>
 </div>
@@ -3742,8 +3741,9 @@ leveraging the extended materials, hot spots <span class="keyword">and</span> ot
 <div class="title">Figure 23. Profles and Experiments for CBD-X 3D Models.</div>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_investigation_1_make_cdb_3d_models_easier_to_maintain_andor_modify"><a class="anchor" href="#_investigation_1_make_cdb_3d_models_easier_to_maintain_andor_modify"></a>10.7. Investigation 1 - Make CDB 3D models easier to maintain and/or modify</h3>
+<h3 id="_investigation_1_make_cdb_3d_models_easier_to_maintain_andor_modify"><a class="anchor" href="#_investigation_1_make_cdb_3d_models_easier_to_maintain_andor_modify"></a>10.6. Investigation 1 - Make CDB 3D models easier to maintain and/or modify</h3>
 <div class="paragraph">
 <p>One of the objective of the 3D model refactoring in CDB is to facilitate the editing {<strong>Update</strong>} process. In the CDB 1.X environment, 3D model encoding is hard because:
 . The OpenFlight format has fewer editing tools than in newer 3D formats {<strong>Give an example</strong>}. This situation led the 3D subgroup to investigate the glTF encoding for possible use in CDB-X.
@@ -3772,7 +3772,7 @@ leveraging the extended materials, hot spots <span class="keyword">and</span> ot
 <p>The initial experimentation targeted Geospecific models inside the CDB structure. This was because they represent the greatest challenge. The GeoTypical models still need to be reviewed. However, the belief is that a sub-set of the GeoSpecific concepts can also be applied to GeoTypical models. The tasks describe below document the investigation along with the results:</p>
 </div>
 <div class="sect3">
-<h4 id="_task_1_cdb_openflight_and_gltf_feature_analysis"><a class="anchor" href="#_task_1_cdb_openflight_and_gltf_feature_analysis"></a>10.7.1. TASK 1 - CDB OpenFlight and glTF Feature Analysis</h4>
+<h4 id="_task_1_cdb_openflight_and_gltf_feature_analysis"><a class="anchor" href="#_task_1_cdb_openflight_and_gltf_feature_analysis"></a>10.6.1. TASK 1 - CDB OpenFlight and glTF Feature Analysis</h4>
 <div class="paragraph">
 <p>OGC CDB 1.X relies on a number of OpenFlight constructs that have no equivalent in glTF. One of the first task of the group was to list all OGC CDB 1.X requirements with regard to 3D model encodings and assess whether glTF has equivalent constructs.  The following provides details of the resultes of the analysis.</p>
 </div>
@@ -4267,7 +4267,7 @@ leveraging the extended materials, hot spots <span class="keyword">and</span> ot
 </ul>
 </div>
 <div class="paragraph">
-<p>The full schema can be found <a href="https://github.com/sofwerx/cdb2-concept/blob/3Dmodels_prototype/3Dmodel_Prototype/glTF-CDB-extension-schema.zip">here</a> (TODO - need link to updated schema)</p>
+<p>The full schema can be found <a href="https://github.com/sofwerx/cdb2-eng-report/blob/master/Experiment_Documents/glTF-CDB-extension-schema.zip">here</a>.</p>
 </div>
 <div class="paragraph">
 <p>The CDB glTF extension contains most of the required CDB-specific features. However there are some possible additions that could be made:</p>
@@ -4287,7 +4287,7 @@ With the current extension, the solution would be to group polygons with the sam
 </div>
 <div class="paragraph">
 <p><strong>External References</strong>
-This is one of the larger challenges encountered during our investigations. In the past there was discussion about including an external reference extension in glTF but it was decided not to include it {<strong>Who made this decision?</strong>}.
+This is one of the larger challenges encountered during our investigations. In the past there was discussion about including an external reference extension in glTF but the Subgroup decided not to include such an extension.
 In past cases, separate index files were used to reference multiple glTF files from a common source. This is sufficient for some cases but does not help for the use case of sharing geometry between multiple models. For example sharing common roof clutter objects between different buildings</p>
 </div>
 <div class="sect4">
@@ -4311,13 +4311,13 @@ In past cases, separate index files were used to reference multiple glTF files f
 <div class="ulist">
 <ul>
 <li>
-<p>Coordinate Reference System - shared interest with One World Terrain and possibly wider glTF ecosystem</p>
+<p>Coordinate Reference System - Shared interest with One World Terrain and possibly wider glTF ecosystem</p>
 </li>
 <li>
-<p>Switch nodes - shared interest with One World Terrain moving models format</p>
+<p>Switch nodes - Shared interest with One World Terrain moving models format</p>
 </li>
 <li>
-<p>External references - some interest in wider glTF ecosystem, but many unresolved implementation details</p>
+<p>External references - Some interest in wider glTF ecosystem, but many unresolved implementation details</p>
 </li>
 </ul>
 </div>
@@ -4357,7 +4357,14 @@ In past cases, separate index files were used to reference multiple glTF files f
 <p>The initial approach was to create a monolithic CDB glTF extension so that editors and viewers would only need to support a single extension to load CDB glTF models. However, the group determined that there was a significant amount of overlap between CDB and OWT requirements and shifted towards a more granular approach to avoid multiple redundant extensions being developed. Generally glTF extensions that have seen wider adoption are both simple and useful to a wide variety of vendors. Suggested next steps are to collaborate more closely with OWT stakeholders and reach out to the wider glTF community for review. This review would be followed by practical experimentation in runtime engines. After OGC review and agreement, the extensions may be formalized as either ratified Khronos extensions (KHR prefix) or, more likely, Multi-Vendor extensions (EXT prefix), and be listed in the <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions">glTF Extension Registry</a>.</p>
 </div>
 <div class="paragraph">
-<p>Another key topic for adoption is editor support. glTF has seen increasing adoption in 3D modelling software like Blender, 3DS Max, and Maya but extensions are often lost during the import/export process. Workarounds have been proposed such as storing extension information outside of the glTF container (see <a href="https://github.com/AnalyticalGraphicsInc/gmdf">The glTF Metadata File (GMDF) for Systems Tool Kit (STK)</a>). Some capabilities like per-face feature assignment are not possible in standard modelling packages and would require plugins. The most likely path of adoption is native support for the extensions in simulation editors and plugins for more general purpose 3D modeling software.</p>
+<p>Another key topic for adoption is editor support. glTF has seen increasing adoption in 3D modelling software such as Blender, 3DS Max, and Maya but extensions are often lost during the import/export process. Workarounds have been proposed such as storing extension information outside of the glTF container (see <a href="https://github.com/AnalyticalGraphicsInc/gmdf">The glTF Metadata File (GMDF) for Systems Tool Kit (STK)</a>). Some capabilities like per-face feature assignment are not possible in standard modelling packages and would require plugins. The most likely path of adoption is native support for the extensions in simulation editors and plugins for more general purpose 3D modeling software.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sample_model"><a class="anchor" href="#_sample_model"></a>Sample model</h5>
+<div class="paragraph">
+<p><a href="https://github.com/sofwerx/cdb2-eng-report/blob/master/Experiment_Documents/OpenFlight_to_glTF_testModel.zip">test Model - tank</a>
+<a href="https://portal.ogc.org/index.php?m=projects&amp;a=view&amp;project_id=466&amp;tab=2&amp;artifact_id=95313">OGC Portal CDB tile in glTF</a></p>
 </div>
 </div>
 </div>
@@ -4565,10 +4572,22 @@ There was a request to also store the model georeferencing inside this file {<st
 </div>
 </div>
 <div class="sect2">
-<h3 id="_investigation_2_merging_all_geometry_in_a_tile_i_am_assuming_this_section_will_get_more_information_and_an_edit"><a class="anchor" href="#_investigation_2_merging_all_geometry_in_a_tile_i_am_assuming_this_section_will_get_more_information_and_an_edit"></a>11.5. Investigation 2 - Merging all geometry in a tile {<strong>I am assuming this section will get more information - and an edit</strong>}</h3>
+<h3 id="_investigation_2_merging_all_geometry_in_a_tile"><a class="anchor" href="#_investigation_2_merging_all_geometry_in_a_tile"></a>11.5. Investigation 2 - Merging all geometry in a tile</h3>
 <div class="paragraph">
-<p>This investigation was not done by the 3D group but the tiling group did&#8230;&#8203;.
-This type of solution has significant impact on the CDB data model:
+<p>This investigation was not done by the 3D group but the tiling group did experiement. A few different ways to encode are possible, each with their own implications.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A mesh of the terrain geometry, esentially converting the CDB elevation and imagery datasets into one dataset. Where a quick implementation is possible one must consider all sub-datasets combinaisons (bathymetry for elevation and all imagery variants) and their implications in teh CDB data model.</p>
+</li>
+<li>
+<p>A mesh of only 3D models (not terrain) per tile. This has the benefit of improving rendering efficency as one tile. Some of the challenges to consider here are the ability to clamp individual models to terrain elevation while preserving the geometry grouping benefits. Also, the attribution on a per model basis currently contained in the vector would need to either move inside the mesh (to identify mesh segment per feature) or have a wait for the vector to reference part of the tile mesh.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Generally, this type of solution has significant impact on the CDB data model:
 . The mesh solution merges many CDB datasets into one. The elevation and 3D features along with the imagery are now all merged into one dataset.
 . The attribution to objects on the terrain is currently done in the vector, with a reference to the geometry. In a mesh case, the linkage will likely need to be revered and have the geometry link to the attribution.</p>
 </div>
@@ -6295,7 +6314,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-04 15:17:44 UTC
+Last updated 2020-11-04 16:05:20 UTC
 </div>
 </div>
 <style>
