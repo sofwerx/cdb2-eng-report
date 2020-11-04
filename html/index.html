@@ -557,8 +557,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_attribute_queries_and_performance_summary">9.5.1. Attribute Queries and Performance Summary</a></li>
 <li><a href="#_methodology">9.5.2. Methodology</a></li>
 <li><a href="#_results">9.5.3. Results</a></li>
-<li><a href="#_experiment_1_step_size_25_degrees_cdb_lod2_significant_size_13_355_lod2_significant_size">9.5.4. Experiment 1:  Step size .25 degrees (CDB LOD2), significant size &gt; 13.355 (LOD2 significant size)</a></li>
-<li><a href="#_experiment_2_simulation_of_lod4_hydro_road_and_building_layers_significant_size_buildings_3_39718">9.5.5. Experiment 2: simulation of LOD4, hydro, road, and building layers, significant size (buildings) &gt; 3.39718</a></li>
 </ul>
 </li>
 <li><a href="#_conclusions_and_recommendations">9.6. Conclusions and Recommendations</a></li>
@@ -3033,7 +3031,7 @@ This content of this section was authored by Greg Peele, leader of the Attribute
 <h3 id="_abstract"><a class="anchor" href="#_abstract"></a>9.2. Abstract</h3>
 <div class="paragraph">
 <p>To test potential approaches to storing CDB vector data in GeoPackage, the Vector Data in GeoPackage Subgroup, hereafter referred to as the Subgroup, performed several different experiments to determine the viability of storing very large volumes of vector data in a smaller number of large GeoPackage files rather than a very large number of small Shapefiles. Some of the experiments also set out to determine if there are upper limits in how much CDB content can be stored in a GeoPackage.
-This document details the SUbgroup&#8217;s approach and results of the experiments. The experiments demonstrated that GeoPackage/SQLite is capable of meeting the performance and size constraints for vector data in a CDB if properly defined {<strong>CDB or GeoPackage?</strong>}. The expiriments also demonstrated that from a performance standpoint doing a direct conversion of existing Shapefile content into GeoPackage(s) may not be feasible. To gain the most from using GeoPackage as a container for large vector datasets, some approaches to level of detail (LOD) and other CDB content should be reconsidered. This includes the way significant size is used in CDB.
+This document details the SUbgroup&#8217;s approach and results of the experiments. The experiments demonstrated that GeoPackage/SQLite is capable of meeting the performance and size constraints for vector data in a CDB if properly defined {<strong>CDB or GeoPackage?</strong>}. The experiments also demonstrated that from a performance standpoint doing a direct conversion of existing Shapefile content into GeoPackage(s) may not be feasible. To gain the most from using GeoPackage as a container for large vector datasets, some approaches to level of detail (LOD) and other CDB content should be reconsidered. This includes the way significant size is used in CDB.
 The Subgroup also found that the design the schema is very important, including proper index design, when using GeoPackage. Shapefiles are very simple for developers to use since there is not a lot of flexibility when it comes to how to store data. Conversely, GeoPackage is very flexible. As such how a GeoPackage is structured and indexed can have a major impact on performance. If the exact schema and indexes for GeoPackage are properly defined as part of the CDB-X, users can expect very good performance, even for large datasets.</p>
 </div>
 <div class="admonitionblock note">
@@ -3174,7 +3172,7 @@ Please note that the original OSM building footprints do not have a ‘height’
 <div class="sect3">
 <h4 id="_data_source_3_osm_roads_to_cdb_gpkg"><a class="anchor" href="#_data_source_3_osm_roads_to_cdb_gpkg"></a>9.4.3. Data Source 3 - osm-roads-to-CDB.gpkg</h4>
 <div class="paragraph">
-<p>This file contains roads derived from worldwide OSM. It contains 90,425,963 features. Its size on disk is 29,832,347,648 bytes.</p>
+<p>This GeoPackage contains roads derived from worldwide OSM. The GeoPackage contains 90,425,963 features and requires 29,832,347,648 bytes of storage.</p>
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
@@ -3186,13 +3184,13 @@ Please note that the original OSM building footprints do not have a ‘height’
 <p>&nbsp;</p>
 </div>
 <div class="paragraph">
-<p>Like the hydrographic features described above, this dataset does not contain a true network – topology was not analyzed and CDB junction IDs are not set.</p>
+<p>Like the hydrographic features described above, this dataset does not contain a true network. Topology was not analyzed and CDB junction IDs are not set.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_output"><a class="anchor" href="#_output"></a>9.4.4. Output</h4>
 <div class="paragraph">
-<p>The final container, combined-features-conus.gpkg is simply a single container with each of the aforementioned layers copied into it.  Its size on disk is 18,164,895,744 bytes.</p>
+<p>The final GeoPackage container, combined-features-conus.gpkg, is simply a single container with each of the aforementioned layers copied into it.  This GeoPackage requires 18,164,895,744 bytes of storage.</p>
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
@@ -3204,7 +3202,7 @@ Please note that the original OSM building footprints do not have a ‘height’
 <p>&nbsp;</p>
 </div>
 <div class="paragraph">
-<p>The layer ‘Road_Network_Linear’ was clipped from the world-wide road coverage, to approximately the CONUS area, to cover the same extents as the other three layers.</p>
+<p>The layer ‘Road_Network_Linear’ was clipped to approximately the CONUS area from the world-wide road coverage. This is so this GeoPackage covers the same extents as the other three layers.</p>
 </div>
 </div>
 </div>
@@ -3213,9 +3211,11 @@ Please note that the original OSM building footprints do not have a ‘height’
 <div class="sect3">
 <h4 id="_attribute_queries_and_performance_summary"><a class="anchor" href="#_attribute_queries_and_performance_summary"></a>9.5.1. Attribute Queries and Performance Summary</h4>
 <div class="paragraph">
-<p>The objective of this testing was to explore a combination of spatial and attribution filtering in a CDB-like environment.
-To illustrate the importance of properly designing the schema when migrating from a Shapefile to a GeoPackage-based CDB, we converted all the vector data in a CDB directly. We used an approach similar to "Design Approach 4" in the discussion paper entitled <em>OGC CDB, Leveraging GeoPackage Discussion Paper</em> (<a href="https://portal.opengeospatial.org/files/?artifact_id=82553" class="bare">https://portal.opengeospatial.org/files/?artifact_id=82553</a>). The conversion grouped all vector features by dataset and geocell into a single GeoPackage file. Each vector feature was assigned a value for LOD, HREF, and UREF to correspond to the original Shapefile filename. A test was developed to randomly seek through the CDB and read features. The test script had a list of 8243 individual Shapefiles, but each file was opened and read in a randomized order. In the case of the Shapefile, each file was opened by filename, and all of the features were read. In subsequent tests with GeoPackage, the same content was read (using the list of Shapefile filenames), but instead of opening the Shapefile, the script performed a query based on the LOD, HREF, and UREF attributes.
-In our test, reading the ShapeFiles took 0:01:29 (1.5 minutes). With no indexes on the GeoPackage attributes, the queries took over one hour (1:01:47). Next, we created an index for the LOD, HREF, and UREF attributes and repeated the GeoPackage test. With the indexes, finding and reading the same features took 0:00:49, only half of the time it took to read the Shapefiles.</p>
+<p>The objective of the testing was to explore a combination of spatial and attribution filtering in a CDB-like environment.
+To illustrate the importance of properly designing the schema when migrating from a Shapefile to a GeoPackage-based CDB, all the vector data in a CDB was converted. An approach similar to "Design Approach 4" in the OGC Discussion Paper titled <a href="https://portal.opengeospatial.org/files/?artifact_id=82553">OGC CDB, Leveraging GeoPackage Discussion Paper</a> was used. The conversion grouped all vector features by dataset and geocell into a single GeoPackage. Each vector feature was assigned a value for LOD, HREF, and UREF to correspond to the original Shapefile filename. A test was developed to randomly seek and read features in the CDB GeoPackage. The test script had a list of 8243 individual Shapefiles, but each file was opened and read in a randomized order. In the case of the Shapefile, each file was opened by filename, and all of the features were read. In subsequent tests with GeoPackage, the same content was read (using the list of Shapefile filenames), but instead of opening the Shapefile, the script performed a query based on the LOD, HREF, and UREF attributes.</p>
+</div>
+<div class="paragraph">
+<p>In this test, reading the ShapeFiles took 0:01:29 (1.5 minutes). With no indexes on the GeoPackage attributes, the queries took over one hour (1:01:47). Next, an index for the LOD, HREF, and UREF attributes was created and the above GeoPackage test repeated. With the indexes, finding and reading the same features took 0:00:49. Thisis only half of the time it took to read the Shapefiles.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3232,13 +3232,13 @@ In our test, reading the ShapeFiles took 0:01:29 (1.5 minutes). With no indexes 
 <p>Each timing test was performed in the approximate CONUS extents of North 49 degrees latitude to South 24 degrees latitude, and from West 66 degrees longitude to West 125 degrees longitude.</p>
 </li>
 <li>
-<p>Prior to running a test, a ‘step size’ is defined – typically corresponding to a CDB LOD tile size. A list of every spatial filter in the entire extent is created, then randomized.</p>
+<p>Prior to running a test, a ‘step size’ was defined – typically corresponding to a CDB LOD tile size. A list of every spatial filter in the entire extent was created, then randomized.</p>
 </li>
 <li>
-<p>Also, prior to a test, a ‘significant size’ filter is set. When the layer ‘GT_Model’ is encountered, this additional attribute filter is applied. The intent is to mimic LOD selection, in addition to the spatial filter.</p>
+<p>Also, prior to a test, a ‘significant size’ filter was set. When the layer ‘GT_Model’ is encountered, this additional attribute filter is applied. The intent is to mimic LOD selection, in addition to the spatial filter.</p>
 </li>
 <li>
-<p>There are three timing steps:</p>
+<p>There were three timing steps:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -3261,36 +3261,36 @@ In our test, reading the ShapeFiles took 0:01:29 (1.5 minutes). With no indexes 
 <div class="ulist">
 <ul>
 <li>
-<p>count:	the number of features returned after application of filters</p>
+<p>count:	the number of features returned after application of filters.</p>
 </li>
 <li>
-<p>filter_t – 	time to complete the filtering operation(s) in seconds</p>
+<p>filter_t – 	time to complete the filtering operation(s) in seconds.</p>
 </li>
 <li>
-<p>count_t:	time to complete the feature count operation in seconds</p>
+<p>count_t:	time to complete the feature count operation in seconds.</p>
 </li>
 <li>
 <p>read_t :	time to complete feature read operation in seconds.  This includes reading from the GeoPackage container and appending each feature to a Python list.</p>
 </li>
 <li>
-<p>Sequence: 	order that the tile was processed</p>
+<p>Sequence: 	order that the tile was processed.</p>
 </li>
 <li>
-<p>‘$geometry’: 	tile extents derived from spatial filter polygon
-Note: tiles that return zero features do not create a test output record.</p>
+<p>‘$geometry’: 	tile extents derived from spatial filter polygon.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Note: tiles that return zero features do not create a test output record.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_results"><a class="anchor" href="#_results"></a>9.5.3. Results</h4>
-
-</div>
-<div class="sect3">
-<h4 id="_experiment_1_step_size_25_degrees_cdb_lod2_significant_size_13_355_lod2_significant_size"><a class="anchor" href="#_experiment_1_step_size_25_degrees_cdb_lod2_significant_size_13_355_lod2_significant_size"></a>9.5.4. Experiment 1:  Step size .25 degrees (CDB LOD2), significant size &gt; 13.355 (LOD2 significant size)</h4>
+<div class="sect4">
+<h5 id="_experiment_1_step_size_25_degrees_cdb_lod2_significant_size_13_355_lod2_significant_size"><a class="anchor" href="#_experiment_1_step_size_25_degrees_cdb_lod2_significant_size_13_355_lod2_significant_size"></a>Experiment 1:  Step size .25 degrees (CDB LOD2), significant size &gt; 13.355 (LOD2 significant size)</h5>
 <div class="paragraph">
 <p>Test results coverage is shown in the figure below.</p>
 </div>
@@ -3304,8 +3304,7 @@ Note: tiles that return zero features do not create a test output record.</p>
 <p>&nbsp;</p>
 </div>
 <div class="paragraph">
-<p>This test simulates retrieving point features corresponding to CDB LOD2 and only models with the corresponding lowest significant size (as defined in the CDB 3.2, Table 3-1).  The conclusion that is drawn from this test, however, is that spatial filtering time is insignificant and appears to not be correlated to the number of features found.
-The time it takes to count and read filtered features appears to be a direct correlation to number of features found.</p>
+<p>This test simulates retrieving point features corresponding to CDB LOD2 and only models with the corresponding lowest significant size (as defined in the CDB 3.2, Table 3-1).  The conclusion that is drawn from this test, however, is that spatial filtering time is insignificant and appears to not be correlated to the number of features found.  The time taken to count and read filtered features appears to be a direct correlation to number of features found.</p>
 </div>
 <div class="paragraph">
 <p>The Experiment 1 attribute table results are shown in the figures below, each filtered on a different field.</p>
@@ -3347,8 +3346,8 @@ The time it takes to count and read filtered features appears to be a direct cor
 <p>&nbsp;</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_experiment_2_simulation_of_lod4_hydro_road_and_building_layers_significant_size_buildings_3_39718"><a class="anchor" href="#_experiment_2_simulation_of_lod4_hydro_road_and_building_layers_significant_size_buildings_3_39718"></a>9.5.5. Experiment 2: simulation of LOD4, hydro, road, and building layers, significant size (buildings) &gt; 3.39718</h4>
+<div class="sect4">
+<h5 id="_experiment_2_simulation_of_lod4_hydro_road_and_building_layers_significant_size_buildings_3_39718"><a class="anchor" href="#_experiment_2_simulation_of_lod4_hydro_road_and_building_layers_significant_size_buildings_3_39718"></a>Experiment 2: Simulation of LOD4, hydro, road, and building layers, significant size (buildings) &gt; 3.39718</h5>
 <div class="paragraph">
 <p>Test results coverage is shown in the figure below.</p>
 </div>
@@ -3362,7 +3361,7 @@ The time it takes to count and read filtered features appears to be a direct cor
 <p>&nbsp;</p>
 </div>
 <div class="paragraph">
-<p>This test uses the combined layers source file and simulates a CDB LOD4 data access pattern. Timing values are totals, accumulating as each layer is filtered, counted as features are read.
+<p>This test used the combined layers source file and simulates a CDB LOD4 data access pattern. Timing values are totals, accumulating as each layer was filtered, counted as features were read.
 Once again, filter timing appears to be insignificant and unrelated to the number of features filtered.  Data in the GT_Model layer has both a spatial and attribute (significant size) filter applies.</p>
 </div>
 <div class="paragraph">
@@ -3406,12 +3405,13 @@ Once again, filter timing appears to be insignificant and unrelated to the numbe
 </div>
 </div>
 </div>
+</div>
 <div class="sect2">
 <h3 id="_conclusions_and_recommendations"><a class="anchor" href="#_conclusions_and_recommendations"></a>9.6. Conclusions and Recommendations</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>It appears practical to store large amounts of feature data in single GeoPackage containers and retrieve that data by applying spatial and attribution filters that correspond with typical CDB access patterns.</p>
+<p>Storing large amounts of feature data in single GeoPackage containers and retrieving that data by applying spatial and attribution filters that correspond with typical CDB access patterns appears to be practical.</p>
 </li>
 <li>
 <p>Spatial filters easily mimic the existing CDB tiling scheme.</p>
@@ -6295,7 +6295,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-03 21:46:06 UTC
+Last updated 2020-11-04 15:17:44 UTC
 </div>
 </div>
 <style>
