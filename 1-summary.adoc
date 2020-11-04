@@ -59,38 +59,17 @@ The following are the key recommendations for changes, enhancements, and design 
 
 ==== Attribution Subgroup
 
-The following are the major recommendations from the Attribution Subgroup.
+The following are the major recommendations from the Attribution Subgroup. Each of these major recommendation contain multiple "minor" recommendations that result from cosidering the major recommendation. The complete list of major/minor recommendations for Attribution are found in both the Attribution section and <<Recommendations,Annex A>>.
 
 `Recommendation 1`: The subgroup recommends extending the current CDB XML metadata to add the NAS metamodel capabilities that are currently not supported. 
 
 `Recommendation 2 and design goal`: The CDB core conceptual model should not mandate any particular data dictionary or content, but rather provide the conceptual and logical metamodel for describing any ISO 19109 compliant application schema to the maximum extent practical. There should be no technical reason why one could not develop an extension profile for CDB for any particular data dictionary that complies with ISO 19109.
 
-`Recommendation 3`: Adopt NAS-compliant logical entity-attribute model for CDB X with extensions for CDB use cases
-`Recommendation 4`: Augment NAS definitions with other open standards and new development
-`Recommendation 5`: Remove CDB feature subcodes entirely; migrate to existing and new feature and attribute types instead in NAS-compliant structure
-** Define entity types for CDB datasets and define "aggregation" relationships from feature types to containing datasets
-** Capture feature-level, dataset-level, and database metadata as NAS-compliant attribution meeting the NSG Metadata Foundation (NMF) and ISO 19115
-** Define functional role domains and create mechanism to organize attribution by domain for tailoring to runtime devices
-* Delegate entity and attribute physical encoding choices to vector and 3D model containers instead of specifying globally
-** Deprecate extended attributes entirely, to be removed in CDB X
-** Delegate containerization of entity types (one per table, multiple in same table specified by F_CODE attribute, etc.) to vector and model containers
-** Delegate decision whether to use class or instance attributes to individual vector and model containers rather than global data dictionary
-** Delegate decision of whether to use FACC-like codes, NAS labels, or natural language names for entity types, attributes, and values to vector and model containers
-** Delegate decision of whether to flatten complex feature relationships and attributes used GGDM attribute prefixing to vector and model containers
-** Delegate decision of whether to flatten multi-valued and range-valued attributes using GGDM attribute prefixing to vector and model containers
-** Specify minimum and maximum cardinality of multi-valued attributes in feature and attribute dictionary, allow containers to use a lower maximum if using GGDM attribute prefixing encoding
+`Recommendation 3`: Adopt NAS-compliant logical entity-attribute model for CDB X with extensions for CDB use cases.
+
+* Delegate entity and attribute physical encoding choices to vector and 3D model containers instead of specifying globally.
+
 * Define backward-compatible extensions in CDB 1.3 to add constructs necessary to move toward NAS-compliant attribution
-** Capture proposed NAS-complaint replacement feature dictionary in existing CDB metadata XML with necessary extensions
-** Only use feature subcode 000 in replacement dictionary and deprecate use of feature subcodes to be removed in CDB X
-** Add mechanism to mark numeric attributes as interval ranges (existing non-upgraded clients should see still attribute as single-valued and read mean value from associated unsuffixed attribute, use suffixed attributes for deviation and closure for upgraded clients to read)
-** Add minumum and maximum cardinality elements for attribute definitions to specify mininum and maximum element count for multi-valued attributes (existing non-upgraded clients should just see attribute as scalar base value and will only read the first value from associated content, will see ordinal-suffixed attributes as separate attributes)
-** Add list of valid attributes to datasets in CDB 1.x metadata XML files to match existing human-readable specification
-** Add list of valid enumerants for each attribute in CDB 1.x CDB_Attributes.xml file to match existing human-readable specification
-** Add list of valid attributes for each entity type as extension to CDB 1.x Feature_Data_Dictionary.xml to implement NAS-compliant per-entity attributes
-** Update CDB 1.x CDB_Attributes.xml to allow specifying text pattern constraints through <Pattern> element and text codelists for text attributes via <Codelist> element
-** Update CDB 1.x Feature_Data_Dictionary.xml for each feature to specify its generalization (base) entity type via <Generalization> element
-** Update CDB 1.x Feature_Data_Dictionary.xml to add <Aggregation> element to define additional associated category for an entity type, or parent category for a category
-** Existing category and subcategory XML structure will add implicit definitions and aggeregation links for the category/subcategory items as used by CDB 1.0 for model storage
 
 The following are recommendatoins for possible inclusion in CDB version 1.3.
 
