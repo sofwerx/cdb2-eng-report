@@ -145,7 +145,7 @@ include::Versioning Analysis.adoc[]
 
 include::annex-a.adoc[]
 
-//include::annex-b.adoc[]
+include::annex-b.adoc[]
 
 include::annex-c-tile-coverages.adoc[]
 
