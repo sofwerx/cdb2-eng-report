@@ -1,0 +1,94 @@
+[appendix]
+[[annex-b]]
+= Annex B: CDB-X sample GeoPackages resulting from Ecere experiments.
+
+The results produced were sourced from the CAE San Diego CDB 1.x. +
+An additional data layer was sourced from the NASA Visible Earth https://visibleearth.nasa.gov/collection/1484/blue-marble[Blue Marble]. +
+A detailed description of these results is featured in the Engineering
+Report – https://github.com/sofwerx/cdb2-eng-report/blob/master/11-tiling-coverages.adoc[Tiling section.] +
+These are also available from the https://portal.ogc.org/index.php?m=projects&a=view&project_id=466&tab=2&artifact_id=95315[CDB SWG / CDB X Tech Sprint folder].
+
+MVT: Mapbox Vector Tiles (https://docs.mapbox.com/vector-tiles/reference/[specifications])
+
+GMT: GNOSIS Map Tiles (http://docs.opengeospatial.org/per/18-025.html#GMTSpecs[specifications])
+
+E3D: Ecere 3D Models (http://docs.opengeospatial.org/per/18-025.html#E3DSpecs[specifications])
+
+== San Diego CDB layers packaged together 
+
+[cols=",,,,,,,",]
+|===
+|*Data / Link* |*LOD Grouping* |*Models Encoding* |*Imagery Encoding* |*Coverage Encoding* |*Vector Encoding* |*Uncompressed size* |*Compressed Size*
+8+|_As a single GeoPackage_
+|https://data.ogc.org/2020/11/SanDiego.gpkg.7z[San Diego] |Single File |Binary glTF |JPEG |PNG |MVT |12.8 GiB |9.8 GiB
+|https://data.ogc.org/2020/11/SanDiego.gpkg[San Diego]    |Single File |E3D         |JPEG |GMT |GMT |10.3 GiB |
+8+|_Grouping tiles of 5 LODs per GeoPackage_
+|https://data.ogc.org/2020/11/SanDiego.7z[San Diego]      |5           |Binary glTF |JPEG |PNG |MVT |14.6 GiB |9.9 GiB
+|https://portal.ogc.org/files/?artifact_id=95370[San Diego (subset)] |5      |Binary glTF |JPEG |PNG |MVT |1.4 GiB  |217.5 MiB
+|===
+
+== San Diego CDB packaged as separate layers
+
+=== Elevation
+
+[cols=",,,,",]
+|===
+|*Data / Link*                                               |*LOD Grouping* |*Coverage Encoding* |*Uncompressed size* |*Compressed Size*
+|https://portal.ogc.org/files/?artifact_id=95352[Elevation]    |6 |PNG / 16-bit integer |483 MiB |472 MiB
+|https://portal.ogc.org/files/?artifact_id=95328[Elevation]    |6 |GMT / 16-bit integer |370.8 MiB |365.2 MiB
+|https://data.ogc.org/2020/11/ElevationTIF.7z[Elevation] |6 |GeoTIFF / 32-bit float |1.4 GiB |1.3 GiB
+|===
+
+=== Imagery
+
+[cols=",,,,",]
+|===
+|*Data / Link*                                         |*LOD Grouping* |*Imagery Encoding* |*Uncompressed size* |*Compressed Size*
+|https://data.ogc.org/2020/11/BlueMarble.7z[Blue Marble] |7 |JPEG |1.6 GiB |1.4 GiB
+|https://data.ogc.org/2020/11/ImageryMedium.7z[Imagery (Medium)] |7 |JPEG |4.9 GiB |4.7 GiB
+|https://data.ogc.org/2020/11/ImageryHigh.7z[Imagery (High)] |7 |JPEG |4.5 GiB |4.3 GiB
+|===
+
+=== Vector data
+
+[cols=",,,,",]
+|===
+|*Data / Link*                                                |*LOD Grouping* |*Vector Encoding* |*Uncompressed size* |*Compressed Size*
+|https://portal.ogc.org/files/?artifact_id=95348[Hydrography] |Single File |Mapbox Vector Tiles |424 KiB |
+|https://portal.ogc.org/files/?artifact_id=95350[Roads] |Single File |Mapbox Vector Tiles |69.1 MiB |17.6 MiB
+|https://portal.ogc.org/files/?artifact_id=95346[Airport Lights] |Single File |Mapbox Vector Tiles |144 KiB |
+|https://portal.ogc.org/files/?artifact_id=95330[Hydrography] |Single File |GNOSIS Map Tiles |248 KiB |
+|https://portal.ogc.org/files/?artifact_id=95331[Roads] |Single File |GNOSIS Map Tiles |38 MiB |23.4 MiB
+|https://portal.ogc.org/files/?artifact_id=95329[Airport Lights] |Single File |GNOSIS Map Tiles |148 KiB |
+|===
+
+=== 3D Models
+==== Using referencing placement points
+
+[cols=",,,,,",]
+|===
+|*Data / Link*                              |*LOD Grouping* |*Models Encoding* |*Vector Encoding* |*Uncompressed size* |*Compressed Size*
+|https://portal.ogc.org/files/?artifact_id=95351[Buildings] |Single File |Binary glTF |Mapbox Vector Tiles |2.9 GiB |321.3 MiB
+|https://portal.ogc.org/files/?artifact_id=95349[Trees] |Single File |Binary glTF |Mapbox Vector Tiles |2 MiB |
+|https://portal.ogc.org/files/?artifact_id=95347[Coronado Bridge] |Single File |Binary glTF |Mapbox Vector Tiles |272 KiB |
+|https://portal.ogc.org/files/?artifact_id=95340[Buildings] |Single File |E3D |GNOSIS Map Tiles |560.8 MiB |332.8 MiB
+|https://portal.ogc.org/files/?artifact_id=95339[Trees] |Single File |E3D |GNOSIS Map Tiles |1.8 MiB |
+|https://portal.ogc.org/files/?artifact_id=95338[Coronado Bridge] |Single File |E3D |GNOSIS Map Tiles |196 KiB |
+|https://portal.ogc.org/files/?artifact_id=95344[Buildings] |4 |Binary glTF |Mapbox Vector Tiles |4.1 GiB |446.6 MiB
+|https://portal.ogc.org/files/?artifact_id=95343[Buildings] |5 |Binary glTF |Mapbox Vector Tiles |3.7 GiB |409.2 MiB
+|https://portal.ogc.org/files/?artifact_id=95342[Buildings] |7 |Binary glTF |Mapbox Vector Tiles |2.9 GiB |321.3 MiB
+|https://portal.ogc.org/files/?artifact_id=95341[Trees] |6 |Binary glTF |Mapbox Vector Tiles |2.9 MiB |1.2 MiB
+|===
+
+==== Batching models per tile
+
+[cols=",,,,,",]
+|===
+|*Data / Link*                                |*LOD Grouping* |*Models Encoding* |*Vector Encoding* |*Uncompressed size* |*Compressed Size*
+|https://portal.ogc.org/files/?artifact_id=95337[Buildings] |Single File |Binary glTF |Mapbox Vector Tiles |3.9 GiB |512.4 MiB
+|https://portal.ogc.org/files/?artifact_id=95335[Trees] |Single File |Binary glTF |Mapbox Vector Tiles |91 MiB |2.3 MiB
+|https://portal.ogc.org/files/?artifact_id=95336[Coronado Bridge] |Single File |Binary glTF |Mapbox Vector Tiles |576 KiB |
+|https://portal.ogc.org/files/?artifact_id=95334[Buildings] |Single File |E3D |GNOSIS Map Tiles |417.3 MiB |339.8 MiB
+|https://portal.ogc.org/files/?artifact_id=95333[Trees] |Single File |E3D |GNOSIS Map Tiles |3.3 MiB |
+|https://portal.ogc.org/files/?artifact_id=95332[Coronado Bridge] |Single File |E3D |GNOSIS Map Tiles |256 KiB |
+|===
