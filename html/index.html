@@ -447,11 +447,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_recommendations">2.1. Recommendations</a>
 <ul class="sectlevel3">
-<li><a href="#_attribution">2.1.1. Attribution</a></li>
+<li><a href="#_attribution_subgroup">2.1.1. Attribution Subgroup</a></li>
 </ul>
 </li>
 <li><a href="#_document_contributor_contact_points">2.2. Document contributor contact points</a></li>
-<li><a href="#_foreword">2.3. Foreword</a></li>
 </ul>
 </li>
 <li><a href="#references">3. References</a></li>
@@ -480,7 +479,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_3d_models">7.4. 3D Models</a></li>
-<li><a href="#_attribution_2">7.5. Attribution</a></li>
+<li><a href="#_attribution">7.5. Attribution</a></li>
 <li><a href="#_tilingcoveragesimagery">7.6. Tiling/Coverages/Imagery</a></li>
 <li><a href="#_vector_data">7.7. Vector Data</a></li>
 </ul>
@@ -744,7 +743,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>This Engineering Report (ER) documents the results and recommendations of the rapid prototyping activites conducted during the 3D Geospatial Series Tech Sprint II - OGC CDB 2.0 (aka CDB X). This activity was performed in support of Special Operations Forces (SOF) Future Concepts. This effort hopes to accelerate evolution of the OGC CDB standard to meet the needs of planning, rehearsal, and Mission Command systems providing decision support to Special Operations Forces and enabling SOF tactical and operational advantage. OGC industry standards enable interoperability of geospatial data across systems and applications that SOF Operators and analysts use across warfighting functions.</p>
 </div>
 <div class="paragraph">
-<p>CDB X - Meeting the requirements for tactical GEOINT that can be used across warfighting functions.</p>
+<p>Short summary of CDB X goal - Meeting the requirements for tactical GEOINT that can be used across warfighting functions.</p>
 </div>
 </div>
 </div>
@@ -752,10 +751,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_executive_summary"><a class="anchor" href="#_executive_summary"></a>2. Executive Summary</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Since 2018 the CDB community has discussed and considered what CDB version 2.0 might might provide in terms of capabilities. These discussion also touched on architecture and related logical models. Many of these CDB 2.0 discussion have occured as part of the OGC standards work. More recently, other organizations such as SOCOM and NGA, have vigorously engaged in these discussions. However, progress has been relatively slow.</p>
+<p>Beginning in 2018 the CDB community has discussed and considered what CDB version 2.0 might might provide in terms of capabilities. These discussion also touched on architecture and related logical models. Many of these CDB 2.0 discussion occured as part of the OGC standards work. More recently, other organizations such as SOCOM and NGA, have vigorously engaged in these discussions. However, progress has been relatively slow.</p>
 </div>
 <div class="paragraph">
-<p>Therefore, in order to accelerate the development of CDB 2.0, in May 2020 SOFWERX announced the <a href="https://events.sofwerx.org/3dgeots/">3D Geospatial Series Tech Sprint II – OGC CDB 2.0</a>. In support of SOF Future Concepts, this effort hopes to accelerate evolution of the OGC CDB standard to meet the needs of planning, rehearsal, and Mission Command systems providing decision support to Special Operations Forces and enabling SOF tactical and operational advantage.</p>
+<p>Therefore, in order to accelerate the development of CDB 2.0, in May 2020 SOFWERX announced the <a href="https://events.sofwerx.org/3dgeots/">3D Geospatial Series Tech Sprint II – OGC CDB 2.0</a>. In support of SOF Future Concepts, this effort hopes to accelerate evolution of the OGC CDB standard to meet the needs of planning, rehearsal, and Mission Command systems providing decision support to Special Operations Forces and enabling SOF tactical and operational advantage. Additionally, a requirement to better align aspects of the CDB standard with the One World Terrain activity was expressed during the initial workshop.</p>
 </div>
 <div class="paragraph">
 <p>The CBD Tech Sprint was comprised of five (5) key work phases:</p>
@@ -793,19 +792,19 @@ Once the experimentation activities started, the particpants in concert with SOF
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>3D</p>
+<p>3D Subgroup</p>
 </li>
 <li>
-<p>Attribution</p>
+<p>Attribution Subgroup</p>
 </li>
 <li>
-<p>Coverages/Tiling</p>
+<p>Coverages/Tiling Subgroup</p>
 </li>
 <li>
-<p>Tiling and GeoPackage</p>
+<p>Vectors in GeoPackage Subgroup</p>
 </li>
 <li>
-<p>Metadata</p>
+<p>Metadata Subgroup</p>
 </li>
 </ol>
 </div>
@@ -818,7 +817,7 @@ Once the experimentation activities started, the particpants in concert with SOF
 <p>The following are the recommendations for changes, enhancements, and design principals for not just CDB 2.0 but also CDB version 1.3. The version 1.3 chnages are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path the version 2.0</p>
 </div>
 <div class="sect3">
-<h4 id="_attribution"><a class="anchor" href="#_attribution"></a>2.1.1. Attribution</h4>
+<h4 id="_attribution_subgroup"><a class="anchor" href="#_attribution_subgroup"></a>2.1.1. Attribution Subgroup</h4>
 <div class="paragraph">
 <p>The subgroup recommends extending the current CDB XML metadata to add the NAS metamodel capabilities that are currently not supported. The CDB core conceptual model should not mandate any particular data dictionary or content, but rather provide the conceptual and logical metamodel for describing any ISO 19109 compliant application schema to the maximum extent practical. There should be no technical reason why one could not develop an extension profile for CDB for any particular data dictionary that complies with ISO 19109.</p>
 </div>
@@ -1052,15 +1051,6 @@ Once the experimentation activities started, the particpants in concert with SOF
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="_foreword"><a class="anchor" href="#_foreword"></a>2.3. Foreword</h3>
-<div class="paragraph">
-<p>Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.</p>
-</div>
-<div class="paragraph">
-<p>Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.</p>
-</div>
 </div>
 </div>
 </div>
@@ -1693,7 +1683,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 
 </div>
 <div class="sect2">
-<h3 id="_attribution_2"><a class="anchor" href="#_attribution_2"></a>7.5. Attribution</h3>
+<h3 id="_attribution"><a class="anchor" href="#_attribution"></a>7.5. Attribution</h3>
 
 </div>
 <div class="sect2">
@@ -6321,7 +6311,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-04 16:50:23 UTC
+Last updated 2020-11-04 17:01:18 UTC
 </div>
 </div>
 <style>
