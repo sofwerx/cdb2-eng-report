@@ -90,7 +90,9 @@ The following graph compares the CDB 1.x zones with the Gnosis grid and shows ho
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .CDB 1.x to GNOSIS Comparison - Ratio.
-image::images/image2020-9-4_10-41-0.png[width=800,align="center"]
+image::images/image2020-9-4_10-41-0.png[width=600,align="center"]
+
+NOTE: A summary of all of the results from the experiments can be found in <<annex-b,Annex B>>. 
 
 ==== Tiling Changes From OGC CDB 1.x
 
@@ -409,7 +411,7 @@ CREATE TABLE attributes_Trees (
 
 ==== B) Batched 3D Models tiles
 
-For Approach B, best suited for geo-specific models, a single model covers a whole tile, all 3D models from the data layer found within that tile are batched, and is {*What is?*} stored in a tiles table much like raster or vector tiles (as a glTF blob in the `tile_data` field).
+For Approach B, best suited for geo-specific models, a single model covers a whole tile, all 3D models from the data layer found within that tile are batched, and is  stored in a tiles table much like raster or vector tiles (as a glTF blob in the `tile_data` field).
 This is closer to the 3D Tiles / One World Terrain approach, and could potentially also combine both 3D Terrain and 3D Models (though ideally keeping them as distinct nodes within the model). Such an approach may facilitate transition between CDB-X and OWT.
 
 Because GeoPackage does not define a generic mechanism for specifying the encoding of `tile_data` (this has previously been suggested that this would be a good field to add to the `gpkg_contents` table), the encoding of the 3D model must be deducted from the content of the blob. Fortunately, both glTF and E3D feature a header signature that facilitates this. The `3d-models` type was introduced for specifying the `data_type` column of the `gpkg_contents` table.
@@ -473,11 +475,11 @@ These were originally described as separate experiments on the https://github.co
 
 [#img_gpkgexport,reftext='{figure-caption} {counter:figure-num}']
 .Ecere GeoPackage / CDB X Export dialog and options in Ecere’s GNOSIS Cartographer
-image::images/Ecere-GeoPackageCDBXExport.png[width=800,align="center"]
+image::images/Ecere-GeoPackageCDBXExport.png[width=600,align="center"]
 
 [#img_gpkgexport2,reftext='{figure-caption} {counter:figure-num}']
 .Ecere GeoPackage / CDB X Export dialog and options close up
-image::images/Ecere-GeoPackageCDBXExport2.png[width=800,align="center"]
+image::images/Ecere-GeoPackageCDBXExport2.png[width=600,align="center"]
 
 ==== Data results
 
