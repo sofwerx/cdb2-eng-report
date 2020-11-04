@@ -68,7 +68,7 @@ image::images/tiling_logical_model.jpg[width=800,align="center"]
 .Level 2 of the GNOSIS Global Grid proposed for CDB X.
 image::images/cdbxTMS.png[width=800,align="center"]
 
-The proposed tiling scheme would be based on the GNOSISGlobalGrid, where the tiling starts with a 2x4 grid of tiles with each tile 90 degrees on a side that covers the whole Earth.  This is zoom level 0 (or tile matrix identifier "0").  Each experiment used a tile size of 256x256 {*Does this need to be described more?*}, although that could be experimented with.  At each successive zoom level, each lower level tile is split into four new tiles at the next zoom level The exception that any tile that touches either the North or South Pole is not split in the longitude direction.  This subdivision can continue until the zoom level is high enough to accommodate the highest resolution data that is to be stored within the CDB X.
+The proposed tiling scheme would be based on the GNOSISGlobalGrid, where the tiling starts with a 2x4 grid of tiles with each tile 90 degrees on a side that covers the whole Earth.  This is zoom level 0 (or tile matrix identifier "0"). The experiments performed during the sprint used the tile size of 256 x 256 defined by the GNOSIS Global Grid for all zoom levels / level of details. A variation of the Tile Matrix Set definition using a different tile size instead, e.g. 512 x 512 could also be experimented it. At each successive zoom level, each lower level tile is split into four new tiles at the next zoom level The exception that any tile that touches either the North or South Pole is not split in the longitude direction.  This subdivision can continue until the zoom level is high enough to accommodate the highest resolution data that is to be stored within the CDB X.
 
 References for the GNOSISGlobalGrid tiling scheme:
 
@@ -117,10 +117,10 @@ Imagery and coverage data would always be tiled. Vector data could optionally be
 
 There are two proposed ways to group data within a series of GeoPackage containers.  Within these choices is a tradeoff between the format simplicity of working with a single container, and access latency due to larger file and table sizes.
 
-1. For edge {*Clarify what is meant by 'edge'.*} users and smaller areas, the Subgroup particpants `recommend` that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be result from an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user.
+1. For users at the edge and smaller areas, the Subgroup particpants `recommend` that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be result from an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user. Users at the edge are such individuals as field operatives using mobile devices with limited battery, memory, storage and processing capabilities as well as Delayed/Disconned, Intermittently-connected or Limited bandwidth (DDIL) environments.
 2. For Modeling and Simulation uses, as well as data repository cases, the Subgroup participants `recommend` that a series of GeoPackage containers be used to store CDB X coverage layers.  This involves storing a region of the world at a set of zoom levels, or levels of detail, within a single GeoPackage, with a specified file and directory naming scheme.  This approach would allow for faster access to data at specified areas and zoom levels.  This approach would also lend itself to concurrent access and editing for data repository maintainers.
 ** The particpants propose that a configurable grouping value be used to specify how many zoom levels or levels of detail are put into a single GeoPackage.  This would be a tradeoff between the number of GeoPackages created and the file and table sizes within each GeoPackage.
-** Multiple grouping numbers were experimented with. Five (5) was found to be a good number for packaging together all data layers of the San Diego CDB {*DO we need some words in the intro on the data used in the experiments?*}. This grouping number might need to be adjusted for different types of data layers, or different data sets as well.
+** Multiple grouping numbers were experimented with. Five (5) was found to be a good number for packaging together all data layers of the San Diego CDB. For these experiments, a number of datasets were used, including CDB 1.x data from both the Presagis Sample CDB of Camp Pendleton, as well as the San Diego sample CDB provided by CAE. Additional data from NASA Visible Earth Blue Marble and USGS GTOPO30 were used to test applying the tiling to global datasets. This grouping number might need to be adjusted for different types of data layers, or different data sets as well.
 ** The proposed naming of each GeoPackage file is based on the layer name and the coarsest, lowest level tile included within the grouping inside the GeoPackage.  That tile's level, row (from the top) and column within the tile matrix set make up the filename, along with the level of the finest or highest level tile that can be placed into this GeoPackage.  For example:  **Coverages_L4_R16_C12_L6.gpkg**
 ** The proposed directory naming creates a directory tree that limits the number of GeoPackage files that could exist within a single directory.  Each GeoPackage would exist within a set of directory names that represents each coarser or lower zoom level GeoPackage that encompases the smaller higher resolution area.  For example:  The file, **Coverages_L4_R16_C12_L6.gpkg**, would exist in the directory named **Coverages\L0_R1_C0\L1_R2_C1**
 *** The file and directory naming needs to be easy to compute algorithmically or exist within a catalog, without having to search a data repository to discover arbitrarily named files.
@@ -131,7 +131,10 @@ to augment these base datasets with additional more detailed insets, without rep
 * The publisher of a large repository of data could pre-establish fixed maximum LODs for specific data layers (e.g. imagery, elevation, 3D Models).
 * When inset data is added to a dataset, these could go beyond the regular maximum LOD specified for the 'packaging'. As such these inset tiles are always grouped together with the tiles of the regular maximum LOD.
 
-`Recommendation`: Define this capability for splitting GeoPackages based on a specific tiling scheme outside of the CDB X standard so that it {*What does it refer to?*} can be used by itself.
+`Recommendation`: Define this capability for splitting GeoPackages based on a specific tiling scheme outside of the CDB X standard so that this split content can be used by itself.
+
+NOTE: A mechanism to split data and group (or not) layers over multiple GeoPackages by tiles / LOD grouping (or have it all as a single GeoPackage), as well as a JSON schema providing the necessary information to access that data (e.g. packages, data layers, grouping, maxLOD, selected TileMatrixSet), should be a modular standard defined outside of CDB X, so that it could be used for other large datasets not necessarily conforming to the CDB X standard (e.g. the OrdnanceSurvey Master Map, OpenStreetMap Planet OSM, etc.).
+
 
 === Proposed `cdb.json` index of packages and data layers
 
@@ -139,6 +142,7 @@ The Tiling Subgroup developed a simple schema for describing the data layers pro
 they are packaged in one or more _packages_. These _packages_ can themselves either be stored in a single GeoPackage (zero or _null_ LOD grouping), or separated in
 multiple GeoPackage based on tiles grouped in multiple LODs (non-zero LOD grouping). This index allows the flexibility to use the best suited configuration
 for a given dataset or use case At the same time it is very simple for a client to parse and access the data in a deterministic manner using any of these configurations.
+
 When a single GeoPackage is used, potentially this `cdb.json` could be included inside as metadata (using the GeoPackage metadata extension) to make
 this GeoPackage a single file, very portable compliant CDB X.
 The following `cdb.json` index files demonstrate the three main configuration possibilities.
@@ -457,7 +461,7 @@ Ecere conducted multiple experiments during the sprint using tiling and packagin
 
 - Experiment 1: The objective of the first experiment was to share an example of how to store CDB data in a GeoPackage following the GNOSIS Global Grid. This Experiment used the draft GeoPackage TileMatrixSet and vector tiles extensions, as well as describing this content using the proposed `cdb.json` schema. A sample CDB datastore from Presagis for Camp Pendleton California was used for this experiment.
 
-- Experiment 2: The objective of the second experiment focused on demonstrating how to distribute data covering a large area in multiple GeoPackages using a pre-determined LOD grouping setting. The larger San Diego CDB dataset provided by CAE was used for this Experiment as well as fpr Experiment 3.
+- Experiment 2: The objective of the second experiment focused on demonstrating how to distribute data covering a large area in multiple GeoPackages using a pre-determined LOD grouping setting. The larger San Diego CDB dataset provided by CAE was used for this Experiment as well as for Experiment 3.
 
 - Experiment 3: The objective of the third experiment was investigating storing 3D models inside the GeoPackages using the two different approaches described above.
 Approach A is very similar to the CDB 1.x data model where all 3D models are stored in a single table and referenced from points stored in tiled vector data.
