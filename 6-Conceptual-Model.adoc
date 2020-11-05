@@ -2,29 +2,17 @@
 
 == CDB X Design Goals, Use Cases, and Conceptual/Logical Models
 
-This section documents draft design objectives, the targer use cases, and the CDB X Conceptual and Logical Models.
-
-=== CDB X Design Goals and Objectives
-
-The following are the design goals and objectives for a tiled CDB X repository.
-
-* Be fast :-)
-* Geometry model: All geometry for any vector feature data shall be compliant with the OGC/ISO Simple Features Geometry Model.
-* Correlation Requirement: CDB-T, CDB-S, CDB-G and CDB-A profiles shall correlate to the data defined in CDB-F 
-* Derivative and Optional structures: CDB-T, CDB-S, CDB-G and CDB-A profiles shall encode its rules and mechanisms for optimization in a self-describing form.
-* Holistic Foundation: CDB-T, CDB-S, CDB-G and CDB-A structures shall all be generated from the data defined in CDB-F
-* Deployment: CDB-F shall be able to be deployed on the cloud, in relational databases, and on a file system.
+This section documents draft design objectives, the target use cases, and the CDB X Conceptual and Logical Models. This section is currently a work in progress.
 
 === Use Cases
  
 The following are summaries of key use cases identified during this project.
  
-`Tactical Use Case`: <need short description> Possible impact: Define a profle of the foundation data in a form most suitable for tactical devices (CDB-T, where T is for tactical), such as ATAK.
+`Tactical Use Case - CDB-T`: Support tactical forces with CDB content for both planning and deployment. There is also the consideration of using the content on mobile devices for the Warfighter at the http://docs.opengeospatial.org/per/19-030r1.html[Edge]. Possible impact: Define a profile of the foundation data in a form most suitable for tactical devices (CDB-T, where T is for tactical), such as ATAK. This is the CDB-T use case where "T" is for "Tactical".
 
-`Gaming Use Case` <need short description> Possible impact: Define a derivative and optional structure of the .foundation data in a form most suitable for gaming devices 
-(CDB-G, where G is for gaming), such as Unreal or Unity.
+`Gaming Use Case - CDB-G`: More and more gaming systems, such as Unity, are depending on "real" 2D and 3D geospatial content to add realism to their gaming systems. Possible impact: Define a derivative and optional structure of the foundation data in a form most suitable for gaming devices. This is the CDB-G use case where "G" is for "Gaming"
 
-`M&S Use Case` <need short description> Possible impact: Define a porfile of the foundation data in a form most suitable for simulators (CDB-S, where S is for simulators)
+`M&S Use Case - CDB-S`: <need short description> Possible impact: Define a porfile of the foundation data in a form most suitable for simulators. (CDB-S, where S is for simulators)
 
 `Analytics Use Case` <need short description> Possible impact: Define a derivative and optional structure of the datasets in a form most suitable for analytics using AI/ML (CDB-A, where A is for analytics)
 
@@ -36,6 +24,16 @@ NOTE: Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs 
 
 *This is future work and actually would not be part of a core CDB-X standard Configuration Management.*  Define an abstract mechanism for configuration management applicable to multiple deployment strategies (file systems, RDMS and cloud) relational databases for CDB-F, CDB-S, CDB-G, CDB-T and CDB-A.  Support Versioning, attribution, synchronization
 
+=== CDB X Design Goals and Objectives
+
+The following are the design goals and objectives for the development of CDB-X.
+
+* Be fast :-)
+* Geometry model: All geometry for any vector feature data shall be compliant with the OGC/ISO Simple Features Geometry Model.
+* Correlation Requirement: CDB-T, CDB-S, CDB-G and CDB-A profiles shall correlate to the data defined in CDB-F 
+* Derivative and Optional structures: CDB-T, CDB-S, CDB-G and CDB-A profiles shall encode its rules and mechanisms for optimization in a self-describing form.
+* Holistic Foundation: CDB-T, CDB-S, CDB-G and CDB-A structures shall all be generated from the data defined in CDB-F
+* Deployment: CDB-F shall be able to be deployed on the cloud, in relational databases, and on a file system.
 
 === Definition of Concepts
 
