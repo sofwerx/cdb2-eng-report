@@ -12,13 +12,13 @@ The following are summaries of key use cases identified during this project.
 
 `Gaming Use Case - CDB-G`: More and more gaming systems, such as Unity, are depending on "real" 2D and 3D geospatial content to add realism to their gaming systems. Possible impact: Define a derivative and optional structure of the foundation data in a form most suitable for gaming devices. This is the CDB-G use case where "G" is for "Gaming"
 
-`M&S Use Case - CDB-S`: <need short description> Possible impact: Define a porfile of the foundation data in a form most suitable for simulators. (CDB-S, where S is for simulators)
+`M&S Use Case - CDB-S`: A CDB datastore needs to provide a modeled environment representation for distributed simulation applications. This representation needs to be currated, authoritative, and as up to date as possible. Possible impact: Define a porfile of the foundation data in a form most suitable for simulators. (CDB-S, where S is for simulators)
 
-`Analytics Use Case` <need short description> Possible impact: Define a derivative and optional structure of the datasets in a form most suitable for analytics using AI/ML (CDB-A, where A is for analytics)
+`Analytics Use Case - CDB-A`: <need short description> Possible impact: Define a derivative and optional structure of the datasets in a form most suitable for analytics using AI/ML (CDB-A, where A is for analytics)
 
-`Data Transport` <need short description> Possible impact: Optimize the speed data synchronization between all echelons and data systems for CDB-F and CDB-T  
+`Data Transport Use Case` <need short description> Possible impact: Optimize the speed data synchronization between all echelons and data systems for CDB-F and CDB-T  
 
-`DDIL Deployment` CDB-F, CDB-T, and CDB-A must be able to deploy in DDIL environments. 
+`DDIL Deployment Use Case` CDB-F, CDB-T, and CDB-A must be able to deploy in DDIL environments. Also see CDF-Tactical above
 
 NOTE: Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of tiling schemes  (Profile should include Tiling structure, LOD structure, optimization, etc.) CDB-A may generate topology, extended attributes and derivative data types (assuming they are OGC and/or Khronos standards) in a manner to optimize efficiency and performance leveraging a small, finite set of relationship schemes
 
@@ -28,12 +28,23 @@ NOTE: Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs 
 
 The following are the design goals and objectives for the development of CDB-X.
 
-* Be fast :-)
+* Be as performant as possible in terms of 1.) Speed of access and 2.) Impact on hardware resources.
+* Consider how  to incorporate identified recommendations into the next minnor CDB revision (1.3) to 
+** Enhance current capabilities, 
+** Not break backwards compatibility,
+** Provide a more seamless migration path moving to CDB-X.
 * Geometry model: All geometry for any vector feature data shall be compliant with the OGC/ISO Simple Features Geometry Model.
-* Correlation Requirement: CDB-T, CDB-S, CDB-G and CDB-A profiles shall correlate to the data defined in CDB-F 
-* Derivative and Optional structures: CDB-T, CDB-S, CDB-G and CDB-A profiles shall encode its rules and mechanisms for optimization in a self-describing form.
-* Holistic Foundation: CDB-T, CDB-S, CDB-G and CDB-A structures shall all be generated from the data defined in CDB-F
-* Deployment: CDB-F shall be able to be deployed on the cloud, in relational databases, and on a file system.
+* Attribute model: CDB-X shall be consistent with the NAS/GGDM.
+* CDB-X Standards Sructure: CDB-X should evolve the standard to a "Core" that specifies a set of requirements that all CDB extensions, profiles, and profiles with extensions shall conform to. Other characteristics of the Core are:
+** The core shall support the tiling of any layer as does the current CDB standard.
+** The core shall also specify that vector data does not need to be tiled.
+** The core shall support specification for LoDs. 
+** The core shall be implementable in a file system (as today) or in a container technology such as GeoPackage.
+** The core shall be implementable in the cloud.
+* Any profiles based on the core shall have the following requirements:
+** Correlation Requirement: CDB-T, CDB-S, CDB-G and CDB-A profiles shall correlate to the data defined in CDB-F 
+** Derivative and Optional structures: CDB-T, CDB-S, CDB-G and CDB-A profiles shall encode its rules and mechanisms for optimization in a self-describing form.
+** Holistic Foundation: CDB-T, CDB-S, CDB-G and CDB-A structures shall all be generated from the data defined in CDB-F
 
 === Definition of Concepts
 
