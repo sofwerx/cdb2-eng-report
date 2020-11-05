@@ -23,7 +23,7 @@ NOTE: Once the experimentation activities started, the particpants in concert wi
 
 Phase 5: 05 October 2020 to 5 November 2020 Final Report: Participants will write a final report summarizing activities to date, recommendations for the OGC SWG and other standards bodies to consider, and contributions of each participant.
 
-In order to accomplish the target deliverables of this activity, the particpants, based on their expertize, were alloocated to five focus groups:
+In order to accomplish the target deliverables of this activity, the particpants, based on their expertize, were allocated to five focus groups:
 
 . 3D Subgroup
 . Attribution Subgroup
@@ -33,11 +33,15 @@ In order to accomplish the target deliverables of this activity, the particpants
 
 These teams focused on specific experiments and prototyping tasks to test key design concepts for inclusion in CDB-X. The results are documented in this ER.
 
+NOTE: The <<CDB2models,CDB X Design Goals, Use Cases, and Conceptual/Logical Models>> chapter in this ER provides additional requirements and recommendations. These are phrased general design goals based on group discussions, design threads in the recommendations below, and discussions in the OGC CDB Standards Working Group.
+
 === Recommendations
 
 The following are the key recommendations for changes, enhancements, and design principals for not just CDB-X but also CDB version 1.3. The version 1.3 chnages are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path for the future major CDB version. The following are the major recommendations. A complete summary of all recommendations can be found in <<Recommendations,Annex A>>.
 
 ==== 3D Subgroup
+
+The following are the recommendations from the <<threedcontent,3D Models and other 3D Content Subgroup>>.
 
 `Recommendation 1`: The 3D model group recommends that a new CDB standard adopts the latest version of OpenFlight, leveraging the extended materials, hot spots and other important constructs it brings.
 
@@ -59,7 +63,7 @@ The following are the key recommendations for changes, enhancements, and design 
 
 ==== Attribution Subgroup
 
-The following are the major recommendations from the Attribution Subgroup. Each of these major recommendation contain multiple "minor" recommendations that result from cosidering the major recommendation. The complete list of major/minor recommendations for Attribution are found in both the Attribution section and <<Recommendations,Annex A>>.
+The following are the major recommendations from the <<Attribution,Attribution Subgroup>>. Each of these major recommendation contain multiple "minor" recommendations that result from cosidering the major recommendation. The complete list of major/minor recommendations for Attribution are found in both the Attribution section and <<Recommendations,Annex A>>.
 
 `Recommendation 1`: The subgroup recommends extending the current CDB XML metadata to add the NAS metamodel capabilities that are currently not supported. 
 
@@ -81,7 +85,7 @@ The following are recommendatoins for possible inclusion in CDB version 1.3.
 
 ==== Coverages/Tiling Subgroup
 
-
+The following are the recommendations from the <<tiling,Coverages/Tiling Subgroup>>.
 
 `Recommendation 1`: Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the: OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space (19-014r3) and OGC Two Dimensional Tile Matrix Set Standard (17-083r2)
 
@@ -106,6 +110,8 @@ The following are recommendatoins for possible inclusion in CDB version 1.3.
 Recommendation note: Supporting more than one tiling scheme in a version of CDB is not recommended. The choice of the tiling scheme is foundational to how data layers are processed and stored and accessed. 
 
 ==== Metadata Subgroup
+
+The <<metadata,Metadata>> chapter in this ER provides the following guidance and recommendations:
 
 
 ==== Vectors in GeoPackage Subgroup
