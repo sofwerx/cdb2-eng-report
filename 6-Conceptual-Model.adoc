@@ -34,7 +34,7 @@ The following are the design goals and objectives for the development of CDB-X.
 ** Not break backwards compatibility,
 ** Provide a more seamless migration path moving to CDB-X.
 * Geometry model: All geometry for any vector feature data shall be compliant with the OGC/ISO Simple Features Geometry Model.
-* Attribute model: CDB-X shall be consistent with the NAS/GGDM.
+* Attribute model: CDB-X shall be consistent with the NAS/GGDM and harmonized as approporiate the current CDB attribution model.
 * CDB-X Standards Sructure: CDB-X should evolve the standard to a "Core" that specifies a set of requirements that all CDB extensions, profiles, and profiles with extensions shall conform to. Other characteristics of the Core are:
 ** The core shall support the tiling of any layer as does the current CDB standard.
 ** The core shall also specify that vector data does not need to be tiled.
@@ -49,9 +49,7 @@ The following are the design goals and objectives for the development of CDB-X.
 * Metadata - CDB-X shall support mandatory and optional metadata elements including support for provenance. Any profiles shall clearly specify metadata elements/requirements for that profile.
 
 
-=== Definition of Concepts
-
-==== Foundation Data
+=== What is Foundation Data
 
 Foundation data are the authoritative data and models that have been curated per the rules defined in the CDB standard, and stored in a CDB repository. Foundation data utilizes known and consensus controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and the required metadata has been documented.
 
