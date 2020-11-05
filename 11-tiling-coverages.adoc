@@ -610,7 +610,7 @@ Accessing and visualizing the 3D models from the GeoPackage tables remains to be
 
 [#img_campPendleton,reftext='{figure-caption} {counter:figure-num}']
 .Visualizing Camp Pendleton CDB X/GeoPackage in Ecere's GNOSIS Cartographer.
-image::images/ecere-cdbx-1.png[width=800,align="center"]
+image::images/ecere-cdbx-1.png[width=600,align="center"]
 
 '''
 
@@ -622,27 +622,27 @@ In addition to the San Diego CDB dataset, worldwide elevation data from http://v
 
 [#img_sd1,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (cape)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego1.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego1.jpg[width=600,align="center"]
 
 [#img_sd2,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (hotels and palm trees)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego2.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego2.jpg[width=600,align="center"]
 
 [#img_sd4,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (skyscrapers)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego4.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego4.jpg[width=600,align="center"]
 
 [#img_sd5,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (Coronado bridge)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego5.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego5.jpg[width=600,align="center"]
 
 [#img_sd11,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (airstrip)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego11.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego11.jpg[width=600,align="center"]
 
 [#img_sd15,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (high above, showing 3D globe)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego15.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego15.jpg[width=600,align="center"]
 
 This last image features ESA Gaia’s Sky in colour (Gaia Data Processing and Analysis Consortium (DPAC); A. Moitinho / A. F. Silva / M. Barros / C. Barata, University of Lisbon, Portugal; H. Savietto, Fork Research, Portugal.) CC BY SA 3.0.
 
@@ -650,11 +650,11 @@ This last image features ESA Gaia’s Sky in colour (Gaia Data Processing and An
 
 [#img_sdCesium1,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB (before implementing support for textures in generated 3D Tiles)
-image::http://ecere.com/tmp/SanDiegoCesium.png[width=800,align="center"]
+image::http://ecere.com/tmp/SanDiegoCesium.png[width=600,align="center"]
 
 [#img_CesiumJS3DTiles,reftext='{figure-caption} {counter:figure-num}']
 .CesiumJS Client accessing San Diego CDB data as 3D Tiles from Ecere’s GNOSIS Map Server (Petco Park)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/CesiumSanDiego3.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/CesiumSanDiego3.jpg[width=600,align="center"]
 
 The following JavaScript code, which can simply be copied to the https://sandcastle.cesium.com/[Cesium Sand Castle], can be used to visualize the data as 3D Tiles, including textures. The code sets up the buildings, trees as well as the Coronado Bridge, together with the Cesium world terrain. One limitation is that the generated tileset is still missing multiple level of details, therefore visualizing a large area will be quite slow.
 
@@ -686,7 +686,7 @@ This 3D Tiles distribution is currently being generated from the GNOSIS Data Sto
 * Blue Marble (NASA) that was georeferenced using GDAL - https://visibleearth.nasa.gov/collection/1484/blue-marble
 * The high resolution inset is from USGS downloads of Central Park in New York City
 
-*Tiling Scheme*: The tiling scheme uses the https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid[GNOSIS Global Grid] (using TMS extension -- https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc).  FlightSafety usied the same type of json file {*Perhaps a bit moreinfo and a link back?*}  that Ecere used in their experiment.
+*Tiling Scheme*: The tiling scheme uses the https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid[GNOSIS Global Grid] (using TMS extension -- https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc).  FlightSafety used the same type of json file {*Perhaps a bit moreinfo and a link back?*}  that Ecere used in their experiment.
 
 *LOD Grouping* The grouping was pre-set per experiment.  The groups were calculated from the highest LOD, back to coarser LODs.  For example, if there are 7 LODs (0-6) and a grouping of 4, then LODs 3 through 7 are in one GeoPackage, and LODs 0 through 2 are in another GeoPackage.
 
