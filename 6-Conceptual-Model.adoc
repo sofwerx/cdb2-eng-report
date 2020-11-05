@@ -45,6 +45,9 @@ The following are the design goals and objectives for the development of CDB-X.
 ** Correlation Requirement: CDB-T, CDB-S, CDB-G and CDB-A profiles shall correlate to the data defined in CDB-F 
 ** Derivative and Optional structures: CDB-T, CDB-S, CDB-G and CDB-A profiles shall encode its rules and mechanisms for optimization in a self-describing form.
 ** Holistic Foundation: CDB-T, CDB-S, CDB-G and CDB-A structures shall all be generated from the data defined in CDB-F
+* 3D Graphics Models - CDB-X shall support additional model encoding beyond OpenFlight. glTF shall also be supported.
+* Metadata - CDB-X shall support mandatory and optional metadata elements including support for provenance. Any profiles shall clearly specify metadata elements/requirements for that profile.
+
 
 === Definition of Concepts
 
