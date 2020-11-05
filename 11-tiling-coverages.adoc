@@ -7,7 +7,7 @@ This chapter covers:
 - The configurable grouping of Levels of Detail to balance file size versus file count, 
 - An approach to packaging one or more data layers in GeoPackages (including coverage, vector and 3D data), 
 - Current and proposed GeoPackage extensions for storing this data, and 
-- As well as the results of related prototyping activities.
+- The results of related prototyping activities.
 
 The tiling sub-group was initially assigned specifically to explore tiled coverage data However, based on initial work, some experiments evolved beyond the initial testing scope. The additional experimentation applied the same tiling approach to vector data and 3D models and used existing or new extensions to store this tiled data in GeoPackages. 
 
@@ -597,7 +597,7 @@ The San Diego CDB data from the GNOSIS data store can be accessed directly throu
 accessing as tiles in different tiling schemes, accessing individual vector features, retrieving them as (re-merged) GeoJSON, visualizing them on GeoJSON.io,
 accessing as 3D Tiles tilesets or individual tiles, also supporting retrieving batched 3D tiles as binary glTF and so on. These delivery capabilities demonstrate that tiled data actually supports a wide range of use cases. More details about accessing this data via the OGC API {*Which OGC API? I am assuming features.*}  can be found in the OGC Interactive Simulation and Gaming Sprint Engineering Report{*Do we need a link?*} .
 
-The prototype CDB X split GeoPackages can be accessed directlyt this https://maps.ecere.com/ogcapi/collections/SanDiegoLayers
+The prototype CDB X split GeoPackages can be accessed directly at https://maps.ecere.com/ogcapi/collections/SanDiegoLayers
 [address]: 
 
 However at this point, the map server and visualization client do not present this as a unified data source. As such, the tiles structure and individual GeoPackages are individually accessible instead.
