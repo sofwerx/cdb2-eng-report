@@ -116,7 +116,11 @@ The <<metadata,Metadata>> chapter in this ER provides the following guidance and
 
 ==== Vectors in GeoPackage Subgroup
 
+The following are the key recommendations from the Vectors in GeoPackage Subgroup>>.
 
+`Recommendation 1`: Storing large numbers of feature data in single GeoPackage containers and retrieving that data by applying spatial and attribution filters that correspond with typical CDB access patterns appears to be practical. Therefore, the CDB-X core standard should specify requirements that support storing all vector data in a single GeoPackage.
+`Recommendation 2`:	Spatial filters appear to easily mimic the existing CDB tiling scheme. Therefore, the CDB-X core standard should specify requirements that support the ability to 1.) Specify such filters and 2.) Provide highly performant queries.
+`Recommendation 3`:	Storing ‘significant size’ on model instancing point features can significantly improve the model retrieval scheme, rather than storing models in the significant size related folder scheme.  Storing and evaluating significant size on instancing points can make visual content and performance tuning much more practical.
 
 ===	Document contributor contact points
 
