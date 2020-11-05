@@ -4,17 +4,19 @@
 
 This section documents draft design objectives, the target use cases, and the CDB X Conceptual and Logical Models. This section is currently a work in progress.
 
+NOTE: Some of the content in this section is paraphrased from the recently available USGIF/OGC paper, "Advancing the Interoperability of Geospatial Intelligence Tradecraft with 3D Modeling, Simulation and Game Engines."
+
 === Use Cases
  
 The following are summaries of key use cases identified during this project.
  
 `Tactical Use Case - CDB-T`: Support tactical forces with CDB content for both planning and deployment. There is also the consideration of using the content on mobile devices for the Warfighter at the http://docs.opengeospatial.org/per/19-030r1.html[Edge]. Possible impact: Define a profile of the foundation data in a form most suitable for tactical devices (CDB-T, where T is for tactical), such as ATAK. This is the CDB-T use case where "T" is for "Tactical".
 
-`Gaming Use Case - CDB-G`: More and more gaming systems, such as Unity, are depending on "real" 2D and 3D geospatial content to add realism to their gaming systems. Possible impact: Define a derivative and optional structure of the foundation data in a form most suitable for gaming devices. This is the CDB-G use case where "G" is for "Gaming"
+`Gaming Use Case - CDB-G`: More and more gaming systems, such as Unity, are depending on "real" 2D and 3D geospatial content to add realism to their gaming systems. This is because gaming technology is supporting the visualization, content generation and hybrid-streaming of 3D geospatial data such as combining optimized performant content with dynamic geospatial events and condition. Possible impact: Define a derivative and optional structure of the foundation data in a form most suitable for gaming devices. This is the CDB-G use case where "G" is for "Gaming"
 
 `M&S Use Case - CDB-S`: A CDB datastore needs to provide a modeled environment representation for distributed simulation applications. This representation needs to be currated, authoritative, and as up to date as possible. Possible impact: Define a porfile of the foundation data in a form most suitable for simulators. (CDB-S, where S is for simulators)
 
-`Analytics Use Case - CDB-A`: <need short description> Possible impact: Define a derivative and optional structure of the datasets in a form most suitable for analytics using AI/ML (CDB-A, where A is for analytics)
+`Analytics Use Case - CDB-A`: Increasingly there is a need to access and use content available in a CDB datastore for analytics such as change detection, mobility analysis, and integration with other models. This leads to consideration of new approaches and methods for integrating 3D analytics with mission planning and mission rehearsal synthetic training environments such as the inclusion of ground-clutter in urban environments. Possible impact: Define a derivative and optional structure of the datasets in a form most suitable for analytics using AI/ML. This is termed `CDB-A`, where A is for analytics)
 
 `Data Transport Use Case` <need short description> Possible impact: Optimize the speed data synchronization between all echelons and data systems for CDB-F and CDB-T  
 
@@ -48,8 +50,15 @@ The following are the design goals and objectives for the development of CDB-X.
 * 3D Graphics Models - CDB-X shall support additional model encoding beyond OpenFlight. glTF shall also be supported.
 * Metadata - CDB-X shall support mandatory and optional metadata elements including support for provenance. Any profiles shall clearly specify metadata elements/requirements for that profile.
 
+=== Concepts and Overarching Requirements 
 
-=== What is Foundation Data
+The following section provides additional background on key concepts and/or overarcing requirements germane to the definition and development of a CDB-X Standard.
+
+==== Interoperability
+
+The Interoperability of software, workflows and data across the GEOINT and M&S communities is required to improve mission responsiveness by leveraging a growing diversity of geospatial information and just in time fusion of information from drones, body cameras, phones and other IoT sensors. Interoperability of all the formats, encodings, and models used in CDB-X will enhance the ability to discover, access, update, and use content in a CDB datastore to meet the needs of the use cases identifed above.
+
+==== What is Foundation Data
 
 Foundation data are the authoritative data and models that have been curated per the rules defined in the CDB standard, and stored in a CDB repository. Foundation data utilizes known and consensus controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and the required metadata has been documented.
 
