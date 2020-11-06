@@ -605,10 +605,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_summary_of_history_of_cdb_x_metadata_discussions">12.1. Summary of history of CDB-X metadata discussions.</a>
 <ul class="sectlevel3">
 <li><a href="#GeospatialMetadataGuidance">12.1.1. Geospatial Metadata – Guidance</a></li>
-<li><a href="#_phase_3_consensus_day_3">12.1.2. Phase 3 Consensus, Day 3</a></li>
-<li><a href="#_phase_3_day_4_2">12.1.3. Phase 3, Day 4</a></li>
-<li><a href="#_phase_3_day_5_2">12.1.4. Phase 3, Day 5</a></li>
-<li><a href="#_plan_for_experimentation_in_subsequent_phases">12.1.5. Plan for Experimentation in subsequent phases</a></li>
+<li><a href="#_recommendations_2">12.1.2. Recommendations</a></li>
+<li><a href="#_future_vision_of_role_of_metadata_in_cdb_x">12.1.3. Future vision of role of metadata in CDB-X</a></li>
 </ul>
 </li>
 </ul>
@@ -4851,35 +4849,44 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 </div>
 <div class="sect3">
-<h4 id="_phase_3_consensus_day_3"><a class="anchor" href="#_phase_3_consensus_day_3"></a>12.1.2. Phase 3 Consensus, Day 3</h4>
-<div id="img_Metadata-sub-team-consensus" class="imageblock text-center">
-<div class="content">
-<img src="images/Metadata%20sub-team%20consensus.png" alt="Metadata sub team consensus" width="250">
+<h4 id="_recommendations_2"><a class="anchor" href="#_recommendations_2"></a>12.1.2. Recommendations</h4>
+<div class="paragraph">
+<p>The following are the recommendations for metadata and provenance in CDB-X. Please jote that all Spring participants agreed that metadata including provenance is a critical requirement for the CDB-X Standard. They also agreed that some elements shall be mandatory.</p>
 </div>
-<div class="title">Figure Mtd_Ph3 - 26. Day 3 Consensus and formation of the Metadata / Integration sub-team.</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Metadata and provenance content should be self-describing.</p>
+</li>
+<li>
+<p>Keep the core set of mandatory metadata elements limited and simple. Collecting and maintaining metadata can be costly – unless workflows are designed to capture metadata as part of the production process.</p>
+</li>
+<li>
+<p>Define an extensible CDB metadata model that allows for easily incorporating additional metadata elements for specific data types, domains or applications. A good example would be the metadata required to make SWIR and NIR in a CDB data store useful by discovery, access, processing, and visualization services for those data types.</p>
+</li>
+<li>
+<p>Discuss and agree on element names for the mandatory elements. This is because each metadata standard names elements differently. This also suggests that a metadata element crosswalk document may be required. The beginnings of such a document was developed as part of the CDB 1.1 revision work.</p>
+</li>
+<li>
+<p>Every CDB dataset should have its own metadata that describes the content of that specific dataset. This will allow for much more flexible extensibility of new data types, enhances the value of existing datasets and enhances discoverability.</p>
+</li>
+<li>
+<p>Consider whether the GeoPackage Metadata extension is robust and flexible enough to meet CDB-X requirements.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_phase_3_day_4_2"><a class="anchor" href="#_phase_3_day_4_2"></a>12.1.3. Phase 3, Day 4</h4>
-<div id="img_Metadata-Day-4-Whiteboard" class="imageblock text-center">
-<div class="content">
-<img src="images/Metadata%20Ph3%20Day%204.png" alt="Metadata Ph3 Day 4" width="1000">
+<h4 id="_future_vision_of_role_of_metadata_in_cdb_x"><a class="anchor" href="#_future_vision_of_role_of_metadata_in_cdb_x"></a>12.1.3. Future vision of role of metadata in CDB-X</h4>
+<div class="paragraph">
+<p>The following diagram provides a suggestion of where CDB-X metadata could exist.</p>
 </div>
-<div class="title">Figure Mtd_Ph3 - 27. Metadata Day 4 Whiteboard.</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_phase_3_day_5_2"><a class="anchor" href="#_phase_3_day_5_2"></a>12.1.4. Phase 3, Day 5</h4>
 <div id="img_Attribution-Day-4-Whiteboard" class="imageblock text-center">
 <div class="content">
-<img src="images/Metadata%20Ph3%20Day%205.png" alt="Metadata Ph3 Day 5" width="1000">
+<img src="images/Metadata%20Ph3%20Day%205.png" alt="Metadata Ph3 Day 5" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 28. Metadata Day 5 Whiteboard.</div>
+<div class="title">Figure Mtd_Ph3 - 26. Metadata Day 5 Whiteboard.</div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_plan_for_experimentation_in_subsequent_phases"><a class="anchor" href="#_plan_for_experimentation_in_subsequent_phases"></a>12.1.5. Plan for Experimentation in subsequent phases</h4>
-
 </div>
 </div>
 </div>
@@ -5011,7 +5018,7 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="content">
 <img src="images/tiling_logical_model.jpg" alt="tiling logical model" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 29. Logical Model for partitioning based on tiles in CDB X.</div>
+<div class="title">Figure Mtd_Ph3 - 27. Logical Model for partitioning based on tiles in CDB X.</div>
 </div>
 </div>
 <div class="sect2">
@@ -5020,7 +5027,7 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="content">
 <img src="images/cdbxTMS.png" alt="cdbxTMS" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 30. Level 2 of the GNOSIS Global Grid proposed for CDB X.</div>
+<div class="title">Figure Mtd_Ph3 - 28. Level 2 of the GNOSIS Global Grid proposed for CDB X.</div>
 </div>
 <div class="paragraph">
 <p>The proposed tiling scheme would be based on the GNOSISGlobalGrid, where the tiling starts with a 2x4 grid of tiles with each tile 90 degrees on a side that covers the whole Earth.  This is zoom level 0 (or tile matrix identifier "0"). The experiments performed during the sprint used the tile size of 256 x 256 defined by the GNOSIS Global Grid for all zoom levels / level of details. A variation of the Tile Matrix Set definition using a different tile size instead, e.g. 512 x 512 could also be experimented it. At each successive zoom level, each lower level tile is split into four new tiles at the next zoom level The exception that any tile that touches either the North or South Pole is not split in the longitude direction.  This subdivision can continue until the zoom level is high enough to accommodate the highest resolution data that is to be stored within the CDB X.</p>
@@ -5054,7 +5061,7 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="content">
 <img src="images/image2020-7-8_10-39-39.png" alt="image2020 7 8 10 39 39" width="515">
 </div>
-<div class="title">Figure Mtd_Ph3 - 31. Proposed Tiling Scheme for CDB X.</div>
+<div class="title">Figure Mtd_Ph3 - 29. Proposed Tiling Scheme for CDB X.</div>
 </div>
 </div>
 <div class="sect2">
@@ -5066,7 +5073,7 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="content">
 <img src="images/image2020-9-4_10-41-0.png" alt="image2020 9 4 10 41 0" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 32. CDB 1.x to GNOSIS Comparison - Ratio.</div>
+<div class="title">Figure Mtd_Ph3 - 30. CDB 1.x to GNOSIS Comparison - Ratio.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -5719,13 +5726,13 @@ Approach B is more similar to the one used for 3D Tiles and One World Terrain.</
 <div class="content">
 <img src="images/Ecere-GeoPackageCDBXExport.png" alt="Ecere GeoPackageCDBXExport" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 33. Ecere GeoPackage / CDB X Export dialog and options in Ecere’s GNOSIS Cartographer</div>
+<div class="title">Figure Mtd_Ph3 - 31. Ecere GeoPackage / CDB X Export dialog and options in Ecere’s GNOSIS Cartographer</div>
 </div>
 <div id="img_gpkgexport2" class="imageblock text-center">
 <div class="content">
 <img src="images/Ecere-GeoPackageCDBXExport2.png" alt="Ecere GeoPackageCDBXExport2" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 34. Ecere GeoPackage / CDB X Export dialog and options close up</div>
+<div class="title">Figure Mtd_Ph3 - 32. Ecere GeoPackage / CDB X Export dialog and options close up</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -6246,7 +6253,7 @@ Accessing and visualizing the 3D models from the GeoPackage tables remains to be
 <div class="content">
 <img src="images/ecere-cdbx-1.png" alt="ecere cdbx 1" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 35. Visualizing Camp Pendleton CDB X/GeoPackage in Ecere&#8217;s GNOSIS Cartographer.</div>
+<div class="title">Figure Mtd_Ph3 - 33. Visualizing Camp Pendleton CDB X/GeoPackage in Ecere&#8217;s GNOSIS Cartographer.</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -6261,37 +6268,37 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 <div class="content">
 <img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego1.jpg" alt="SanDiego1" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 36. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (cape)</div>
+<div class="title">Figure Mtd_Ph3 - 34. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (cape)</div>
 </div>
 <div id="img_sd2" class="imageblock text-center">
 <div class="content">
 <img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego2.jpg" alt="SanDiego2" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 37. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (hotels and palm trees)</div>
+<div class="title">Figure Mtd_Ph3 - 35. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (hotels and palm trees)</div>
 </div>
 <div id="img_sd4" class="imageblock text-center">
 <div class="content">
 <img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego4.jpg" alt="SanDiego4" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 38. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (skyscrapers)</div>
+<div class="title">Figure Mtd_Ph3 - 36. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (skyscrapers)</div>
 </div>
 <div id="img_sd5" class="imageblock text-center">
 <div class="content">
 <img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego5.jpg" alt="SanDiego5" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 39. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (Coronado bridge)</div>
+<div class="title">Figure Mtd_Ph3 - 37. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (Coronado bridge)</div>
 </div>
 <div id="img_sd11" class="imageblock text-center">
 <div class="content">
 <img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego11.jpg" alt="SanDiego11" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 40. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (airstrip)</div>
+<div class="title">Figure Mtd_Ph3 - 38. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (airstrip)</div>
 </div>
 <div id="img_sd15" class="imageblock text-center">
 <div class="content">
 <img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego15.jpg" alt="SanDiego15" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 41. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (high above, showing 3D globe)</div>
+<div class="title">Figure Mtd_Ph3 - 39. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (high above, showing 3D globe)</div>
 </div>
 <div class="paragraph">
 <p>This last image features ESA Gaia’s Sky in colour (Gaia Data Processing and Analysis Consortium (DPAC); A. Moitinho / A. F. Silva / M. Barros / C. Barata, University of Lisbon, Portugal; H. Savietto, Fork Research, Portugal.) CC BY SA 3.0.</p>
@@ -6303,13 +6310,13 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 <div class="content">
 <img src="http://ecere.com/tmp/SanDiegoCesium.png" alt="SanDiegoCesium" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 42. San Diego CDB (before implementing support for textures in generated 3D Tiles)</div>
+<div class="title">Figure Mtd_Ph3 - 40. San Diego CDB (before implementing support for textures in generated 3D Tiles)</div>
 </div>
 <div id="img_CesiumJS3DTiles" class="imageblock text-center">
 <div class="content">
 <img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/CesiumSanDiego3.jpg" alt="CesiumSanDiego3" width="600">
 </div>
-<div class="title">Figure Mtd_Ph3 - 43. CesiumJS Client accessing San Diego CDB data as 3D Tiles from Ecere’s GNOSIS Map Server (Petco Park)</div>
+<div class="title">Figure Mtd_Ph3 - 41. CesiumJS Client accessing San Diego CDB data as 3D Tiles from Ecere’s GNOSIS Map Server (Petco Park)</div>
 </div>
 <div class="paragraph">
 <p>The following JavaScript code, which can simply be copied to the <a href="https://sandcastle.cesium.com/">Cesium Sand Castle</a>, can be used to visualize the data as 3D Tiles, including textures. The code sets up the buildings, trees as well as the Coronado Bridge, together with the Cesium world terrain. One limitation is that the generated tileset is still missing multiple level of details, therefore visualizing a large area will be quite slow.</p>
@@ -6502,19 +6509,19 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 <div class="content">
 <img src="images/topTilesNew.JPG" alt="topTilesNew" width="400">
 </div>
-<div class="title">Figure Mtd_Ph3 - 44. Top GeoPackage Level.</div>
+<div class="title">Figure Mtd_Ph3 - 42. Top GeoPackage Level.</div>
 </div>
 <div id="img_level0New" class="imageblock text-center">
 <div class="content">
 <img src="images/level0New.JPG" alt="level0New" width="400">
 </div>
-<div class="title">Figure Mtd_Ph3 - 45. Mid-level directory structure.</div>
+<div class="title">Figure Mtd_Ph3 - 43. Mid-level directory structure.</div>
 </div>
 <div id="img_level4New" class="imageblock text-center">
 <div class="content">
 <img src="images/level4New.JPG" alt="level4New" width="400">
 </div>
-<div class="title">Figure Mtd_Ph3 - 46. Leaf directory structure.</div>
+<div class="title">Figure Mtd_Ph3 - 44. Leaf directory structure.</div>
 </div>
 </div>
 <div class="sect4">
@@ -6631,13 +6638,13 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 <div class="content">
 <img src="images/CAE%20DSE%202012%20Demonstration%20Laptops.jpg" alt="#img_CAE DSE 2012 Laptop Hardware" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 47. CDB Laptop Simulation Demonstration Hardware.</div>
+<div class="title">Figure Mtd_Ph3 - 45. CDB Laptop Simulation Demonstration Hardware.</div>
 </div>
 <div class="imageblock text-center">
 <div class="content">
 <img src="images/CDB%20Update%20Manager%20annotated%20screen%20shot.jpg" alt="#img_Presagis CDB Versioning Explanation Slide" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 48. A specific chain of CDB versions from CDB Boot at the bottom to CDB (root) at the top.</div>
+<div class="title">Figure Mtd_Ph3 - 46. A specific chain of CDB versions from CDB Boot at the bottom to CDB (root) at the top.</div>
 </div>
 <div class="paragraph">
 <p>The boxes and arrows on the graphic above are the author&#8217;s attempt to show just some of the flexibility available using CDB versioning.  The simulator clients themselves can be set to always point to CDB_BOOT, an 'empty' CDB that only points 'up' to some content.</p>
@@ -6652,13 +6659,13 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 <div class="content">
 <img src="images/Yemen%20Coverages%20and%20Resolution%20graphic.jpg" alt="#img_Yemen Database Coverages" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 49. .+</div>
+<div class="title">Figure Mtd_Ph3 - 47. .+</div>
 </div>
 <div class="imageblock text-center">
 <div class="content">
 <img src="images/Yemen%20Database%20Area%20Description%20Table.jpg" alt="#img_Yemen Database Area Description Table" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 50. .+</div>
+<div class="title">Figure Mtd_Ph3 - 48. .+</div>
 </div>
 <div class="paragraph">
 <p>So, with the above background in mind, we can look at how the CDB database(s) at an end-user site may be linked either locally or remotely by a utility or directly changing the version.xml file in each dataset so that a simulation client encounters a 'world' of data at run-time startup that can be radically different, and without any change to the basic setup and linkage between the simulation client(s) and their local CDB server.</p>
@@ -6670,7 +6677,7 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 <div class="content">
 <img src="images/Demo%20laptop%20IG%20at%20startup%20with%20full%20version%20chain.jpg" alt="#img_Demo IG startup with full CDB chain" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 51. Demonstration IG at startup with full CDB version chain from World to OYAA.+</div>
+<div class="title">Figure Mtd_Ph3 - 49. Demonstration IG at startup with full CDB version chain from World to OYAA.+</div>
 </div>
 <div class="paragraph">
 <p>In the following graphic, the same image generator with the same startup Viewpoint position, but with a much simpler chain of CDB datasets renders a very different scene.  Note the mountains in background for comparison of the detailed Aden street view above and this view of the same location and viewpoint but with only background level imagery and elevation data:</p>
@@ -6679,7 +6686,7 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 <div class="content">
 <img src="images/Demo%20Laptop%20IG%20at%20startup%20with%20only%20background%20datasets%20in%20the%20version%20chain.jpg" alt="#img_Demo IG startup with only background CDB chain" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 52. Demonstration IG at startup with full CDB version chain from World to OYAA.+</div>
+<div class="title">Figure Mtd_Ph3 - 50. Demonstration IG at startup with full CDB version chain from World to OYAA.+</div>
 </div>
 <div class="sect2">
 <h3 id="_summary"><a class="anchor" href="#_summary"></a>14.1. Summary</h3>
@@ -6693,7 +6700,7 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 <div class="content">
 <img src="images/Sira%20Island%20Yemen%20bridge%20damage.png" alt="#img_Sira Island Bridge damage state" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 53. Openflight damage 'state' of Sira Island Bridge.+</div>
+<div class="title">Figure Mtd_Ph3 - 51. Openflight damage 'state' of Sira Island Bridge.+</div>
 </div>
 <div class="paragraph">
 <p>Versioning is used so that background level data, including things like worldwide NAV data, can be maintained and distributed on a different schedule than other more localized data.</p>
@@ -7302,7 +7309,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 <div class="content">
 <img src="images/fs-gpkg-performance.png" alt="fs gpkg performance" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 54. Performance.</div>
+<div class="title">Figure Mtd_Ph3 - 52. Performance.</div>
 </div>
 </div>
 </div>
@@ -7375,7 +7382,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-06 17:46:06 UTC
+Last updated 2020-11-06 17:57:53 UTC
 </div>
 </div>
 <style>
