@@ -49,6 +49,7 @@ The following are the design goals and objectives for the development of CDB-X.
 ** Holistic Foundation: CDB-T, CDB-S, CDB-G and CDB-A structures shall all be generated from the data defined in CDB-F
 * 3D Graphics Models - CDB-X shall support additional model encoding beyond OpenFlight. glTF shall also be supported.
 * Metadata - CDB-X shall support mandatory and optional metadata elements including support for provenance. Any profiles shall clearly specify metadata elements/requirements for that profile.
+* The ability to version the contents of a CDB datastore is mandatory. The requirement is discussed in detail in the <<Versioning_in_Legacy_CDB,Versioning>> section of this ER.
 
 === Concepts and Overarching Requirements 
 
