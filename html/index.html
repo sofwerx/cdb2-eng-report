@@ -772,7 +772,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>This Engineering Report (ER) documents the results and recommendations of the rapid prototyping activites conducted during the 3D Geospatial Series Tech Sprint II - OGC CDB 2.0 (aka CDB X). This activity was performed in support of Special Operations Forces (SOF) Future Concepts. This effort hopes to accelerate evolution of the OGC CDB standard to meet the needs of planning, rehearsal, and Mission Command systems providing decision support to Special Operations Forces and enabling SOF tactical and operational advantage. OGC industry standards enable interoperability of geospatial data across systems and applications that SOF Operators and analysts use across warfighting functions.</p>
 </div>
 <div class="paragraph">
-<p>Short summary of CDB X goal - Meeting the requirements for tactical GEOINT that can be used across warfighting functions.</p>
+<p>Short summary of CDB X goal: Meeting the requirements for tactical GEOINT that can be used across warfighting functions.</p>
 </div>
 </div>
 </div>
@@ -780,7 +780,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_executive_summary"><a class="anchor" href="#_executive_summary"></a>2. Executive Summary</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Beginning in 2018 the CDB community has discussed and considered what CDB version 2.0 might might provide in terms of capabilities. These discussion also touched on architecture and related logical models. Many of these CDB 2.0 discussion occured as part of the OGC standards work. More recently, other organizations such as SOCOM and NGA, have vigorously engaged in these discussions. However, progress has been relatively slow.</p>
+<p>Beginning in 2018 the CDB community has discussed and considered what CDB version 2.0 might might provide in terms of capabilities. These discussion also touched on architecture and related logical models. Many of the CDB 2.0 discussion occurred as part of the OGC standards work. More recently, other organizations such as SOCOM and NGA, have vigorously engaged in these discussions. However, progress has been relatively slow.</p>
 </div>
 <div class="paragraph">
 <p>Therefore, in order to accelerate the development of CDB 2.0, in May 2020 SOFWERX announced the <a href="https://events.sofwerx.org/3dgeots/">3D Geospatial Series Tech Sprint II – OGC CDB 2.0</a>. In support of SOF Future Concepts, this effort hopes to accelerate evolution of the OGC CDB standard to meet the needs of planning, rehearsal, and Mission Command systems providing decision support to Special Operations Forces and enabling SOF tactical and operational advantage. Additionally, a requirement to better align aspects of the CDB standard with the One World Terrain activity was expressed during the initial workshop.</p>
@@ -807,7 +807,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="title">Note</div>
 </td>
 <td class="content">
-Once the experimentation activities started, the particpants in concert with SOFWERX and SOCOM determined that writing a draft specification was beyond the scope of this project. Instead, the focus increased on the experiments and protyping to provide key recommendations to be communicated in this ER and submitted to the OGC CDB Standards Working group (SWG) to provide the foundation for the actual standards development work.
+Once the experimentation activities started, the participants in concert with SOFWERX and SOCOM determined that writing a draft specification was beyond the scope of this project. Instead, the focus increased on the experiments and prototyping to provide key recommendations to be communicated in this ER and submitted to the OGC CDB Standards Working group (SWG) to provide the foundation for the actual standards development work.
 </td>
 </tr>
 </table>
@@ -816,7 +816,7 @@ Once the experimentation activities started, the particpants in concert with SOF
 <p>Phase 5: 05 October 2020 to 5 November 2020 Final Report: Participants will write a final report summarizing activities to date, recommendations for the OGC SWG and other standards bodies to consider, and contributions of each participant.</p>
 </div>
 <div class="paragraph">
-<p>In order to accomplish the target deliverables of this activity, the particpants, based on their expertize, were allocated to five focus groups:</p>
+<p>In order to accomplish the target deliverables of this activity, the participants, based on their expertize, were allocated to five focus groups:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -855,7 +855,7 @@ The <a href="#CDB2models">CDB X Design Goals, Use Cases, and Conceptual/Logical 
 <div class="sect2">
 <h3 id="_recommendations"><a class="anchor" href="#_recommendations"></a>2.1. Recommendations</h3>
 <div class="paragraph">
-<p>The following are the key recommendations for changes, enhancements, and design principals for not just CDB-X but also CDB version 1.3. The version 1.3 chnages are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path for the future major CDB version. The following are the major recommendations. A complete summary of all Attribution recommendations can be found in <a href="#Recommendations">Annex A</a>.</p>
+<p>The following are the key recommendations for changes, enhancements, and design principals for not just CDB-X but also CDB version 1.3. The version 1.3 changes are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path for the future major CDB version. The following are the major recommendations. A complete summary of all Attribution recommendations can be found in <a href="#Recommendations">Annex A</a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -865,6 +865,18 @@ The <a href="#CDB2models">CDB X Design Goals, Use Cases, and Conceptual/Logical 
 </td>
 <td class="content">
 A key requirement for a CDB datastore is the ability to version content. This requirement was not addressed in any of the Subgroup experiments. However, all the Spring participants agreed that version management is a critical requirement for CDB-X. The <a href="#Versioning_in_Legacy_CDB">CDB Versioning, old and new</a> chapter of this ER provides details.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+A recurring discussion topic during the Sprint was a desire to better align the CDB Standard with the ongoing One World Terrain activity. This was a major determining factor in how the Attribution experiments and the use of GGDM were structured. This desire also helped direct the work of the 3D Modeling experiments. These experiments were successful.
 </td>
 </tr>
 </table>
@@ -889,7 +901,7 @@ A key requirement for a CDB datastore is the ability to version content. This re
 <div class="paragraph">
 <p><code>Recommendation 4</code>: Leverage existing glTF extensions:
 - Articulations - This extension adds articulations, attach points, and related metadata to the glTF model (see AGI_articulations).
-- Metadata - Consicer the EXT_feature_metadata extension. This extension is for storing metadata at different levels of granularity including per-mesh, per-face, per-vertex, and per-texel. This could be a good candidate for CDB model attributes and material map textures.</p>
+- Metadata - Consider the EXT_feature_metadata extension. This extension is for storing metadata at different levels of granularity including per-mesh, per-face, per-vertex, and per-texel. This could be a good candidate for CDB model attributes and material map textures.</p>
 </div>
 <div class="paragraph">
 <p><code>Recommendation 5</code>: Consider a Model indexing file that includes the following: Model LODs, Interior and exteriors, Navigation and collision mesh</p>
@@ -901,7 +913,7 @@ A key requirement for a CDB datastore is the ability to version content. This re
 <div class="sect3">
 <h4 id="_attribution_subgroup"><a class="anchor" href="#_attribution_subgroup"></a>2.1.2. Attribution Subgroup</h4>
 <div class="paragraph">
-<p>The following are the major recommendations from the <a href="#Attribution">Attribution Subgroup</a>. Each of these major recommendation contain multiple "minor" recommendations that result from cosidering the major recommendation. The complete list of major/minor recommendations for Attribution are found in both the Attribution section and <a href="#Recommendations">Annex A</a>.</p>
+<p>The following are the major recommendations from the <a href="#Attribution">Attribution Subgroup</a>. Each of the major recommendations contain multiple "minor" recommendations that result from considering the implication of the major recommendation. The complete list of major/minor recommendations for Attribution are found in both the Attribution section and <a href="#Recommendations">Annex A</a>.</p>
 </div>
 <div class="paragraph">
 <p><code>Recommendation 1</code>: The subgroup recommends extending the current CDB XML metadata to add the NAS metamodel capabilities that are currently not supported.</p>
@@ -919,13 +931,13 @@ A key requirement for a CDB datastore is the ability to version content. This re
 <p><code>Recommendation 5</code>: Define backward-compatible extensions in CDB 1.3 to add constructs necessary to move toward NAS-compliant attribution</p>
 </div>
 <div class="paragraph">
-<p>The following are recommendatoins for possible inclusion in CDB version 1.3.</p>
+<p>The following are recommendations for possible inclusion in CDB version 1.3.</p>
 </div>
 <div class="paragraph">
 <p><code>Version 1.3 Recommendation - Extended Attributes</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/25">Should Extended Attributes be preserved at the logical data model level?</a> The suggestion is that the CDB SWG discuss this issue and possible solution as a possible change for CDB version 1.3. Some additional testing may be required to determine if this capability can be added to version 1.3 or not.</p>
 </div>
 <div class="paragraph">
-<p><code>Verison 1.3 Recommendation - Attribute default values</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/32">Attribute Default Values #32</a>. The recommendation is that Defaults.xml can be used to define global attribute defaults as well as per-dataset defaults. Doing per-entity defaults would be a straight forward extension that could be proposed for CDB 1.3 as a transition path. The subgroup suggests that the CDB SWG discussion this for possible inclusion in version 1.3. A change request for this approach to specifying default values is also suggested.</p>
+<p><code>Version 1.3 Recommendation - Attribute default values</code>: The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/32">Attribute Default Values #32</a>. The recommendation is that Defaults.xml can be used to define global attribute defaults as well as per-dataset defaults. Doing per-entity defaults would be a straight forward extension that could be proposed for CDB 1.3 as a transition path. The subgroup suggests that the CDB SWG discussion this for possible inclusion in version 1.3. A change request for this approach to specifying default values is also suggested.</p>
 </div>
 <div class="paragraph">
 <p><code>Version 1.3 Recommendation - Attribute Terms</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/31">Capture Attribute Terms (Enumerants) in Metadata #31</a>. Attributes describing qualitative values are present in CDB 1.2 and the list of valid values  for each attribute are documented in the human-readable specification with both the vocabulary term name and its integer numeric value (index). However, the machine-readable XML metadata does not contain any of this information and treats these attribute types as raw integers with only a minimum and maximum value constraint. It may make sense as a transition path to update CDB 1.3 to define additional XML elements in a backward compatible way to capture these definitions from the existing specification into the machine-readable XML metadata. The conceptual model in the CDB 1.2 specification does align with how GGDM treats such attributes, so there is no fundamental incompatibility, and the proposed CDB X dictionary design accounts for properly tracking the terms for qualitative attributes in a machine-readable way in SQLite.</p>
@@ -946,7 +958,7 @@ A key requirement for a CDB datastore is the ability to version content. This re
 <p><code>Recommendation 3</code>: LoD Grouping - For Modeling and Simulation uses as well as data repository cases, that a series of GeoPackage containers be used to store CDB X coverage layers.</p>
 </div>
 <div class="paragraph">
-<p><code>Recommendation 4</code>: Define the capability for splitting GeoPackages based on a specific tiling scheme outside of the CDB X standard so that this split content can be used by itself as a compontent of other non-CDB based applications.</p>
+<p><code>Recommendation 4</code>: Define the capability for splitting GeoPackages based on a specific tiling scheme outside of the CDB X standard so that this split content can be used by itself as a component of other non-CDB based applications.</p>
 </div>
 <div class="paragraph">
 <p><code>Recommendation 5</code>: Use the proposed cdb.json index of packages and data layers. This would allow defining the description of the packages and LOD grouping outside of the CDB-XX standard so that description can be used elsewhere as well.</p>
@@ -964,7 +976,7 @@ A key requirement for a CDB datastore is the ability to version content. This re
 <p><code>Recommendation 9</code>: Although the use of non-tiled vector data layers (e.g. storing the geometry as WKB in GeoPackage features tables) should also be specified in the CDB Standard, the use of a tiled vector data extension should also be allowed. In particular, tiling vector data is essential for dealing with features spanning a very large geospatial extent, such as coastlines.</p>
 </div>
 <div class="paragraph">
-<p><code>Recommendation 10</code>: GeoPackage. The imagery in these GeoPackages is lossy. Therefore, allow the use of JPEG-2000 and/or additional lossless formats more compact than PNG in GeoPackages. This should be submitted as a chnage request to the GeoPackage Standards Working Group.</p>
+<p><code>Recommendation 10</code>: GeoPackage. The imagery in these GeoPackages is lossy. Therefore, allow the use of JPEG-2000 and/or additional lossless formats more compact than PNG in GeoPackages. This should be submitted as a change request to the GeoPackage Standards Working Group.</p>
 </div>
 <div class="paragraph">
 <p>Recommendation note: Supporting more than one tiling scheme in a version of CDB is not recommended. The choice of the tiling scheme is foundational to how data layers are processed and stored and accessed.</p>
@@ -979,7 +991,7 @@ A key requirement for a CDB datastore is the ability to version content. This re
 <p><code>Recommendation 1</code>: All Sprint participants agreed that metadata including provenance is a critical requirement for the CDB-X Standard. They also agreed that some elements should be mandatory.</p>
 </div>
 <div class="paragraph">
-<p><code>Recommendation 2</code>:Metadata and provenance content should be self-describing.</p>
+<p><code>Recommendation 2</code>: Metadata and provenance content should be self-describing.</p>
 </div>
 <div class="paragraph">
 <p><code>Recommendation 3</code>:    Keep the core set of mandatory metadata elements limited and simple. Collecting and maintaining metadata can be costly – unless workflows are designed to capture metadata as part of the production process.</p>
@@ -988,7 +1000,7 @@ A key requirement for a CDB datastore is the ability to version content. This re
 <p><code>Recommendation 4</code>:    Define an extensible CDB metadata model that allows for easily incorporating additional metadata elements for specific data types, domains or applications. A good example would be the metadata required to make SWIR and NIR in a CDB data store useful by discovery, access, processing, and visualization services for those data types.</p>
 </div>
 <div class="paragraph">
-<p><code>Recommendation 5</code>:    Discuss and agree on element names for the mandatory elements. This is because each metadata standard names elements differently. This also suggests that a metadata element crosswalk document may be required. The beginnings of such a document was developed as part of the CDB 1.1 revision work.</p>
+<p><code>Recommendation 5</code>:    Discuss and agree on element names for the mandatory elements. This is because each metadata standard names elements differently. This also suggests that a metadata element crosswalk document may be required. The beginnings of such a document were developed as part of the CDB 1.1 revision work.</p>
 </div>
 <div class="paragraph">
 <p><code>Recommendation 6</code>:    Every CDB dataset should have its own metadata that describes the content of that specific dataset. This will allow for much more flexible extensibility of new data types, enhances the value of existing datasets and enhances discoverability.</p>
@@ -7418,7 +7430,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-06 18:13:17 UTC
+Last updated 2020-11-06 18:23:01 UTC
 </div>
 </div>
 <style>
