@@ -99,7 +99,7 @@ Typically, local metadata files will be stored with the physical data. For GTMod
 
 ==== Recommendations
 
-The following are the recommendations for metadata and provenance in CDB-X. Please jote that all Spring participants agreed that metadata including provenance is a critical requirement for the CDB-X Standard. They also agreed that some elements shall be mandatory.
+The following are the recommendations for metadata and provenance in CDB-X. Please note that all Spring participants agreed that metadata including provenance is a critical requirement for the CDB-X Standard. They also agreed that some elements should be mandatory.
 
 . Metadata and provenance content should be self-describing.
 . Keep the core set of mandatory metadata elements limited and simple. Collecting and maintaining metadata can be costly – unless workflows are designed to capture metadata as part of the production process.
