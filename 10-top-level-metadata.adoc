@@ -97,24 +97,22 @@ _Spatial Resolution Information_ (No equivalent, MD_Identification.spatialResolu
 
 Typically, local metadata files will be stored with the physical data. For GTModel geotypical data sets, the metadata file would be stored along with the model XML file. If the model is stored in multiple LoDs, the metadata would also be stored at each LoD. For tiled vector data, the local metadata would be stored with the vector files at the tile level. Please see the esamples in Section 3.0 for more detail.
 
+==== Recommendations
 
+The following are the recommendations for metadata and provenance in CDB-X. Please jote that all Spring participants agreed that metadata including provenance is a critical requirement for the CDB-X Standard. They also agreed that some elements shall be mandatory.
 
-==== Phase 3 Consensus, Day 3
+. Metadata and provenance content should be self-describing.
+. Keep the core set of mandatory metadata elements limited and simple. Collecting and maintaining metadata can be costly – unless workflows are designed to capture metadata as part of the production process.
+. Define an extensible CDB metadata model that allows for easily incorporating additional metadata elements for specific data types, domains or applications. A good example would be the metadata required to make SWIR and NIR in a CDB data store useful by discovery, access, processing, and visualization services for those data types.
+. Discuss and agree on element names for the mandatory elements. This is because each metadata standard names elements differently. This also suggests that a metadata element crosswalk document may be required. The beginnings of such a document was developed as part of the CDB 1.1 revision work. 
+. Every CDB dataset should have its own metadata that describes the content of that specific dataset. This will allow for much more flexible extensibility of new data types, enhances the value of existing datasets and enhances discoverability. 
+. Consider whether the GeoPackage Metadata extension is robust and flexible enough to meet CDB-X requirements.
 
-[#img_Metadata-sub-team-consensus,reftext='{figure-caption} {counter:figure-num}']
-.Day 3 Consensus and formation of the Metadata / Integration sub-team.
-image::images/Metadata sub-team consensus.png[width=250,align="center"]
+==== Future vision of role of metadata in CDB-X
 
-==== Phase 3, Day 4
-
-[#img_Metadata-Day-4-Whiteboard,reftext='{figure-caption} {counter:figure-num}']
-.Metadata Day 4 Whiteboard.
-image::images/Metadata Ph3 Day 4.png[width=1000,align="center"]
-
-==== Phase 3, Day 5
+The following diagram provides a suggestion of where CDB-X metadata could exist.
 
 [#img_Attribution-Day-4-Whiteboard,reftext='{figure-caption} {counter:figure-num}']
 .Metadata Day 5 Whiteboard.
-image::images/Metadata Ph3 Day 5.png[width=1000,align="center"]
+image::images/Metadata Ph3 Day 5.png[width=800,align="center"]
 
-==== Plan for Experimentation in subsequent phases
