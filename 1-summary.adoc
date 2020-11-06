@@ -113,6 +113,19 @@ Recommendation note: Supporting more than one tiling scheme in a version of CDB 
 
 The <<metadata,Metadata>> chapter in this ER provides the following guidance and recommendations:
 
+`Recommendation 1`: All Sprint participants agreed that metadata including provenance is a critical requirement for the CDB-X Standard. They also agreed that some elements should be mandatory.
+
+`Recommendation 2`:Metadata and provenance content should be self-describing.
+
+`Recommendation 3`:    Keep the core set of mandatory metadata elements limited and simple. Collecting and maintaining metadata can be costly – unless workflows are designed to capture metadata as part of the production process.
+
+`Recommendation 4`:    Define an extensible CDB metadata model that allows for easily incorporating additional metadata elements for specific data types, domains or applications. A good example would be the metadata required to make SWIR and NIR in a CDB data store useful by discovery, access, processing, and visualization services for those data types.
+
+`Recommendation 5`:    Discuss and agree on element names for the mandatory elements. This is because each metadata standard names elements differently. This also suggests that a metadata element crosswalk document may be required. The beginnings of such a document was developed as part of the CDB 1.1 revision work.
+
+`Recommendation 6`:    Every CDB dataset should have its own metadata that describes the content of that specific dataset. This will allow for much more flexible extensibility of new data types, enhances the value of existing datasets and enhances discoverability.
+
+`Recommendation 7`:    Consider whether the GeoPackage Metadata extension is robust and flexible enough to meet CDB-X requirements.
 
 ==== Vectors in GeoPackage Subgroup
 
