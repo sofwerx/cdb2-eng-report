@@ -3021,8 +3021,13 @@ This content of this section was authored by Greg Peele, leader of the Attribute
 <h3 id="_abstract"><a class="anchor" href="#_abstract"></a>9.2. Abstract</h3>
 <div class="paragraph">
 <p>To test potential approaches to storing CDB vector data in GeoPackage, the Vector Data in GeoPackage Subgroup, hereafter referred to as the Subgroup, performed several different experiments to determine the viability of storing very large volumes of vector data in a smaller number of large GeoPackage files rather than a very large number of small Shapefiles. Some of the experiments also set out to determine if there are upper limits in how much CDB content can be stored in a GeoPackage.
-This document details the SUbgroup&#8217;s approach and results of the experiments. The experiments demonstrated that GeoPackage/SQLite is capable of meeting the performance and size constraints for vector data in a CDB if properly defined {<strong>CDB or GeoPackage?</strong>}. The experiments also demonstrated that from a performance standpoint doing a direct conversion of existing Shapefile content into GeoPackage(s) may not be feasible. To gain the most from using GeoPackage as a container for large vector datasets, some approaches to level of detail (LOD) and other CDB content should be reconsidered. This includes the way significant size is used in CDB.
-The Subgroup also found that the design the schema is very important, including proper index design, when using GeoPackage. Shapefiles are very simple for developers to use since there is not a lot of flexibility when it comes to how to store data. Conversely, GeoPackage is very flexible. As such how a GeoPackage is structured and indexed can have a major impact on performance. If the exact schema and indexes for GeoPackage are properly defined as part of the CDB-X, users can expect very good performance, even for large datasets.</p>
+This document details the Subgroup&#8217;s approach and results of the experiments.</p>
+</div>
+<div class="paragraph">
+<p>The experiments demonstrated that GeoPackage/SQLite is capable of meeting the performance and size constraints for vector data in a CDB if properly defined {<strong>CDB or GeoPackage?</strong>}. The experiments also demonstrated that from a performance standpoint doing a direct conversion of existing Shapefile content into GeoPackage(s) may not be feasible. To gain the most from using GeoPackage as a container for large vector datasets, some approaches to level of detail (LOD) and other CDB content should be reconsidered. This includes the way significant size is used in CDB.</p>
+</div>
+<div class="paragraph">
+<p>The Subgroup also found that the design the schema is very important, including proper index design, when using GeoPackage. Shapefiles are very simple for developers to use since there is not a lot of flexibility when it comes to how to store data. Conversely, GeoPackage is very flexible. As such, how a GeoPackage is structured and indexed can have a major impact on performance. If the exact schema and indexes for GeoPackage are properly defined as part of the CDB-X, users can expect very good performance, even for large datasets.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3031,7 +3036,7 @@ The Subgroup also found that the design the schema is very important, including 
 <div class="title">Note</div>
 </td>
 <td class="content">
-The OGC CDB Standards Working Group will use the work performed by the particpants in this Sprint but also further augmented by the OGC Testbed 16 GeoPackage experiments and findings related to proessing, storing, and querying extremely large vector datasets.
+The OGC CDB Standards Working Group will use the work performed by the participants in this Sprint but also further augmented by the OGC Testbed 16 GeoPackage experiments and findings related to processing, storing, and querying extremely large vector datasets.
 </td>
 </tr>
 </table>
@@ -3091,7 +3096,7 @@ The design intent of the large datasets consisted of three main considerations:<
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure01.jpg" alt="Vec Gpkg Figure01" width="800">
+<img src="images/Vec_Gpkg_Figure01.jpg" alt="Vec Gpkg Figure01" width="600">
 </div>
 <div class="title">Figure 7. Attribute table for US CDB building data.</div>
 </div>
@@ -3133,7 +3138,7 @@ Please note that the original OSM building footprints do not have a ‘height’
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure02.jpg" alt="Vec Gpkg Figure02" width="800">
+<img src="images/Vec_Gpkg_Figure02.jpg" alt="Vec Gpkg Figure02" width="600">
 </div>
 <div class="title">Figure 8. Hydro_Areal_Network CDB layer attribute table.</div>
 </div>
@@ -3141,14 +3146,14 @@ Please note that the original OSM building footprints do not have a ‘height’
 <p>&nbsp;</p>
 </div>
 <div class="paragraph">
-<p>While named a ‘network’ layer, no effort was made to conduct a topological analysis and assign junction IDs.  The CDB-like attribution is merely representative.  This layer was created by combining OSM hydrographic areals based on a very simple attribute filter, and then running the results through an 'OSM to CDB Attribute Translator’ with rules set to create very generic CDB attributions.</p>
+<p>While named a ‘network’ layer, no effort was made to conduct a topological analysis and assign junction IDs.  The CDB-like attribution is merely representative.  This layer was created by combining OSM hydrographic polygons based on a very simple attribute filter, and then running the results through an 'OSM to CDB Attribute Translator’ with rules set to create very generic CDB attributions.</p>
 </div>
 <div class="paragraph">
 <p>The second layer is ‘Hydro_Network_Linear, with attribution as shown below.  This layer contains 4,252,603 features.</p>
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure03.jpg" alt="Vec Gpkg Figure03" width="800">
+<img src="images/Vec_Gpkg_Figure03.jpg" alt="Vec Gpkg Figure03" width="600">
 </div>
 <div class="title">Figure 9. Hydro_Network_Linear CDB attribute table.</div>
 </div>
@@ -3166,7 +3171,7 @@ Please note that the original OSM building footprints do not have a ‘height’
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure04.jpg" alt="Vec Gpkg Figure04" width="800">
+<img src="images/Vec_Gpkg_Figure04.jpg" alt="Vec Gpkg Figure04" width="600">
 </div>
 <div class="title">Figure 10. OSM roads layer attributes table.</div>
 </div>
@@ -3205,7 +3210,7 @@ Please note that the original OSM building footprints do not have a ‘height’
 To illustrate the importance of properly designing the schema when migrating from a Shapefile to a GeoPackage-based CDB, all the vector data in a CDB was converted. An approach similar to "Design Approach 4" in the OGC Discussion Paper titled <a href="https://portal.opengeospatial.org/files/?artifact_id=82553">OGC CDB, Leveraging GeoPackage Discussion Paper</a> was used. The conversion grouped all vector features by dataset and geocell into a single GeoPackage. Each vector feature was assigned a value for LOD, HREF, and UREF to correspond to the original Shapefile filename. A test was developed to randomly seek and read features in the CDB GeoPackage. The test script had a list of 8243 individual Shapefiles, but each file was opened and read in a randomized order. In the case of the Shapefile, each file was opened by filename, and all of the features were read. In subsequent tests with GeoPackage, the same content was read (using the list of Shapefile filenames), but instead of opening the Shapefile, the script performed a query based on the LOD, HREF, and UREF attributes.</p>
 </div>
 <div class="paragraph">
-<p>In this test, reading the ShapeFiles took 0:01:29 (1.5 minutes). With no indexes on the GeoPackage attributes, the queries took over one hour (1:01:47). Next, an index for the LOD, HREF, and UREF attributes was created and the above GeoPackage test repeated. With the indexes, finding and reading the same features took 0:00:49. Thisis only half of the time it took to read the Shapefiles.</p>
+<p>In this test, reading the Shapefiles took 0:01:29 (1.5 minutes). With no indexes on the GeoPackage attributes, the queries took over one hour (1:01:47). Next, an index for the LOD, HREF, and UREF attributes was created and the above GeoPackage test repeated. With the indexes, finding and reading the same features took 0:00:49. This is only half of the time it took to read the Shapefiles.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3222,7 +3227,7 @@ To illustrate the importance of properly designing the schema when migrating fro
 <p>Each timing test was performed in the approximate CONUS extents of North 49 degrees latitude to South 24 degrees latitude, and from West 66 degrees longitude to West 125 degrees longitude.</p>
 </li>
 <li>
-<p>Prior to running a test, a ‘step size’ was defined – typically corresponding to a CDB LOD tile size. A list of every spatial filter in the entire extent was created, then randomized.</p>
+<p>Prior to running a test, a ‘step size’ was defined – typically corresponding to a CDB LOD tile size. A list of every spatial filter in the entire extent was created then randomized.</p>
 </li>
 <li>
 <p>Also, prior to a test, a ‘significant size’ filter was set. When the layer ‘GT_Model’ is encountered, this additional attribute filter is applied. The intent is to mimic LOD selection, in addition to the spatial filter.</p>
@@ -3286,7 +3291,7 @@ To illustrate the importance of properly designing the schema when migrating fro
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure06.jpg" alt="Vec Gpkg Figure06" width="800">
+<img src="images/Vec_Gpkg_Figure06.jpg" alt="Vec Gpkg Figure06" width="600">
 </div>
 <div class="title">Figure 12. Test results coverage at LOD 2.</div>
 </div>
@@ -3301,7 +3306,7 @@ To illustrate the importance of properly designing the schema when migrating fro
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure07.jpg" alt="Vec Gpkg Figure07" width="800">
+<img src="images/Vec_Gpkg_Figure07.jpg" alt="Vec Gpkg Figure07" width="600">
 </div>
 <div class="title">Figure 13. Experiment 1 test results attribute table sorted by 'feature count'.</div>
 </div>
@@ -3310,7 +3315,7 @@ To illustrate the importance of properly designing the schema when migrating fro
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure08.jpg" alt="Vec Gpkg Figure08" width="800">
+<img src="images/Vec_Gpkg_Figure08.jpg" alt="Vec Gpkg Figure08" width="600">
 </div>
 <div class="title">Figure 14. Experiment 1 test results sorted by 'filter_t'.</div>
 </div>
@@ -3319,7 +3324,7 @@ To illustrate the importance of properly designing the schema when migrating fro
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure09.jpg" alt="Vec Gpkg Figure09" width="800">
+<img src="images/Vec_Gpkg_Figure09.jpg" alt="Vec Gpkg Figure09" width="600">
 </div>
 <div class="title">Figure 15. Experiment 1 test results sorted by 'count_t'.</div>
 </div>
@@ -3328,7 +3333,7 @@ To illustrate the importance of properly designing the schema when migrating fro
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure10.jpg" alt="Vec Gpkg Figure10" width="800">
+<img src="images/Vec_Gpkg_Figure10.jpg" alt="Vec Gpkg Figure10" width="600">
 </div>
 <div class="title">Figure 16. Experimment 1 test results sorted by 'read_t'.</div>
 </div>
@@ -3343,7 +3348,7 @@ To illustrate the importance of properly designing the schema when migrating fro
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure11.jpg" alt="Vec Gpkg Figure11" width="800">
+<img src="images/Vec_Gpkg_Figure11.jpg" alt="Vec Gpkg Figure11" width="600">
 </div>
 <div class="title">Figure 17. Experiment 2 LOD 4 test coverage results.</div>
 </div>
@@ -3359,7 +3364,7 @@ Once again, filter timing appears to be insignificant and unrelated to the numbe
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure12.jpg" alt="Vec Gpkg Figure12" width="800">
+<img src="images/Vec_Gpkg_Figure12.jpg" alt="Vec Gpkg Figure12" width="600">
 </div>
 <div class="title">Figure 18. Experiment 2 LOD 4 test sorted by 'feature count'.</div>
 </div>
@@ -3368,7 +3373,7 @@ Once again, filter timing appears to be insignificant and unrelated to the numbe
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure13.jpg" alt="Vec Gpkg Figure13" width="800">
+<img src="images/Vec_Gpkg_Figure13.jpg" alt="Vec Gpkg Figure13" width="600">
 </div>
 <div class="title">Figure 19. Experiment 2 LOD 4 test sorted by 'filter_t'.</div>
 </div>
@@ -3377,7 +3382,7 @@ Once again, filter timing appears to be insignificant and unrelated to the numbe
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure14.jpg" alt="Vec Gpkg Figure14" width="800">
+<img src="images/Vec_Gpkg_Figure14.jpg" alt="Vec Gpkg Figure14" width="600">
 </div>
 <div class="title">Figure 20. Experiment 2 LOD 4 test sorted by 'count_t'.</div>
 </div>
@@ -3386,7 +3391,7 @@ Once again, filter timing appears to be insignificant and unrelated to the numbe
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/Vec_Gpkg_Figure15.jpg" alt="Vec Gpkg Figure15" width="800">
+<img src="images/Vec_Gpkg_Figure15.jpg" alt="Vec Gpkg Figure15" width="600">
 </div>
 <div class="title">Figure 21. Experiment 2 LOD 4 test sorted by feature 'read_t'.</div>
 </div>
@@ -6311,7 +6316,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-04 17:01:18 UTC
+Last updated 2020-11-06 17:27:30 UTC
 </div>
 </div>
 <style>
