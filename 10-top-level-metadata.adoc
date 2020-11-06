@@ -9,7 +9,7 @@ This section discusses the role of metadata in CDB-X.
 
 === Summary of history of CDB-X metadata discussions.
 
-The earlier 'industry' versions, and OGC CDB 1.x versions of CDB contain a 'metadata' directory.  Despite the directory name, this is a collection of .XSD (XML Schema Definition) and associated .XML (eXtensible Markup Language) files that are metadata, controlled vocabularies, and enumerations for elements of the CDB standard.
+The earlier 'industry' CDB versions and the OGC CDB 1.x versions of CDB contain a 'metadata' directory.  Despite the directory name, this is a collection of .XSD (XML Schema Definition) and associated .XML (eXtensible Markup Language) files that are metadata, controlled vocabularies, and enumerations for elements of the CDB standard.
 
 NOTE: More specifically, the majority of what is referred to as metadata in the CDB standard is not metadata! The majority of the schemas, metadata references, and related requirements are actually controlled vocabularies (code-lists). Lights, materials, and so on are controlled vocabularies and not metadata. Some elements of the standard, such as “version” are referred to as metadata and could be classed as metadata.
 
@@ -83,7 +83,7 @@ Local Geospatial metadata can be stored in a number of different folder location
 +
 While the same metadata elements are recommended for both global and local geospatial metadata, there are some differences that should be considered.
 +
-_Metadata Reference Information_ (dct:identifier, MD_Metadata.metadataIdentifier) This is a unique identifier for the dataset. In CDB, this could be the pathname to the dataset or the tile. These pathnames are unique. Using such identifers would facilitate development of a RESTful API for discovery and access of CDB resources.
+_Metadata Reference Information_ (dct:identifier, MD_Metadata.metadataIdentifier) This is a unique identifier for the dataset. In CDB, this could be the pathname to the dataset or the tile. These pathnames are unique. Using such identifiers would facilitate development of a RESTful API for discovery and access of CDB resources.
 +
 _Resource Title_ (http://purl.org/dc/terms/title[dct:title], CI_Citation.title): Title by which the data set is known (Table F.1). For local metadata, this could be a name given to a layer or model in the data store. In a CDB data store, at the dataset or tile level this would be a name given to the resource, such as “county soils.”
 +
@@ -95,7 +95,7 @@ _Spatial Resolution Information_ (No equivalent, MD_Identification.spatialResolu
 
 ===== Where are local metadata files stored?
 
-Typically, local metadata files will be stored with the physical data. For GTModel geotypical data sets, the metadata file would be stored along with the model XML file. If the model is stored in multiple LoDs, the metadata would also be stored at each LoD. For tiled vector data, the local metadata would be stored with the vector files at the tile level. Please see the esamples in Section 3.0 for more detail.
+Typically, local metadata files will be stored with the physical data. For GTModel geotypical data sets, the metadata file would be stored along with the model XML file. If the model is stored in multiple LoDs, the metadata would also be stored at each LoD. For tiled vector data, the local metadata would be stored with the vector files at the tile level.
 
 ==== Recommendations
 
@@ -104,8 +104,8 @@ The following are the recommendations for metadata and provenance in CDB-X. Plea
 . Metadata and provenance content should be self-describing.
 . Keep the core set of mandatory metadata elements limited and simple. Collecting and maintaining metadata can be costly – unless workflows are designed to capture metadata as part of the production process.
 . Define an extensible CDB metadata model that allows for easily incorporating additional metadata elements for specific data types, domains or applications. A good example would be the metadata required to make SWIR and NIR in a CDB data store useful by discovery, access, processing, and visualization services for those data types.
-. Discuss and agree on element names for the mandatory elements. This is because each metadata standard names elements differently. This also suggests that a metadata element crosswalk document may be required. The beginnings of such a document was developed as part of the CDB 1.1 revision work. 
-. Every CDB dataset should have its own metadata that describes the content of that specific dataset. This will allow for much more flexible extensibility of new data types, enhances the value of existing datasets and enhances discoverability. 
+. Discuss and agree on element names for the mandatory elements. This is because each metadata standard names elements differently. This also suggests that a metadata element crosswalk document may be required. The beginnings of such a document were developed as part of the CDB 1.1 revision work. 
+. Every CDB dataset should have its own metadata that describes the content of that specific dataset. This will allow for much more flexible extensibility of new data types and enhances the value of existing datasets and enhances discoverability. 
 . Consider whether the GeoPackage Metadata extension is robust and flexible enough to meet CDB-X requirements.
 
 ==== Future vision of role of metadata in CDB-X
