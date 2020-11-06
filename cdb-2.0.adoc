@@ -135,15 +135,17 @@ include::10-top-level-metadata.adoc[]
 
 include::11-tiling-coverages.adoc[]
 
+include::Versioning-Analysis.adoc[]
+
 // you may add any number of chapters as required here
 
 // *****************************************************************************
 // Editors add or remove annexes as necessary.
 // *****************************************************************************
 
-//include::annex-a.adoc[]
+include::annex-a.adoc[]
 
-//include::annex-b.adoc[]
+include::annex-b.adoc[]
 
 include::annex-c-tile-coverages.adoc[]
 

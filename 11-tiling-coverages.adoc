@@ -7,7 +7,7 @@ This chapter covers:
 - The configurable grouping of Levels of Detail to balance file size versus file count, 
 - An approach to packaging one or more data layers in GeoPackages (including coverage, vector and 3D data), 
 - Current and proposed GeoPackage extensions for storing this data, and 
-- As well as the results of related prototyping activities.
+- The results of related prototyping activities.
 
 The tiling sub-group was initially assigned specifically to explore tiled coverage data However, based on initial work, some experiments evolved beyond the initial testing scope. The additional experimentation applied the same tiling approach to vector data and 3D models and used existing or new extensions to store this tiled data in GeoPackages. 
 
@@ -68,7 +68,7 @@ image::images/tiling_logical_model.jpg[width=800,align="center"]
 .Level 2 of the GNOSIS Global Grid proposed for CDB X.
 image::images/cdbxTMS.png[width=800,align="center"]
 
-The proposed tiling scheme would be based on the GNOSISGlobalGrid, where the tiling starts with a 2x4 grid of tiles with each tile 90 degrees on a side that covers the whole Earth.  This is zoom level 0 (or tile matrix identifier "0").  Each experiment used a tile size of 256x256 {*Does this need to be described more?*}, although that could be experimented with.  At each successive zoom level, each lower level tile is split into four new tiles at the next zoom level The exception that any tile that touches either the North or South Pole is not split in the longitude direction.  This subdivision can continue until the zoom level is high enough to accommodate the highest resolution data that is to be stored within the CDB X.
+The proposed tiling scheme would be based on the GNOSISGlobalGrid, where the tiling starts with a 2x4 grid of tiles with each tile 90 degrees on a side that covers the whole Earth.  This is zoom level 0 (or tile matrix identifier "0"). The experiments performed during the sprint used the tile size of 256 x 256 defined by the GNOSIS Global Grid for all zoom levels / level of details. A variation of the Tile Matrix Set definition using a different tile size instead, e.g. 512 x 512 could also be experimented it. At each successive zoom level, each lower level tile is split into four new tiles at the next zoom level The exception that any tile that touches either the North or South Pole is not split in the longitude direction.  This subdivision can continue until the zoom level is high enough to accommodate the highest resolution data that is to be stored within the CDB X.
 
 References for the GNOSISGlobalGrid tiling scheme:
 
@@ -90,7 +90,9 @@ The following graph compares the CDB 1.x zones with the Gnosis grid and shows ho
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .CDB 1.x to GNOSIS Comparison - Ratio.
-image::images/image2020-9-4_10-41-0.png[width=800,align="center"]
+image::images/image2020-9-4_10-41-0.png[width=600,align="center"]
+
+NOTE: A summary of all of the results from the experiments can be found in <<annex-b,Annex B>>. 
 
 ==== Tiling Changes From OGC CDB 1.x
 
@@ -117,10 +119,10 @@ Imagery and coverage data would always be tiled. Vector data could optionally be
 
 There are two proposed ways to group data within a series of GeoPackage containers.  Within these choices is a tradeoff between the format simplicity of working with a single container, and access latency due to larger file and table sizes.
 
-1. For edge {*Clarify what is meant by 'edge'.*} users and smaller areas, the Subgroup particpants `recommend` that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be result from an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user.
+1. For users at the edge and smaller areas, the Subgroup particpants `recommend` that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be result from an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user. Users at the edge are such individuals as field operatives using mobile devices with limited battery, memory, storage and processing capabilities as well as Delayed/Disconnected, Intermittently-connected or Limited bandwidth (DDIL) environments.
 2. For Modeling and Simulation uses, as well as data repository cases, the Subgroup participants `recommend` that a series of GeoPackage containers be used to store CDB X coverage layers.  This involves storing a region of the world at a set of zoom levels, or levels of detail, within a single GeoPackage, with a specified file and directory naming scheme.  This approach would allow for faster access to data at specified areas and zoom levels.  This approach would also lend itself to concurrent access and editing for data repository maintainers.
 ** The particpants propose that a configurable grouping value be used to specify how many zoom levels or levels of detail are put into a single GeoPackage.  This would be a tradeoff between the number of GeoPackages created and the file and table sizes within each GeoPackage.
-** Multiple grouping numbers were experimented with. Five (5) was found to be a good number for packaging together all data layers of the San Diego CDB {*DO we need some words in the intro on the data used in the experiments?*}. This grouping number might need to be adjusted for different types of data layers, or different data sets as well.
+** Multiple grouping numbers were experimented with. Five (5) was found to be a good number for packaging together all data layers of the San Diego CDB. For these experiments, a number of datasets were used, including CDB 1.x data from both the Presagis Sample CDB of Camp Pendleton, as well as the San Diego sample CDB provided by CAE. Additional data from NASA Visible Earth Blue Marble and USGS GTOPO30 were used to test applying the tiling to global datasets. This grouping number might need to be adjusted for different types of data layers, or different data sets as well.
 ** The proposed naming of each GeoPackage file is based on the layer name and the coarsest, lowest level tile included within the grouping inside the GeoPackage.  That tile's level, row (from the top) and column within the tile matrix set make up the filename, along with the level of the finest or highest level tile that can be placed into this GeoPackage.  For example:  **Coverages_L4_R16_C12_L6.gpkg**
 ** The proposed directory naming creates a directory tree that limits the number of GeoPackage files that could exist within a single directory.  Each GeoPackage would exist within a set of directory names that represents each coarser or lower zoom level GeoPackage that encompases the smaller higher resolution area.  For example:  The file, **Coverages_L4_R16_C12_L6.gpkg**, would exist in the directory named **Coverages\L0_R1_C0\L1_R2_C1**
 *** The file and directory naming needs to be easy to compute algorithmically or exist within a catalog, without having to search a data repository to discover arbitrarily named files.
@@ -131,7 +133,10 @@ to augment these base datasets with additional more detailed insets, without rep
 * The publisher of a large repository of data could pre-establish fixed maximum LODs for specific data layers (e.g. imagery, elevation, 3D Models).
 * When inset data is added to a dataset, these could go beyond the regular maximum LOD specified for the 'packaging'. As such these inset tiles are always grouped together with the tiles of the regular maximum LOD.
 
-`Recommendation`: Define this capability for splitting GeoPackages based on a specific tiling scheme outside of the CDB X standard so that it {*What does it refer to?*} can be used by itself.
+`Recommendation`: Define this capability for splitting GeoPackages based on a specific tiling scheme outside of the CDB X standard so that this split content can be used by itself.
+
+NOTE: A mechanism to split data and group (or not) layers over multiple GeoPackages by tiles / LOD grouping (or have it all as a single GeoPackage), as well as a JSON schema providing the necessary information to access that data (e.g. packages, data layers, grouping, maxLOD, selected TileMatrixSet), should be a modular standard defined outside of CDB X, so that it could be used for other large datasets not necessarily conforming to the CDB X standard (e.g. the OrdnanceSurvey Master Map, OpenStreetMap Planet OSM, etc.).
+
 
 === Proposed `cdb.json` index of packages and data layers
 
@@ -139,6 +144,7 @@ The Tiling Subgroup developed a simple schema for describing the data layers pro
 they are packaged in one or more _packages_. These _packages_ can themselves either be stored in a single GeoPackage (zero or _null_ LOD grouping), or separated in
 multiple GeoPackage based on tiles grouped in multiple LODs (non-zero LOD grouping). This index allows the flexibility to use the best suited configuration
 for a given dataset or use case At the same time it is very simple for a client to parse and access the data in a deterministic manner using any of these configurations.
+
 When a single GeoPackage is used, potentially this `cdb.json` could be included inside as metadata (using the GeoPackage metadata extension) to make
 this GeoPackage a single file, very portable compliant CDB X.
 The following `cdb.json` index files demonstrate the three main configuration possibilities.
@@ -405,7 +411,7 @@ CREATE TABLE attributes_Trees (
 
 ==== B) Batched 3D Models tiles
 
-For Approach B, best suited for geo-specific models, a single model covers a whole tile, all 3D models from the data layer found within that tile are batched, and is {*What is?*} stored in a tiles table much like raster or vector tiles (as a glTF blob in the `tile_data` field).
+For Approach B, best suited for geo-specific models, a single model covers a whole tile, all 3D models from the data layer found within that tile are batched, and is  stored in a tiles table much like raster or vector tiles (as a glTF blob in the `tile_data` field).
 This is closer to the 3D Tiles / One World Terrain approach, and could potentially also combine both 3D Terrain and 3D Models (though ideally keeping them as distinct nodes within the model). Such an approach may facilitate transition between CDB-X and OWT.
 
 Because GeoPackage does not define a generic mechanism for specifying the encoding of `tile_data` (this has previously been suggested that this would be a good field to add to the `gpkg_contents` table), the encoding of the 3D model must be deducted from the content of the blob. Fortunately, both glTF and E3D feature a header signature that facilitates this. The `3d-models` type was introduced for specifying the `data_type` column of the `gpkg_contents` table.
@@ -451,13 +457,11 @@ id  name   width  height  format  texture
 
 === Ecere GeoPackage Tiling Experiments
 
-==== Overview
-
 Ecere conducted multiple experiments during the sprint using tiling and packaging data sourced from CDB 1.x content.
 
 - Experiment 1: The objective of the first experiment was to share an example of how to store CDB data in a GeoPackage following the GNOSIS Global Grid. This Experiment used the draft GeoPackage TileMatrixSet and vector tiles extensions, as well as describing this content using the proposed `cdb.json` schema. A sample CDB datastore from Presagis for Camp Pendleton California was used for this experiment.
 
-- Experiment 2: The objective of the second experiment focused on demonstrating how to distribute data covering a large area in multiple GeoPackages using a pre-determined LOD grouping setting. The larger San Diego CDB dataset provided by CAE was used for this Experiment as well as fpr Experiment 3.
+- Experiment 2: The objective of the second experiment focused on demonstrating how to distribute data covering a large area in multiple GeoPackages using a pre-determined LOD grouping setting. The larger San Diego CDB dataset provided by CAE was used for this Experiment as well as for Experiment 3.
 
 - Experiment 3: The objective of the third experiment was investigating storing 3D models inside the GeoPackages using the two different approaches described above.
 Approach A is very similar to the CDB 1.x data model where all 3D models are stored in a single table and referenced from points stored in tiled vector data.
@@ -469,146 +473,121 @@ These were originally described as separate experiments on the https://github.co
 
 [#img_gpkgexport,reftext='{figure-caption} {counter:figure-num}']
 .Ecere GeoPackage / CDB X Export dialog and options in Ecere’s GNOSIS Cartographer
-image::images/Ecere-GeoPackageCDBXExport.png[width=800,align="center"]
+image::images/Ecere-GeoPackageCDBXExport.png[width=600,align="center"]
 
 [#img_gpkgexport2,reftext='{figure-caption} {counter:figure-num}']
 .Ecere GeoPackage / CDB X Export dialog and options close up
-image::images/Ecere-GeoPackageCDBXExport2.png[width=800,align="center"]
+image::images/Ecere-GeoPackageCDBXExport2.png[width=600,align="center"]
 
-==== Data results
+'''
 
-===== Single GeoPackage
+The results produced were sourced from the CAE San Diego CDB 1.x, and unless otherwise specified cover the entire dataset. +
+An additional data layer was sourced from the NASA Visible Earth https://visibleearth.nasa.gov/collection/1484/blue-marble[Blue Marble]. +
+These are also available from the https://portal.ogc.org/index.php?m=projects&a=view&project_id=466&tab=2&artifact_id=95315[CDB SWG / CDB X Tech Sprint folder].
 
-This one GeoPackage contains the whole San Diego CDB data (not including Blue Marble):
+MVT: Mapbox Vector Tiles (https://docs.mapbox.com/vector-tiles/reference/[specifications])
 
-NOTE: In the texture table for this GeoPackage, the texture names are prefixed by an extra directory to differentiate the numbered textures used in the
-different 3D models data layers. However the reference from the 3D models was not yet updated to reflect this.
+GMT: GNOSIS Map Tiles (http://docs.opengeospatial.org/per/18-025.html#GMTSpecs[specifications])
 
-https://portal.ogc.org/files/?artifact_id=95378[Complete San Diego CDB X - _cdb.json_ index]
+E3D: Ecere 3D Models (http://docs.opengeospatial.org/per/18-025.html#E3DSpecs[specifications])
 
-*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.gpkg.7z[Complete San Diego CDB X - GeoPackage] (12.8 GiB, 9.8 GiB compressed)
+(from _CityGML and Augmented Reality_ http://docs.opengeospatial.org/per/18-025.html[Engineering Report])
 
-*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.gpkg[Complete San Diego CDB X - GeoPackage using GNOSIS Map Tiles and E3D Models] (10.3 GiB uncompressed)
+==== San Diego CDB layers packaged together
 
-===== Data layers packaged together (tiles grouped in multiple GeoPackages)
+[cols=",,,,,,,",]
+|===
+|*Data / Link* |*LOD Grouping* |*Models Encoding* |*Imagery Encoding* |*Coverage Encoding* |*Vector Encoding* |*Uncompressed size* |*Compressed Size*
+|(https://portal.ogc.org/files/?artifact_id=95378[_cdb.json_]) 7+|*_As a single GeoPackage_*
+8+|_In the textures table for this GeoPackage, the texture names are prefixed by an extra directory to differentiate the numbered textures used in the
+different 3D models data layers. However the reference from the 3D models was not yet updated to reflect this._
+|https://data.ogc.org/2020/11/SanDiego.gpkg.7z[San Diego] |Single File |Binary glTF |JPEG |PNG |MVT |12.8 GiB |9.8 GiB
+|https://data.ogc.org/2020/11/SanDiego.gpkg[San Diego]    |Single File |E3D         |JPEG |GMT |GMT |10.3 GiB |
+|(https://portal.ogc.org/files/?artifact_id=95366[_cdb.json_]) 7+|*_Grouping tiles of 5 LODs per GeoPackage_*
+8+|_In this approach, the textures were stored in a separate folder to avoid repeating them in each separate GeoPackage._
 
-This series of GeoPackages (also covering the whole San Diego CDB) groups tiles of 5 LODs for all data layers within the same GeoPackage.
-In this approach, the textures were stored in a separate folder to avoid repeating them in each separate GeoPackage.
+|https://data.ogc.org/2020/11/SanDiego.7z[San Diego]      |5           |Binary glTF |JPEG |PNG |MVT |14.6 GiB |9.9 GiB
+|https://portal.ogc.org/files/?artifact_id=95370[San Diego (subset)] |5      |Binary glTF |JPEG |PNG |MVT |1.4 GiB  |217.5 MiB
+|===
 
-https://portal.ogc.org/files/?artifact_id=95366[_cdb.json_ index]
-
-*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.7z[One package using an LOD grouping of 5] (14.6 GiB, 9.9 GiB compressed)
-
-https://portal.ogc.org/files/?artifact_id=95370[Partial dataset (subset of the overall extent) using an LOD grouping of 5] (1.4 GiB, 217.5 MiB compressed)
-
-===== As separate layers
-
-A series of GeoPackages (11.2 GB compressed) of the San Diego CDB, plus a full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble, along with an accompanying `cdb.json` can be found at:
-
-https://portal.ogc.org/index.php?m=projects&a=view&project_id=466&tab=2&artifact_id=95320[OGC portal folder]
+==== San Diego CDB packaged as separate layers
 
 https://portal.ogc.org/files/?artifact_id=95345[Top-level _cdb.json_ index]
 
-The individual layers, as well as alternate encodings of some of them and are listed below:
+===== Elevation
 
-====== Elevation
+[cols=",,,,",]
+|===
+|*Data / Link*                                               |*LOD Grouping* |*Coverage Encoding* |*Uncompressed size* |*Compressed Size*
+|https://portal.ogc.org/files/?artifact_id=95352[Elevation]    |6 |PNG / 16-bit integer |483 MiB |472 MiB
+|https://portal.ogc.org/files/?artifact_id=95328[Elevation]    |6 |GMT / 16-bit integer |370.8 MiB |365.2 MiB
+|https://data.ogc.org/2020/11/ElevationTIF.7z[Elevation] |6 |GeoTIFF / 32-bit float |1.4 GiB |1.3 GiB
+|===
 
-https://portal.ogc.org/files/?artifact_id=95352[Elevation (using 16-bit integer PNG encoding)] (483 MiB, 472 MiB compressed)
-
-https://portal.ogc.org/files/?artifact_id=95328[Elevation (using 16-bit integer Paeth/LZMA GMT encoding)] (370.8 MiB, 365.2 MiB compressed)
-
-*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/ElevationTIF.7z[Elevation (using 32-bit float GeoTIFF encoding)] (1.4 GiB, 1.3 GiB compressed)
-
-====== Imagery
-
-*_Encoded as JPG_:*
+===== Imagery
 
 NOTE: The imagery in these GeoPackages is lossy. `Recommendation`: Allow the use of JPEG-2000 and/or additional lossless formats more compact than PNG in GeoPackages.
 
-*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/BlueMarble.7z[Full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble] (1.6 GiB, 1.4 GiB compressed)
+[cols=",,,,",]
+|===
+|*Data / Link*                                         |*LOD Grouping* |*Imagery Encoding* |*Uncompressed size* |*Compressed Size*
+|https://data.ogc.org/2020/11/BlueMarble.7z[Blue Marble] |7 |JPEG |1.6 GiB |1.4 GiB
+|https://data.ogc.org/2020/11/ImageryMedium.7z[Imagery (Medium)] |7 |JPEG |4.9 GiB |4.7 GiB
+|https://data.ogc.org/2020/11/ImageryHigh.7z[Imagery (High)] |7 |JPEG |4.5 GiB |4.3 GiB
+|===
 
-*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/ImageryMedium.7z[Medium resolution imagery] (4.9 GiB, 4.7 GiB compressed)
+===== Vector data
 
-*FIXME awaiting portal link:* ftp://cdb-x-2020@ftp.ogc.org/Ecere/ImageryHigh.7z[High resolution imagery] (4.5 GiB, 4.3 GiB compressed)
+[cols=",,,,",]
+|===
+|*Data / Link*                                                |*LOD Grouping* |*Vector Encoding* |*Uncompressed size* |*Compressed Size*
+|https://portal.ogc.org/files/?artifact_id=95348[Hydrography] |Single File |Mapbox Vector Tiles |424 KiB |
+|https://portal.ogc.org/files/?artifact_id=95350[Roads] |Single File |Mapbox Vector Tiles |69.1 MiB |17.6 MiB
+|https://portal.ogc.org/files/?artifact_id=95346[Airport Lights] |Single File |Mapbox Vector Tiles |144 KiB |
+|https://portal.ogc.org/files/?artifact_id=95330[Hydrography] |Single File |GNOSIS Map Tiles |248 KiB |
+|https://portal.ogc.org/files/?artifact_id=95331[Roads] |Single File |GNOSIS Map Tiles |38 MiB |23.4 MiB
+|https://portal.ogc.org/files/?artifact_id=95329[Airport Lights] |Single File |GNOSIS Map Tiles |148 KiB |
+|===
 
-====== Vector data
+===== 3D Models
 
-*_Tiled and encoded as Mapbox Vector Tiles:_*
+====== Using referencing placement points
 
-https://portal.ogc.org/files/?artifact_id=95348[Hydrography] (424 KiB)
-
-https://portal.ogc.org/files/?artifact_id=95350[Roads] (69.1 MiB, 17.6 MiB compressed)
-
-https://portal.ogc.org/files/?artifact_id=95346[Airport Lights] (144 KiB)
-
-*_Tiled and encoded as GNOSIS Map Tiles:_*
-
-NOTE: The latest specifications for the GNOSIS Map Tiles encoding is available in the http://docs.opengeospatial.org/per/18-025.html#GMTSpecs[Annex B] of the _CityGML and Augmented Reality_ Engineering Report {*Do we need a link?*}.
-
-https://portal.ogc.org/files/?artifact_id=95330[Hydrography] (248 KiB)
-
-https://portal.ogc.org/files/?artifact_id=95331[Roads] (38 MiB, 23.4 MiB compressed)
-
-https://portal.ogc.org/files/?artifact_id=95329[Airport Lights] (148 KiB)
-
-====== 3D Models
-
-*_Single GeoPackages using Mapbox Vector Tiles for reference points, and models encoded as binary glTF:_*
-
-https://portal.ogc.org/files/?artifact_id=95351[Buildings] (2.9 GiB, 321.3 MiB compressed)
-
-https://portal.ogc.org/files/?artifact_id=95349[Trees] (2 MiB)
-
-https://portal.ogc.org/files/?artifact_id=95347[Coronado Bridge] (272 KiB)
-
-*_Single GeoPackages using GNOSIS Map Tiles for reference points, and models encoded as E3D:_*
-
-NOTE: The latest specifications for the _E3D_ 3D Model and _GNOSIS Map Tiles_ encodings are available in the http://docs.opengeospatial.org/per/18-025.html[_CityGML and Augmented Reality_ Engineering Report],
-(http://docs.opengeospatial.org/per/18-025.html#E3DSpecs[Appendix A] and http://docs.opengeospatial.org/per/18-025.html#GMTSpecs[Appendix B], respectively).
-
-NOTE: The unconmpressed GeoPackages are more compact because the E3D models feature internal LZMA compression.
-
-https://portal.ogc.org/files/?artifact_id=95340[Buildings (GNOSIS Map Tiles / E3D)] (560.8 MiB, 332.8 MiB compressed)
-
-https://portal.ogc.org/files/?artifact_id=95339[Trees (GNOSIS Map Tiles / E3D)] (1.8 MiB)
-
-https://portal.ogc.org/files/?artifact_id=95338[Coronado Bridge (GNOSIS Map Tiles / E3D)] (196 KiB)
-
-*_Multiple GeoPackages using various LOD grouping, Mapbox Vector Tiles for reference points, and models encoded as binary glTF:_*
-
-https://portal.ogc.org/files/?artifact_id=95344[Buildings grouped by 4 LODs] (4.1 GiB, 446.6 MiB compressed)
-
-https://portal.ogc.org/files/?artifact_id=95343[Buildings grouped by 5 LODs] (3.7 GiB, 409.2 MiB compressed)
+[cols=",,,,,",]
+|===
+|*Data / Link*                              |*LOD Grouping* |*Models Encoding* |*Vector Encoding* |*Uncompressed size* |*Compressed Size*
+|https://portal.ogc.org/files/?artifact_id=95351[Buildings] |Single File |Binary glTF |Mapbox Vector Tiles |2.9 GiB |321.3 MiB
+|https://portal.ogc.org/files/?artifact_id=95349[Trees] |Single File |Binary glTF |Mapbox Vector Tiles |2 MiB |
+|https://portal.ogc.org/files/?artifact_id=95347[Coronado Bridge] |Single File |Binary glTF |Mapbox Vector Tiles |272 KiB |
+|https://portal.ogc.org/files/?artifact_id=95340[Buildings] |Single File |E3D |GNOSIS Map Tiles |560.8 MiB |332.8 MiB
+|https://portal.ogc.org/files/?artifact_id=95339[Trees] |Single File |E3D |GNOSIS Map Tiles |1.8 MiB |
+|https://portal.ogc.org/files/?artifact_id=95338[Coronado Bridge] |Single File |E3D |GNOSIS Map Tiles |196 KiB |
+|https://portal.ogc.org/files/?artifact_id=95344[Buildings] |4 |Binary glTF |Mapbox Vector Tiles |4.1 GiB |446.6 MiB
+|https://portal.ogc.org/files/?artifact_id=95343[Buildings] |5 |Binary glTF |Mapbox Vector Tiles |3.7 GiB |409.2 MiB
+|https://portal.ogc.org/files/?artifact_id=95342[Buildings] |7 |Binary glTF |Mapbox Vector Tiles |2.9 GiB |321.3 MiB
+|https://portal.ogc.org/files/?artifact_id=95341[Trees] |6 |Binary glTF |Mapbox Vector Tiles |2.9 MiB |1.2 MiB
+|===
 
 NOTE: The larger size for grouping by 4 and 5 LODs is mainly a result of lower resolution models being duplicated in higher level grouping GeoPackages.
 
-https://portal.ogc.org/files/?artifact_id=95342[Buildings grouped by 7 LODs] (2.9 GiB, 321.3 MiB compressed)
+NOTE: Except for the directory / file naming, the 7 LODs buildings are equivalent to 6 LODs since there are only 6 LODs of buildings in the dataset. Similarly, the 6 LODs trees are equivalent to any other LOD groupings, since there is only 1 LOD of trees in the dataset.
 
-NOTE: Except for the directory / file naming, the 7 LODs buildings are equivalent to 6 LODs since there are only 6 LODs of buildings in the dataset.
+====== Batching models per tile
 
-https://portal.ogc.org/files/?artifact_id=95341[Trees grouped by 6 LODs] (2.9 MiB, 1.2 MiB compressed)
+[cols=",,,,,",]
+|===
+|*Data / Link*                                |*LOD Grouping* |*Models Encoding* |*Vector Encoding* |*Uncompressed size* |*Compressed Size*
+|https://portal.ogc.org/files/?artifact_id=95337[Buildings] |Single File |Binary glTF |Mapbox Vector Tiles |3.9 GiB |512.4 MiB
+|https://portal.ogc.org/files/?artifact_id=95335[Trees] |Single File |Binary glTF |Mapbox Vector Tiles |91 MiB |2.3 MiB
+|https://portal.ogc.org/files/?artifact_id=95336[Coronado Bridge] |Single File |Binary glTF |Mapbox Vector Tiles |576 KiB |
+|https://portal.ogc.org/files/?artifact_id=95334[Buildings] |Single File |E3D |GNOSIS Map Tiles |417.3 MiB |339.8 MiB
+|https://portal.ogc.org/files/?artifact_id=95333[Trees] |Single File |E3D |GNOSIS Map Tiles |3.3 MiB |
+|https://portal.ogc.org/files/?artifact_id=95332[Coronado Bridge] |Single File |E3D |GNOSIS Map Tiles |256 KiB |
+|===
 
-NOTE: Except for the directory / file naming, the 6 LODs trees are equivalent to any other LOD groupings, since there is only 1 LOD of trees in the dataset.
-
-*_Single GeoPackages batching 3D models for each tile as binary glTF:_*
+NOTE: The uncompressed GeoPackages are more compact because the E3D models feature internal LZMA compression.
 
 NOTE: The model is encoded in the `tile_data` field of the tiles table. This approach is best suited for geo-specific models, and can be used directly as the glTF payload of a `.b3dm` 3D Tile (with proper transformation matrix in JSON tileset).
-
-https://portal.ogc.org/files/?artifact_id=95337[Buildings (glTF / batched 3D models tiles)] (3.9 GiB, 512.4 MiB compressed)
-
-https://portal.ogc.org/files/?artifact_id=95335[Trees (glTF / batched 3D models tiles)] (91 MiB, 2.3 MiB compressed)
-
-https://portal.ogc.org/files/?artifact_id=95336[Coronado Bridge (glTF / batched 3D models tiles)] (576 KiB)
-
-*_Single GeoPackages batching 3D models for each tile as E3D:_*
-
-NOTE: The model is encoded in the `tile_data` field of the tiles table. This approach is best suited for geo-specific models. The unconmpressed GeoPackages are more compact because the E3D models feature internal LZMA compression.
-
-https://portal.ogc.org/files/?artifact_id=95334[Buildings (E3D / batched 3D models tiles)] (417.3 MiB, 339.8 MiB compressed)
-
-https://portal.ogc.org/files/?artifact_id=95333[Trees (E3D / batched 3D models tiles)] (3.3 MiB)
-
-https://portal.ogc.org/files/?artifact_id=95332[Coronado Bridge (E3D / batched 3D models tiles)] (256 KiB)
 
 ==== OGC API access demo
 
@@ -618,7 +597,7 @@ The San Diego CDB data from the GNOSIS data store can be accessed directly throu
 accessing as tiles in different tiling schemes, accessing individual vector features, retrieving them as (re-merged) GeoJSON, visualizing them on GeoJSON.io,
 accessing as 3D Tiles tilesets or individual tiles, also supporting retrieving batched 3D tiles as binary glTF and so on. These delivery capabilities demonstrate that tiled data actually supports a wide range of use cases. More details about accessing this data via the OGC API {*Which OGC API? I am assuming features.*}  can be found in the OGC Interactive Simulation and Gaming Sprint Engineering Report{*Do we need a link?*} .
 
-The prototype CDB X split GeoPackages can be accessed directlyt this https://maps.ecere.com/ogcapi/collections/SanDiegoLayers
+The prototype CDB X split GeoPackages can be accessed directly at https://maps.ecere.com/ogcapi/collections/SanDiegoLayers
 [address]: 
 
 However at this point, the map server and visualization client do not present this as a unified data source. As such, the tiles structure and individual GeoPackages are individually accessible instead.
@@ -631,7 +610,7 @@ Accessing and visualizing the 3D models from the GeoPackage tables remains to be
 
 [#img_campPendleton,reftext='{figure-caption} {counter:figure-num}']
 .Visualizing Camp Pendleton CDB X/GeoPackage in Ecere's GNOSIS Cartographer.
-image::images/ecere-cdbx-1.png[width=800,align="center"]
+image::images/ecere-cdbx-1.png[width=600,align="center"]
 
 '''
 
@@ -643,27 +622,27 @@ In addition to the San Diego CDB dataset, worldwide elevation data from http://v
 
 [#img_sd1,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (cape)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego1.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego1.jpg[width=600,align="center"]
 
 [#img_sd2,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (hotels and palm trees)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego2.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego2.jpg[width=600,align="center"]
 
 [#img_sd4,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (skyscrapers)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego4.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego4.jpg[width=600,align="center"]
 
 [#img_sd5,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (Coronado bridge)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego5.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego5.jpg[width=600,align="center"]
 
 [#img_sd11,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (airstrip)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego11.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego11.jpg[width=600,align="center"]
 
 [#img_sd15,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (high above, showing 3D globe)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego15.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego15.jpg[width=600,align="center"]
 
 This last image features ESA Gaia’s Sky in colour (Gaia Data Processing and Analysis Consortium (DPAC); A. Moitinho / A. F. Silva / M. Barros / C. Barata, University of Lisbon, Portugal; H. Savietto, Fork Research, Portugal.) CC BY SA 3.0.
 
@@ -671,11 +650,11 @@ This last image features ESA Gaia’s Sky in colour (Gaia Data Processing and An
 
 [#img_sdCesium1,reftext='{figure-caption} {counter:figure-num}']
 .San Diego CDB (before implementing support for textures in generated 3D Tiles)
-image::http://ecere.com/tmp/SanDiegoCesium.png[width=800,align="center"]
+image::http://ecere.com/tmp/SanDiegoCesium.png[width=600,align="center"]
 
 [#img_CesiumJS3DTiles,reftext='{figure-caption} {counter:figure-num}']
 .CesiumJS Client accessing San Diego CDB data as 3D Tiles from Ecere’s GNOSIS Map Server (Petco Park)
-image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/CesiumSanDiego3.jpg[width=800,align="center"]
+image::https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/CesiumSanDiego3.jpg[width=600,align="center"]
 
 The following JavaScript code, which can simply be copied to the https://sandcastle.cesium.com/[Cesium Sand Castle], can be used to visualize the data as 3D Tiles, including textures. The code sets up the buildings, trees as well as the Coronado Bridge, together with the Cesium world terrain. One limitation is that the generated tileset is still missing multiple level of details, therefore visualizing a large area will be quite slow.
 
@@ -707,7 +686,7 @@ This 3D Tiles distribution is currently being generated from the GNOSIS Data Sto
 * Blue Marble (NASA) that was georeferenced using GDAL - https://visibleearth.nasa.gov/collection/1484/blue-marble
 * The high resolution inset is from USGS downloads of Central Park in New York City
 
-*Tiling Scheme*: The tiling scheme uses the https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid[GNOSIS Global Grid] (using TMS extension -- https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc).  FlightSafety usied the same type of json file {*Perhaps a bit moreinfo and a link back?*}  that Ecere used in their experiment.
+*Tiling Scheme*: The tiling scheme uses the https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid[GNOSIS Global Grid] (using TMS extension -- https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc).  FlightSafety used the same type of json file {*Perhaps a bit moreinfo and a link back?*}  that Ecere used in their experiment.
 
 *LOD Grouping* The grouping was pre-set per experiment.  The groups were calculated from the highest LOD, back to coarser LODs.  For example, if there are 7 LODs (0-6) and a grouping of 4, then LODs 3 through 7 are in one GeoPackage, and LODs 0 through 2 are in another GeoPackage.
 

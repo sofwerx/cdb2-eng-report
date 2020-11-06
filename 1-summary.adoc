@@ -23,7 +23,7 @@ NOTE: Once the experimentation activities started, the particpants in concert wi
 
 Phase 5: 05 October 2020 to 5 November 2020 Final Report: Participants will write a final report summarizing activities to date, recommendations for the OGC SWG and other standards bodies to consider, and contributions of each participant.
 
-In order to accomplish the target deliverables of this activity, the particpants, based on their expertize, were alloocated to five focus groups:
+In order to accomplish the target deliverables of this activity, the particpants, based on their expertize, were allocated to five focus groups:
 
 . 3D Subgroup
 . Attribution Subgroup
@@ -33,57 +33,96 @@ In order to accomplish the target deliverables of this activity, the particpants
 
 These teams focused on specific experiments and prototyping tasks to test key design concepts for inclusion in CDB-X. The results are documented in this ER.
 
+NOTE: The <<CDB2models,CDB X Design Goals, Use Cases, and Conceptual/Logical Models>> chapter in this ER provides additional requirements and recommendations. These are phrased general design goals based on group discussions, design threads in the recommendations below, and discussions in the OGC CDB Standards Working Group.
+
 === Recommendations
 
-The following are the recommendations for changes, enhancements, and design principals for not just CDB 2.0 but also CDB version 1.3. The version 1.3 chnages are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path the version 2.0
+The following are the key recommendations for changes, enhancements, and design principals for not just CDB-X but also CDB version 1.3. The version 1.3 chnages are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path for the future major CDB version. The following are the major recommendations. A complete summary of all recommendations can be found in <<Recommendations,Annex A>>.
+
+==== 3D Subgroup
+
+The following are the recommendations from the <<threedcontent,3D Models and other 3D Content Subgroup>>.
+
+`Recommendation 1`: The 3D model group recommends that a new CDB standard adopts the latest version of OpenFlight, leveraging the extended materials, hot spots and other important constructs it brings.
+
+`Recommendation 2`: Complete the EXT_CDB draft glTF extension that adds required CDB simulation capabilities identified as missing from glTF. The new (and prototype) extension defines CDB-specific constructs such as points, zones, lights, light maps, and extended texture types.
+
+`Recommendation 3`: Consider possible standalone glTF extensions for:
+- Coordinate Reference System - Shared interest with One World Terrain and possibly wider glTF ecosystem.
+- Switch nodes - Shared interest with One World Terrain moving models format. Note: Node switching is supported in the I3S Community standard.
+- External references - Some interest in wider glTF ecosystem, but many unresolved implementation details.
+
+`Recommendation 4`: Leverage existing glTF extensions:
+- Articulations - This extension adds articulations, attach points, and related metadata to the glTF model (see AGI_articulations).
+- Metadata - Consicer the EXT_feature_metadata extension. This extension is for storing metadata at different levels of granularity including per-mesh, per-face, per-vertex, and per-texel. This could be a good candidate for CDB model attributes and material map textures.
+
+`Recommendation 5`: Consider a Model indexing file that includes the following: Model LODs, Interior and exteriors, Navigation and collision mesh
+
+`Recommendation 6`: To reduce the current number of files in CDB 1.x a recommendation is to group each model data into a zip (all LODs, textures etc…​) while keeping the xml (index file) separate. A quick access to the index file would allow identifying what is required to be loaded into each ZIP. 9See Recommendation 5). This is a possible CDB 1.3 enhancement.
+
 
 ==== Attribution Subgroup
 
-[updated Summary Attribution recommendations from updated 7-attributions.adoc code merge from Greg's branch into Master 201026_1500]
+The following are the major recommendations from the <<Attribution,Attribution Subgroup>>. Each of these major recommendation contain multiple "minor" recommendations that result from cosidering the major recommendation. The complete list of major/minor recommendations for Attribution are found in both the Attribution section and <<Recommendations,Annex A>>.
 
-The subgroup recommends extending the current CDB XML metadata to add the NAS metamodel capabilities that are currently not supported. The CDB core conceptual model should not mandate any particular data dictionary or content, but rather provide the conceptual and logical metamodel for describing any ISO 19109 compliant application schema to the maximum extent practical. There should be no technical reason why one could not develop an extension profile for CDB for any particular data dictionary that complies with ISO 19109.
+`Recommendation 1`: The subgroup recommends extending the current CDB XML metadata to add the NAS metamodel capabilities that are currently not supported. 
 
-* Adopt NAS-compliant logical entity-attribute model for CDB X with extensions for CDB use cases
-** Store all aspsects of feature and attribute dictionary in single SQLite file for portability and runtime performance
-** Use GGDM 3.0 as the initial starting point for definitions to populate CDB X data dictionary
-** Match up remaining CDB non-GGDM feature types and subcodes with latest NAS definitions where possible, matching subcodes to attributes where relevant and adding missing enumerant values where necessary (with associated NCV vocabulary)
-** Augment NAS definitions with other open standards and new development
-*** Match up missing maritime definitions to DGIM followed by IHO S-100 where possible, define NCV vocabulary for such integrated definitions
-*** Match up missing aeronautics definitions to DGIM followed by AIXM where possible, define NCV vocabulary for such integrated definitions
-*** Coordinate with OGC, NGA, and STE OWT to develop replacement building interior data model incorporating IFC/BIM, CityGML, IMDF, and other open standards
-*** Coordinate with OGC, NGA, STE OWT, and civilian environment agencies to develop detailed data model for vegetation
-*** Create data model and vocabulary for material and light point definitions and capture into existing material and lightpoint libraries
-*** Define NCV vocabulary and NAS-compatible entity and attribute types for CDB feature types and subcodes totally missing in all other standards
-** Remove CDB feature subcodes entirely; migrate to existing and new feature and attribute types instead in NAS-compliant structure
-** Define entity types for CDB datasets and define "aggregation" relationships from feature types to containing datasets
-** Capture feature-level, dataset-level, and database metadata as NAS-compliant attribution meeting the NSG Metadata Foundation (NMF) and ISO 19115
-** Define functional role domains and create mechanism to organize attribution by domain for tailoring to runtime devices
-* Delegate entity and attribute physical encoding choices to vector and 3D model containers instead of specifying globally
-** Deprecate extended attributes entirely, to be removed in CDB X
-** Delegate containerization of entity types (one per table, multiple in same table specified by F_CODE attribute, etc.) to vector and model containers
-** Delegate decision whether to use class or instance attributes to individual vector and model containers rather than global data dictionary
-** Delegate decision of whether to use FACC-like codes, NAS labels, or natural language names for entity types, attributes, and values to vector and model containers
-** Delegate decision of whether to flatten complex feature relationships and attributes used GGDM attribute prefixing to vector and model containers
-** Delegate decision of whether to flatten multi-valued and range-valued attributes using GGDM attribute prefixing to vector and model containers
-** Specify minimum and maximum cardinality of multi-valued attributes in feature and attribute dictionary, allow containers to use a lower maximum if using GGDM attribute prefixing encoding
-* Define backward-compatible extensions in CDB 1.3 to add constructs necessary to move toward NAS-compliant attribution
-** Capture proposed NAS-complaint replacement feature dictionary in existing CDB metadata XML with necessary extensions
-** Only use feature subcode 000 in replacement dictionary and deprecate use of feature subcodes to be removed in CDB X
-** Add mechanism to mark numeric attributes as interval ranges (existing non-upgraded clients should see still attribute as single-valued and read mean value from associated unsuffixed attribute, use suffixed attributes for deviation and closure for upgraded clients to read)
-** Add minumum and maximum cardinality elements for attribute definitions to specify mininum and maximum element count for multi-valued attributes (existing non-upgraded clients should just see attribute as scalar base value and will only read the first value from associated content, will see ordinal-suffixed attributes as separate attributes)
-** Add list of valid attributes to datasets in CDB 1.x metadata XML files to match existing human-readable specification
-** Add list of valid enumerants for each attribute in CDB 1.x CDB_Attributes.xml file to match existing human-readable specification
-** Add list of valid attributes for each entity type as extension to CDB 1.x Feature_Data_Dictionary.xml to implement NAS-compliant per-entity attributes
-** Update CDB 1.x CDB_Attributes.xml to allow specifying text pattern constraints through <Pattern> element and text codelists for text attributes via <Codelist> element
-** Update CDB 1.x Feature_Data_Dictionary.xml for each feature to specify its generalization (base) entity type via <Generalization> element
-** Update CDB 1.x Feature_Data_Dictionary.xml to add <Aggregation> element to define additional associated category for an entity type, or parent category for a category
-** Existing category and subcategory XML structure will add implicit definitions and aggeregation links for the category/subcategory items as used by CDB 1.0 for model storage
+`Recommendation 2 and design goal`: The CDB core conceptual model should not mandate any particular data dictionary or content, but rather provide the conceptual and logical metamodel for describing any ISO 19109 compliant application schema to the maximum extent practical. There should be no technical reason why one could not develop an extension profile for CDB for any particular data dictionary that complies with ISO 19109.
 
-`Recommendation 1 Extended Attributes - Version 1.3` The subgroup discussion on this topic is titled: https://github.com/sofwerx/cdb2-concept/issues/25[Should Extended Attributes be preserved at the logical data model level?] The suggestion is that the CDB SWG discuss this issue and possible solution as a possible change for CDB version 1.3. Some additional testing may be required to determine if this capability can be added to version 1.3 or not.
+`Recommendation 3`: Adopt NAS-compliant logical entity-attribute model for CDB X with extensions for CDB use cases.
 
-`Recommendation 2 Attribute default values - Version 1.3` The subgroup discussion on this topic is titled: https://github.com/sofwerx/cdb2-concept/issues/32[Attribute Default Values #32]. The recommendation is that Defaults.xml can be used to define global attribute defaults as well as per-dataset defaults. Doing per-entity defaults would be a straight forward extension that could be proposed for CDB 1.3 as a transition path. The subgroup suggests that the CDB SWG discussion this for possible inclusion in version 1.3. A change request for this approach to specifying default values is also suggested.
+`Recommendation 4`: Delegate entity and attribute physical encoding choices to vector and 3D model containers instead of specifying globally.
 
-`Recommendation 3 Attribute Terms - Version 1.3` The subgroup discussion on this topic is titled: https://github.com/sofwerx/cdb2-concept/issues/31[Capture Attribute Terms (Enumerants) in Metadata #31]. Attributes describing qualitative values are present in CDB 1.2 and the list of valid values  for each attribute are documented in the human-readable specification with both the vocabulary term name and its integer numeric value (index). However, the machine-readable XML metadata does not contain any of this information and treats these attribute types as raw integers with only a minimum and maximum value constraint. It may make sense as a transition path to update CDB 1.3 to define additional XML elements in a backward compatible way to capture these definitions from the existing specification into the machine-readable XML metadata. The conceptual model in the CDB 1.2 specification does align with how GGDM treats such attributes, so there is no fundamental incompatibility, and the proposed CDB X dictionary design accounts for properly tracking the terms for qualitative attributes in a machine-readable way in SQLite.
+`Recommendation 5`: Define backward-compatible extensions in CDB 1.3 to add constructs necessary to move toward NAS-compliant attribution
+
+The following are recommendatoins for possible inclusion in CDB version 1.3.
+
+`Version 1.3 Recommendation - Extended Attributes` The subgroup discussion on this topic is titled: https://github.com/sofwerx/cdb2-concept/issues/25[Should Extended Attributes be preserved at the logical data model level?] The suggestion is that the CDB SWG discuss this issue and possible solution as a possible change for CDB version 1.3. Some additional testing may be required to determine if this capability can be added to version 1.3 or not.
+
+`Verison 1.3 Recommendation - Attribute default values` The subgroup discussion on this topic is titled: https://github.com/sofwerx/cdb2-concept/issues/32[Attribute Default Values #32]. The recommendation is that Defaults.xml can be used to define global attribute defaults as well as per-dataset defaults. Doing per-entity defaults would be a straight forward extension that could be proposed for CDB 1.3 as a transition path. The subgroup suggests that the CDB SWG discussion this for possible inclusion in version 1.3. A change request for this approach to specifying default values is also suggested.
+
+`Version 1.3 Recommendation - Attribute Terms` The subgroup discussion on this topic is titled: https://github.com/sofwerx/cdb2-concept/issues/31[Capture Attribute Terms (Enumerants) in Metadata #31]. Attributes describing qualitative values are present in CDB 1.2 and the list of valid values  for each attribute are documented in the human-readable specification with both the vocabulary term name and its integer numeric value (index). However, the machine-readable XML metadata does not contain any of this information and treats these attribute types as raw integers with only a minimum and maximum value constraint. It may make sense as a transition path to update CDB 1.3 to define additional XML elements in a backward compatible way to capture these definitions from the existing specification into the machine-readable XML metadata. The conceptual model in the CDB 1.2 specification does align with how GGDM treats such attributes, so there is no fundamental incompatibility, and the proposed CDB X dictionary design accounts for properly tracking the terms for qualitative attributes in a machine-readable way in SQLite.
+
+==== Coverages/Tiling Subgroup
+
+The following are the recommendations from the <<tiling,Coverages/Tiling Subgroup>>.
+
+`Recommendation 1`: Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the: OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space (19-014r3) and OGC Two Dimensional Tile Matrix Set Standard (17-083r2)
+
+`Recommendation 2`: LoD Grouping - For users at the edge and smaller areas, that all the CDB-X coverage layers be present within a single GeoPackage container. 
+
+`Recommendation 3`: LoD Grouping - For Modeling and Simulation uses as well as data repository cases, that a series of GeoPackage containers be used to store CDB X coverage layers. 
+
+`Recommendation 4`: Define the capability for splitting GeoPackages based on a specific tiling scheme outside of the CDB X standard so that this split content can be used by itself as a compontent of other non-CDB based applications.
+
+`Recommendation 5`: Use the proposed cdb.json index of packages and data layers. This would allow defining the description of the packages and LOD grouping outside of the CDB-XX standard so that description can be used elsewhere as well.
+
+`Recommendation 6`: Elevation min-max - Move the minimum and maximum elevation values for the gridded elevation coverage contained in a tile to the tile metadata.
+
+`Recommendation 7`: Image Compression - That loss-less and lossy image compression solutions be explored for use in CDB-X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives. 
+
+`Recommendation 8`: Materials - CDB-X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the GeoPackage Related Tables Extension.
+
+`Recommendation 9`: Although the use of non-tiled vector data layers (e.g. storing the geometry as WKB in GeoPackage features tables) should also be specified in the CDB Standard, the use of a tiled vector data extension should also be allowed. In particular, tiling vector data is essential for dealing with features spanning a very large geospatial extent, such as coastlines.
+
+`Recommendation 10`: GeoPackage. The imagery in these GeoPackages is lossy. Therefore, allow the use of JPEG-2000 and/or additional lossless formats more compact than PNG in GeoPackages. This should be submitted as a chnage request to the GeoPackage Standards Working Group.
+
+Recommendation note: Supporting more than one tiling scheme in a version of CDB is not recommended. The choice of the tiling scheme is foundational to how data layers are processed and stored and accessed. 
+
+==== Metadata Subgroup
+
+The <<metadata,Metadata>> chapter in this ER provides the following guidance and recommendations:
+
+
+==== Vectors in GeoPackage Subgroup
+
+The following are the key recommendations from the Vectors in GeoPackage Subgroup>>.
+
+`Recommendation 1`: Storing large numbers of feature data in single GeoPackage containers and retrieving that data by applying spatial and attribution filters that correspond with typical CDB access patterns appears to be practical. Therefore, the CDB-X core standard should specify requirements that support storing all vector data in a single GeoPackage.
+
+`Recommendation 2`:	Spatial filters appear to easily mimic the existing CDB tiling scheme. Therefore, the CDB-X core standard should specify requirements that support the ability to 1.) Specify such filters and 2.) Provide highly performant queries.
+
+`Recommendation 3`:	Storing ‘significant size’ on model instancing point features can significantly improve the model retrieval scheme, rather than storing models in the significant size related folder scheme.  Storing and evaluating significant size on instancing points can make visual content and performance tuning much more practical.
 
 ===	Document contributor contact points
 
