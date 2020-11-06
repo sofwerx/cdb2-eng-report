@@ -6,10 +6,13 @@
 
 === Abstract
 To test potential approaches to storing CDB vector data in GeoPackage, the Vector Data in GeoPackage Subgroup, hereafter referred to as the Subgroup, performed several different experiments to determine the viability of storing very large volumes of vector data in a smaller number of large GeoPackage files rather than a very large number of small Shapefiles. Some of the experiments also set out to determine if there are upper limits in how much CDB content can be stored in a GeoPackage. 
-This document details the SUbgroup's approach and results of the experiments. The experiments demonstrated that GeoPackage/SQLite is capable of meeting the performance and size constraints for vector data in a CDB if properly defined {*CDB or GeoPackage?*}. The experiments also demonstrated that from a performance standpoint doing a direct conversion of existing Shapefile content into GeoPackage(s) may not be feasible. To gain the most from using GeoPackage as a container for large vector datasets, some approaches to level of detail (LOD) and other CDB content should be reconsidered. This includes the way significant size is used in CDB.
-The Subgroup also found that the design the schema is very important, including proper index design, when using GeoPackage. Shapefiles are very simple for developers to use since there is not a lot of flexibility when it comes to how to store data. Conversely, GeoPackage is very flexible. As such how a GeoPackage is structured and indexed can have a major impact on performance. If the exact schema and indexes for GeoPackage are properly defined as part of the CDB-X, users can expect very good performance, even for large datasets.
+This document details the Subgroup's approach and results of the experiments. 
 
-NOTE: The OGC CDB Standards Working Group will use the work performed by the particpants in this Sprint but also further augmented by the OGC Testbed 16 GeoPackage experiments and findings related to proessing, storing, and querying extremely large vector datasets. 
+The experiments demonstrated that GeoPackage/SQLite is capable of meeting the performance and size constraints for vector data in a CDB if properly defined {*CDB or GeoPackage?*}. The experiments also demonstrated that from a performance standpoint doing a direct conversion of existing Shapefile content into GeoPackage(s) may not be feasible. To gain the most from using GeoPackage as a container for large vector datasets, some approaches to level of detail (LOD) and other CDB content should be reconsidered. This includes the way significant size is used in CDB.
+
+The Subgroup also found that the design the schema is very important, including proper index design, when using GeoPackage. Shapefiles are very simple for developers to use since there is not a lot of flexibility when it comes to how to store data. Conversely, GeoPackage is very flexible. As such, how a GeoPackage is structured and indexed can have a major impact on performance. If the exact schema and indexes for GeoPackage are properly defined as part of the CDB-X, users can expect very good performance, even for large datasets.
+
+NOTE: The OGC CDB Standards Working Group will use the work performed by the participants in this Sprint but also further augmented by the OGC Testbed 16 GeoPackage experiments and findings related to processing, storing, and querying extremely large vector datasets. 
 
 === Objective
 The purpose of these experiments was to examine performance in searching for and interacting with CDB features stored in very large unitary GeoPackage containers.
@@ -37,7 +40,7 @@ This GeoPackage contains 39,079,781 point features and requires 5,249,290,240 by
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Attribute table for US CDB building data.
-image::images/Vec_Gpkg_Figure01.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure01.jpg[width=600,align="center"]
 &nbsp;
 
 These point features were created using the following process:
@@ -59,16 +62,16 @@ The first layer is Hydro_Network_Areal, with attributes as shown below.  This la
  
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Hydro_Areal_Network CDB layer attribute table.
-image::images/Vec_Gpkg_Figure02.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure02.jpg[width=600,align="center"]
 &nbsp;
 
-While named a ‘network’ layer, no effort was made to conduct a topological analysis and assign junction IDs.  The CDB-like attribution is merely representative.  This layer was created by combining OSM hydrographic areals based on a very simple attribute filter, and then running the results through an 'OSM to CDB Attribute Translator’ with rules set to create very generic CDB attributions.
+While named a ‘network’ layer, no effort was made to conduct a topological analysis and assign junction IDs.  The CDB-like attribution is merely representative.  This layer was created by combining OSM hydrographic polygons based on a very simple attribute filter, and then running the results through an 'OSM to CDB Attribute Translator’ with rules set to create very generic CDB attributions.
 
 The second layer is ‘Hydro_Network_Linear, with attribution as shown below.  This layer contains 4,252,603 features.
  
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Hydro_Network_Linear CDB attribute table.
-image::images/Vec_Gpkg_Figure03.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure03.jpg[width=600,align="center"]
 &nbsp;
 
 Again, no effort was made to conduct a topological analysis and assign junction IDs.  The CDB-like attribution is merely representative.  This layer was created by combining OSM hydrographic linears based on a simple attribute filter, and then running the results through an 'OSM to CDB Attribute Translator’ with rules set to create very generic CDB attributions.
@@ -79,7 +82,7 @@ This GeoPackage contains roads derived from worldwide OSM. The GeoPackage contai
  
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .OSM roads layer attributes table.
-image::images/Vec_Gpkg_Figure04.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure04.jpg[width=600,align="center"]
 &nbsp;
 
 Like the hydrographic features described above, this dataset does not contain a true network. Topology was not analyzed and CDB junction IDs are not set.
@@ -102,14 +105,14 @@ The layer ‘Road_Network_Linear’ was clipped to approximately the CONUS area 
 The objective of the testing was to explore a combination of spatial and attribution filtering in a CDB-like environment.
 To illustrate the importance of properly designing the schema when migrating from a Shapefile to a GeoPackage-based CDB, all the vector data in a CDB was converted. An approach similar to "Design Approach 4" in the OGC Discussion Paper titled https://portal.opengeospatial.org/files/?artifact_id=82553[OGC CDB, Leveraging GeoPackage Discussion Paper] was used. The conversion grouped all vector features by dataset and geocell into a single GeoPackage. Each vector feature was assigned a value for LOD, HREF, and UREF to correspond to the original Shapefile filename. A test was developed to randomly seek and read features in the CDB GeoPackage. The test script had a list of 8243 individual Shapefiles, but each file was opened and read in a randomized order. In the case of the Shapefile, each file was opened by filename, and all of the features were read. In subsequent tests with GeoPackage, the same content was read (using the list of Shapefile filenames), but instead of opening the Shapefile, the script performed a query based on the LOD, HREF, and UREF attributes.
 
-In this test, reading the ShapeFiles took 0:01:29 (1.5 minutes). With no indexes on the GeoPackage attributes, the queries took over one hour (1:01:47). Next, an index for the LOD, HREF, and UREF attributes was created and the above GeoPackage test repeated. With the indexes, finding and reading the same features took 0:00:49. Thisis only half of the time it took to read the Shapefiles.
+In this test, reading the Shapefiles took 0:01:29 (1.5 minutes). With no indexes on the GeoPackage attributes, the queries took over one hour (1:01:47). Next, an index for the LOD, HREF, and UREF attributes was created and the above GeoPackage test repeated. With the indexes, finding and reading the same features took 0:00:49. This is only half of the time it took to read the Shapefiles.
 
 ==== Methodology
 
 * The testing environment was a single Windows workstation, 16 CPU cores, 64 GB of system RAM, and very large SATA disk storage.  No ‘exotic’ (SSD, M2, etc.) storage devices were used.
 * Tests were created as Python scripts, leveraging the ‘osgeo’ Python module. Timing information was captured using Python’s ‘time’ module. Python 3.7.4 (64-bit) was used.
 * Each timing test was performed in the approximate CONUS extents of North 49 degrees latitude to South 24 degrees latitude, and from West 66 degrees longitude to West 125 degrees longitude.
-* Prior to running a test, a ‘step size’ was defined – typically corresponding to a CDB LOD tile size. A list of every spatial filter in the entire extent was created, then randomized.
+* Prior to running a test, a ‘step size’ was defined – typically corresponding to a CDB LOD tile size. A list of every spatial filter in the entire extent was created then randomized.
 * Also, prior to a test, a ‘significant size’ filter was set. When the layer ‘GT_Model’ is encountered, this additional attribute filter is applied. The intent is to mimic LOD selection, in addition to the spatial filter.
 * There were three timing steps:
 ** Timing step one is the elapsed time to apply the spatial filter.
@@ -134,7 +137,7 @@ Test results coverage is shown in the figure below.
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Test results coverage at LOD 2.
-image::images/Vec_Gpkg_Figure06.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure06.jpg[width=600,align="center"]
 &nbsp;
 
 This test simulates retrieving point features corresponding to CDB LOD2 and only models with the corresponding lowest significant size (as defined in the CDB 3.2, Table 3-1).  The conclusion that is drawn from this test, however, is that spatial filtering time is insignificant and appears to not be correlated to the number of features found.  The time taken to count and read filtered features appears to be a direct correlation to number of features found.
@@ -143,22 +146,22 @@ The Experiment 1 attribute table results are shown in the figures below, each fi
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 1 test results attribute table sorted by 'feature count'.
-image::images/Vec_Gpkg_Figure07.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure07.jpg[width=600,align="center"]
 &nbsp;
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 1 test results sorted by 'filter_t'.
-image::images/Vec_Gpkg_Figure08.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure08.jpg[width=600,align="center"]
 &nbsp;
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 1 test results sorted by 'count_t'.
-image::images/Vec_Gpkg_Figure09.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure09.jpg[width=600,align="center"]
 &nbsp;
  
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experimment 1 test results sorted by 'read_t'.
-image::images/Vec_Gpkg_Figure10.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure10.jpg[width=600,align="center"]
 &nbsp;
 
 ===== Experiment 2: Simulation of LOD4, hydro, road, and building layers, significant size (buildings) > 3.39718
@@ -167,7 +170,7 @@ Test results coverage is shown in the figure below.
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 2 LOD 4 test coverage results.
-image::images/Vec_Gpkg_Figure11.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure11.jpg[width=600,align="center"]
 &nbsp;
 
 This test used the combined layers source file and simulates a CDB LOD4 data access pattern. Timing values are totals, accumulating as each layer was filtered, counted as features were read.
@@ -177,22 +180,22 @@ The Experiment 2 attribute table results are shown in the figures below, each fi
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 2 LOD 4 test sorted by 'feature count'.
-image::images/Vec_Gpkg_Figure12.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure12.jpg[width=600,align="center"]
 &nbsp;
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 2 LOD 4 test sorted by 'filter_t'.
-image::images/Vec_Gpkg_Figure13.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure13.jpg[width=600,align="center"]
 &nbsp;
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 2 LOD 4 test sorted by 'count_t'.
-image::images/Vec_Gpkg_Figure14.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure14.jpg[width=600,align="center"]
 &nbsp;
 
 [#img_logical-model,reftext='{figure-caption} {counter:figure-num}']
 .Experiment 2 LOD 4 test sorted by feature 'read_t'.
-image::images/Vec_Gpkg_Figure15.jpg[width=800,align="center"]
+image::images/Vec_Gpkg_Figure15.jpg[width=600,align="center"]
 &nbsp;
 
 === Conclusions and Recommendations
