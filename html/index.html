@@ -447,7 +447,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_recommendations">2.1. Recommendations</a>
 <ul class="sectlevel3">
-<li><a href="#_attribution_subgroup">2.1.1. Attribution Subgroup</a></li>
+<li><a href="#_3d_subgroup">2.1.1. 3D Subgroup</a></li>
+<li><a href="#_attribution_subgroup">2.1.2. Attribution Subgroup</a></li>
+<li><a href="#_coveragestiling_subgroup">2.1.3. Coverages/Tiling Subgroup</a></li>
+<li><a href="#_metadata_subgroup">2.1.4. Metadata Subgroup</a></li>
+<li><a href="#_vectors_in_geopackage_subgroup">2.1.5. Vectors in GeoPackage Subgroup</a></li>
 </ul>
 </li>
 <li><a href="#_document_contributor_contact_points">2.2. Document contributor contact points</a></li>
@@ -470,12 +474,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#CDB2Models">7. CDB X Design Goals, Use Cases, and Conceptual/Logical Models</a>
 <ul class="sectlevel2">
-<li><a href="#_cdb_x_design_goals_and_objectives">7.1. CDB X Design Goals and Objectives</a></li>
-<li><a href="#_use_cases">7.2. Use Cases</a></li>
-<li><a href="#_definition_of_concepts">7.3. Definition of Concepts</a>
+<li><a href="#_use_cases">7.1. Use Cases</a></li>
+<li><a href="#_cdb_x_design_goals_and_objectives">7.2. CDB X Design Goals and Objectives</a></li>
+<li><a href="#_concepts_and_overarching_requirements">7.3. Concepts and Overarching Requirements</a>
 <ul class="sectlevel3">
-<li><a href="#_foundation_data">7.3.1. Foundation Data</a></li>
-<li><a href="#_reference_systems">7.3.2. Reference Systems</a></li>
+<li><a href="#_interoperability">7.3.1. Interoperability</a></li>
+<li><a href="#_what_is_foundation_data">7.3.2. What is Foundation Data</a></li>
+<li><a href="#_reference_systems">7.3.3. Reference Systems</a></li>
 </ul>
 </li>
 <li><a href="#_3d_models">7.4. 3D Models</a></li>
@@ -647,8 +652,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_ecere_geopackage_tiling_experiments">13.14. Ecere GeoPackage Tiling Experiments</a>
 <ul class="sectlevel3">
-<li><a href="#_overview">13.14.1. Overview</a></li>
-<li><a href="#_data_results">13.14.2. Data results</a></li>
+<li><a href="#_san_diego_cdb_layers_packaged_together">13.14.1. San Diego CDB layers packaged together</a></li>
+<li><a href="#_san_diego_cdb_packaged_as_separate_layers">13.14.2. San Diego CDB packaged as separate layers</a></li>
 <li><a href="#_ogc_api_access_demo">13.14.3. OGC API access demo</a></li>
 <li><a href="#_visualization">13.14.4. Visualization</a></li>
 <li><a href="#_cesium_js_3d_tiles_demo">13.14.5. Cesium JS / 3D Tiles demo</a></li>
@@ -666,8 +671,34 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#RevisionHistory">Annex A: Revision History</a></li>
-<li><a href="#Bibliography">Annex B: Bibliography</a></li>
+<li><a href="#Versioning_in_Legacy_CDB">CDB Versioning, old and new</a>
+<ul class="sectlevel1">
+<li><a href="#_a_review_of_how_versioning_is_used_in_legacy_ogc_cdb_1_x_and_how_that_experience_leads_to_use_cases_for_exploration_of_versioning_in_cdb_x">14. A review of how 'versioning' is used in legacy OGC CDB 1.X, and how that experience leads to use cases for exploration of versioning in CDB X.</a>
+<ul class="sectlevel2">
+<li><a href="#_summary">14.1. Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Recommendations">Appendix A: Annex A: Summary of Recommendations</a></li>
+<li><a href="#_attribution_subgroup_2">15. Attribution Subgroup</a></li>
+<li><a href="#annex-b">Appendix B: Annex B: CDB-X sample GeoPackages resulting from Ecere experiments.</a></li>
+<li><a href="#_san_diego_cdb_layers_packaged_together_2">16. San Diego CDB layers packaged together</a></li>
+<li><a href="#_san_diego_cdb_packaged_as_separate_layers_2">17. San Diego CDB packaged as separate layers</a>
+<ul class="sectlevel2">
+<li><a href="#_elevation_2">17.1. Elevation</a></li>
+<li><a href="#_imagery_2">17.2. Imagery</a></li>
+<li><a href="#_vector_data_3">17.3. Vector data</a></li>
+<li><a href="#_3d_models_3">17.4. 3D Models</a>
+<ul class="sectlevel3">
+<li><a href="#_using_referencing_placement_points_2">17.4.1. Using referencing placement points</a></li>
+<li><a href="#_batching_models_per_tile_2">17.4.2. Batching models per tile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#RevisionHistory">Annex C: Revision History</a></li>
+<li><a href="#Bibliography">Annex D: Bibliography</a></li>
 </ul>
 </div>
 </div>
@@ -787,7 +818,7 @@ Once the experimentation activities started, the particpants in concert with SOF
 <p>Phase 5: 05 October 2020 to 5 November 2020 Final Report: Participants will write a final report summarizing activities to date, recommendations for the OGC SWG and other standards bodies to consider, and contributions of each participant.</p>
 </div>
 <div class="paragraph">
-<p>In order to accomplish the target deliverables of this activity, the particpants, based on their expertize, were alloocated to five focus groups:</p>
+<p>In order to accomplish the target deliverables of this activity, the particpants, based on their expertize, were allocated to five focus groups:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -811,149 +842,143 @@ Once the experimentation activities started, the particpants in concert with SOF
 <div class="paragraph">
 <p>These teams focused on specific experiments and prototyping tasks to test key design concepts for inclusion in CDB-X. The results are documented in this ER.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The <a href="#CDB2models">CDB X Design Goals, Use Cases, and Conceptual/Logical Models</a> chapter in this ER provides additional requirements and recommendations. These are phrased general design goals based on group discussions, design threads in the recommendations below, and discussions in the OGC CDB Standards Working Group.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect2">
 <h3 id="_recommendations"><a class="anchor" href="#_recommendations"></a>2.1. Recommendations</h3>
 <div class="paragraph">
-<p>The following are the recommendations for changes, enhancements, and design principals for not just CDB 2.0 but also CDB version 1.3. The version 1.3 chnages are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path the version 2.0</p>
+<p>The following are the key recommendations for changes, enhancements, and design principals for not just CDB-X but also CDB version 1.3. The version 1.3 chnages are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path for the future major CDB version. The following are the major recommendations. A complete summary of all recommendations can be found in <a href="#Recommendations">Annex A</a>.</p>
 </div>
 <div class="sect3">
-<h4 id="_attribution_subgroup"><a class="anchor" href="#_attribution_subgroup"></a>2.1.1. Attribution Subgroup</h4>
+<h4 id="_3d_subgroup"><a class="anchor" href="#_3d_subgroup"></a>2.1.1. 3D Subgroup</h4>
 <div class="paragraph">
-<p>The subgroup recommends extending the current CDB XML metadata to add the NAS metamodel capabilities that are currently not supported. The CDB core conceptual model should not mandate any particular data dictionary or content, but rather provide the conceptual and logical metamodel for describing any ISO 19109 compliant application schema to the maximum extent practical. There should be no technical reason why one could not develop an extension profile for CDB for any particular data dictionary that complies with ISO 19109.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Adopt NAS-compliant logical entity-attribute model for CDB X with extensions for CDB use cases</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Store all aspsects of feature and attribute dictionary in single SQLite file for portability and runtime performance</p>
-</li>
-<li>
-<p>Use GGDM 3.0 as the initial starting point for definitions to populate CDB X data dictionary</p>
-</li>
-<li>
-<p>Match up remaining CDB non-GGDM feature types and subcodes with latest NAS definitions where possible, matching subcodes to attributes where relevant and adding missing enumerant values where necessary (with associated NCV vocabulary)</p>
-</li>
-<li>
-<p>Augment NAS definitions with other open standards and new development</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Match up missing maritime definitions to DGIM followed by IHO S-100 where possible, define NCV vocabulary for such integrated definitions</p>
-</li>
-<li>
-<p>Match up missing aeronautics definitions to DGIM followed by AIXM where possible, define NCV vocabulary for such integrated definitions</p>
-</li>
-<li>
-<p>Coordinate with OGC, NGA, and STE OWT to develop replacement building interior data model incorporating IFC/BIM, CityGML, IMDF, and other open standards</p>
-</li>
-<li>
-<p>Coordinate with OGC, NGA, STE OWT, and civilian environment agencies to develop detailed data model for vegetation</p>
-</li>
-<li>
-<p>Create data model and vocabulary for material and light point definitions and capture into existing material and lightpoint libraries</p>
-</li>
-<li>
-<p>Define NCV vocabulary and NAS-compatible entity and attribute types for CDB feature types and subcodes totally missing in all other standards</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Remove CDB feature subcodes entirely; migrate to existing and new feature and attribute types instead in NAS-compliant structure</p>
-</li>
-<li>
-<p>Define entity types for CDB datasets and define "aggregation" relationships from feature types to containing datasets</p>
-</li>
-<li>
-<p>Capture feature-level, dataset-level, and database metadata as NAS-compliant attribution meeting the NSG Metadata Foundation (NMF) and ISO 19115</p>
-</li>
-<li>
-<p>Define functional role domains and create mechanism to organize attribution by domain for tailoring to runtime devices</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Delegate entity and attribute physical encoding choices to vector and 3D model containers instead of specifying globally</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Deprecate extended attributes entirely, to be removed in CDB X</p>
-</li>
-<li>
-<p>Delegate containerization of entity types (one per table, multiple in same table specified by F_CODE attribute, etc.) to vector and model containers</p>
-</li>
-<li>
-<p>Delegate decision whether to use class or instance attributes to individual vector and model containers rather than global data dictionary</p>
-</li>
-<li>
-<p>Delegate decision of whether to use FACC-like codes, NAS labels, or natural language names for entity types, attributes, and values to vector and model containers</p>
-</li>
-<li>
-<p>Delegate decision of whether to flatten complex feature relationships and attributes used GGDM attribute prefixing to vector and model containers</p>
-</li>
-<li>
-<p>Delegate decision of whether to flatten multi-valued and range-valued attributes using GGDM attribute prefixing to vector and model containers</p>
-</li>
-<li>
-<p>Specify minimum and maximum cardinality of multi-valued attributes in feature and attribute dictionary, allow containers to use a lower maximum if using GGDM attribute prefixing encoding</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Define backward-compatible extensions in CDB 1.3 to add constructs necessary to move toward NAS-compliant attribution</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Capture proposed NAS-complaint replacement feature dictionary in existing CDB metadata XML with necessary extensions</p>
-</li>
-<li>
-<p>Only use feature subcode 000 in replacement dictionary and deprecate use of feature subcodes to be removed in CDB X</p>
-</li>
-<li>
-<p>Add mechanism to mark numeric attributes as interval ranges (existing non-upgraded clients should see still attribute as single-valued and read mean value from associated unsuffixed attribute, use suffixed attributes for deviation and closure for upgraded clients to read)</p>
-</li>
-<li>
-<p>Add minumum and maximum cardinality elements for attribute definitions to specify mininum and maximum element count for multi-valued attributes (existing non-upgraded clients should just see attribute as scalar base value and will only read the first value from associated content, will see ordinal-suffixed attributes as separate attributes)</p>
-</li>
-<li>
-<p>Add list of valid attributes to datasets in CDB 1.x metadata XML files to match existing human-readable specification</p>
-</li>
-<li>
-<p>Add list of valid enumerants for each attribute in CDB 1.x CDB_Attributes.xml file to match existing human-readable specification</p>
-</li>
-<li>
-<p>Add list of valid attributes for each entity type as extension to CDB 1.x Feature_Data_Dictionary.xml to implement NAS-compliant per-entity attributes</p>
-</li>
-<li>
-<p>Update CDB 1.x CDB_Attributes.xml to allow specifying text pattern constraints through &lt;Pattern&gt; element and text codelists for text attributes via &lt;Codelist&gt; element</p>
-</li>
-<li>
-<p>Update CDB 1.x Feature_Data_Dictionary.xml for each feature to specify its generalization (base) entity type via &lt;Generalization&gt; element</p>
-</li>
-<li>
-<p>Update CDB 1.x Feature_Data_Dictionary.xml to add &lt;Aggregation&gt; element to define additional associated category for an entity type, or parent category for a category</p>
-</li>
-<li>
-<p>Existing category and subcategory XML structure will add implicit definitions and aggeregation links for the category/subcategory items as used by CDB 1.0 for model storage</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<p>The following are the recommendations from the <a href="#threedcontent">3D Models and other 3D Content Subgroup</a>.</p>
 </div>
 <div class="paragraph">
-<p><code>Recommendation 1 Extended Attributes - Version 1.3</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/25">Should Extended Attributes be preserved at the logical data model level?</a> The suggestion is that the CDB SWG discuss this issue and possible solution as a possible change for CDB version 1.3. Some additional testing may be required to determine if this capability can be added to version 1.3 or not.</p>
+<p><code>Recommendation 1</code>: The 3D model group recommends that a new CDB standard adopts the latest version of OpenFlight, leveraging the extended materials, hot spots and other important constructs it brings.</p>
 </div>
 <div class="paragraph">
-<p><code>Recommendation 2 Attribute default values - Version 1.3</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/32">Attribute Default Values #32</a>. The recommendation is that Defaults.xml can be used to define global attribute defaults as well as per-dataset defaults. Doing per-entity defaults would be a straight forward extension that could be proposed for CDB 1.3 as a transition path. The subgroup suggests that the CDB SWG discussion this for possible inclusion in version 1.3. A change request for this approach to specifying default values is also suggested.</p>
+<p><code>Recommendation 2</code>: Complete the EXT_CDB draft glTF extension that adds required CDB simulation capabilities identified as missing from glTF. The new (and prototype) extension defines CDB-specific constructs such as points, zones, lights, light maps, and extended texture types.</p>
 </div>
 <div class="paragraph">
-<p><code>Recommendation 3 Attribute Terms - Version 1.3</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/31">Capture Attribute Terms (Enumerants) in Metadata #31</a>. Attributes describing qualitative values are present in CDB 1.2 and the list of valid values  for each attribute are documented in the human-readable specification with both the vocabulary term name and its integer numeric value (index). However, the machine-readable XML metadata does not contain any of this information and treats these attribute types as raw integers with only a minimum and maximum value constraint. It may make sense as a transition path to update CDB 1.3 to define additional XML elements in a backward compatible way to capture these definitions from the existing specification into the machine-readable XML metadata. The conceptual model in the CDB 1.2 specification does align with how GGDM treats such attributes, so there is no fundamental incompatibility, and the proposed CDB X dictionary design accounts for properly tracking the terms for qualitative attributes in a machine-readable way in SQLite.</p>
+<p><code>Recommendation 3</code>: Consider possible standalone glTF extensions for:
+- Coordinate Reference System - Shared interest with One World Terrain and possibly wider glTF ecosystem.
+- Switch nodes - Shared interest with One World Terrain moving models format. Note: Node switching is supported in the I3S Community standard.
+- External references - Some interest in wider glTF ecosystem, but many unresolved implementation details.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 4</code>: Leverage existing glTF extensions:
+- Articulations - This extension adds articulations, attach points, and related metadata to the glTF model (see AGI_articulations).
+- Metadata - Consicer the EXT_feature_metadata extension. This extension is for storing metadata at different levels of granularity including per-mesh, per-face, per-vertex, and per-texel. This could be a good candidate for CDB model attributes and material map textures.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 5</code>: Consider a Model indexing file that includes the following: Model LODs, Interior and exteriors, Navigation and collision mesh</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 6</code>: To reduce the current number of files in CDB 1.x a recommendation is to group each model data into a zip (all LODs, textures etc…​) while keeping the xml (index file) separate. A quick access to the index file would allow identifying what is required to be loaded into each ZIP. 9See Recommendation 5). This is a possible CDB 1.3 enhancement.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_attribution_subgroup"><a class="anchor" href="#_attribution_subgroup"></a>2.1.2. Attribution Subgroup</h4>
+<div class="paragraph">
+<p>The following are the major recommendations from the <a href="#Attribution">Attribution Subgroup</a>. Each of these major recommendation contain multiple "minor" recommendations that result from cosidering the major recommendation. The complete list of major/minor recommendations for Attribution are found in both the Attribution section and <a href="#Recommendations">Annex A</a>.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 1</code>: The subgroup recommends extending the current CDB XML metadata to add the NAS metamodel capabilities that are currently not supported.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 2 and design goal</code>: The CDB core conceptual model should not mandate any particular data dictionary or content, but rather provide the conceptual and logical metamodel for describing any ISO 19109 compliant application schema to the maximum extent practical. There should be no technical reason why one could not develop an extension profile for CDB for any particular data dictionary that complies with ISO 19109.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 3</code>: Adopt NAS-compliant logical entity-attribute model for CDB X with extensions for CDB use cases.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 4</code>: Delegate entity and attribute physical encoding choices to vector and 3D model containers instead of specifying globally.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 5</code>: Define backward-compatible extensions in CDB 1.3 to add constructs necessary to move toward NAS-compliant attribution</p>
+</div>
+<div class="paragraph">
+<p>The following are recommendatoins for possible inclusion in CDB version 1.3.</p>
+</div>
+<div class="paragraph">
+<p><code>Version 1.3 Recommendation - Extended Attributes</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/25">Should Extended Attributes be preserved at the logical data model level?</a> The suggestion is that the CDB SWG discuss this issue and possible solution as a possible change for CDB version 1.3. Some additional testing may be required to determine if this capability can be added to version 1.3 or not.</p>
+</div>
+<div class="paragraph">
+<p><code>Verison 1.3 Recommendation - Attribute default values</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/32">Attribute Default Values #32</a>. The recommendation is that Defaults.xml can be used to define global attribute defaults as well as per-dataset defaults. Doing per-entity defaults would be a straight forward extension that could be proposed for CDB 1.3 as a transition path. The subgroup suggests that the CDB SWG discussion this for possible inclusion in version 1.3. A change request for this approach to specifying default values is also suggested.</p>
+</div>
+<div class="paragraph">
+<p><code>Version 1.3 Recommendation - Attribute Terms</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/31">Capture Attribute Terms (Enumerants) in Metadata #31</a>. Attributes describing qualitative values are present in CDB 1.2 and the list of valid values  for each attribute are documented in the human-readable specification with both the vocabulary term name and its integer numeric value (index). However, the machine-readable XML metadata does not contain any of this information and treats these attribute types as raw integers with only a minimum and maximum value constraint. It may make sense as a transition path to update CDB 1.3 to define additional XML elements in a backward compatible way to capture these definitions from the existing specification into the machine-readable XML metadata. The conceptual model in the CDB 1.2 specification does align with how GGDM treats such attributes, so there is no fundamental incompatibility, and the proposed CDB X dictionary design accounts for properly tracking the terms for qualitative attributes in a machine-readable way in SQLite.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_coveragestiling_subgroup"><a class="anchor" href="#_coveragestiling_subgroup"></a>2.1.3. Coverages/Tiling Subgroup</h4>
+<div class="paragraph">
+<p>The following are the recommendations from the <a href="#tiling">Coverages/Tiling Subgroup</a>.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 1</code>: Any tiling schemes specified in a CDB X data store (repository) SHALL be based on and consistent with the: OGC Core Tiling Conceptual and Logical Models for 2D Euclidean Space (19-014r3) and OGC Two Dimensional Tile Matrix Set Standard (17-083r2)</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 2</code>: LoD Grouping - For users at the edge and smaller areas, that all the CDB-X coverage layers be present within a single GeoPackage container.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 3</code>: LoD Grouping - For Modeling and Simulation uses as well as data repository cases, that a series of GeoPackage containers be used to store CDB X coverage layers.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 4</code>: Define the capability for splitting GeoPackages based on a specific tiling scheme outside of the CDB X standard so that this split content can be used by itself as a compontent of other non-CDB based applications.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 5</code>: Use the proposed cdb.json index of packages and data layers. This would allow defining the description of the packages and LOD grouping outside of the CDB-XX standard so that description can be used elsewhere as well.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 6</code>: Elevation min-max - Move the minimum and maximum elevation values for the gridded elevation coverage contained in a tile to the tile metadata.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 7</code>: Image Compression - That loss-less and lossy image compression solutions be explored for use in CDB-X. Any such solutions are not viewed as a replacement for JPEG 2000 but instead as alternatives.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 8</code>: Materials - CDB-X needs to support material data to provide the same functionality as CDB 1.x. To also reduce the number of files, this can be accomplished by putting all the raster material data (including material table) in a single CDB data layer in GeoPackage, perhaps using the GeoPackage Related Tables Extension.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 9</code>: Although the use of non-tiled vector data layers (e.g. storing the geometry as WKB in GeoPackage features tables) should also be specified in the CDB Standard, the use of a tiled vector data extension should also be allowed. In particular, tiling vector data is essential for dealing with features spanning a very large geospatial extent, such as coastlines.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 10</code>: GeoPackage. The imagery in these GeoPackages is lossy. Therefore, allow the use of JPEG-2000 and/or additional lossless formats more compact than PNG in GeoPackages. This should be submitted as a chnage request to the GeoPackage Standards Working Group.</p>
+</div>
+<div class="paragraph">
+<p>Recommendation note: Supporting more than one tiling scheme in a version of CDB is not recommended. The choice of the tiling scheme is foundational to how data layers are processed and stored and accessed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_metadata_subgroup"><a class="anchor" href="#_metadata_subgroup"></a>2.1.4. Metadata Subgroup</h4>
+<div class="paragraph">
+<p>The <a href="#metadata">Metadata</a> chapter in this ER provides the following guidance and recommendations:</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vectors_in_geopackage_subgroup"><a class="anchor" href="#_vectors_in_geopackage_subgroup"></a>2.1.5. Vectors in GeoPackage Subgroup</h4>
+<div class="paragraph">
+<p>The following are the key recommendations from the Vectors in GeoPackage Subgroup&gt;&gt;.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 1</code>: Storing large numbers of feature data in single GeoPackage containers and retrieving that data by applying spatial and attribution filters that correspond with typical CDB access patterns appears to be practical. Therefore, the CDB-X core standard should specify requirements that support storing all vector data in a single GeoPackage.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 2</code>:	Spatial filters appear to easily mimic the existing CDB tiling scheme. Therefore, the CDB-X core standard should specify requirements that support the ability to 1.) Specify such filters and 2.) Provide highly performant queries.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 3</code>:	Storing ‘significant size’ on model instancing point features can significantly improve the model retrieval scheme, rather than storing models in the significant size related folder scheme.  Storing and evaluating significant size on instancing points can make visual content and performance tuning much more practical.</p>
 </div>
 </div>
 </div>
@@ -1571,59 +1596,42 @@ In the OGC, a major version number indicates that the new version is not backwar
 <h2 id="CDB2Models"><a class="anchor" href="#CDB2Models"></a>7. CDB X Design Goals, Use Cases, and Conceptual/Logical Models</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section documents draft design objectives, the targer use cases, and the CDB X Conceptual and Logical Models.</p>
+<p>This section documents draft design objectives, the target use cases, and the CDB X Conceptual and Logical Models. This section is currently a work in progress.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Some of the content in this section is paraphrased from the recently available USGIF/OGC paper, "Advancing the Interoperability of Geospatial Intelligence Tradecraft with 3D Modeling, Simulation and Game Engines."
+</td>
+</tr>
+</table>
 </div>
 <div class="sect2">
-<h3 id="_cdb_x_design_goals_and_objectives"><a class="anchor" href="#_cdb_x_design_goals_and_objectives"></a>7.1. CDB X Design Goals and Objectives</h3>
-<div class="paragraph">
-<p>The following are the design goals and objectives for a tiled CDB X repository.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Be fast :-)</p>
-</li>
-<li>
-<p>Geometry model: All geometry for any vector feature data shall be compliant with the OGC/ISO Simple Features Geometry Model.</p>
-</li>
-<li>
-<p>Correlation Requirement: CDB-T, CDB-S, CDB-G and CDB-A profiles shall correlate to the data defined in CDB-F</p>
-</li>
-<li>
-<p>Derivative and Optional structures: CDB-T, CDB-S, CDB-G and CDB-A profiles shall encode its rules and mechanisms for optimization in a self-describing form.</p>
-</li>
-<li>
-<p>Holistic Foundation: CDB-T, CDB-S, CDB-G and CDB-A structures shall all be generated from the data defined in CDB-F</p>
-</li>
-<li>
-<p>Deployment: CDB-F shall be able to be deployed on the cloud, in relational databases, and on a file system.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_use_cases"><a class="anchor" href="#_use_cases"></a>7.2. Use Cases</h3>
+<h3 id="_use_cases"><a class="anchor" href="#_use_cases"></a>7.1. Use Cases</h3>
 <div class="paragraph">
 <p>The following are summaries of key use cases identified during this project.</p>
 </div>
 <div class="paragraph">
-<p><code>Tactical Use Case</code>: &lt;need short description&gt; Possible impact: Define a profle of the foundation data in a form most suitable for tactical devices (CDB-T, where T is for tactical), such as ATAK.</p>
+<p><code>Tactical Use Case - CDB-T</code>: Support tactical forces with CDB content for both planning and deployment. There is also the consideration of using the content on mobile devices for the Warfighter at the <a href="http://docs.opengeospatial.org/per/19-030r1.html">Edge</a>. Possible impact: Define a profile of the foundation data in a form most suitable for tactical devices (CDB-T, where T is for tactical), such as ATAK. This is the CDB-T use case where "T" is for "Tactical".</p>
 </div>
 <div class="paragraph">
-<p><code>Gaming Use Case</code> &lt;need short description&gt; Possible impact: Define a derivative and optional structure of the .foundation data in a form most suitable for gaming devices
-(CDB-G, where G is for gaming), such as Unreal or Unity.</p>
+<p><code>Gaming Use Case - CDB-G</code>: More and more gaming systems, such as Unity, are depending on "real" 2D and 3D geospatial content to add realism to their gaming systems. This is because gaming technology is supporting the visualization, content generation and hybrid-streaming of 3D geospatial data such as combining optimized performant content with dynamic geospatial events and condition. Possible impact: Define a derivative and optional structure of the foundation data in a form most suitable for gaming devices. This is the CDB-G use case where "G" is for "Gaming"</p>
 </div>
 <div class="paragraph">
-<p><code>M&amp;S Use Case</code> &lt;need short description&gt; Possible impact: Define a porfile of the foundation data in a form most suitable for simulators (CDB-S, where S is for simulators)</p>
+<p><code>M&amp;S Use Case - CDB-S</code>: A CDB datastore needs to provide a modeled environment representation for distributed simulation applications. This representation needs to be currated, authoritative, and as up to date as possible. Possible impact: Define a porfile of the foundation data in a form most suitable for simulators. (CDB-S, where S is for simulators)</p>
 </div>
 <div class="paragraph">
-<p><code>Analytics Use Case</code> &lt;need short description&gt; Possible impact: Define a derivative and optional structure of the datasets in a form most suitable for analytics using AI/ML (CDB-A, where A is for analytics)</p>
+<p><code>Analytics Use Case - CDB-A</code>: Increasingly there is a need to access and use content available in a CDB datastore for analytics such as change detection, mobility analysis, and integration with other models. This leads to consideration of new approaches and methods for integrating 3D analytics with mission planning and mission rehearsal synthetic training environments such as the inclusion of ground-clutter in urban environments. Possible impact: Define a derivative and optional structure of the datasets in a form most suitable for analytics using AI/ML. This is termed <code>CDB-A</code>, where A is for analytics)</p>
 </div>
 <div class="paragraph">
-<p><code>Data Transport</code> &lt;need short description&gt; Possible impact: Optimize the speed data synchronization between all echelons and data systems for CDB-F and CDB-T</p>
+<p><code>Data Transport Use Case</code> &lt;need short description&gt; Possible impact: Optimize the speed data synchronization between all echelons and data systems for CDB-F and CDB-T</p>
 </div>
 <div class="paragraph">
-<p><code>DDIL Deployment</code> CDB-F, CDB-T, and CDB-A must be able to deploy in DDIL environments.</p>
+<p><code>DDIL Deployment Use Case</code> CDB-F, CDB-T, and CDB-A must be able to deploy in DDIL environments. Also see CDF-Tactical above</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1642,9 +1650,97 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 </div>
 </div>
 <div class="sect2">
-<h3 id="_definition_of_concepts"><a class="anchor" href="#_definition_of_concepts"></a>7.3. Definition of Concepts</h3>
+<h3 id="_cdb_x_design_goals_and_objectives"><a class="anchor" href="#_cdb_x_design_goals_and_objectives"></a>7.2. CDB X Design Goals and Objectives</h3>
+<div class="paragraph">
+<p>The following are the design goals and objectives for the development of CDB-X.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Be as performant as possible in terms of 1.) Speed of access and 2.) Impact on hardware resources.</p>
+</li>
+<li>
+<p>Consider how  to incorporate identified recommendations into the next minnor CDB revision (1.3) to</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enhance current capabilities,</p>
+</li>
+<li>
+<p>Not break backwards compatibility,</p>
+</li>
+<li>
+<p>Provide a more seamless migration path moving to CDB-X.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Geometry model: All geometry for any vector feature data shall be compliant with the OGC/ISO Simple Features Geometry Model.</p>
+</li>
+<li>
+<p>Attribute model: CDB-X shall be consistent with the NAS/GGDM and harmonized as approporiate the current CDB attribution model.</p>
+</li>
+<li>
+<p>CDB-X Standards Sructure: CDB-X should evolve the standard to a "Core" that specifies a set of requirements that all CDB extensions, profiles, and profiles with extensions shall conform to. Other characteristics of the Core are:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The core shall support the tiling of any layer as does the current CDB standard.</p>
+</li>
+<li>
+<p>The core shall also specify that vector data does not need to be tiled.</p>
+</li>
+<li>
+<p>The core shall support specification for LoDs.</p>
+</li>
+<li>
+<p>The core shall be implementable in a file system (as today) or in a container technology such as GeoPackage.</p>
+</li>
+<li>
+<p>The core shall be implementable in the cloud.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Any profiles based on the core shall have the following requirements:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Correlation Requirement: CDB-T, CDB-S, CDB-G and CDB-A profiles shall correlate to the data defined in CDB-F</p>
+</li>
+<li>
+<p>Derivative and Optional structures: CDB-T, CDB-S, CDB-G and CDB-A profiles shall encode its rules and mechanisms for optimization in a self-describing form.</p>
+</li>
+<li>
+<p>Holistic Foundation: CDB-T, CDB-S, CDB-G and CDB-A structures shall all be generated from the data defined in CDB-F</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3D Graphics Models - CDB-X shall support additional model encoding beyond OpenFlight. glTF shall also be supported.</p>
+</li>
+<li>
+<p>Metadata - CDB-X shall support mandatory and optional metadata elements including support for provenance. Any profiles shall clearly specify metadata elements/requirements for that profile.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_concepts_and_overarching_requirements"><a class="anchor" href="#_concepts_and_overarching_requirements"></a>7.3. Concepts and Overarching Requirements</h3>
+<div class="paragraph">
+<p>The following section provides additional background on key concepts and/or overarcing requirements germane to the definition and development of a CDB-X Standard.</p>
+</div>
 <div class="sect3">
-<h4 id="_foundation_data"><a class="anchor" href="#_foundation_data"></a>7.3.1. Foundation Data</h4>
+<h4 id="_interoperability"><a class="anchor" href="#_interoperability"></a>7.3.1. Interoperability</h4>
+<div class="paragraph">
+<p>The Interoperability of software, workflows and data across the GEOINT and M&amp;S communities is required to improve mission responsiveness by leveraging a growing diversity of geospatial information and just in time fusion of information from drones, body cameras, phones and other IoT sensors. Interoperability of all the formats, encodings, and models used in CDB-X will enhance the ability to discover, access, update, and use content in a CDB datastore to meet the needs of the use cases identifed above.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_what_is_foundation_data"><a class="anchor" href="#_what_is_foundation_data"></a>7.3.2. What is Foundation Data</h4>
 <div class="paragraph">
 <p>Foundation data are the authoritative data and models that have been curated per the rules defined in the CDB standard, and stored in a CDB repository. Foundation data utilizes known and consensus controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and the required metadata has been documented.</p>
 </div>
@@ -1674,7 +1770,7 @@ Optimization For Use Cases: CDB-S, CDB-G and CDB-T may tile/generate LODs and de
 </div>
 </div>
 <div class="sect3">
-<h4 id="_reference_systems"><a class="anchor" href="#_reference_systems"></a>7.3.2. Reference Systems</h4>
+<h4 id="_reference_systems"><a class="anchor" href="#_reference_systems"></a>7.3.3. Reference Systems</h4>
 
 </div>
 </div>
@@ -4769,7 +4865,7 @@ While the same metadata elements are recommended for both global and local geosp
 <p>Current and proposed GeoPackage extensions for storing this data, and</p>
 </li>
 <li>
-<p>As well as the results of related prototyping activities.</p>
+<p>The results of related prototyping activities.</p>
 </li>
 </ul>
 </div>
@@ -4887,7 +4983,7 @@ While the same metadata elements are recommended for both global and local geosp
 <div class="title">Figure Mtd_Ph3 - 31. Level 2 of the GNOSIS Global Grid proposed for CDB X.</div>
 </div>
 <div class="paragraph">
-<p>The proposed tiling scheme would be based on the GNOSISGlobalGrid, where the tiling starts with a 2x4 grid of tiles with each tile 90 degrees on a side that covers the whole Earth.  This is zoom level 0 (or tile matrix identifier "0").  Each experiment used a tile size of 256x256 {<strong>Does this need to be described more?</strong>}, although that could be experimented with.  At each successive zoom level, each lower level tile is split into four new tiles at the next zoom level The exception that any tile that touches either the North or South Pole is not split in the longitude direction.  This subdivision can continue until the zoom level is high enough to accommodate the highest resolution data that is to be stored within the CDB X.</p>
+<p>The proposed tiling scheme would be based on the GNOSISGlobalGrid, where the tiling starts with a 2x4 grid of tiles with each tile 90 degrees on a side that covers the whole Earth.  This is zoom level 0 (or tile matrix identifier "0"). The experiments performed during the sprint used the tile size of 256 x 256 defined by the GNOSIS Global Grid for all zoom levels / level of details. A variation of the Tile Matrix Set definition using a different tile size instead, e.g. 512 x 512 could also be experimented it. At each successive zoom level, each lower level tile is split into four new tiles at the next zoom level The exception that any tile that touches either the North or South Pole is not split in the longitude direction.  This subdivision can continue until the zoom level is high enough to accommodate the highest resolution data that is to be stored within the CDB X.</p>
 </div>
 <div class="paragraph">
 <p>References for the GNOSISGlobalGrid tiling scheme:</p>
@@ -4928,9 +5024,21 @@ While the same metadata elements are recommended for both global and local geosp
 </div>
 <div id="img_logical-model" class="imageblock text-center">
 <div class="content">
-<img src="images/image2020-9-4_10-41-0.png" alt="image2020 9 4 10 41 0" width="800">
+<img src="images/image2020-9-4_10-41-0.png" alt="image2020 9 4 10 41 0" width="600">
 </div>
 <div class="title">Figure Mtd_Ph3 - 33. CDB 1.x to GNOSIS Comparison - Ratio.</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+A summary of all of the results from the experiments can be found in <a href="#annex-b">Annex B</a>.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="_tiling_changes_from_ogc_cdb_1_x"><a class="anchor" href="#_tiling_changes_from_ogc_cdb_1_x"></a>13.5.1. Tiling Changes From OGC CDB 1.x</h4>
@@ -4987,7 +5095,7 @@ Imagery and coverage data would always be tiled. Vector data could optionally be
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>For edge {<strong>Clarify what is meant by 'edge'.</strong>} users and smaller areas, the Subgroup particpants <code>recommend</code> that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be result from an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user.</p>
+<p>For users at the edge and smaller areas, the Subgroup particpants <code>recommend</code> that all the CDB X coverage layers be present within a single GeoPackage container.  This approach could be result from an export from a larger CDB X dataset, where only the resolutions and the boundaries of the data needed are stored and delivered to an end user. Users at the edge are such individuals as field operatives using mobile devices with limited battery, memory, storage and processing capabilities as well as Delayed/Disconnected, Intermittently-connected or Limited bandwidth (DDIL) environments.</p>
 </li>
 <li>
 <p>For Modeling and Simulation uses, as well as data repository cases, the Subgroup participants <code>recommend</code> that a series of GeoPackage containers be used to store CDB X coverage layers.  This involves storing a region of the world at a set of zoom levels, or levels of detail, within a single GeoPackage, with a specified file and directory naming scheme.  This approach would allow for faster access to data at specified areas and zoom levels.  This approach would also lend itself to concurrent access and editing for data repository maintainers.</p>
@@ -4997,7 +5105,7 @@ Imagery and coverage data would always be tiled. Vector data could optionally be
 <p>The particpants propose that a configurable grouping value be used to specify how many zoom levels or levels of detail are put into a single GeoPackage.  This would be a tradeoff between the number of GeoPackages created and the file and table sizes within each GeoPackage.</p>
 </li>
 <li>
-<p>Multiple grouping numbers were experimented with. Five (5) was found to be a good number for packaging together all data layers of the San Diego CDB {<strong>DO we need some words in the intro on the data used in the experiments?</strong>}. This grouping number might need to be adjusted for different types of data layers, or different data sets as well.</p>
+<p>Multiple grouping numbers were experimented with. Five (5) was found to be a good number for packaging together all data layers of the San Diego CDB. For these experiments, a number of datasets were used, including CDB 1.x data from both the Presagis Sample CDB of Camp Pendleton, as well as the San Diego sample CDB provided by CAE. Additional data from NASA Visible Earth Blue Marble and USGS GTOPO30 were used to test applying the tiling to global datasets. This grouping number might need to be adjusted for different types of data layers, or different data sets as well.</p>
 </li>
 <li>
 <p>The proposed naming of each GeoPackage file is based on the layer name and the coarsest, lowest level tile included within the grouping inside the GeoPackage.  That tile&#8217;s level, row (from the top) and column within the tile matrix set make up the filename, along with the level of the finest or highest level tile that can be placed into this GeoPackage.  For example:  <strong>Coverages_L4_R16_C12_L6.gpkg</strong></p>
@@ -5032,7 +5140,19 @@ to augment these base datasets with additional more detailed insets, without rep
 </ul>
 </div>
 <div class="paragraph">
-<p><code>Recommendation</code>: Define this capability for splitting GeoPackages based on a specific tiling scheme outside of the CDB X standard so that it {<strong>What does it refer to?</strong>} can be used by itself.</p>
+<p><code>Recommendation</code>: Define this capability for splitting GeoPackages based on a specific tiling scheme outside of the CDB X standard so that this split content can be used by itself.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+A mechanism to split data and group (or not) layers over multiple GeoPackages by tiles / LOD grouping (or have it all as a single GeoPackage), as well as a JSON schema providing the necessary information to access that data (e.g. packages, data layers, grouping, maxLOD, selected TileMatrixSet), should be a modular standard defined outside of CDB X, so that it could be used for other large datasets not necessarily conforming to the CDB X standard (e.g. the OrdnanceSurvey Master Map, OpenStreetMap Planet OSM, etc.).
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -5041,8 +5161,10 @@ to augment these base datasets with additional more detailed insets, without rep
 <p>The Tiling Subgroup developed a simple schema for describing the data layers provided in a CDB X datastore, which CDB component selector they correspond to, and how
 they are packaged in one or more <em>packages</em>. These <em>packages</em> can themselves either be stored in a single GeoPackage (zero or <em>null</em> LOD grouping), or separated in
 multiple GeoPackage based on tiles grouped in multiple LODs (non-zero LOD grouping). This index allows the flexibility to use the best suited configuration
-for a given dataset or use case At the same time it is very simple for a client to parse and access the data in a deterministic manner using any of these configurations.
-When a single GeoPackage is used, potentially this <code>cdb.json</code> could be included inside as metadata (using the GeoPackage metadata extension) to make
+for a given dataset or use case At the same time it is very simple for a client to parse and access the data in a deterministic manner using any of these configurations.</p>
+</div>
+<div class="paragraph">
+<p>When a single GeoPackage is used, potentially this <code>cdb.json</code> could be included inside as metadata (using the GeoPackage metadata extension) to make
 this GeoPackage a single file, very portable compliant CDB X.
 The following <code>cdb.json</code> index files demonstrate the three main configuration possibilities.
 Additional examples are also provided along with the experiments results.</p>
@@ -5458,7 +5580,7 @@ The attributes table may also contain additional fields for scaling and orientin
 <div class="sect3">
 <h4 id="_b_batched_3d_models_tiles"><a class="anchor" href="#_b_batched_3d_models_tiles"></a>13.13.3. B) Batched 3D Models tiles</h4>
 <div class="paragraph">
-<p>For Approach B, best suited for geo-specific models, a single model covers a whole tile, all 3D models from the data layer found within that tile are batched, and is {<strong>What is?</strong>} stored in a tiles table much like raster or vector tiles (as a glTF blob in the <code>tile_data</code> field).
+<p>For Approach B, best suited for geo-specific models, a single model covers a whole tile, all 3D models from the data layer found within that tile are batched, and is  stored in a tiles table much like raster or vector tiles (as a glTF blob in the <code>tile_data</code> field).
 This is closer to the 3D Tiles / One World Terrain approach, and could potentially also combine both 3D Terrain and 3D Models (though ideally keeping them as distinct nodes within the model). Such an approach may facilitate transition between CDB-X and OWT.</p>
 </div>
 <div class="paragraph">
@@ -5530,8 +5652,6 @@ This is closer to the 3D Tiles / One World Terrain approach, and could potential
 </div>
 <div class="sect2">
 <h3 id="_ecere_geopackage_tiling_experiments"><a class="anchor" href="#_ecere_geopackage_tiling_experiments"></a>13.14. Ecere GeoPackage Tiling Experiments</h3>
-<div class="sect3">
-<h4 id="_overview"><a class="anchor" href="#_overview"></a>13.14.1. Overview</h4>
 <div class="paragraph">
 <p>Ecere conducted multiple experiments during the sprint using tiling and packaging data sourced from CDB 1.x content.</p>
 </div>
@@ -5541,7 +5661,7 @@ This is closer to the 3D Tiles / One World Terrain approach, and could potential
 <p>Experiment 1: The objective of the first experiment was to share an example of how to store CDB data in a GeoPackage following the GNOSIS Global Grid. This Experiment used the draft GeoPackage TileMatrixSet and vector tiles extensions, as well as describing this content using the proposed <code>cdb.json</code> schema. A sample CDB datastore from Presagis for Camp Pendleton California was used for this experiment.</p>
 </li>
 <li>
-<p>Experiment 2: The objective of the second experiment focused on demonstrating how to distribute data covering a large area in multiple GeoPackages using a pre-determined LOD grouping setting. The larger San Diego CDB dataset provided by CAE was used for this Experiment as well as fpr Experiment 3.</p>
+<p>Experiment 2: The objective of the second experiment focused on demonstrating how to distribute data covering a large area in multiple GeoPackages using a pre-determined LOD grouping setting. The larger San Diego CDB dataset provided by CAE was used for this Experiment as well as for Experiment 3.</p>
 </li>
 <li>
 <p>Experiment 3: The objective of the third experiment was investigating storing 3D models inside the GeoPackages using the two different approaches described above.
@@ -5557,94 +5677,165 @@ Approach B is more similar to the one used for 3D Tiles and One World Terrain.</
 </div>
 <div id="img_gpkgexport" class="imageblock text-center">
 <div class="content">
-<img src="images/Ecere-GeoPackageCDBXExport.png" alt="Ecere GeoPackageCDBXExport" width="800">
+<img src="images/Ecere-GeoPackageCDBXExport.png" alt="Ecere GeoPackageCDBXExport" width="600">
 </div>
 <div class="title">Figure Mtd_Ph3 - 34. Ecere GeoPackage / CDB X Export dialog and options in Ecere’s GNOSIS Cartographer</div>
 </div>
 <div id="img_gpkgexport2" class="imageblock text-center">
 <div class="content">
-<img src="images/Ecere-GeoPackageCDBXExport2.png" alt="Ecere GeoPackageCDBXExport2" width="800">
+<img src="images/Ecere-GeoPackageCDBXExport2.png" alt="Ecere GeoPackageCDBXExport2" width="600">
 </div>
 <div class="title">Figure Mtd_Ph3 - 35. Ecere GeoPackage / CDB X Export dialog and options close up</div>
 </div>
+<hr>
+<div class="paragraph">
+<p>The results produced were sourced from the CAE San Diego CDB 1.x, and unless otherwise specified cover the entire dataset.<br>
+An additional data layer was sourced from the NASA Visible Earth <a href="https://visibleearth.nasa.gov/collection/1484/blue-marble">Blue Marble</a>.<br>
+These are also available from the <a href="https://portal.ogc.org/index.php?m=projects&amp;a=view&amp;project_id=466&amp;tab=2&amp;artifact_id=95315">CDB SWG / CDB X Tech Sprint folder</a>.</p>
+</div>
+<div class="paragraph">
+<p>MVT: Mapbox Vector Tiles (<a href="https://docs.mapbox.com/vector-tiles/reference/">specifications</a>)</p>
+</div>
+<div class="paragraph">
+<p>GMT: GNOSIS Map Tiles (<a href="http://docs.opengeospatial.org/per/18-025.html#GMTSpecs">specifications</a>)</p>
+</div>
+<div class="paragraph">
+<p>E3D: Ecere 3D Models (<a href="http://docs.opengeospatial.org/per/18-025.html#E3DSpecs">specifications</a>)</p>
+</div>
+<div class="paragraph">
+<p>(from <em>CityGML and Augmented Reality</em> <a href="http://docs.opengeospatial.org/per/18-025.html">Engineering Report</a>)</p>
 </div>
 <div class="sect3">
-<h4 id="_data_results"><a class="anchor" href="#_data_results"></a>13.14.2. Data results</h4>
-<div class="sect4">
-<h5 id="_single_geopackage"><a class="anchor" href="#_single_geopackage"></a>Single GeoPackage</h5>
-<div class="paragraph">
-<p>This one GeoPackage contains the whole San Diego CDB data (not including Blue Marble):</p>
-</div>
-<div class="admonitionblock note">
-<table>
+<h4 id="_san_diego_cdb_layers_packaged_together"><a class="anchor" href="#_san_diego_cdb_layers_packaged_together"></a>13.14.1. San Diego CDB layers packaged together</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-In the texture table for this GeoPackage, the texture names are prefixed by an extra directory to differentiate the numbered textures used in the
-different 3D models data layers. However the reference from the 3D models was not yet updated to reflect this.
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data / Link</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOD Grouping</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Models Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Imagery Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Coverage Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vector Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Uncompressed size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Compressed Size</strong></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(<a href="https://portal.ogc.org/files/?artifact_id=95378"><em>cdb.json</em></a>)</p></td>
+<td class="tableblock halign-left valign-top" colspan="7"><p class="tableblock"><strong><em>As a single GeoPackage</em></strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="8"><p class="tableblock"><em>In the textures table for this GeoPackage, the texture names are prefixed by an extra directory to differentiate the numbered textures used in the
+different 3D models data layers. However the reference from the 3D models was not yet updated to reflect this.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/SanDiego.gpkg.7z">San Diego</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PNG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MVT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12.8 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.8 GiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/SanDiego.gpkg">San Diego</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GMT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GMT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10.3 GiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(<a href="https://portal.ogc.org/files/?artifact_id=95366"><em>cdb.json</em></a>)</p></td>
+<td class="tableblock halign-left valign-top" colspan="7"><p class="tableblock"><strong><em>Grouping tiles of 5 LODs per GeoPackage</em></strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="8"><p class="tableblock"><em>In this approach, the textures were stored in a separate folder to avoid repeating them in each separate GeoPackage.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/SanDiego.7z">San Diego</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PNG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MVT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14.6 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.9 GiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95370">San Diego (subset)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PNG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MVT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">217.5 MiB</p></td>
+</tr>
+</tbody>
 </table>
 </div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95378">Complete San Diego CDB X - <em>cdb.json</em> index</a></p>
-</div>
-<div class="paragraph">
-<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.gpkg.7z">Complete San Diego CDB X - GeoPackage</a> (12.8 GiB, 9.8 GiB compressed)</p>
-</div>
-<div class="paragraph">
-<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.gpkg">Complete San Diego CDB X - GeoPackage using GNOSIS Map Tiles and E3D Models</a> (10.3 GiB uncompressed)</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_data_layers_packaged_together_tiles_grouped_in_multiple_geopackages"><a class="anchor" href="#_data_layers_packaged_together_tiles_grouped_in_multiple_geopackages"></a>Data layers packaged together (tiles grouped in multiple GeoPackages)</h5>
-<div class="paragraph">
-<p>This series of GeoPackages (also covering the whole San Diego CDB) groups tiles of 5 LODs for all data layers within the same GeoPackage.
-In this approach, the textures were stored in a separate folder to avoid repeating them in each separate GeoPackage.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95366"><em>cdb.json</em> index</a></p>
-</div>
-<div class="paragraph">
-<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/SanDiego.7z">One package using an LOD grouping of 5</a> (14.6 GiB, 9.9 GiB compressed)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95370">Partial dataset (subset of the overall extent) using an LOD grouping of 5</a> (1.4 GiB, 217.5 MiB compressed)</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_as_separate_layers"><a class="anchor" href="#_as_separate_layers"></a>As separate layers</h5>
-<div class="paragraph">
-<p>A series of GeoPackages (11.2 GB compressed) of the San Diego CDB, plus a full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble, along with an accompanying <code>cdb.json</code> can be found at:</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/index.php?m=projects&amp;a=view&amp;project_id=466&amp;tab=2&amp;artifact_id=95320">OGC portal folder</a></p>
-</div>
+<div class="sect3">
+<h4 id="_san_diego_cdb_packaged_as_separate_layers"><a class="anchor" href="#_san_diego_cdb_packaged_as_separate_layers"></a>13.14.2. San Diego CDB packaged as separate layers</h4>
 <div class="paragraph">
 <p><a href="https://portal.ogc.org/files/?artifact_id=95345">Top-level <em>cdb.json</em> index</a></p>
 </div>
-<div class="paragraph">
-<p>The individual layers, as well as alternate encodings of some of them and are listed below:</p>
+<div class="sect4">
+<h5 id="_elevation"><a class="anchor" href="#_elevation"></a>Elevation</h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data / Link</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOD Grouping</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Coverage Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Uncompressed size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Compressed Size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95352">Elevation</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PNG / 16-bit integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">483 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">472 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95328">Elevation</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GMT / 16-bit integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">370.8 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">365.2 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/ElevationTIF.7z">Elevation</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeoTIFF / 32-bit float</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.3 GiB</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="sect5">
-<h6 id="_elevation"><a class="anchor" href="#_elevation"></a>Elevation</h6>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95352">Elevation (using 16-bit integer PNG encoding)</a> (483 MiB, 472 MiB compressed)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95328">Elevation (using 16-bit integer Paeth/LZMA GMT encoding)</a> (370.8 MiB, 365.2 MiB compressed)</p>
-</div>
-<div class="paragraph">
-<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/ElevationTIF.7z">Elevation (using 32-bit float GeoTIFF encoding)</a> (1.4 GiB, 1.3 GiB compressed)</p>
-</div>
-</div>
-<div class="sect5">
-<h6 id="_imagery"><a class="anchor" href="#_imagery"></a>Imagery</h6>
-<div class="paragraph">
-<p><strong><em>Encoded as JPG</em>:</strong></p>
-</div>
+<div class="sect4">
+<h5 id="_imagery"><a class="anchor" href="#_imagery"></a>Imagery</h5>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -5657,115 +5848,213 @@ The imagery in these GeoPackages is lossy. <code>Recommendation</code>: Allow th
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/BlueMarble.7z">Full resolution global coverage (for one particular month) of the NASA Visible Earth Blue Marble</a> (1.6 GiB, 1.4 GiB compressed)</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data / Link</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOD Grouping</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Imagery Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Uncompressed size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Compressed Size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/BlueMarble.7z">Blue Marble</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.6 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4 GiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/ImageryMedium.7z">Imagery (Medium)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.9 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.7 GiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/ImageryHigh.7z">Imagery (High)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.5 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3 GiB</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/ImageryMedium.7z">Medium resolution imagery</a> (4.9 GiB, 4.7 GiB compressed)</p>
+<div class="sect4">
+<h5 id="_vector_data_2"><a class="anchor" href="#_vector_data_2"></a>Vector data</h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data / Link</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOD Grouping</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vector Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Uncompressed size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Compressed Size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95348">Hydrography</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">424 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95350">Roads</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">69.1 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17.6 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95346">Airport Lights</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">144 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95330">Hydrography</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">248 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95331">Roads</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">38 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">23.4 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95329">Airport Lights</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">148 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p><strong>FIXME awaiting portal link:</strong> <a href="ftp://cdb-x-2020@ftp.ogc.org/Ecere/ImageryHigh.7z">High resolution imagery</a> (4.5 GiB, 4.3 GiB compressed)</p>
-</div>
-</div>
+<div class="sect4">
+<h5 id="_3d_models_2"><a class="anchor" href="#_3d_models_2"></a>3D Models</h5>
 <div class="sect5">
-<h6 id="_vector_data_2"><a class="anchor" href="#_vector_data_2"></a>Vector data</h6>
-<div class="paragraph">
-<p><strong><em>Tiled and encoded as Mapbox Vector Tiles:</em></strong></p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95348">Hydrography</a> (424 KiB)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95350">Roads</a> (69.1 MiB, 17.6 MiB compressed)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95346">Airport Lights</a> (144 KiB)</p>
-</div>
-<div class="paragraph">
-<p><strong><em>Tiled and encoded as GNOSIS Map Tiles:</em></strong></p>
-</div>
-<div class="admonitionblock note">
-<table>
+<h6 id="_using_referencing_placement_points"><a class="anchor" href="#_using_referencing_placement_points"></a>Using referencing placement points</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-The latest specifications for the GNOSIS Map Tiles encoding is available in the <a href="http://docs.opengeospatial.org/per/18-025.html#GMTSpecs">Annex B</a> of the <em>CityGML and Augmented Reality</em> Engineering Report {<strong>Do we need a link?</strong>}.
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data / Link</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOD Grouping</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Models Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vector Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Uncompressed size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Compressed Size</strong></p></td>
 </tr>
-</table>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95330">Hydrography</a> (248 KiB)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95331">Roads</a> (38 MiB, 23.4 MiB compressed)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95329">Airport Lights</a> (148 KiB)</p>
-</div>
-</div>
-<div class="sect5">
-<h6 id="_3d_models_2"><a class="anchor" href="#_3d_models_2"></a>3D Models</h6>
-<div class="paragraph">
-<p><strong><em>Single GeoPackages using Mapbox Vector Tiles for reference points, and models encoded as binary glTF:</em></strong></p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95351">Buildings</a> (2.9 GiB, 321.3 MiB compressed)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95349">Trees</a> (2 MiB)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95347">Coronado Bridge</a> (272 KiB)</p>
-</div>
-<div class="paragraph">
-<p><strong><em>Single GeoPackages using GNOSIS Map Tiles for reference points, and models encoded as E3D:</em></strong></p>
-</div>
-<div class="admonitionblock note">
-<table>
 <tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-The latest specifications for the <em>E3D</em> 3D Model and <em>GNOSIS Map Tiles</em> encodings are available in the <a href="http://docs.opengeospatial.org/per/18-025.html"><em>CityGML and Augmented Reality</em> Engineering Report</a>,
-(<a href="http://docs.opengeospatial.org/per/18-025.html#E3DSpecs">Appendix A</a> and <a href="http://docs.opengeospatial.org/per/18-025.html#GMTSpecs">Appendix B</a>, respectively).
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95351">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.9 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">321.3 MiB</p></td>
 </tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
 <tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-The unconmpressed GeoPackages are more compact because the E3D models feature internal LZMA compression.
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95349">Trees</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 MiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95347">Coronado Bridge</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">272 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95340">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">560.8 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">332.8 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95339">Trees</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.8 MiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95338">Coronado Bridge</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">196 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95344">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.1 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">446.6 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95343">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.7 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409.2 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95342">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.9 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">321.3 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95341">Trees</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.9 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.2 MiB</p></td>
+</tr>
+</tbody>
 </table>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95340">Buildings (GNOSIS Map Tiles / E3D)</a> (560.8 MiB, 332.8 MiB compressed)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95339">Trees (GNOSIS Map Tiles / E3D)</a> (1.8 MiB)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95338">Coronado Bridge (GNOSIS Map Tiles / E3D)</a> (196 KiB)</p>
-</div>
-<div class="paragraph">
-<p><strong><em>Multiple GeoPackages using various LOD grouping, Mapbox Vector Tiles for reference points, and models encoded as binary glTF:</em></strong></p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95344">Buildings grouped by 4 LODs</a> (4.1 GiB, 446.6 MiB compressed)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95343">Buildings grouped by 5 LODs</a> (3.7 GiB, 409.2 MiB compressed)</p>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -5778,9 +6067,6 @@ The larger size for grouping by 4 and 5 LODs is mainly a result of lower resolut
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95342">Buildings grouped by 7 LODs</a> (2.9 GiB, 321.3 MiB compressed)</p>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -5788,14 +6074,82 @@ The larger size for grouping by 4 and 5 LODs is mainly a result of lower resolut
 <div class="title">Note</div>
 </td>
 <td class="content">
-Except for the directory / file naming, the 7 LODs buildings are equivalent to 6 LODs since there are only 6 LODs of buildings in the dataset.
+Except for the directory / file naming, the 7 LODs buildings are equivalent to 6 LODs since there are only 6 LODs of buildings in the dataset. Similarly, the 6 LODs trees are equivalent to any other LOD groupings, since there is only 1 LOD of trees in the dataset.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95341">Trees grouped by 6 LODs</a> (2.9 MiB, 1.2 MiB compressed)</p>
 </div>
+<div class="sect5">
+<h6 id="_batching_models_per_tile"><a class="anchor" href="#_batching_models_per_tile"></a>Batching models per tile</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data / Link</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOD Grouping</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Models Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vector Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Uncompressed size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Compressed Size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95337">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.9 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">512.4 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95335">Trees</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">91 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.3 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95336">Coronado Bridge</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">576 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95334">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">417.3 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">339.8 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95333">Trees</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.3 MiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95332">Coronado Bridge</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">256 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -5803,13 +6157,10 @@ Except for the directory / file naming, the 7 LODs buildings are equivalent to 6
 <div class="title">Note</div>
 </td>
 <td class="content">
-Except for the directory / file naming, the 6 LODs trees are equivalent to any other LOD groupings, since there is only 1 LOD of trees in the dataset.
+The uncompressed GeoPackages are more compact because the E3D models feature internal LZMA compression.
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p><strong><em>Single GeoPackages batching 3D models for each tile as binary glTF:</em></strong></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -5822,39 +6173,6 @@ The model is encoded in the <code>tile_data</code> field of the tiles table. Thi
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95337">Buildings (glTF / batched 3D models tiles)</a> (3.9 GiB, 512.4 MiB compressed)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95335">Trees (glTF / batched 3D models tiles)</a> (91 MiB, 2.3 MiB compressed)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95336">Coronado Bridge (glTF / batched 3D models tiles)</a> (576 KiB)</p>
-</div>
-<div class="paragraph">
-<p><strong><em>Single GeoPackages batching 3D models for each tile as E3D:</em></strong></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-The model is encoded in the <code>tile_data</code> field of the tiles table. This approach is best suited for geo-specific models. The unconmpressed GeoPackages are more compact because the E3D models feature internal LZMA compression.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95334">Buildings (E3D / batched 3D models tiles)</a> (417.3 MiB, 339.8 MiB compressed)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95333">Trees (E3D / batched 3D models tiles)</a> (3.3 MiB)</p>
-</div>
-<div class="paragraph">
-<p><a href="https://portal.ogc.org/files/?artifact_id=95332">Coronado Bridge (E3D / batched 3D models tiles)</a> (256 KiB)</p>
 </div>
 </div>
 </div>
@@ -5870,7 +6188,7 @@ accessing as tiles in different tiling schemes, accessing individual vector feat
 accessing as 3D Tiles tilesets or individual tiles, also supporting retrieving batched 3D tiles as binary glTF and so on. These delivery capabilities demonstrate that tiled data actually supports a wide range of use cases. More details about accessing this data via the OGC API {<strong>Which OGC API? I am assuming features.</strong>}  can be found in the OGC Interactive Simulation and Gaming Sprint Engineering Report{<strong>Do we need a link?</strong>} .</p>
 </div>
 <div class="paragraph">
-<p>The prototype CDB X split GeoPackages can be accessed directlyt this <a href="https://maps.ecere.com/ogcapi/collections/SanDiegoLayers" class="bare">https://maps.ecere.com/ogcapi/collections/SanDiegoLayers</a>
+<p>The prototype CDB X split GeoPackages can be accessed directly at <a href="https://maps.ecere.com/ogcapi/collections/SanDiegoLayers" class="bare">https://maps.ecere.com/ogcapi/collections/SanDiegoLayers</a>
 [address]:</p>
 </div>
 <div class="paragraph">
@@ -5886,7 +6204,7 @@ Accessing and visualizing the 3D models from the GeoPackage tables remains to be
 </div>
 <div id="img_campPendleton" class="imageblock text-center">
 <div class="content">
-<img src="images/ecere-cdbx-1.png" alt="ecere cdbx 1" width="800">
+<img src="images/ecere-cdbx-1.png" alt="ecere cdbx 1" width="600">
 </div>
 <div class="title">Figure Mtd_Ph3 - 36. Visualizing Camp Pendleton CDB X/GeoPackage in Ecere&#8217;s GNOSIS Cartographer.</div>
 </div>
@@ -5901,37 +6219,37 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 </div>
 <div id="img_sd1" class="imageblock text-center">
 <div class="content">
-<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego1.jpg" alt="SanDiego1" width="800">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego1.jpg" alt="SanDiego1" width="600">
 </div>
 <div class="title">Figure Mtd_Ph3 - 37. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (cape)</div>
 </div>
 <div id="img_sd2" class="imageblock text-center">
 <div class="content">
-<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego2.jpg" alt="SanDiego2" width="800">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego2.jpg" alt="SanDiego2" width="600">
 </div>
 <div class="title">Figure Mtd_Ph3 - 38. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (hotels and palm trees)</div>
 </div>
 <div id="img_sd4" class="imageblock text-center">
 <div class="content">
-<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego4.jpg" alt="SanDiego4" width="800">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego4.jpg" alt="SanDiego4" width="600">
 </div>
 <div class="title">Figure Mtd_Ph3 - 39. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (skyscrapers)</div>
 </div>
 <div id="img_sd5" class="imageblock text-center">
 <div class="content">
-<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego5.jpg" alt="SanDiego5" width="800">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego5.jpg" alt="SanDiego5" width="600">
 </div>
 <div class="title">Figure Mtd_Ph3 - 40. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (Coronado bridge)</div>
 </div>
 <div id="img_sd11" class="imageblock text-center">
 <div class="content">
-<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego11.jpg" alt="SanDiego11" width="800">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego11.jpg" alt="SanDiego11" width="600">
 </div>
 <div class="title">Figure Mtd_Ph3 - 41. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (airstrip)</div>
 </div>
 <div id="img_sd15" class="imageblock text-center">
 <div class="content">
-<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego15.jpg" alt="SanDiego15" width="800">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/SanDiego15.jpg" alt="SanDiego15" width="600">
 </div>
 <div class="title">Figure Mtd_Ph3 - 42. San Diego CDB data visualized in Ecere’s GNOSIS Cartographer (high above, showing 3D globe)</div>
 </div>
@@ -5943,13 +6261,13 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 <h4 id="_cesium_js_3d_tiles_demo"><a class="anchor" href="#_cesium_js_3d_tiles_demo"></a>13.14.5. Cesium JS / 3D Tiles demo</h4>
 <div id="img_sdCesium1" class="imageblock text-center">
 <div class="content">
-<img src="http://ecere.com/tmp/SanDiegoCesium.png" alt="SanDiegoCesium" width="800">
+<img src="http://ecere.com/tmp/SanDiegoCesium.png" alt="SanDiegoCesium" width="600">
 </div>
 <div class="title">Figure Mtd_Ph3 - 43. San Diego CDB (before implementing support for textures in generated 3D Tiles)</div>
 </div>
 <div id="img_CesiumJS3DTiles" class="imageblock text-center">
 <div class="content">
-<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/CesiumSanDiego3.jpg" alt="CesiumSanDiego3" width="800">
+<img src="https://github.com/opengeospatial/OGC-ISG-Sprint-Sep-2020/raw/master/Sprint%20Report/images/Ecere/CesiumSanDiego3.jpg" alt="CesiumSanDiego3" width="600">
 </div>
 <div class="title">Figure Mtd_Ph3 - 44. CesiumJS Client accessing San Diego CDB data as 3D Tiles from Ecere’s GNOSIS Map Server (Petco Park)</div>
 </div>
@@ -6009,7 +6327,7 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Tiling Scheme</strong>: The tiling scheme uses the <a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid">GNOSIS Global Grid</a> (using TMS extension&#8201;&#8212;&#8201;<a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc</a>).  FlightSafety usied the same type of json file {<strong>Perhaps a bit moreinfo and a link back?</strong>}  that Ecere used in their experiment.</p>
+<p><strong>Tiling Scheme</strong>: The tiling scheme uses the <a href="https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid">GNOSIS Global Grid</a> (using TMS extension&#8201;&#8212;&#8201;<a href="https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc" class="bare">https://gitlab.com/imagemattersllc/ogc-vtp2/-/blob/master/extensions/14-tile-matrix-set.adoc</a>).  FlightSafety used the same type of json file {<strong>Perhaps a bit moreinfo and a link back?</strong>}  that Ecere used in their experiment.</p>
 </div>
 <div class="paragraph">
 <p><strong>LOD Grouping</strong> The grouping was pre-set per experiment.  The groups were calculated from the highest LOD, back to coarser LODs.  For example, if there are 7 LODs (0-6) and a grouping of 4, then LODs 3 through 7 are in one GeoPackage, and LODs 0 through 2 are in another GeoPackage.</p>
@@ -6232,6 +6550,707 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 </li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+</div>
+<h1 id="Versioning_in_Legacy_CDB" class="sect0"><a class="anchor" href="#Versioning_in_Legacy_CDB"></a>CDB Versioning, old and new</h1>
+<div class="sect1">
+<h2 id="_a_review_of_how_versioning_is_used_in_legacy_ogc_cdb_1_x_and_how_that_experience_leads_to_use_cases_for_exploration_of_versioning_in_cdb_x"><a class="anchor" href="#_a_review_of_how_versioning_is_used_in_legacy_ogc_cdb_1_x_and_how_that_experience_leads_to_use_cases_for_exploration_of_versioning_in_cdb_x"></a>14. A review of how 'versioning' is used in legacy OGC CDB 1.X, and how that experience leads to use cases for exploration of versioning in CDB X.</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Since the beginning of the CDB development, the concept of versioning was designed to support the development and distribution of small changes to the content and to support end-site CDB servers' capability to link each dataset called a CDB to a 'parent' CDB dataset using the Version.xml file in the Metadata subdirectory under the CDB-dataset top level directory.</p>
+</div>
+<div class="paragraph">
+<p>The specific mechanism that enables versioning in OGC CDB 1.x is the XML element:  &lt;PreviousIncrementalRootDirectory name=    &gt;</p>
+</div>
+<div class="paragraph">
+<p>The figure below, courtesy of Presagis / Hermann Brassard, shows a Version.xml file in a CDB with top-level directory named 'CDB_V1' pointing to a parent CDB top-level directory named 'CDB':</p>
+</div>
+<div id="img_PresagisCDBVersioningExplanationSlide" class="imageblock text-center">
+<div class="content">
+<img src="images/Presagis%20Versioning%20Presentation%20slide.jpg" alt="Presagis Versioning Presentation slide" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Figure Mtd_Ph3 -1. Versioning graphic: Illustrating how to use a version to 'add' a single elevation coverage file at a specific location.</strong></p>
+</div>
+<div class="paragraph">
+<p>OGC CDB&#8217;s original versioning approach relies on simulation clients to start looking for any file at the 'bottom' of the hierarchy of CDB datasets available on the server and linked by metadata.  Since simulation clients know in advance 'where they are' and 'where they want to go' a file search starts with a location.  Because of the rigid directory and file naming structure of CDB, a simulation client knows where to look for any file and what the file, if present, will be named. In the example above, the simulation client would start looking in CDB_V1.  In this example, CDB_V1 contains only a single file, a .tif file for N31 E065 Elevation at L00 and U0.  If the simulation client is looking for anything else, it will fail to find the file it is looking for, look at Version.xml in CDB_V1, find the &lt;PreviousIncrementalRootDirectory name=“{path}CDB”/&gt; XML element, and look again for the file in the next higher level CDB dataset in the hierarchy.</p>
+</div>
+<div class="paragraph">
+<p>The existing requirement is that each CDB can point to 'none' or 'one-and-only-one' parent directory, so that the search tree for the files is deterministic.</p>
+</div>
+<div class="paragraph">
+<p>In practical use CDB servers at simulation end-sites may not be managed by experts in database architecture.  CAE and other vendors will have developed utilities that allow a local or remote utility to be used at runtime client session startup to create the layout or 'chain' of CDB datasets that are present on a CDB server.</p>
+</div>
+<div class="paragraph">
+<p>The slide below is a screen shot of a utility called the CAE CDB Update Manager Client, running on a CDB Server, that is part of a CDB simulation demonstration hosted on three laptop computers of about 2012 vintage.  The first image is the laptop computer hardware, the second image is the current chain of versions on the CDB Server laptop at the time of the screenshot.<br></p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/CAE%20DSE%202012%20Demonstration%20Laptops.jpg" alt="#img_CAE DSE 2012 Laptop Hardware" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 48. CDB Laptop Simulation Demonstration Hardware.</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/CDB%20Update%20Manager%20annotated%20screen%20shot.jpg" alt="#img_Presagis CDB Versioning Explanation Slide" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 49. A specific chain of CDB versions from CDB Boot at the bottom to CDB (root) at the top.</div>
+</div>
+<div class="paragraph">
+<p>The boxes and arrows on the graphic above are the author&#8217;s attempt to show just some of the flexibility available using CDB versioning.  The simulator clients themselves can be set to always point to CDB_BOOT, an 'empty' CDB that only points 'up' to some content.</p>
+</div>
+<div class="paragraph">
+<p>The top-level CDB_WORLD database can be a managed product maintained by a provider, for which regular updates are provided for example by subscription.  In this example CDB_WORLD_COMPACT_R1 was created specifically for these laptop demonstrators to fit on 1TB of total HDD capability on the server laptop.  At some later point some additional data for North Africa was added to blend with the subsequent development of the Yemen dataset.  CDB_NAV_V4 is another product-managed dataset that provides regularly updated worldwide NAV data.  There are multiple area/airport datasets that were added to the demonstration from various sources; these datasets have mutually exclusive coverage, i.e. they don&#8217;t overlap in coverage.  Near the bottom of this chain are the datasets from which files are found when 'location' is in the Yemen dataset coverage area.  Datasets in this hierarchy can obviously be of different size, contain different LODs, could potentially contain datasets with different constraints such as security or licensing limits.</p>
+</div>
+<div class="paragraph">
+<p>The following two graphics compare the various CDB dataset versions that comprise the Yemen data and the lower resolution ocean and world representations:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/Yemen%20Coverages%20and%20Resolution%20graphic.jpg" alt="#img_Yemen Database Coverages" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 50. .+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/Yemen%20Database%20Area%20Description%20Table.jpg" alt="#img_Yemen Database Area Description Table" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 51. .+</div>
+</div>
+<div class="paragraph">
+<p>So, with the above background in mind, we can look at how the CDB database(s) at an end-user site may be linked either locally or remotely by a utility or directly changing the version.xml file in each dataset so that a simulation client encounters a 'world' of data at run-time startup that can be radically different, and without any change to the basic setup and linkage between the simulation client(s) and their local CDB server.</p>
+</div>
+<div class="paragraph">
+<p>In the following graphic, the laptop demonstration visual client is an image generator, for which the startup Viewpoint position (what I guess we should now call a GeoPose?) is 'looking' at a street corner in Aden, Yemen.  If we startup that image generator with the chain of CDB datasets shown in the 'Update Manager' window, the IG renders the scene of the street corner on the right half of the Figure:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/Demo%20laptop%20IG%20at%20startup%20with%20full%20version%20chain.jpg" alt="#img_Demo IG startup with full CDB chain" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 52. Demonstration IG at startup with full CDB version chain from World to OYAA.+</div>
+</div>
+<div class="paragraph">
+<p>In the following graphic, the same image generator with the same startup Viewpoint position, but with a much simpler chain of CDB datasets renders a very different scene.  Note the mountains in background for comparison of the detailed Aden street view above and this view of the same location and viewpoint but with only background level imagery and elevation data:</p>
+</div>
+<div class="imageblock text-"center">
+<div class="content">
+<img src="images/Demo%20Laptop%20IG%20at%20startup%20with%20only%20background%20datasets%20in%20the%20version%20chain.jpg" alt="#img_Demo IG startup with only background CDB chain" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 53. Demonstration IG at startup with full CDB version chain from World to OYAA.+</div>
+</div>
+<div class="sect2">
+<h3 id="_summary"><a class="anchor" href="#_summary"></a>14.1. Summary</h3>
+<div class="paragraph">
+<p>Versioning is used extensively in fielded CDB implementations.  A primary principal of the current approach is the direct replacement of a file in a parent CDB datasate by an identically named file in a linked child dataset.  Anyone at any level in the operation of the site of the simulators is able to assume the files are 'packaged' identically in every CDB dataset, whether it was produced locally, or produced as a product purchased, or acquired through sharing, and so forth.</p>
+</div>
+<div class="paragraph">
+<p>Versioning is used to distribute a small change very rapidly.  In a previous Integration Analysis document, this author asked all those experimenting in this Tech Sprint to declare how their implementation would deal with a change in which a bridge near this street corner in Yemen is damaged/destroyed.  In CDB 1.X, that small change could be a single Openflight file in a CDB version.  This very small CDB version can be very quickly developed and transported to widely dispersed simulation sites.  Including the change in the 'world' of end site simulation clients after the CDB dataset containing the changed file is on the local CDB server requires rewriting only two version.xml files and restarting the simulation clients.  In actual practice, if the original Openflight model included one or more damage states, the change could actually be accomplished by a selector for the damaged model instead of the default/undamaged model.</p>
+</div>
+<div class="imageblock text-"center">
+<div class="content">
+<img src="images/Sira%20Island%20Yemen%20bridge%20damage.png" alt="#img_Sira Island Bridge damage state" width="800">
+</div>
+<div class="title">Figure Mtd_Ph3 - 54. Openflight damage 'state' of Sira Island Bridge.+</div>
+</div>
+<div class="paragraph">
+<p>Versioning is used so that background level data, including things like worldwide NAV data, can be maintained and distributed on a different schedule than other more localized data.</p>
+</div>
+<div class="paragraph">
+<p>Versioning is used so that CDB datasets that may have some constraint in one or more layers (such as licensing or security classification) can be distributed separately from unrestricted datasets of the same coverage, and linked into the version chain when appropriate.</p>
+</div>
+<div class="paragraph">
+<p>Versioning is used to proved temporary changes to a dataset, such as fortifications or obstacles or other objects that support a specific training or rehearsal, but are not part of the permanent CDB collection for the same coverage.</p>
+</div>
+<div class="paragraph">
+<p>Versioning is also used to quickly disseminate changes that will become part of the permanent collection, but are able to be linked immediately for use and 'flattened' into a parent coverage when appropriate at a later date.</p>
+</div>
+<div class="paragraph">
+<p>==The German Army Aviation Training School in Buchenberg, Germany, has 12 helicopter flight simulators (CH-53, UH-1D, EC-135, with multiple CDB clients (out-the-window visuals; non-visual sensors; computer-generated-forces); there are other simulators within the German Armed Forces that also have CDB simulator clients and that share interoperable CDB datasets with the Army helicopter school.</p>
+</div>
+<div class="paragraph">
+<p>The CDB holdings include world-wide background data; higher resolution datasets for Europe and Germany; some country data procedurally generated; some airports procedurally generated; some country data created from satellite imagery and hand modelling; some airports created from satellite imagery and hand-modelling; both the procedurally-generated and satellite/hand modelled data under continuous update and generation of additional content</p>
+</div>
+<div class="paragraph">
+<p>There are multiple distributed CDB servers; ther is a main 'enterprise' facility CDB repository on site, there are offsite CDB repositories and content creation facilities at the Luftwaffe Fighter Weapons Center Synthet Environment site and the CAE Stollberg.</p>
+</div>
+<div class="paragraph">
+<p>The CDB versioning capability is integral to management of the site.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Recommendations"><a class="anchor" href="#Recommendations"></a>Appendix A: Annex A: Summary of Recommendations</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_attribution_subgroup_2"><a class="anchor" href="#_attribution_subgroup_2"></a>15. Attribution Subgroup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Attribution Subgroup recommends extending the current CDB XML metadata to add the NAS metamodel capabilities that are currently not supported. The CDB core conceptual model should not mandate any particular data dictionary or content, but rather provide the conceptual and logical metamodel for describing any ISO 19109 compliant application schema to the maximum extent practical. There should be no technical reason why one could not develop an extension profile for CDB for any particular data dictionary that complies with ISO 19109.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adopt NAS-compliant logical entity-attribute model for CDB X with extensions for CDB use cases</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Store all aspsects of feature and attribute dictionary in single SQLite file for portability and runtime performance</p>
+</li>
+<li>
+<p>Use GGDM 3.0 as the initial starting point for definitions to populate CDB X data dictionary</p>
+</li>
+<li>
+<p>Match up remaining CDB non-GGDM feature types and subcodes with latest NAS definitions where possible, matching subcodes to attributes where relevant and adding missing enumerant values where necessary (with associated NCV vocabulary)</p>
+</li>
+<li>
+<p>Augment NAS definitions with other open standards and new development</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Match up missing maritime definitions to DGIM followed by IHO S-100 where possible, define NCV vocabulary for such integrated definitions</p>
+</li>
+<li>
+<p>Match up missing aeronautics definitions to DGIM followed by AIXM where possible, define NCV vocabulary for such integrated definitions</p>
+</li>
+<li>
+<p>Coordinate with OGC, NGA, and STE OWT to develop replacement building interior data model incorporating IFC/BIM, CityGML, IMDF, and other open standards</p>
+</li>
+<li>
+<p>Coordinate with OGC, NGA, STE OWT, and civilian environment agencies to develop detailed data model for vegetation</p>
+</li>
+<li>
+<p>Create data model and vocabulary for material and light point definitions and capture into existing material and lightpoint libraries</p>
+</li>
+<li>
+<p>Define NCV vocabulary and NAS-compatible entity and attribute types for CDB feature types and subcodes totally missing in all other standards</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Remove CDB feature subcodes entirely; migrate to existing and new feature and attribute types instead in NAS-compliant structure</p>
+</li>
+<li>
+<p>Define entity types for CDB datasets and define "aggregation" relationships from feature types to containing datasets</p>
+</li>
+<li>
+<p>Capture feature-level, dataset-level, and database metadata as NAS-compliant attribution meeting the NSG Metadata Foundation (NMF) and ISO 19115</p>
+</li>
+<li>
+<p>Define functional role domains and create mechanism to organize attribution by domain for tailoring to runtime devices</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Delegate entity and attribute physical encoding choices to vector and 3D model containers instead of specifying globally</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Deprecate extended attributes entirely, to be removed in CDB X</p>
+</li>
+<li>
+<p>Delegate containerization of entity types (one per table, multiple in same table specified by F_CODE attribute, etc.) to vector and model containers</p>
+</li>
+<li>
+<p>Delegate decision whether to use class or instance attributes to individual vector and model containers rather than global data dictionary</p>
+</li>
+<li>
+<p>Delegate decision of whether to use FACC-like codes, NAS labels, or natural language names for entity types, attributes, and values to vector and model containers</p>
+</li>
+<li>
+<p>Delegate decision of whether to flatten complex feature relationships and attributes used GGDM attribute prefixing to vector and model containers</p>
+</li>
+<li>
+<p>Delegate decision of whether to flatten multi-valued and range-valued attributes using GGDM attribute prefixing to vector and model containers</p>
+</li>
+<li>
+<p>Specify minimum and maximum cardinality of multi-valued attributes in feature and attribute dictionary, allow containers to use a lower maximum if using GGDM attribute prefixing encoding</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Define backward-compatible extensions in CDB 1.3 to add constructs necessary to move toward NAS-compliant attribution</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Capture proposed NAS-complaint replacement feature dictionary in existing CDB metadata XML with necessary extensions</p>
+</li>
+<li>
+<p>Only use feature subcode 000 in replacement dictionary and deprecate use of feature subcodes to be removed in CDB X</p>
+</li>
+<li>
+<p>Add mechanism to mark numeric attributes as interval ranges (existing non-upgraded clients should see still attribute as single-valued and read mean value from associated unsuffixed attribute, use suffixed attributes for deviation and closure for upgraded clients to read)</p>
+</li>
+<li>
+<p>Add minumum and maximum cardinality elements for attribute definitions to specify mininum and maximum element count for multi-valued attributes (existing non-upgraded clients should just see attribute as scalar base value and will only read the first value from associated content, will see ordinal-suffixed attributes as separate attributes)</p>
+</li>
+<li>
+<p>Add list of valid attributes to datasets in CDB 1.x metadata XML files to match existing human-readable specification</p>
+</li>
+<li>
+<p>Add list of valid enumerants for each attribute in CDB 1.x CDB_Attributes.xml file to match existing human-readable specification</p>
+</li>
+<li>
+<p>Add list of valid attributes for each entity type as extension to CDB 1.x Feature_Data_Dictionary.xml to implement NAS-compliant per-entity attributes</p>
+</li>
+<li>
+<p>Update CDB 1.x CDB_Attributes.xml to allow specifying text pattern constraints through &lt;Pattern&gt; element and text codelists for text attributes via &lt;Codelist&gt; element</p>
+</li>
+<li>
+<p>Update CDB 1.x Feature_Data_Dictionary.xml for each feature to specify its generalization (base) entity type via &lt;Generalization&gt; element</p>
+</li>
+<li>
+<p>Update CDB 1.x Feature_Data_Dictionary.xml to add &lt;Aggregation&gt; element to define additional associated category for an entity type, or parent category for a category</p>
+</li>
+<li>
+<p>Existing category and subcategory XML structure will add implicit definitions and aggeregation links for the category/subcategory items as used by CDB 1.0 for model storage</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 1 Extended Attributes - Version 1.3</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/25">Should Extended Attributes be preserved at the logical data model level?</a> The suggestion is that the CDB SWG discuss this issue and possible solution as a possible change for CDB version 1.3. Some additional testing may be required to determine if this capability can be added to version 1.3 or not.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 2 Attribute default values - Version 1.3</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/32">Attribute Default Values #32</a>. The recommendation is that Defaults.xml can be used to define global attribute defaults as well as per-dataset defaults. Doing per-entity defaults would be a straight forward extension that could be proposed for CDB 1.3 as a transition path. The subgroup suggests that the CDB SWG discussion this for possible inclusion in version 1.3. A change request for this approach to specifying default values is also suggested.</p>
+</div>
+<div class="paragraph">
+<p><code>Recommendation 3 Attribute Terms - Version 1.3</code> The subgroup discussion on this topic is titled: <a href="https://github.com/sofwerx/cdb2-concept/issues/31">Capture Attribute Terms (Enumerants) in Metadata #31</a>. Attributes describing qualitative values are present in CDB 1.2 and the list of valid values  for each attribute are documented in the human-readable specification with both the vocabulary term name and its integer numeric value (index). However, the machine-readable XML metadata does not contain any of this information and treats these attribute types as raw integers with only a minimum and maximum value constraint. It may make sense as a transition path to update CDB 1.3 to define additional XML elements in a backward compatible way to capture these definitions from the existing specification into the machine-readable XML metadata. The conceptual model in the CDB 1.2 specification does align with how GGDM treats such attributes, so there is no fundamental incompatibility, and the proposed CDB X dictionary design accounts for properly tracking the terms for qualitative attributes in a machine-readable way in SQLite.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="annex-b"><a class="anchor" href="#annex-b"></a>Appendix B: Annex B: CDB-X sample GeoPackages resulting from Ecere experiments.</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The results produced were sourced from the CAE San Diego CDB 1.x.<br>
+An additional data layer was sourced from the NASA Visible Earth <a href="https://visibleearth.nasa.gov/collection/1484/blue-marble">Blue Marble</a>.<br>
+A detailed description of these results is featured in the Engineering
+Report – <a href="https://github.com/sofwerx/cdb2-eng-report/blob/master/11-tiling-coverages.adoc">Tiling section.</a><br>
+These are also available from the <a href="https://portal.ogc.org/index.php?m=projects&amp;a=view&amp;project_id=466&amp;tab=2&amp;artifact_id=95315">CDB SWG / CDB X Tech Sprint folder</a>.</p>
+</div>
+<div class="paragraph">
+<p>MVT: Mapbox Vector Tiles (<a href="https://docs.mapbox.com/vector-tiles/reference/">specifications</a>)</p>
+</div>
+<div class="paragraph">
+<p>GMT: GNOSIS Map Tiles (<a href="http://docs.opengeospatial.org/per/18-025.html#GMTSpecs">specifications</a>)</p>
+</div>
+<div class="paragraph">
+<p>E3D: Ecere 3D Models (<a href="http://docs.opengeospatial.org/per/18-025.html#E3DSpecs">specifications</a>)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_san_diego_cdb_layers_packaged_together_2"><a class="anchor" href="#_san_diego_cdb_layers_packaged_together_2"></a>16. San Diego CDB layers packaged together</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data / Link</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOD Grouping</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Models Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Imagery Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Coverage Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vector Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Uncompressed size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Compressed Size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="8"><p class="tableblock"><em>As a single GeoPackage</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/SanDiego.gpkg.7z">San Diego</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PNG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MVT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12.8 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.8 GiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/SanDiego.gpkg">San Diego</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GMT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GMT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10.3 GiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="8"><p class="tableblock"><em>Grouping tiles of 5 LODs per GeoPackage</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/SanDiego.7z">San Diego</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PNG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MVT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14.6 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.9 GiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95370">San Diego (subset)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PNG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MVT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">217.5 MiB</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_san_diego_cdb_packaged_as_separate_layers_2"><a class="anchor" href="#_san_diego_cdb_packaged_as_separate_layers_2"></a>17. San Diego CDB packaged as separate layers</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_elevation_2"><a class="anchor" href="#_elevation_2"></a>17.1. Elevation</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data / Link</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOD Grouping</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Coverage Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Uncompressed size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Compressed Size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95352">Elevation</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PNG / 16-bit integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">483 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">472 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95328">Elevation</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GMT / 16-bit integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">370.8 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">365.2 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/ElevationTIF.7z">Elevation</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeoTIFF / 32-bit float</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.3 GiB</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_imagery_2"><a class="anchor" href="#_imagery_2"></a>17.2. Imagery</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data / Link</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOD Grouping</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Imagery Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Uncompressed size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Compressed Size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/BlueMarble.7z">Blue Marble</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.6 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4 GiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/ImageryMedium.7z">Imagery (Medium)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.9 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.7 GiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://data.ogc.org/2020/11/ImageryHigh.7z">Imagery (High)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPEG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.5 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.3 GiB</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_vector_data_3"><a class="anchor" href="#_vector_data_3"></a>17.3. Vector data</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data / Link</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOD Grouping</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vector Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Uncompressed size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Compressed Size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95348">Hydrography</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">424 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95350">Roads</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">69.1 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17.6 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95346">Airport Lights</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">144 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95330">Hydrography</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">248 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95331">Roads</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">38 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">23.4 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95329">Airport Lights</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">148 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_3d_models_3"><a class="anchor" href="#_3d_models_3"></a>17.4. 3D Models</h3>
+<div class="sect3">
+<h4 id="_using_referencing_placement_points_2"><a class="anchor" href="#_using_referencing_placement_points_2"></a>17.4.1. Using referencing placement points</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data / Link</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOD Grouping</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Models Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vector Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Uncompressed size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Compressed Size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95351">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.9 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">321.3 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95349">Trees</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 MiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95347">Coronado Bridge</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">272 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95340">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">560.8 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">332.8 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95339">Trees</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.8 MiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95338">Coronado Bridge</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">196 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95344">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.1 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">446.6 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95343">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.7 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409.2 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95342">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.9 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">321.3 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95341">Trees</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.9 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.2 MiB</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_batching_models_per_tile_2"><a class="anchor" href="#_batching_models_per_tile_2"></a>17.4.2. Batching models per tile</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data / Link</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOD Grouping</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Models Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vector Encoding</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Uncompressed size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Compressed Size</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95337">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.9 GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">512.4 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95335">Trees</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">91 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.3 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95336">Coronado Bridge</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Binary glTF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapbox Vector Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">576 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95334">Buildings</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">417.3 MiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">339.8 MiB</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95333">Trees</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.3 MiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://portal.ogc.org/files/?artifact_id=95332">Coronado Bridge</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single File</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNOSIS Map Tiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">256 KiB</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>For the GeoPackage CDB Interoperabilty Experiment, FlightSafety strictly tested existing Shapefile performance vs GeoPackage performance from a flight simulation runtime perspective.  So how fast can we pull data out of a GeoPackage in the same manner that we process shapefiles.  GeoPackage creation timing wasn&#8217;t that interesting to us at the time.  We were also testing the different approaches put forward on how to structure the GeoPackage to contain the data, whether that was one GeoPackage containing a single shapefile&#8217;s features, one GeoPackage table containing all the features at a given level of detail, or one GeoPackage table containing all the features at all the levels of detail.  Changing the CDB conceptual model or levels of detail was outside the scope of this project.</p>
 </div>
@@ -6243,14 +7262,14 @@ The table here shows the three different GeoPackage organizations, how many feat
 <div class="content">
 <img src="images/fs-gpkg-performance.png" alt="fs gpkg performance" width="800">
 </div>
-<div class="title">Figure Mtd_Ph3 - 48. Performance.</div>
+<div class="title">Figure Mtd_Ph3 - 55. Performance.</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="RevisionHistory"><a class="anchor" href="#RevisionHistory"></a>Annex A: Revision History</h2>
+<h2 id="RevisionHistory"><a class="anchor" href="#RevisionHistory"></a>Annex C: Revision History</h2>
 <div class="sectionbody">
 <div class="exampleblock">
 <div class="content">
@@ -6297,7 +7316,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 </div>
 <div class="sect1">
-<h2 id="Bibliography"><a class="anchor" href="#Bibliography"></a>Annex B: Bibliography</h2>
+<h2 id="Bibliography"><a class="anchor" href="#Bibliography"></a>Annex D: Bibliography</h2>
 <div class="sectionbody">
 <div id="STAC2017" class="paragraph">
 <p>[1] STAC: <a href="https://stacspec.org/">Spatio Temporal Asset Catalogs.</a> (2017).</p>
@@ -6316,7 +7335,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-06 17:27:30 UTC
+Last updated 2020-11-06 17:28:42 UTC
 </div>
 </div>
 <style>
