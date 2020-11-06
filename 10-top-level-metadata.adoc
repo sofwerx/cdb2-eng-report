@@ -5,31 +5,41 @@
 
 == CDB X Metadata and Integration
 
-This section discusses metadata in CDB X
+This section discusses the role of metadata in CDB-X.
 
-=== Summary of history of CDB X metadata discussions.
+=== Summary of history of CDB-X metadata discussions.
 
-The earlier 'industry' versions, and OGC CDB 1.x versions of CDB contain a 'metadata' directory.  Despite the directory name, this is a collection of .XSD (XML Schema Definition) and associated .XML (eXtensible Markup Language) files that are essentially controlled vocabularies for elements of the CDB standard.
+The earlier 'industry' versions, and OGC CDB 1.x versions of CDB contain a 'metadata' directory.  Despite the directory name, this is a collection of .XSD (XML Schema Definition) and associated .XML (eXtensible Markup Language) files that are metadata, controlled vocabularies, and enumerations for elements of the CDB standard.
+
+NOTE: More specifically, the majority of what is referred to as metadata in the CDB standard is not metadata! The majority of the schemas, metadata references, and related requirements are actually controlled vocabularies (code-lists). Lights, materials, and so on are controlled vocabularies and not metadata. Some elements of the standard, such as “version” are referred to as metadata and could be classed as metadata.
 
 In the OGC CDB  Github "Schema" repo, the contents of the root level are:
 
 [#img_CDB1-schema-root-level-files,reftext='{figure-caption} {counter:figure-num}']
 .OGC CDB Schema Github Repo Root level files.
-image::images/CDB 1dotX schema repo root directory files.png[width=750,align="center"]
+image::images/CDB 1dotX schema repo root directory files.png[width=600,align="center"]
 
 and the contents of the Metadata subdirectory are:
 
 [#img_CDB1-schema-metadata-subdir-files,reftext='{figure-caption} {counter:figure-num}']
 .OGC CDB Schema Github Repo Metadata sub-directory files.
-image::images/CDB 1dotX schema repo Metadata file directory.png[width=750,align="center"]
+image::images/CDB 1dotX schema repo Metadata file directory.png[width=600,align="center"]
 
-OGC CDB V1.1 is a minor revision of OGC CDB that provides for optional global and local metadata.  The description of the new geospatial metadata provisions is in the Volume 1 Core document, in Section 5.1:
+OGC CDB V1.1 is a minor revision of OGC CDB Standard that provides guidance and recommendations for optional global and local metadata in a CDB datastore.  The description of the new geospatial metadata provisions is in Section 5.1 of the CDB Standard Volume 1 Core document.
 
-[#img_CDB1dot2-Vol-1-new-geo-metadata,reftext='{figure-caption} {counter:figure-num}']
-.OGC CDB V1.2 Volume 1 Table-of-Contents Exerpt.
-image::images/Metadata in CDB V1dot2.png[width=750,align="center"]
+During the CDB 1.1 revision discussions, the SWG evaluated metadata elements as specified in a number of international standards as well as DoD metadata specifications. The following metadata standards, widely referenced and used in the geospatial community, were considered as input to the recommendations:
 
-For ease of reference, sections 5.1.10 thru 5.1.12 from Volume 1 of OGC CDB V1.2 are repeated here:
+-	Dublin Core
+-	DCAT
+-	INSPIRE/19115
+-	DDMS 1 (2003)
+-	DDMS 5 (2012) M&S Profile
+-	NOAA 19115 Profile
+-	FGDC
+-	GeoDCAT-AP
+-	US Federal Open Data Metadata schema (see annex A)
+
+Evaluation of these metadata standards led to defining a limited set of metadata specified as guidance in the CDB 1.1 Standard. For ease of reference, sections 5.1.10 thru 5.1.12 from Volume 1 of OGC CDB V1.2 are repeated here:
 
 [[GeospatialMetadataGuidance]]
 
@@ -86,8 +96,6 @@ _Spatial Resolution Information_ (No equivalent, MD_Identification.spatialResolu
 ===== Where are local metadata files stored?
 
 Typically, local metadata files will be stored with the physical data. For GTModel geotypical data sets, the metadata file would be stored along with the model XML file. If the model is stored in multiple LoDs, the metadata would also be stored at each LoD. For tiled vector data, the local metadata would be stored with the vector files at the tile level. Please see the esamples in Section 3.0 for more detail.
-
-
 
 
 
