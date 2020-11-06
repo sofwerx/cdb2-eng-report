@@ -37,7 +37,9 @@ NOTE: The <<CDB2models,CDB X Design Goals, Use Cases, and Conceptual/Logical Mod
 
 === Recommendations
 
-The following are the key recommendations for changes, enhancements, and design principals for not just CDB-X but also CDB version 1.3. The version 1.3 chnages are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path for the future major CDB version. The following are the major recommendations. A complete summary of all recommendations can be found in <<Recommendations,Annex A>>.
+The following are the key recommendations for changes, enhancements, and design principals for not just CDB-X but also CDB version 1.3. The version 1.3 chnages are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path for the future major CDB version. The following are the major recommendations. A complete summary of all Attribution recommendations can be found in <<Recommendations,Annex A>>.
+
+NOTE: A key requirement for a CDB datastore is the ability to version content. This requirement was not addressed in any of the Subgroup experiments. However, all the Spring participants agreed that version management is a critical requirement for CDB-X. The <<Versioning_in_Legacy_CDB,CDB Versioning, old and new>> chapter of this ER provides details.
 
 ==== 3D Subgroup
 
