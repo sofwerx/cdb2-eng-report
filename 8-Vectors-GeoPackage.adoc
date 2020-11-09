@@ -1,8 +1,8 @@
 [[vectorgpkg]]
 
-== CDB X 
+== CDB X Performance of CDB Vector Data in Large GeoPackage Containers
 
-=== Performance of CDB Vector Data in Large GeoPackage Containers
+This section of the ER discusses the experiments and results for storing large numbers of vector geometries in a single GeoPackage.
 
 === Abstract
 To test potential approaches to storing CDB vector data in GeoPackage, the Vector Data in GeoPackage Subgroup, hereafter referred to as the Subgroup, performed several different experiments to determine the viability of storing very large volumes of vector data in a smaller number of large GeoPackage files rather than a very large number of small Shapefiles. Some of the experiments also set out to determine if there are upper limits in how much CDB content can be stored in a GeoPackage. 
@@ -129,9 +129,9 @@ In this test, reading the Shapefiles took 0:01:29 (1.5 minutes). With no indexes
 
 Note: tiles that return zero features do not create a test output record.
 
-==== Results
+=== Results
 
-===== Experiment 1:  Step size .25 degrees (CDB LOD2), significant size > 13.355 (LOD2 significant size) 
+==== Experiment 1:  Step size .25 degrees (CDB LOD2), significant size > 13.355 (LOD2 significant size) 
 
 Test results coverage is shown in the figure below.
 
@@ -164,7 +164,7 @@ image::images/Vec_Gpkg_Figure09.jpg[width=600,align="center"]
 image::images/Vec_Gpkg_Figure10.jpg[width=600,align="center"]
 &nbsp;
 
-===== Experiment 2: Simulation of LOD4, hydro, road, and building layers, significant size (buildings) > 3.39718
+==== Experiment 2: Simulation of LOD4, hydro, road, and building layers, significant size (buildings) > 3.39718
 
 Test results coverage is shown in the figure below.
 
