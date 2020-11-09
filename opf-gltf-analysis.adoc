@@ -1,4 +1,4 @@
-== 
+
 
 [cols=",,,,,,",options="header",]
 |===
@@ -231,22 +231,4 @@ Material textures are not a concept in gltf. Would require extension.
 |Yes |Difficult |Yes
 |===
 
-== 
-
-== 
-
-== 
-
-== 
-
-== Supporting more than CDB 1.X:
-
-OpenFlight capabilities that could be leveraged:
-
-* Extensions
-* Extended Materials
-* Hotspots
-* LOD Transitions
-* Cultural Footprint
-* Point Nodes (Model Points instead of using tranforms)
 
