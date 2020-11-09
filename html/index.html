@@ -669,13 +669,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#Versioning_in_Legacy_CDB">CDB Versioning, old and new</a>
-<ul class="sectlevel1">
-<li><a href="#_a_review_of_how_versioning_is_used_in_legacy_ogc_cdb_1_x_and_how_that_experience_leads_to_use_cases_for_exploration_of_versioning_in_cdb_x">13. A review of how 'versioning' is used in legacy OGC CDB 1.X, and how that experience leads to use cases for exploration of versioning in CDB X.</a>
+<li><a href="#Versioning_in_Legacy_CDB">13. CDB Versioning, old and new</a>
 <ul class="sectlevel2">
-<li><a href="#_summary">13.1. Summary</a></li>
-</ul>
-</li>
+<li><a href="#_a_review_of_cdb_versioning">13.1. A review of CDB 'versioning'</a></li>
+<li><a href="#_summary">13.2. Summary</a></li>
 </ul>
 </li>
 <li><a href="#Recommendations">Appendix A: Annex A: Summary of Recommendations</a></li>
@@ -6616,12 +6613,13 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 </div>
 </div>
 </div>
-<h1 id="Versioning_in_Legacy_CDB" class="sect0"><a class="anchor" href="#Versioning_in_Legacy_CDB"></a>CDB Versioning, old and new</h1>
 <div class="sect1">
-<h2 id="_a_review_of_how_versioning_is_used_in_legacy_ogc_cdb_1_x_and_how_that_experience_leads_to_use_cases_for_exploration_of_versioning_in_cdb_x"><a class="anchor" href="#_a_review_of_how_versioning_is_used_in_legacy_ogc_cdb_1_x_and_how_that_experience_leads_to_use_cases_for_exploration_of_versioning_in_cdb_x"></a>13. A review of how 'versioning' is used in legacy OGC CDB 1.X, and how that experience leads to use cases for exploration of versioning in CDB X.</h2>
+<h2 id="Versioning_in_Legacy_CDB"><a class="anchor" href="#Versioning_in_Legacy_CDB"></a>13. CDB Versioning, old and new</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_a_review_of_cdb_versioning"><a class="anchor" href="#_a_review_of_cdb_versioning"></a>13.1. A review of CDB 'versioning'</h3>
 <div class="paragraph">
-<p>Since the beginning of the CDB development, the concept of versioning was designed to support the development and distribution of small changes to the content and to support end-site CDB servers' capability to link each dataset called a CDB to a 'parent' CDB dataset using the Version.xml file in the Metadata subdirectory under the CDB-dataset top level directory.</p>
+<p>This section discusses how veriosning is used in legacy OGC CDB 1.X implementations and how that experience leads to use cases for exploration of versioning in CDB X.Since the beginning of the CDB development, the concept of versioning was designed to support the development and distribution of small changes to the content and to support end-site CDB servers' capability to link each dataset called a CDB to a 'parent' CDB dataset using the Version.xml file in the Metadata subdirectory under the CDB-dataset top level directory.</p>
 </div>
 <div class="paragraph">
 <p>The specific mechanism that enables versioning in OGC CDB 1.x is the XML element:  &lt;PreviousIncrementalRootDirectory name=    &gt;</p>
@@ -6703,8 +6701,9 @@ A <a href="https://www.youtube.com/watch?v=gyaQjqy0N8g">video</a> was also publi
 </div>
 <div class="title">Figure Mtd_Ph3 - 50. Demonstration IG at startup with full CDB version chain from World to OYAA.+</div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_summary"><a class="anchor" href="#_summary"></a>13.1. Summary</h3>
+<h3 id="_summary"><a class="anchor" href="#_summary"></a>13.2. Summary</h3>
 <div class="paragraph">
 <p>Versioning is used extensively in fielded CDB implementations.  A primary principal of the current approach is the direct replacement of a file in a parent CDB datasate by an identically named file in a linked child dataset.  Anyone at any level in the operation of the site of the simulators is able to assume the files are 'packaged' identically in every CDB dataset, whether it was produced locally, or produced as a product purchased, or acquired through sharing, and so forth.</p>
 </div>
@@ -7397,7 +7396,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-09 23:21:40 UTC
+Last updated 2020-11-09 23:26:55 UTC
 </div>
 </div>
 <style>
