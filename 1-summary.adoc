@@ -33,13 +33,13 @@ In order to accomplish the target deliverables of this activity, the participant
 
 These teams focused on specific experiments and prototyping tasks to test key design concepts for inclusion in CDB-X. The results are documented in this ER.
 
-NOTE: The <<CDB2models,CDB X Design Goals, Use Cases, and Conceptual/Logical Models>> chapter in this ER provides additional requirements and recommendations. These are phrased general design goals based on group discussions, design threads in the recommendations below, and discussions in the OGC CDB Standards Working Group.
+NOTE: The <<CDB2models,CDB X Design Goals, Use Cases, and Conceptual/Logical Models>> chapter in this ER provides additional requirements and recommendations. These are phrased as general design goals based on group discussions, design threads in the recommendations below, and discussions in the OGC CDB Standards Working Group.
 
 === Recommendations
 
 The following are the key recommendations for changes, enhancements, and design principals for not just CDB-X but also CDB version 1.3. The version 1.3 changes are viewed as important enhancement that resolve both existing user specified needs as well as helping to provide a transition path for the future major CDB version. The following are the major recommendations. A complete summary of all Attribution recommendations can be found in <<Recommendations,Annex A>>.
 
-NOTE: A key requirement for a CDB datastore is the ability to version content. This requirement was not addressed in any of the Subgroup experiments. However, all the Spring participants agreed that version management is a critical requirement for CDB-X. The <<Versioning_in_Legacy_CDB,CDB Versioning, old and new>> chapter of this ER provides details.
+NOTE: A key requirement for a CDB datastore is the ability to version content. This requirement was not addressed in any of the Subgroup experiments. However, all the Sprint participants agreed that version management is a critical requirement for CDB-X. The <<Versioning_in_Legacy_CDB,CDB Versioning, old and new>> chapter of this ER provides details.
 
 NOTE: A recurring discussion topic during the Sprint was a desire to better align the CDB Standard with the ongoing One World Terrain activity. This was a major determining factor in how the Attribution experiments and the use of GGDM were structured. This desire also helped direct the work of the 3D Modeling experiments. These experiments were successful.
 
@@ -52,17 +52,19 @@ The following are the recommendations from the <<threedcontent,3D Models and oth
 `Recommendation 2`: Complete the EXT_CDB draft glTF extension that adds required CDB simulation capabilities identified as missing from glTF. The new (and prototype) extension defines CDB-specific constructs such as points, zones, lights, light maps, and extended texture types.
 
 `Recommendation 3`: Consider possible standalone glTF extensions for:
-- Coordinate Reference System - Shared interest with One World Terrain and possibly wider glTF ecosystem.
-- Switch nodes - Shared interest with One World Terrain moving models format. Note: Node switching is supported in the I3S Community standard.
-- External references - Some interest in wider glTF ecosystem, but many unresolved implementation details.
+
+- Coordinate Reference System: Shared interest with One World Terrain and possibly wider glTF ecosystem.
+- Switch nodes: Shared interest with One World Terrain moving models format. Note: Node switching is supported in the I3S Community standard.
+- External references: Some interest in wider glTF ecosystem, but many unresolved implementation details.
 
 `Recommendation 4`: Leverage existing glTF extensions:
-- Articulations - This extension adds articulations, attach points, and related metadata to the glTF model (see AGI_articulations).
-- Metadata - Consider the EXT_feature_metadata extension. This extension is for storing metadata at different levels of granularity including per-mesh, per-face, per-vertex, and per-texel. This could be a good candidate for CDB model attributes and material map textures.
+
+- Articulations: This extension adds articulations, attach points, and related metadata to the glTF model (see AGI_articulations).
+- Metadata: Consider the EXT_feature_metadata extension. This extension is for storing metadata at different levels of granularity including per-mesh, per-face, per-vertex, and per-texel. This could be a good candidate for CDB model attributes and material map textures.
 
 `Recommendation 5`: Consider a Model indexing file that includes the following: Model LODs, Interior and exteriors, Navigation and collision mesh
 
-`Recommendation 6`: To reduce the current number of files in CDB 1.x a recommendation is to group each model data into a zip (all LODs, textures etc…​) while keeping the xml (index file) separate. A quick access to the index file would allow identifying what is required to be loaded into each ZIP. 9See Recommendation 5). This is a possible CDB 1.3 enhancement.
+`Recommendation 6`: To reduce the current number of files in CDB 1.x, a recommendation is to group each model data into a zip (all LODs, textures etc…​) while keeping the xml (index file) separate. A quick access to the index file would allow identifying what is required to be loaded into each ZIP. 9See Recommendation 5). This is a possible CDB 1.3 enhancement.
 
 
 ==== Attribution Subgroup
