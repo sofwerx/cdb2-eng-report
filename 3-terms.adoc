@@ -2,35 +2,35 @@
 
 For the purposes of this report, the definitions specified in Clause 4 of the OWS Common Implementation Standard https://portal.opengeospatial.org/files/?artifact_id=38867&version=2[OGC 06-121r9] shall apply. In addition, the following terms and definitions apply.
 
-*4.x* +
+*4.1* +
 *authoritative data* +
 Officially recognized data that can be certified and is provided by an authoritative source.
 
 (SOURCE: Authority and Authoritative Sources: Clarification of Terms and Concepts for Cadastral Data. FGDC/NIST 2008)
 
-*4.x* +
+*4.2* +
 *authoritative data source* +
 An information technology (IT) term used by system designers to identify a system process that assures the veracity of data sources.  These IT processes should be followed by all geospatial data providers.  The data may be original or it may come from one or more external sources all of which are validated for quality and accuracy.
 
 (SOURCE: Authority and Authoritative Sources: Clarification of Terms and Concepts for Cadastral Data. FGDC/NIST 2008)
 
-*4.x* +
+*4.3* +
 *conceptual model* +
 description of common concepts and their relationships, particularly in order to facilitate exchange of information between parties within a specific domain. A conceptual model is explicitly chosen to be independent of design or implementation concerns.
 
 (SOURCE: CEN ENV 1613:1995)
 
-*4.x* +
+*4.4* +
 *coverage* +
 feature that acts as a function to return values from its range for any direct position within its spatio-temporal domain
  
-*4.x* +
+*4.5* +
 *coordinate reference system* +
 coordinate system that is related to the real world by a datum 
 
 (SOURCE: ISO 19111:2019 Geographic information — Referencing by coordinates)
 
-*4.x* +
+*4.6* +
 *dataset* +
 A dataset is a collection of data, published or curated by a single agent. Data comes in many forms including numbers, words, pixels, imagery, sound and other multi-media, and potentially other types, any of which might be collected into a dataset. 
 
@@ -38,58 +38,58 @@ Note: There is an important distinction between a dataset as an abstract idea an
 
 (SOURCE: https://www.w3.org/TR/vocab-dcat-2/[W3C Data Catalog Vocabulary (DCAT) - Version 2], 2020)
 
-*4.x* +
+*4.7* +
 *Data Store* +
 
 A data store is a repository for persistently storing and managing collections of data which include not just repositories like databases, but also simpler store types such as simple files, metadata, models, etc. 
  
 (SOURCE: https://www.information-management.com/glossary/d.html:2020)
  
-*4.x* +
+*4.8* +
 *elevation* +
 Synonym for “height”
  
 (SOURCE: https://portal.opengeospatial.org/files/?artifact_id=19820[OGC Abstract Topic 6: Schema for coverage geometry and functions])
 
-*4.x* +
+*4.9* +
 *feature data dictionary* +
 A Feature data dictionary is a collection of descriptions of the Feature objects or items in a Feature data model for the benefit of programmers and others who need to refer to them.
 
 (SOURCE: OGC Testbed-13: CDB Engineering Report - 17-042)
 
 
-*4.x* +
+*4.10* +
 *foundation data* + 
 authoritative data and models that have been curated and stored in a CDB repository. Foundation data uses known and agreed to controlled vocabularies for attribution, has been curated based on the requirements as stated in the CDB standard, and supported by the required metadata.
 
-*4.x* +
+*4.11* +
 *geospecific model* + 
 A Geospecific model is instanced once and only once within a CDB. Geospecific models usually correspond to unique (in either shape, size, texture, materials or attribution), man-made, real world 3D features. NOTE: Being discussed for possible evolution as part of CDB 2.0
 
-*4.x* +
+*4.12* +
 *geotypical model* + 
 A Geotypical model is instanced multiple times within a CDB data store. Geotypical models correspond to representative (in shape, size, texture, materials and attribution) models of real-world manmade or natural 3D features.
 
-*4.x* +
+*4.13* +
 *height* +
 Distance of a point from a chosen reference surface measured upward along a line perpendicular to that surface. 
 Note 1 to entry: A height below the reference surface will have a negative value, which would embrace both gravity-related heights and ellipsoidal heights.
 
 (SOURCE: ISO 19111:2019 Geographic information — Referencing by Coordinates)
 
-*4.x* +
+*4.14* +
 *Metadata* +
 information that captures the characteristics of a resource to represent the ‘who’, ‘what’, ‘when’, ‘where’,
 ‘why’, and ‘how’ of that resource.
 
 (SOURCE: https://nsgreg.nga.mil/doc/view?i=4252&month=10&day=22&year=2019[National System for Geospatial Intelligence (NSG) Metadata Foundation (NMF) Version 3.0])
 
-*4.x* +
+*4.15* +
 *repository* +
 
 a place that holds CDB data, makes CDB data available to use, and organizes CDB data in a logical manner. (Network of the National Library of Medicine) 2020
  
-*4.x* +
+*4.16* +
 *resource* +
 identifiable asset or means that fulfils a requirement
 
@@ -97,14 +97,14 @@ NOTE: A web resource, or simply resource, is any identifiable thing, whether dig
 
 (SOURCE: ISO:19115-1:2014 Geographic information — Metadata — Part 1: Fundamentals)
 
-&#9679; tile ::
- 
-geometric  shape  with  known  properties  that  may  or  may  not  be  the  result  of  a  tiling  (tessellation)process. A tile consists of a single connected "piece" without "holes" or "lines" (topological disc).
+*4.17* +
+tile +
+ geometric  shape  with  known  properties  that  may  or  may  not  be  the  result  of  a  tiling  (tessellation)process. A tile consists of a single connected "piece" without "holes" or "lines" (topological disc).
 
 NOTE: “tile” is NOT a packaged blob of data to download in a chunky streaming optimization scheme! 
 
-&#9679; tiling ::
-
+*4.18* + 
+tiling +
 in mathematics, a tiling (tessellation) is a collection of subsets of the space being tiled, i.e. tiles thatcover the space without gaps or overlaps.
 
 ===	Abbreviated terms
