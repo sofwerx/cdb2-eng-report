@@ -543,24 +543,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#vectorgpkg">9. CDB X</a>
+<li><a href="#vectorgpkg">9. CDB X Performance of CDB Vector Data in Large GeoPackage Containers</a>
 <ul class="sectlevel2">
-<li><a href="#_performance_of_cdb_vector_data_in_large_geopackage_containers">9.1. Performance of CDB Vector Data in Large GeoPackage Containers</a></li>
-<li><a href="#_abstract">9.2. Abstract</a></li>
-<li><a href="#_objective">9.3. Objective</a></li>
-<li><a href="#_data_sources">9.4. Data Sources</a>
+<li><a href="#_abstract">9.1. Abstract</a></li>
+<li><a href="#_objective">9.2. Objective</a></li>
+<li><a href="#_data_sources">9.3. Data Sources</a>
 <ul class="sectlevel3">
-<li><a href="#_data_source_1_cdb_usa_bldg_ssiz_gpkg">9.4.1. Data Source 1 - cdb-usa-bldg-ssiz.gpkg:</a></li>
-<li><a href="#_data_source_2_osm_hydro_to_cdb_gpkg">9.4.2. Data Source 2 - osm-hydro-to-CDB.gpkg</a></li>
-<li><a href="#_data_source_3_osm_roads_to_cdb_gpkg">9.4.3. Data Source 3 - osm-roads-to-CDB.gpkg</a></li>
-<li><a href="#_output">9.4.4. Output</a></li>
+<li><a href="#_data_source_1_cdb_usa_bldg_ssiz_gpkg">9.3.1. Data Source 1 - cdb-usa-bldg-ssiz.gpkg:</a></li>
+<li><a href="#_data_source_2_osm_hydro_to_cdb_gpkg">9.3.2. Data Source 2 - osm-hydro-to-CDB.gpkg</a></li>
+<li><a href="#_data_source_3_osm_roads_to_cdb_gpkg">9.3.3. Data Source 3 - osm-roads-to-CDB.gpkg</a></li>
+<li><a href="#_output">9.3.4. Output</a></li>
 </ul>
 </li>
-<li><a href="#_performance_testing">9.5. Performance Testing</a>
+<li><a href="#_performance_testing">9.4. Performance Testing</a>
 <ul class="sectlevel3">
-<li><a href="#_attribute_queries_and_performance_summary">9.5.1. Attribute Queries and Performance Summary</a></li>
-<li><a href="#_methodology">9.5.2. Methodology</a></li>
-<li><a href="#_results">9.5.3. Results</a></li>
+<li><a href="#_attribute_queries_and_performance_summary">9.4.1. Attribute Queries and Performance Summary</a></li>
+<li><a href="#_methodology">9.4.2. Methodology</a></li>
+</ul>
+</li>
+<li><a href="#_results">9.5. Results</a>
+<ul class="sectlevel3">
+<li><a href="#_experiment_1_step_size_25_degrees_cdb_lod2_significant_size_13_355_lod2_significant_size">9.5.1. Experiment 1:  Step size .25 degrees (CDB LOD2), significant size &gt; 13.355 (LOD2 significant size)</a></li>
+<li><a href="#_experiment_2_simulation_of_lod4_hydro_road_and_building_layers_significant_size_buildings_3_39718">9.5.2. Experiment 2: Simulation of LOD4, hydro, road, and building layers, significant size (buildings) &gt; 3.39718</a></li>
 </ul>
 </li>
 <li><a href="#_conclusions_and_recommendations">9.6. Conclusions and Recommendations</a></li>
@@ -3130,14 +3134,13 @@ This content of this section was authored by Greg Peele, leader of the Attribute
 </div>
 </div>
 <div class="sect1">
-<h2 id="vectorgpkg"><a class="anchor" href="#vectorgpkg"></a>9. CDB X</h2>
+<h2 id="vectorgpkg"><a class="anchor" href="#vectorgpkg"></a>9. CDB X Performance of CDB Vector Data in Large GeoPackage Containers</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_performance_of_cdb_vector_data_in_large_geopackage_containers"><a class="anchor" href="#_performance_of_cdb_vector_data_in_large_geopackage_containers"></a>9.1. Performance of CDB Vector Data in Large GeoPackage Containers</h3>
-
+<div class="paragraph">
+<p>This section of the ER discusses the experiments and results for storing large numbers of vector geometries in a single GeoPackage.</p>
 </div>
 <div class="sect2">
-<h3 id="_abstract"><a class="anchor" href="#_abstract"></a>9.2. Abstract</h3>
+<h3 id="_abstract"><a class="anchor" href="#_abstract"></a>9.1. Abstract</h3>
 <div class="paragraph">
 <p>To test potential approaches to storing CDB vector data in GeoPackage, the Vector Data in GeoPackage Subgroup, hereafter referred to as the Subgroup, performed several different experiments to determine the viability of storing very large volumes of vector data in a smaller number of large GeoPackage files rather than a very large number of small Shapefiles. Some of the experiments also set out to determine if there are upper limits in how much CDB content can be stored in a GeoPackage.
 This document details the Subgroup&#8217;s approach and results of the experiments.</p>
@@ -3162,7 +3165,7 @@ The OGC CDB Standards Working Group will use the work performed by the participa
 </div>
 </div>
 <div class="sect2">
-<h3 id="_objective"><a class="anchor" href="#_objective"></a>9.3. Objective</h3>
+<h3 id="_objective"><a class="anchor" href="#_objective"></a>9.2. Objective</h3>
 <div class="paragraph">
 <p>The purpose of these experiments was to examine performance in searching for and interacting with CDB features stored in very large unitary GeoPackage containers.
 The design intent of the large datasets consisted of three main considerations:</p>
@@ -3185,7 +3188,7 @@ The design intent of the large datasets consisted of three main considerations:<
 </div>
 </div>
 <div class="sect2">
-<h3 id="_data_sources"><a class="anchor" href="#_data_sources"></a>9.4. Data Sources</h3>
+<h3 id="_data_sources"><a class="anchor" href="#_data_sources"></a>9.3. Data Sources</h3>
 <div class="paragraph">
 <p>TO achieve the experiment objectives, four GeoPackage containers were populated:</p>
 </div>
@@ -3209,7 +3212,7 @@ The design intent of the large datasets consisted of three main considerations:<
 <p>These are now described.</p>
 </div>
 <div class="sect3">
-<h4 id="_data_source_1_cdb_usa_bldg_ssiz_gpkg"><a class="anchor" href="#_data_source_1_cdb_usa_bldg_ssiz_gpkg"></a>9.4.1. Data Source 1 - cdb-usa-bldg-ssiz.gpkg:</h4>
+<h4 id="_data_source_1_cdb_usa_bldg_ssiz_gpkg"><a class="anchor" href="#_data_source_1_cdb_usa_bldg_ssiz_gpkg"></a>9.3.1. Data Source 1 - cdb-usa-bldg-ssiz.gpkg:</h4>
 <div class="paragraph">
 <p>This GeoPackage contains 39,079,781 point features and requires 5,249,290,240 bytes of storage. The following is an image showing the attributes on features in the attribute table.</p>
 </div>
@@ -3248,7 +3251,7 @@ Please note that the original OSM building footprints do not have a ‘height’
 </div>
 </div>
 <div class="sect3">
-<h4 id="_data_source_2_osm_hydro_to_cdb_gpkg"><a class="anchor" href="#_data_source_2_osm_hydro_to_cdb_gpkg"></a>9.4.2. Data Source 2 - osm-hydro-to-CDB.gpkg</h4>
+<h4 id="_data_source_2_osm_hydro_to_cdb_gpkg"><a class="anchor" href="#_data_source_2_osm_hydro_to_cdb_gpkg"></a>9.3.2. Data Source 2 - osm-hydro-to-CDB.gpkg</h4>
 <div class="paragraph">
 <p>This GeoPackage contains two layers with a total of 6,378,675 features and requires 5,043,081,216 bytes of storage.</p>
 </div>
@@ -3284,7 +3287,7 @@ Please note that the original OSM building footprints do not have a ‘height’
 </div>
 </div>
 <div class="sect3">
-<h4 id="_data_source_3_osm_roads_to_cdb_gpkg"><a class="anchor" href="#_data_source_3_osm_roads_to_cdb_gpkg"></a>9.4.3. Data Source 3 - osm-roads-to-CDB.gpkg</h4>
+<h4 id="_data_source_3_osm_roads_to_cdb_gpkg"><a class="anchor" href="#_data_source_3_osm_roads_to_cdb_gpkg"></a>9.3.3. Data Source 3 - osm-roads-to-CDB.gpkg</h4>
 <div class="paragraph">
 <p>This GeoPackage contains roads derived from worldwide OSM. The GeoPackage contains 90,425,963 features and requires 29,832,347,648 bytes of storage.</p>
 </div>
@@ -3302,7 +3305,7 @@ Please note that the original OSM building footprints do not have a ‘height’
 </div>
 </div>
 <div class="sect3">
-<h4 id="_output"><a class="anchor" href="#_output"></a>9.4.4. Output</h4>
+<h4 id="_output"><a class="anchor" href="#_output"></a>9.3.4. Output</h4>
 <div class="paragraph">
 <p>The final GeoPackage container, combined-features-conus.gpkg, is simply a single container with each of the aforementioned layers copied into it.  This GeoPackage requires 18,164,895,744 bytes of storage.</p>
 </div>
@@ -3321,9 +3324,9 @@ Please note that the original OSM building footprints do not have a ‘height’
 </div>
 </div>
 <div class="sect2">
-<h3 id="_performance_testing"><a class="anchor" href="#_performance_testing"></a>9.5. Performance Testing</h3>
+<h3 id="_performance_testing"><a class="anchor" href="#_performance_testing"></a>9.4. Performance Testing</h3>
 <div class="sect3">
-<h4 id="_attribute_queries_and_performance_summary"><a class="anchor" href="#_attribute_queries_and_performance_summary"></a>9.5.1. Attribute Queries and Performance Summary</h4>
+<h4 id="_attribute_queries_and_performance_summary"><a class="anchor" href="#_attribute_queries_and_performance_summary"></a>9.4.1. Attribute Queries and Performance Summary</h4>
 <div class="paragraph">
 <p>The objective of the testing was to explore a combination of spatial and attribution filtering in a CDB-like environment.
 To illustrate the importance of properly designing the schema when migrating from a Shapefile to a GeoPackage-based CDB, all the vector data in a CDB was converted. An approach similar to "Design Approach 4" in the OGC Discussion Paper titled <a href="https://portal.opengeospatial.org/files/?artifact_id=82553">OGC CDB, Leveraging GeoPackage Discussion Paper</a> was used. The conversion grouped all vector features by dataset and geocell into a single GeoPackage. Each vector feature was assigned a value for LOD, HREF, and UREF to correspond to the original Shapefile filename. A test was developed to randomly seek and read features in the CDB GeoPackage. The test script had a list of 8243 individual Shapefiles, but each file was opened and read in a randomized order. In the case of the Shapefile, each file was opened by filename, and all of the features were read. In subsequent tests with GeoPackage, the same content was read (using the list of Shapefile filenames), but instead of opening the Shapefile, the script performed a query based on the LOD, HREF, and UREF attributes.</p>
@@ -3333,7 +3336,7 @@ To illustrate the importance of properly designing the schema when migrating fro
 </div>
 </div>
 <div class="sect3">
-<h4 id="_methodology"><a class="anchor" href="#_methodology"></a>9.5.2. Methodology</h4>
+<h4 id="_methodology"><a class="anchor" href="#_methodology"></a>9.4.2. Methodology</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3401,10 +3404,11 @@ To illustrate the importance of properly designing the schema when migrating fro
 <p>Note: tiles that return zero features do not create a test output record.</p>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_results"><a class="anchor" href="#_results"></a>9.5. Results</h3>
 <div class="sect3">
-<h4 id="_results"><a class="anchor" href="#_results"></a>9.5.3. Results</h4>
-<div class="sect4">
-<h5 id="_experiment_1_step_size_25_degrees_cdb_lod2_significant_size_13_355_lod2_significant_size"><a class="anchor" href="#_experiment_1_step_size_25_degrees_cdb_lod2_significant_size_13_355_lod2_significant_size"></a>Experiment 1:  Step size .25 degrees (CDB LOD2), significant size &gt; 13.355 (LOD2 significant size)</h5>
+<h4 id="_experiment_1_step_size_25_degrees_cdb_lod2_significant_size_13_355_lod2_significant_size"><a class="anchor" href="#_experiment_1_step_size_25_degrees_cdb_lod2_significant_size_13_355_lod2_significant_size"></a>9.5.1. Experiment 1:  Step size .25 degrees (CDB LOD2), significant size &gt; 13.355 (LOD2 significant size)</h4>
 <div class="paragraph">
 <p>Test results coverage is shown in the figure below.</p>
 </div>
@@ -3460,8 +3464,8 @@ To illustrate the importance of properly designing the schema when migrating fro
 <p>&nbsp;</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_experiment_2_simulation_of_lod4_hydro_road_and_building_layers_significant_size_buildings_3_39718"><a class="anchor" href="#_experiment_2_simulation_of_lod4_hydro_road_and_building_layers_significant_size_buildings_3_39718"></a>Experiment 2: Simulation of LOD4, hydro, road, and building layers, significant size (buildings) &gt; 3.39718</h5>
+<div class="sect3">
+<h4 id="_experiment_2_simulation_of_lod4_hydro_road_and_building_layers_significant_size_buildings_3_39718"><a class="anchor" href="#_experiment_2_simulation_of_lod4_hydro_road_and_building_layers_significant_size_buildings_3_39718"></a>9.5.2. Experiment 2: Simulation of LOD4, hydro, road, and building layers, significant size (buildings) &gt; 3.39718</h4>
 <div class="paragraph">
 <p>Test results coverage is shown in the figure below.</p>
 </div>
@@ -3516,7 +3520,6 @@ Once again, filter timing appears to be insignificant and unrelated to the numbe
 </div>
 <div class="paragraph">
 <p>&nbsp;</p>
-</div>
 </div>
 </div>
 </div>
@@ -7407,7 +7410,7 @@ The table here shows the three different GeoPackage organizations, how many feat
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-09 21:04:20 UTC
+Last updated 2020-11-09 21:31:44 UTC
 </div>
 </div>
 <style>
