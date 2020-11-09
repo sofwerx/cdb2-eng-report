@@ -192,6 +192,15 @@ OGC CDB 1.X relies on a number of OpenFlight constructs that have no equivalent 
 
 include::opf-gltf-analysis.adoc[]
 
+Some thoughts on supporting more than CDB 1.X: OpenFlight capabilities that could be leveraged:
+
+* Extensions
+* Extended Materials
+* Hotspots
+* LOD Transitions
+* Cultural Footprint
+* Point Nodes (Model Points instead of using tranforms)
+
 ==== TASK 2 - Developing glTF CDB extensions
 
 `EXT_CDB` is a draft glTF extension that adds required CDB simulation capabilities identified as missing from glTF. The new (and prototype) capabilities include:
