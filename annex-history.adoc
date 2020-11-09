@@ -11,5 +11,6 @@ replace below entries as needed
 |====================
 |Date |Editor |Release | Primary clauses modified |Descriptions
 |June 2020 |C. Reed | .1 |all | Clone template and initial version
-|November 2020 | Graham and Reed | 1.0| All | Complete final draft.
+|November 6, 2020 | Graham and Reed | 1.0| All | Complete final draft.
+|November 6, 2020 | C.Reed | 1.0| All | One more pass to fix typos, formatting, and other minor issues.
 |====================
