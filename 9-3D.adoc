@@ -15,7 +15,7 @@ The remainder of this section discusses the findings of the comparison as well a
 
 Following are some of the questions and suggestions for experimentation that the 3D Modelling Subgroup initially identified as needing further discussion and possible experimentation. These formed the basis for the specific questions and approaches uses in the CDB-X 3D Prototyping and Experimentation.
 
-. Models sgould also be stored as files such as OpenFlight or in GeoPackage.
+. Models should also be stored as files such as OpenFlight or in GeoPackage.
 . Models preferred to be in glTF or OpenFlight but later consider I3S, 3D Tiles, CityGML and other encodings)
 . Textures shall be xxxx format (png, jp2).  Question: Power of 2 enforced? {*Not sure what this means*}
 . UV Map with model?
